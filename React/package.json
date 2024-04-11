@@ -82,6 +82,7 @@
     "prismjs": "^1.29.0",
     "react": "^18.2.0",
     "react-apexcharts": "^1.4.1",
+    "react-awesome-multiselect": "^1.1.4",
     "react-color": "^2.19.3",
     "react-copy-to-clipboard": "^5.1.0",
     "react-countup": "^6.5.0",

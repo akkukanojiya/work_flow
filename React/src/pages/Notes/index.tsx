@@ -1,6 +1,8 @@
 // import DropdownTreeSelect from "react-dropdown-tree-select";
-import { DropDownTreeComponent } from '@syncfusion/ej2-react-dropdowns';
+// import { DropDownTreeComponent } from '@syncfusion/ej2-react-dropdowns';
+// select 
 
+// select end
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import BreadCrumb from 'Common/BreadCrumb';
 import Flatpickr from "react-flatpickr";
@@ -33,7 +35,8 @@ import {
 import { ToastContainer } from 'react-toastify';
 import filterDataBySearch from 'Common/filterDataBySearch';
 import Pagination from 'Common/Pagination';
-
+// import { MultiSelect } from "react-multi-select-component";
+import Select from 'react-select';
 
 import DropdownTreeSelect from "react-dropdown-tree-select";
 import 'react-dropdown-tree-select/dist/styles.css'
@@ -61,79 +64,42 @@ const assignObjectPaths = (obj: Node, stack?: string) => {
 
 // ===============================
 
-// let data: { [key: string]: Object }[] = [
-//     { id: 1, name: 'GST', hasChild: true, expanded: true },
-//     { id: 2, pid: 1, name: 'GSTR 3B' },
-//     { id: 3, pid: 1, name: 'GSTR 1' },
-//     { id: 4, pid: 1, name: 'GSTR 4' },
-//     { id: 6, pid: 1, name: 'GSTR 9' },
-//     { id: 6, pid: 1, name: 'GSTR 9C' },
-//     { id: 7, name: 'Income Tax', hasChild: true },
-//     { id: 8, pid: 7, name: 'ITR 1' },
-//     { id: 9, pid: 7, name: 'ITR 2' },
-//     { id: 10, pid: 7, name: 'ITR 3' },
-//     { id: 10, pid: 7, name: 'ITR 4' },
-//     { id: 10, pid: 7, name: 'ITR 5' },
-//     { id: 10, pid: 7, name: 'ITR 6' },
-//     { id: 10, pid: 7, name: 'ITR 7' },
-//     { id: 10, pid: 7, name: 'Advance Tax' },
-//     { id: 11, name: 'Audit', hasChild: true },
-//     { id: 12, pid: 11, name: 'Form 3CB' },
-//     { id: 13, pid: 11, name: 'Form 3CD' },
-//     { id: 14, pid: 11, name: 'Add - Editable' },
-//     { id: 15, pid: 11, name: 'Form 3CA' },
-//     { id: 16, name: 'ROC compliance', hasChild: true },
-//     { id: 17, pid: 16, name: 'Form 11' },
-//     { id: 18, pid: 16, name: 'PAS-6' },
-//     { id: 19, pid: 16, name: 'DPT-3' },
-//     { id: 20, pid: 16, name: 'DIR-3 KYC' },
-//     { id: 20, pid: 16, name: 'Form ADT-1' },
-//     { id: 20, pid: 16, name: 'Form 8' },
-//     { id: 20, pid: 16, name: 'Form AOC-4' },
-//     { id: 20, pid: 16, name: 'MGT-7' },
-//     { id: 20, pid: 16, name: 'MGT-14' },
-//     { id: 20, pid: 16, name: 'Form MSME' },
-//     { id: 21, name: 'TDS', hasChild: true },
-//     { id: 22, name: 'Tax Payment', hasChild: true },
-//     { id: 23, pid: 22, name: 'Challan' },
-//     { id: 24, name: 'TDS return', hasChild: true },
-//     { id: 25, pid: 24, name: 'Form 24Q - Salary' },
-//     { id: 26, pid: 24, name: 'Form 26Q - Other than Salary' },
-//     { id: 27, pid: 24, name: 'Form 27Q - Non Resident' },
-//     { id: 28, pid: 24, name: 'Form 27EQ - Tax Collection at Source' },
-//     { id: 29, pid: 24, name: 'Form 26A - Quarterly' },
-//     { id: 30, pid: 24, name: 'Form 26AA - Quarterly' },
-//     { id: 31, pid: 24, name: 'Form 26QB' },
-//     { id: 32, pid: 24, name: 'Form 26QC' },
-//     { id: 33, pid: 24, name: 'Form 26QD' },
-//     { id: 34, pid: 24, name: 'Form 15 CA' },
-//     { id: 35, pid: 24, name: 'Form 15 CB' },
-//     { id: 36, pid: 24, name: 'Form 15 J' },
-//     { id: 37, pid: 24, name: 'Form 15 G' },
-//     { id: 38, pid: 24, name: 'Form 15 H' },
-//     { id: 39, pid: 24, name: 'Form 24G - Book Entry Adjustment Statement' },
-//     { id: 40, name: 'Registration', hasChild: true },
-//     { id: 41, pid: 40, name: 'Form 49A - PAN' },
-//     { id: 42, pid: 40, name: 'Form 49B - TAN' },
-//     { id: 43, pid: 40, name: 'GST' },
-//     { id: 44, pid: 40, name: 'Udyam' },
-//     { id: 45, name: 'Registration', hasChild: true },
-//     { id: 46, pid: 45, name: 'Udyam' },
+// const options: { label: string; value: string; disabled?: boolean }[] = [
+//     { label: "Jaimin", value: "Jaimin" },
+//     { label: "Akash", value: "Akash" },
+//     { label: "Harshil", value: "Harshil" },
+//     { label: "Divyang", value: "Divyang" },
+//     { label: "Shivam", value: "Shivam" },
+//     { label: "Suresh", value: "Suresh" },
 // ];
-// let fields: Object = { dataSource: data, value: 'id', text: 'name', parentValue: "pid", hasChildren: 'hasChild' };
 
 
 
 
+
+
+// multi dropdown 
+import MultiSelect, { Option } from "./MultiSelect";
+// import "./styles.css";
+
+const optionss = [
+  { value: 0, label: "Jaimin" },
+  { value: 1, label: "Akash" },
+  { value: 2, label: "Harshil" },
+  { value: 3, label: "Divyang" },
+  { value: 4, label: "Shivam" },
+  { value: 5, label: "Suresh" },
+];
+// multi dropdown end
 const Index = () => {
 
 
 
 
+    // const [selected, setSelected] = useState<{ label: string; value: string }[]>([]);
 
+    // assignObjectPaths(datass);
 
-    assignObjectPaths(datass);
-    // const [selected, setSelected] = useState([]);
 
     const dispatch = useDispatch<any>();
 
@@ -205,29 +171,31 @@ const Index = () => {
 
         initialValues: {
             category: (eventData && eventData.category) || '',
-            project: (eventData && eventData.project) || '',
+            clientType: (eventData && eventData.clientType) || '',
             Assignee_Team: (eventData && eventData.Assignee_Team) || '',
-            Client: (eventData && eventData.Client) || '',
+            // Client: (eventData && eventData.Client) || '',
             service: (eventData && eventData.service) || '',
-            title: (eventData && eventData.title) || '',
+            TaskName: (eventData && eventData.TaskName) || '',
             description: (eventData && eventData.description) || '',
+            clientName: (eventData && eventData.clientName) || '',
             // img: (eventData && eventData.img) || '',
             // location: (eventData && eventData.location) || '',
-            // name: (eventData && eventData.name) || '',
+            PriorityType: (eventData && eventData.PriorityType) || '',
             date: (eventData && eventData.date) || ''
         },
         validationSchema: Yup.object({
             category: Yup.string().required("Please Enter Category"),
-            project: Yup.string().required("Please Enter Project"),
+            clientType: Yup.string().required("Please Enter Client Type"),
             Assignee_Team: Yup.string().required("Please Enter Assignee Team"),
-            Client: Yup.string().required("Please Enter Client"),
+            // Client: Yup.string().required("Please Enter Client"),
             service: Yup.string().required("Please Enter Service"),
-            title: Yup.string().required("Please Enter Title"),
+            TaskName: Yup.string().required("Please Enter Task Name"),
             description: Yup.string().required("Please Enter Description"),
+            clientName: Yup.string().required("Please Enter Client Name"),
             //   img: Yup.string().required("Please Add Company Image"),
             // location: Yup.string().required("Please Enter Location"),
-            // name: Yup.string().required("Please Enter Name"),
-            date: Yup.string().required("Please Enter Date"),
+            PriorityType: Yup.string().required("Please Enter Priority Type"),
+            date: Yup.string().required("Please Enter Due Date"),
         }),
 
         onSubmit: (values) => {
@@ -372,6 +340,16 @@ const Index = () => {
         return truncatedText + ellipsis;
     };
 
+
+
+    // multi select dropdown
+     
+    const [optionSelecteds, setSelecteds] = useState<Option[] | null>();
+  const handleChange = (selected: Option[]) => {
+    setSelecteds(selected);
+  };
+
+    // multi select dropdown end
     return (
         <React.Fragment>
             <BreadCrumb title='Tasks' pageTitle='Tasks' />
@@ -561,36 +539,21 @@ const Index = () => {
                         <input type="hidden" id="id-field" />
                         <div id="alert-error-msg" className="hidden px-4 py-3 text-sm text-red-500 border border-transparent rounded-md bg-red-50 dark:bg-red-400/20"></div>
                         <div className="grid grid-cols-1 gap-5 xl:grid-cols-12">
+
                             <div className="xl:col-span-4">
-                                <label htmlFor="createDateInput" className="inline-block mb-2 text-base font-medium">Create Date</label>
-                                <Flatpickr
-                                    id="createDateInput"
-                                    className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
-                                    options={{
-                                        dateFormat: "d M, Y"
-                                    }}
-                                    placeholder='Select date'
-                                    onChange={(date: any) => validation.setFieldValue("date", moment(date[0]).format("DD MMMM ,YYYY"))}
-                                    value={validation.values.date || ''}
-                                />
-                                {validation.touched.date && validation.errors.date ? (
-                                    <p className="text-red-400">{validation.errors.date}</p>
-                                ) : null}
-                            </div>
-                            <div className="xl:col-span-4">
-                                <label htmlFor="notesTitleInput" className="inline-block mb-2 text-base font-medium">Task Title</label>
-                                <input type="text" id="notesTitleInput" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Title"
-                                    name="title"
+                                <label htmlFor="notesTitleInput" className="inline-block mb-2 text-base font-medium">Task Name</label>
+                                <input type="text" id="notesTitleInput" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Task Name"
+                                    name="TaskName"
                                     onChange={validation.handleChange}
-                                    value={validation.values.title || ""}
+                                    value={validation.values.TaskName || ""}
                                 />
-                                {validation.touched.title && validation.errors.title ? (
-                                    <p className="text-red-400">{validation.errors.title}</p>
+                                {validation.touched.TaskName && validation.errors.TaskName ? (
+                                    <p className="text-red-400">{validation.errors.TaskName}</p>
                                 ) : null}
                             </div>
-                            <div className="xl:col-span-4">
+                            {/* <div className="xl:col-span-4">
                                 <div>
-                                    <label htmlFor="categorySelect" className="inline-block mb-2 text-base font-medium">Client</label>
+                                    <label htmlFor="categorySelect" className="inline-block mb-2 text-base font-medium">Client Name</label>
                                     <select className="form-select border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" data-choices data-choices-search-false id="statusSelect"
                                         name="Client"
                                         onChange={validation.handleChange}
@@ -606,9 +569,8 @@ const Index = () => {
                                         <p className="text-red-400">{validation.errors.Client}</p>
                                     ) : null}
                                 </div>
-                            </div>
-                            <div className="xl:col-span-4">
-                                <div>
+                            </div> */}
+                                {/* <div>
                                     <label htmlFor="categorySelect" className="inline-block mb-2 text-base font-medium">Category</label>
                                     <select className="form-select border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" data-choices data-choices-search-false id="statusSelect"
                                         name="category"
@@ -620,33 +582,90 @@ const Index = () => {
                                         <option value="personal">Personal</option>
                                         <option value="home">Home</option>
                                         <option value="social">Social</option>
-                                    </select>
-                                    {validation.touched.category && validation.errors.category ? (
-                                        <p className="text-red-400">{validation.errors.category}</p>
-                                    ) : null}
+                                        </select>
+                                        {validation.touched.category && validation.errors.category ? (
+                                            <p className="text-red-400">{validation.errors.category}</p>
+                                            ) : null}
+                                        </div> */}
+
+
+                                        {/* <h1>Select Fruits</h1> */}
+                                     {/* <pre>{JSON.stringify(selected)}</pre> */}
+                                        {/* <div className="xl:col-span-4">
+                                <div>
+                                    
+                                    <label htmlFor="notesTitleInput" className="inline-block mb-2 text-base font-medium">Assign Team(Assignee/Group)</label>
+                                   
+                                    <MultiSelect
+                                        options={options}
+                                        value={selected}
+                                        onChange={setSelected}
+                                        labelledBy="Select"
+                                        
+
+                                    />
                                 </div>
+                            </div> */}
+
+
+                            {/* <h1>{"\u2728"} MultiSelect example</h1> */}
+                            <div className="xl:col-span-4">
+                            <label htmlFor="notesTitleInput" className="inline-block mb-2 text-base font-medium">Assign Team(Assignee/Group)</label>
+                            <MultiSelect
+                                key="example_id"
+                                options={optionss}
+                                onChange={handleChange}
+                                value={optionSelecteds}
+                                isSelectAll={true}
+                                menuPlacement={"bottom"}
+                            />
+                            </div>
+                            <div className="xl:col-span-4">
+                                <label htmlFor="dueDateInput" className="inline-block mb-2 text-base font-medium">Due Date</label>
+                                <Flatpickr
+                                    id="dueDateInput"
+                                    className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
+                                    options={{
+                                        dateFormat: "d M, Y"
+                                    }}
+                                    placeholder='Select Due date'
+                                    onChange={(date: any) => validation.setFieldValue("date", moment(date[0]).format("DD MMMM ,YYYY"))}
+                                    value={validation.values.date || ''}
+                                />
+                                {validation.touched.date && validation.errors.date ? (
+                                    <p className="text-red-400">{validation.errors.date}</p>
+                                ) : null}
                             </div>
                             <div className="xl:col-span-4">
                                 <div>
-                                    <label htmlFor="categorySelect" className="inline-block mb-2 text-base font-medium">Project</label>
+                                    <label htmlFor="categorySelect" className="inline-block mb-2 text-base font-medium">Client Type</label>
                                     <select className="form-select border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" data-choices data-choices-search-false id="statusSelect"
-                                        name="project"
+                                        name="clientType"
                                         onChange={validation.handleChange}
-                                        value={validation.values.project || ""}
+                                        value={validation.values.clientType || ""}
                                     >
-                                        <option value="">Select project</option>
-                                        <option value="business"> #</option>
-                                        <option value="personal">#</option>
-                                        <option value="home">#</option>
-                                        <option value="social">#</option>
+                                        <option value="">Select Client</option>
+                                        <option value="individual"> Individual</option>
+                                        <option value="company"> Company</option>
+
                                     </select>
-                                    {validation.touched.project && validation.errors.project ? (
-                                        <p className="text-red-400">{validation.errors.project}</p>
+                                    {validation.touched.clientType && validation.errors.clientType ? (
+                                        <p className="text-red-400">{validation.errors.clientType}</p>
                                     ) : null}
                                 </div>
                             </div>
 
-
+                            <div className="xl:col-span-4">
+                                <label htmlFor="clientNameInput" className="inline-block mb-2 text-base font-medium">Client Name</label>
+                                <input type="text" id="notesTitleInput" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="clientName"
+                                    name="clientName"
+                                    onChange={validation.handleChange}
+                                    value={validation.values.clientName || ""}
+                                />
+                                {validation.touched.clientName && validation.errors.clientName ? (
+                                    <p className="text-red-400">{validation.errors.clientName}</p>
+                                ) : null}
+                            </div>
                             <div className='xl:col-span-4 '>
 
 
@@ -659,12 +678,7 @@ const Index = () => {
                                     className="mdl-demo"
                                 />
                             </div>
-
-
-
-
-
-                            <div className="xl:col-span-4">
+                            {/* <div className="xl:col-span-4">
                                 <div>
                                     <label htmlFor="categorySelect" className="inline-block mb-2 text-base font-medium">Assignee Team</label>
                                     <select className="form-select border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" data-choices data-choices-search-false id="statusSelect"
@@ -682,9 +696,9 @@ const Index = () => {
                                         <p className="text-red-400">{validation.errors.Assignee_Team}</p>
                                     ) : null}
                                 </div>
-                            </div>
+                            </div> */}
 
-                            <div className="xl:col-span-4">
+                            {/* <div className="xl:col-span-4">
                                 <label
                                     htmlFor="formFileSm"
                                     className="mb-2 inline-block text-neutral-500 dark:text-neutral-400"
@@ -696,13 +710,33 @@ const Index = () => {
                                     id="formFileSm"
                                     type="file"
                                     multiple
-                                    // onChange={handleFileChange}
+                                // onChange={handleFileChange}
                                 />
-                            </div>
+                            </div> */}
 
+
+                            <div className="xl:col-span-4">
+                                <div>
+                                    <label htmlFor="PriorityTypeSelect" className="inline-block mb-2 text-base font-medium">Priority</label>
+                                    <select className="form-select border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" data-choices data-choices-search-false id="statusSelect"
+                                        name="PriorityType"
+                                        onChange={validation.handleChange}
+                                        value={validation.values.PriorityType || ""}
+                                    >
+                                        <option value="">Select Priority</option>
+                                        <option value="Low"> Low</option>
+                                        <option value="Medium"> Medium</option>
+                                        <option value=" High"> High</option>
+
+                                    </select>
+                                    {validation.touched.PriorityType && validation.errors.PriorityType ? (
+                                        <p className="text-red-400">{validation.errors.PriorityType}</p>
+                                    ) : null}
+                                </div>
+                            </div>
                             <div className="xl:col-span-12">
                                 <div>
-                                    <label htmlFor="textArea" className="inline-block mb-2 text-base font-medium">Description</label>
+                                    <label htmlFor="textArea" className="inline-block mb-2 text-base font-medium">Task Description</label>
                                     <textarea className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" id="textArea" rows={6}
                                         name="description"
                                         onChange={validation.handleChange}

@@ -424,12 +424,8 @@ const AddNew = () => {
                                 {/* <h6 className="mb-4 text-15">Create Director</h6> */}
 
 
-                                <h6 className="mt-4 text-15">Create Director</h6>
+                                <h6 className="mt-4 text-15">Create Person</h6>
                                 {/* <form > */}
-
-
-
-
                                 {fields.map((field, index) => (
 
 

@@ -21,18 +21,23 @@ const Ecommerce = () => {
 
     return (
         <React.Fragment>
-            <BreadCrumb title='Dashboard' pageTitle='Dashboards'  />
-            <div className="grid grid-cols-12  gap-x-5 ">
+            <BreadCrumb title='Dashboard' pageTitle='Dashboards' />
+            <div className="grid grid-cols-12  gap-x-3">
+
                 <Widgets />
-                <ApplicationReceived/>
-                <UpcomingScheduled/>
+                <ApplicationReceived />
+                <div className='col-span-6 row-span-3  max-w-50'>   
+                <UpcomingScheduled />
+                </div>
+                <div className='col-start-0 col-span-2 w-screen'>
                 <TrafficResources />
+                </div>
                 {/* <WelcomeWidget /> */}
+                {/* <Audience /> */}
                 {/* <ProductsOrders /> */}
                 {/* <OrderStatistics /> */}
                 {/* <SalesRevenue /> */}
                 {/* <TopSellingProducts /> */}
-                {/* <Audience /> */}
                 {/* <SalesMonth /> */}
                 {/* <CustomerService /> */}
             </div>
