@@ -69,24 +69,17 @@ const PersonalTabs = () => {
         <React.Fragment>
             <div className="card">
                 <div className="card-body">
-                    <h6 className="mb-1 text-15">Company details</h6>
-                    <p className="mb-4 text-slate-500 dark:text-zink-200">Update your photo and Company details here easily.</p>
+                    <h6 className="mb-1 text-15">Personal Information</h6>
+                    <p className="mb-4 text-slate-500 dark:text-zink-200">Update your photo and personal details here easily.</p>
                     <form action="#!">
                         <div className="grid grid-cols-1 gap-5 xl:grid-cols-12">
                             <div className="xl:col-span-6">
-                                <label htmlFor="inputValue" className="inline-block mb-2 text-base font-medium">Company Name</label>
-                                <input type="text" id="inputValueFirst" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter your value" defaultValue="akash" />
+                                <label htmlFor="inputValue" className="inline-block mb-2 text-base font-medium">First Name</label>
+                                <input type="text" id="inputValueFirst" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter your value" defaultValue="Paula" />
                             </div>
                             <div className="xl:col-span-6">
-                                <label htmlFor="inputValue" className="inline-block mb-2 text-base font-medium">Company Type</label>
-                                <input type="text" id="inputValueLast" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter your value" defaultValue="Kanojiya" />
-                            </div>
-                            <div className="xl:col-span-12">
-                                <label htmlFor="inputValue" className="block mb-2 text-base font-medium">Register Office Address</label>
-                                <textarea className="w-full form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" id="#" placeholder="Enter your Office Address"  
-                                     >
-
-                                </textarea>
+                                <label htmlFor="inputValue" className="inline-block mb-2 text-base font-medium">Last Name</label>
+                                <input type="text" id="inputValueLast" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter your value" defaultValue="Keenan" />
                             </div>
                             <div className="xl:col-span-6">
                                 <label htmlFor="inputValue" className="inline-block mb-2 text-base font-medium">Phone Number</label>
@@ -101,7 +94,7 @@ const PersonalTabs = () => {
                                 <Flatpickr
                                     options={{
                                         dateFormat: "d M, Y",
-                                        defaultDate: "24 Oct, 2024"
+                                        defaultDate: "24 Oct, 2023"
                                     }}
                                     placeholder="Select Date"
                                     className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"

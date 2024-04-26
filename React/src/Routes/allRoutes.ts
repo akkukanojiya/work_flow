@@ -1,66 +1,69 @@
 // dashboard
-import Analytics from "pages/Dashboards/Analytics";
-import Ecommerce from "pages/Dashboards/Ecommerce";
-import Email from "pages/Dashboards/Email";
-import HRDashboard from "pages/Dashboards/HR";
-import SocialMediaDashboard from "pages/Dashboards/SocialMedia";
+ 
+import Ecommerce from "pages/Director/Dashboard";
 
-// Chat
-import Chat from "pages/Chat";
+import Tasks from "pages/Director/Tasks";
+import Chat from "pages/Director/chat";
+// import  Client from "pages/Director/Client/GridView";
+// import IndividualClient from "pages/Director/Client/ListView";
 
-// Email
-import Mailbox from "pages/Email";
+import ClientCompany from "pages/Director/Client/ListView";
+import IndividualClient from "pages/Director/Client/ClientCompany/ListView";
+import GridView from "pages/Director/Client/ClientCompany/GridView";
+import Overview from "pages/Director/Client/ClientCompany/Overview";
+// import AddNew from "pages/Director/Client/ClientCompany/AddNew";
+import FormIndividual from "pages/Director/Client/ClientCompany/AddNew";
+
 
 // Calendar
-import DefaultCalendar from "pages/Calendar/Default";
-import MonthGrid from "pages/Calendar/MonthGrid";
-import MultiMonthStack from "pages/Calendar/MultiMonthStack";
+import DefaultCalendar from "pages/Director/Calendar/Default";
+import MonthGrid from "pages/Director/Calendar/MonthGrid";
+import MultiMonthStack from "pages/Director/Calendar/MultiMonthStack";
 
 // Ecommerce
-import ListView from "pages/Ecommerce/Products/ListView";
-import GridView from "pages/Ecommerce/Products/GridView";
-import Overview from "pages/Ecommerce/Products/Overview";
-import AddNew from "pages/Ecommerce/Products/AddNew";
-import ShoppingCart from "pages/Ecommerce/ShoppingCart";
-import Checkout from "pages/Ecommerce/Checkout";
-import Orders from "pages/Ecommerce/Orders";
-import OrderOverview from "pages/Ecommerce/OrderOverview";
-import Sellers from "pages/Ecommerce/Sellers";
+// import ListView from "pages/Director/Client/ClientCompany/ListView";
 
-// HR Management
-import EmployeeList from "pages/HRManagement/EmployeeList";
-import Holidays from "pages/HRManagement/Holidays";
-import LeaveManageEmployee from "pages/HRManagement/Leaves Manage/LeaveManageEmployee";
-import AddLeaveEmployee from "pages/HRManagement/Leaves Manage/AddLeaveEmployee";
-import LeaveManageHR from "pages/HRManagement/Leaves Manage/LeaveManageHR";
-import AddLeaveHR from "pages/HRManagement/Leaves Manage/AddLeaveHR";
-import AttendanceHR from "pages/HRManagement/Attendance/AttendanceHR";
-import MainAttendance from "pages/HRManagement/Attendance/MainAttendance";
-import Departments from "pages/HRManagement/Departments";
-import Estimates from "pages/HRManagement/Sales/Estimates";
-import Payments from "pages/HRManagement/Sales/Payments";
-import Expenses from "pages/HRManagement/Sales/Expenses";
-import EmployeeSalary from "pages/HRManagement/Payroll/EmployeeSalary";
-import Payslip from "pages/HRManagement/Payroll/Payslip";
-import CreatePayslip from "pages/HRManagement/Payroll/CreatePayslip";
+import ShoppingCart from "pages/Director/ShoppingCart";
+import Checkout from "pages/Director/Checkout";
+import Orders from "pages/Director/Orders";
+import OrderOverview from "pages/Director/OrderOverview";
+import Sellers from "pages/Director/Sellers";
 
+
+// director managment 
+// import Attendance from "pages/Director/DirectorManagement/Attendance/AttendanceHR";
+import DirectorAttendance from "pages/Director/DirectorManagement/Attendance/AttendanceHR";
+import EmployeeList from "pages/Director/HRManagement/EmployeeList";
+import Holidays from "pages/Director/HRManagement/Holidays";
+import LeaveManageEmployee from "pages/Director/HRManagement/Leaves Manage/LeaveManageEmployee";
+import AddLeaveEmployee from "pages/Director/HRManagement/Leaves Manage/AddLeaveEmployee";
+import LeaveManageHR from "pages/Director/HRManagement/Leaves Manage/LeaveManageHR";
+import AddLeaveHR from "pages/Director/HRManagement/Leaves Manage/AddLeaveHR";
+import AttendanceHR from "pages/Director/HRManagement/Attendance/AttendanceHR";
+import MainAttendance from "pages/Director/HRManagement/Attendance/MainAttendance";
+import Departments from "pages/Director/HRManagement/Departments";
+import Estimates from "pages/Director/HRManagement/Sales/Estimates";
+import Payments from "pages/Director/HRManagement/Sales/Payments";
+import Expenses from "pages/Director/HRManagement/Sales/Expenses";
+import EmployeeSalary from "pages/Director/HRManagement/Payroll/EmployeeSalary";
+import Payslip from "pages/Director/HRManagement/Payroll/Payslip";
+import CreatePayslip from "pages/Director/HRManagement/Payroll/CreatePayslip";
 // Notes
-import Notes from "pages/Notes";
 
 // Social Media
-import Friends from "pages/SocialMedia/Friends";
-import Event from "pages/SocialMedia/Event";
-import WatchVideo from "pages/SocialMedia/WatchVideo";
-import Marketplace from "pages/SocialMedia/Marketplace";
+import Friends from "pages/Director/SocialMedia/Friends";
+import Event from "pages/Director/SocialMedia/Event";
+import WatchVideo from "pages/Director/SocialMedia/WatchVideo";
+import Marketplace from "pages/Director/SocialMedia/Marketplace";
 
 // Invoices
-import InvoiceListView from "pages/Invoices/ListView";
-import InvoiceAddNew from "pages/Invoices/AddNew";
-import InvoiceOverview from "pages/Invoices/Overview";
+import InvoiceListView from "pages/Director/Invoices/ListView";
+import InvoiceAddNew from "pages/Director/Invoices/AddNew";
+import InvoiceOverview from "pages/Director/Invoices/Overview";
 
 // Users
-import UserListView from "pages/Users/ListView";
-// import UserGridView from "pages/Users/GridView";
+// import UserListView from "pages/Director/Users/ListView";
+
 
 // Ui element
 import UiAlert from "pages/Components/UIElement/UiAlert";
@@ -118,29 +121,10 @@ import LucidIcon from "pages/Components/Icons/Lucide";
 import MapsGoogle from "pages/Components/MapsGoogle";
 import MapsLeaflet from "pages/Components/MapsLeaflet";
 
-//Charts
-import AreaCharts from "pages/ApexCharts/AreaCharts/index";
-import BarCharts from "pages/ApexCharts/BarCharts";
-import BoxplotCharts from "pages/ApexCharts/BoxplotCharts";
-import BubbleCharts from "pages/ApexCharts/BubbleCharts";
-import CandlstickCharts from "pages/ApexCharts/CandlstickCharts";
-import ColumnCharts from "pages/ApexCharts/ColumnCharts";
-import FunnelCharts from "pages/ApexCharts/FunnelCharts";
-import HeatmapChart from "pages/ApexCharts/HeatmapChart";
-import LineChart from "pages/ApexCharts/LineCharts";
-import MixedChart from "pages/ApexCharts/MixedCharts/Index";
-import PieChart from "pages/ApexCharts/PieCharts/Index";
-import PolarAreaChart from "pages/ApexCharts/PolarAreaCharts/Index";
-import RadarChart from "pages/ApexCharts/RadarCharts/Index";
-import RadialbarChart from "pages/ApexCharts/RadialBarCharts/Index";
-import RangeAreaChart from "pages/ApexCharts/RangeAreaCharts";
-import Scatterchart from "pages/ApexCharts/ScatterCharts/Index";
-import TimeLinechart from "pages/ApexCharts/TimeLineCharts/Index";
-import Treemapchart from "pages/ApexCharts/TreemapCharts/Index";
+ 
 
 // Landing
-import OnePage from "pages/Components/Landing/Onepage";
-import Product from "pages/Components/Landing/Product";
+ 
 
 // auth
 import Basic from "pages/AuthenticationInner/Login/Basic";
@@ -182,11 +166,11 @@ import BasicCreatePassword from "pages/AuthenticationInner/CreatePassword/Basic"
 import CreatePasswordModern from "pages/AuthenticationInner/CreatePassword/CreatePasswordModern";
 import CreatePasswordCover from "pages/AuthenticationInner/CreatePassword/CreatePasswordCover";
 import CreatePasswordBoxed from "pages/AuthenticationInner/CreatePassword/CreatePasswordBoxed";
-import Login from "pages/Authentication/Login";
-import Logout from "pages/Authentication/LogOut";
+import Login from "pages/Director/Authentication/Login";
+import Logout from "pages/Director/Authentication/LogOut";
 import Pages404 from "pages/AuthenticationInner/Pages404";
-import Register from "pages/Authentication/Register";
-import UserProfile from "pages/Authentication/UserProfile";
+import Register from "pages/Director/Authentication/Register";
+import UserProfile from "pages/Director/Authentication/UserProfile";
 import Account from "pages/Pages/Account";
 import ComingSoon from "pages/AuthenticationInner/ComingSoon";
 import Offline from "pages/AuthenticationInner/Offline";
@@ -195,6 +179,13 @@ import Settings from "pages/Pages/Settings";
 import Pricing from "pages/Pages/Pricing";
 import Faqs from "pages/Pages/Faqs";
 import ContactUs from "pages/Pages/ContactUs";
+// import DirectorAttendance from "pages/Director/DirectorManagement/Attendance/AttendanceHR";
+
+
+//  MasterAdmin 
+// import MasterCompany from "pages/MasterAdmin/Company/ListView";
+// import Country from "pages/MasterAdmin/Country";
+// import State from "pages/MasterAdmin/States/ListView";
 
 interface RouteObject {
   path: string;
@@ -206,16 +197,41 @@ const authProtectedRoutes: Array<RouteObject> = [
   // Dashboard
   { path: "/", component: Ecommerce },
   { path: "/dashboard", component: Ecommerce },
-  { path: "/dashboards-analytics", component: Analytics },
-  { path: "/dashboards-email", component: Email },
-  { path: "/dashboards-hr", component: HRDashboard },
-  { path: "/dashboards-social", component: SocialMediaDashboard },
+    
+ // Chat
+ { path: "/director-chat", component: Chat },
+//  { path: "/director-client", component: Client},
+ { path: "/director-individual-client", component: ClientCompany},
+ { path: "/director-company-client", component: IndividualClient},
+ { path: "/director-formindividual-client", component: FormIndividual},
+ { path: "/director-formindividual-clien-overview", component: Overview },
+ 
+ { path: "/director-tasks", component: Tasks },
+ 
+ // Director
+  //  { path: "/apps-ecommerce-ClientCompany-list", component: ListView },
+  { path: "/apps-ecommerce-ClientCompany-grid", component: GridView },
+  //  { path: "/apps-ecommerce-ClientCompany-create", component: AddNew },
+   { path: "/apps-ecommerce-cart", component: ShoppingCart },
+   { path: "/apps-ecommerce-checkout", component: Checkout },
+   { path: "/apps-ecommerce-orders", component: Orders },
+   { path: "/apps-ecommerce-order-overview", component: OrderOverview },
+   { path: "/apps-ecommerce-sellers", component: Sellers },
+   { path: "/apps-ecommerce-chat", component: Chat },
+   
+   
+   //  directormanagment 
+   
+   { path: "/director-attendance", component:  DirectorAttendance },
+   { path: "/director-leave", component: AddLeaveEmployee },
 
-  // Ui Element
-  { path: "/ui-alerts", component: UiAlert },
-  { path: "/ui-avatar", component: UiAvatar },
-  { path: "/ui-buttons", component: UiButtons },
-  { path: "/ui-label", component: UiLabel },
+
+
+   // Ui Element
+   { path: "/ui-alerts", component: UiAlert },
+   { path: "/ui-avatar", component: UiAvatar },
+   { path: "/ui-buttons", component: UiButtons },
+   { path: "/ui-label", component: UiLabel },
   { path: "/ui-cards", component: UiCards },
   { path: "/ui-collapse", component: UiCollapse },
   { path: "/ui-countdown", component: UiCountdown },
@@ -274,68 +290,39 @@ const authProtectedRoutes: Array<RouteObject> = [
   { path: "/maps-leaflet", component: MapsLeaflet },
 
 
-  //Charts
-  { path: "/charts-apex-area", component: AreaCharts },
-  { path: "/charts-apex-bar", component: BarCharts },
-  { path: "/charts-apex-boxplot", component: BoxplotCharts },
-  { path: "/charts-apex-bubble", component: BubbleCharts },
-  { path: "/charts-apex-candlstick", component: CandlstickCharts },
-  { path: "/charts-apex-column", component: ColumnCharts },
-  { path: "/charts-apex-funnel", component: FunnelCharts },
-  { path: "/charts-apex-heatmap", component: HeatmapChart },
-  { path: "/charts-apex-line", component: LineChart },
-  { path: "/charts-apex-mixed", component: MixedChart },
-  { path: "/charts-apex-pie", component: PieChart },
-  { path: "/charts-apex-polar", component: PolarAreaChart },
-  { path: "/charts-apex-radar", component: RadarChart },
-  { path: "/charts-apex-radialbar", component: RadialbarChart },
-  { path: "/charts-apex-range-area", component: RangeAreaChart },
-  { path: "/charts-apex-scatter", component: Scatterchart },
-  { path: "/charts-apex-timeline", component: TimeLinechart },
-  { path: "/charts-apex-treemap", component: Treemapchart },
+  
 
-  // Chat
-  { path: "/apps-chat", component: Chat },
+ 
 
   // Mailbox
-  { path: "/apps-mailbox", component: Mailbox },
+  
 
   // Calendar
   { path: "/apps-calendar", component: DefaultCalendar },
   { path: "/apps-calendar-month-grid", component: MonthGrid },
   { path: "/apps-calendar-multi-month-stack", component: MultiMonthStack },
 
-  // Ecommerce
-  { path: "/apps-ecommerce-product-list", component: ListView },
-  { path: "/apps-ecommerce-product-grid", component: GridView },
-  { path: "/apps-ecommerce-product-overview", component: Overview },
-  { path: "/apps-ecommerce-product-create", component: AddNew },
-  { path: "/apps-ecommerce-cart", component: ShoppingCart },
-  { path: "/apps-ecommerce-checkout", component: Checkout },
-  { path: "/apps-ecommerce-orders", component: Orders },
-  { path: "/apps-ecommerce-order-overview", component: OrderOverview },
-  { path: "/apps-ecommerce-sellers", component: Sellers },
+ 
 
-  // HR Management
-  { path: "/apps-hr-employee", component: EmployeeList },
-  { path: "/apps-hr-holidays", component: Holidays },
-  { path: "/apps-hr-leave-employee", component: LeaveManageEmployee },
-  { path: "/apps-hr-create-leave-employee", component: AddLeaveEmployee },
-  { path: "/apps-hr-leave", component: LeaveManageHR },
-  { path: "/apps-hr-create-leave", component: AddLeaveHR },
-  { path: "/apps-hr-attendance", component: AttendanceHR },
-  { path: "/apps-hr-attendance-main", component: MainAttendance },
-  { path: "/apps-hr-department", component: Departments },
-  { path: "/apps-hr-sales-estimates", component: Estimates },
-  { path: "/apps-hr-sales-payments", component: Payments },
-  { path: "/apps-hr-sales-expenses", component: Expenses },
-  { path: "/apps-hr-payroll-employee-salary", component: EmployeeSalary },
-  { path: "/apps-hr-payroll-payslip", component: Payslip },
-  { path: "/apps-hr-payroll-create-payslip", component: CreatePayslip },
+   
+// HR Management
+{ path: "/apps-hr-employee", component: EmployeeList },
+{ path: "/apps-hr-holidays", component: Holidays },
+{ path: "/apps-hr-leave-employee", component: LeaveManageEmployee },
+{ path: "/apps-hr-leave", component: LeaveManageHR },
+{ path: "/apps-hr-create-leave", component: AddLeaveHR },
+{ path: "/apps-hr-attendance", component: AttendanceHR },
+{ path: "/apps-hr-attendance-main", component: MainAttendance },
+{ path: "/apps-hr-department", component: Departments },
+{ path: "/apps-hr-sales-estimates", component: Estimates },
+{ path: "/apps-hr-sales-payments", component: Payments },
+{ path: "/apps-hr-sales-expenses", component: Expenses },
+{ path: "/apps-hr-payroll-employee-salary", component: EmployeeSalary },
+{ path: "/apps-hr-payroll-payslip", component: Payslip },
+{ path: "/apps-hr-payroll-create-payslip", component: CreatePayslip },
 
   // Notes
-  { path: "/apps-notes", component: Notes },
-
+  
   // Social Media
   { path: "/apps-social-friends", component: Friends },
   { path: "/apps-social-event", component: Event },
@@ -348,8 +335,8 @@ const authProtectedRoutes: Array<RouteObject> = [
   { path: "/apps-invoice-overview", component: InvoiceOverview },
 
   // Users
-  { path: "/apps-users-list", component: UserListView },
-  // { path: "/apps-users-grid", component: UserGridView },
+  // { path: "/apps-users-list", component: UserListView },
+  
 
   // pages
   { path: "/pages-account", component: Account },
@@ -360,12 +347,13 @@ const authProtectedRoutes: Array<RouteObject> = [
 
   // profile
   { path: "/user-profile", component: UserProfile },
+
+  // masterAdmin 
+  // {path: "/master-admin-company", component: MasterCompany}
 ];
 
 const publicRoutes = [
-  // Landing
-  { path: "/onepage-landing", component: OnePage },
-  { path: "/product-landing", component: Product },
+  
 
   // auth
   { path: "/auth-login-basic", component: Basic },

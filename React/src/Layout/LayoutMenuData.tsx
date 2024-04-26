@@ -1,4 +1,4 @@
-import { Award, CalendarDays, CircuitBoard, Codesandbox, FileText, LifeBuoy, LocateFixed, Mail, Map, MessageSquare, MonitorDot, PackagePlus, PictureInPicture2, PieChart, RadioTower, ScrollText, Share2, ShoppingBag, Table, Trophy, UserRound , ProjectorIcon, User2Icon, File, SettingsIcon} from "lucide-react";
+import { Award, CalendarDays, CircuitBoard, Codesandbox, FileText, LifeBuoy, LocateFixed, Mail, Map, MessageSquare, MonitorDot, PackagePlus, PictureInPicture2, PieChart, RadioTower, ScrollText, Share2, ShoppingBag, Table, Trophy, UserRound, User2Icon , Boxes} from "lucide-react";
 
 const menuData: any = [
     // {
@@ -6,145 +6,24 @@ const menuData: any = [
     //     isTitle: true,
     // },
     // {
-    //     id: "dashboard",
-    //     label: 'Dashboards',
+    //     id: "ecommercedashboard",
+    //     label: 'Ecommerce ',
     //     link: "/dashboard",
     //     icon: <MonitorDot />,
-
-          
-
-    //     subItems: [
-    //         {
-    //             id: 'analyticsdashboard',
-    //             label: 'Analytics',
-    //             link: '/dashboards-analytics',
-    //             parentId: "dashboard"
-    //         },
-    //         {
-    //             id: 'ecommercedashboard',
-    //             label: 'Ecommerce',
-    //             link: '/dashboard',
-    //             parentId: "dashboard"
-    //         },
-    //         {
-    //             id: 'emaildashboard',
-    //             label: 'Email',
-    //             link: '/dashboards-email',
-    //             parentId: "dashboard"
-    //         },
-            // {
-            //     id: 'hrdashboard',
-            //     label: 'HR',
-            //     link: '/dashboards-hr',
-            //     parentId: "dashboard"
-            // },
-    //         {
-    //             id: 'socialdashboard',
-    //             label: 'Social',
-    //             link: '/dashboards-social',
-    //             parentId: "dashboard"
-    //         },
-    //     ]
+         
     // },
-    // {
-    //     id: "landing",
-    //     label: 'Landing Page',
-    //     link: "/#",
-    //     icon: <PictureInPicture2 />,
-    //     subItems: [
-    //         {
-    //             id: 'onepage',
-    //             label: 'One Page',
-    //             link: '/onepage-landing',
-    //             parentId: "landing"
-    //         },
-    //         {
-    //             id: 'productlanding',
-    //             label: 'Product',
-    //             link: '/product-landing',
-    //             parentId: "landing"
-    //         }
-    //     ]
-    // },
+     
     // {
     //     label: 'Apps',
     //     isTitle: true,
     // },
-
-
-
-    {
-        id: "dashboard",
-        label: 'Dashboards',
-        link: "/dashboard",
-        icon: <MonitorDot />,
-
-    },
-    {
-        id: 'tasks',
-        label: 'Tasks',
-        icon: <ScrollText />,
-        link: '/apps-notes',
-        parentId: 2
-    },
-    
-    {
-        id: 'Employees',
-        label: 'Employees',
-        icon: <CircuitBoard />,
-        link: '/apps-hr-employee',
-        parentId: 2
-    },
-    
-
-    {
-        id: 'Project',
-        label: 'Project',
-        icon: <ProjectorIcon />,
-        link: '/apps-chat',
-        parentId: 2
-    },
-    {
-        id: 'Client',
-        label: 'Client',
-        icon: <User2Icon />,
-        link: '/apps-users-list',
-        
-        subItems: [
-            // {
-            //     id: 'client-list',
-            //     label: 'Client List',
-            //     link: '/apps-users-list',
-            //     parentId: 'Client',
-            // },
-            {
-                id: 'individual',
-                label: 'Individual',
-                link: '/apps-users-list',
-                parentId: 'Client',
-            },
-            {
-                id: 'company',
-                label: 'Company',
-                link: '/apps-ecommerce-product-list',
-                parentId: 'Client',
-            },
-        ]
-    },
-    {
-        id: 'disscousion',
-        label: 'Disscousion',
-        icon: <MessageSquare />,
-        link: '/apps-chat',
-        parentId: 2
-    },
-    {
-        id: 'report',
-        label: 'Report',
-        icon: <File />,
-        link: '/apps-chat',
-        parentId: 2
-    },
+    // {
+    //     id: 'chat',
+    //     label: 'Chat',
+    //     icon: <MessageSquare />,
+    //     link: '/apps-chat',
+    //     parentId: 2
+    // },
     // {
     //     id: 'email',
     //     label: 'Email',
@@ -158,32 +37,40 @@ const menuData: any = [
     //     link: "/#",
     //     icon: <CalendarDays />,
     //     subItems: [
-            // {
-            //     id: 'default',
-            //     label: 'Default',
-            //     link: '/apps-calendar',
-            //     parentId: 'calendar'
-            // },
-            // {
-            //     id: 'monthgrid',
-            //     label: 'Month Grid',
-            //     link: '/apps-calendar-month-grid',
-            //     parentId: 'calendar'
-            // },
-            // {
-            //     id: 'multimonth',
-            //     label: 'Multi Month Stack',
-            //     link: '/apps-calendar-multi-month-stack',
-            //     parentId: 'calendar'
-            // }
-        // ]
+    //         {
+    //             id: 'default',
+    //             label: 'Default',
+    //             link: '/apps-calendar',
+    //             parentId: 'calendar'
+    //         },
+    //         {
+    //             id: 'monthgrid',
+    //             label: 'Month Grid',
+    //             link: '/apps-calendar-month-grid',
+    //             parentId: 'calendar'
+    //         },
+    //         {
+    //             id: 'multimonth',
+    //             label: 'Multi Month Stack',
+    //             link: '/apps-calendar-multi-month-stack',
+    //             parentId: 'calendar'
+    //         }
+    //     ]
     // },
     {
-        // id: "ecommerce",
-        // label: 'Ecommerce',
-        // link: "/#",
-        // icon: <ShoppingBag />,
-        // subItems: [
+        id: "director",
+        label: 'Director',
+        link: "/#",
+        icon: <MonitorDot/>,
+        subItems: [
+
+            {
+                id: "directordashboard",
+                label: ' Dashboard ',
+                link: "/dashboard",
+                // icon: <MonitorDot />,
+                 
+            },
             // {
             //     id: 'product',
             //     label: 'Products',
@@ -215,7 +102,12 @@ const menuData: any = [
             //         },
             //     ]
             // },
-            
+            // {
+            //     id: 'shoppingcart',
+            //     label: 'Shopping Cart',
+            //     link: '/apps-ecommerce-cart',
+            //     parentId: 'ecommerce'
+            // },
             // {
             //     id: 'checkout',
             //     label: 'Checkout',
@@ -240,136 +132,141 @@ const menuData: any = [
             //     link: '/apps-ecommerce-sellers',
             //     parentId: 'ecommerce'
             // },
-        // ]
-    // },
+            
+            {
+                id: 'tasks',
+                label: 'Tasks',
+                icon: <ScrollText />,
+                link: '/director-tasks',
+                parentId: 'ecommerce'
+            },
+            {
+                id: 'employees',
+                label: 'Employees',
+                icon: <ScrollText />,
+                link: '/apps-hr-employee',
+                parentId: 'ecommerce'
+            },
+            {
+                id: 'chat',
+                label: 'Chat',
+                icon: <MessageSquare />,
+                link: '/director-chat',
+                parentId: 'ecommerce'
+            },
+            // {
+            //     id: 'directormanagement',
+            //     label: 'Director Management',
+            //     link: '/apps-client',
+            //     parentId: 'ecommerce'
+            // }
+            
+            
+
+            
+        ]
+        
+    },
+    {
+        id: 'Client',
+        label: 'Client',
+        icon: <User2Icon/>,
+        link: '/director-individual-client',
+        
+        subItems: [
+             
+            {
+                id: 'individual',
+                label: 'Individual',
+                link: '/director-individual-client',
+                parentId: 'Client',
+            },
+            {
+                id: 'company',
+                label: 'Company',
+                link: '/director-company-client',
+                parentId: 'Client',
+            },
+        ]
+    },
+
+    {
+        id: 'directormanagement',
+        label: 'Director Management',
+        icon: <Boxes/>,
+        link: '/#',
+        
+        subItems: [
+             
+            {
+                id: 'directormanagement',
+                label: 'Leave',
+                link: '/director-leave',
+                parentId: 'directormanagement',
+            },
+            {
+                id: 'attendance',
+                label: 'Attendance',
+                link: '/director-attendance',
+                parentId: 'directormanagement',
+            },
+        ]
+    },
+
+
+
     // {
-        // id: "management",
-        // label: 'Employee Management',
-        // icon: <CircuitBoard />,
-        // parentId: "hrmanagement",
-        // link: "/#",
-        // subItems: [
-            // {
-            //     id: 'employeelist',
-            //     label: 'Employee List',
-            //     link: '/apps-hr-employee',
-            //     parentId: 'hrmanagement'
-            // },
-            // {
-            //     id: 'holiday',
-            //     label: 'Holidays',
-            //     link: '/apps-hr-holidays',
-            //     parentId: 'hrmanagement'
-            // },
-            // {
-                // id: 'leavesmanage',
-                // label: 'Leaves Manage',
-                // parentId: 'hrmanagement',
-                // subItems: [
-                    // {
-                    //     id: 'employee',
-                    //     label: ' Employee',
-                    //     link: '/apps-hr-leave-employee',
-                    //     parentId: 'leavesmanage'
-                    // },
-                    // {
-                    //     id: 'addleaveemployee',
-                    //     label: 'Add Leave (Employee)',
-                    //     link: '/apps-hr-create-leave-employee',
-                    //     parentId: 'leavesmanage'
-                    // },
-                    // {
-                    //     id: 'byhr',
-                    //     label: 'By HR',
-                    //     link: '/apps-hr-leave',
-                    //     parentId: 'leavesmanage'
-                    // },
-                    // {
-                    //     id: 'addleavehr',
-                    //     label: 'Add Leave (HR)',
-                    //     link: '/apps-hr-create-leave',
-                    //     parentId: 'leavesmanage'
-                    // },
-                // ]
-            // },
-            // {
-                // id: 'attendance',
-                // label: 'Attendance',
-                // parentId: 'hrmanagement',
-                // subItems: [
-                    // {
-                    //     id: 'attendancehr',
-                    //     label: 'Attendance (HR)',
-                    //     link: '/apps-hr-attendance',
-                    //     parentId: 'attendance'
-                    // },
-                    // {
-                    //     id: 'mainattendance',
-                    //     label: 'Main Attendance',
-                    //     link: '/apps-hr-attendance-main',
-                    //     parentId: 'attendance'
-                    // },
-                // ]
-            // },
-            // {
-            //     id: 'department',
-            //     label: 'Department',
-            //     link: '/apps-hr-department',
-            //     parentId: 'hrmanagement'
-            // },
-            // {
-            //     id: 'sale',
-            //     label: 'Sales',
-            //     parentId: 'hrmanagement',
-            //     subItems: [
-            //         {
-            //             id: 'estimates',
-            //             label: 'Estimates',
-            //             link: '/apps-hr-sales-estimates',
-            //             parentId: 'sale'
-            //         },
-            //         {
-            //             id: 'payments',
-            //             label: 'Payments',
-            //             link: '/apps-hr-sales-payments',
-            //             parentId: 'sale'
-            //         },
-            //         {
-            //             id: 'expenses',
-            //             label: 'Expenses',
-            //             link: '/apps-hr-sales-expenses',
-            //             parentId: 'sale'
-            //         },
-            //     ]
-            // },
-            // {
-                // id: 'payroll',
-                // label: 'Payroll',
-                // parentId: 'hrmanagement',
-                // subItems: [
-                    // {
-                    //     id: 'employeesalary',
-                    //     label: 'Employee Salary',
-                    //     link: '/apps-hr-payroll-employee-salary',
-                    //     parentId: 'payroll'
-                    // },
-                    // {
-                    //     id: 'payslip',
-                    //     label: 'Payslip',
-                    //     link: '/apps-hr-payroll-payslip',
-                    //     parentId: 'payroll'
-                    // },
-                    // {
-                    //     id: 'createpayslip',
-                    //     label: 'Create Payslip',
-                    //     link: '/apps-hr-payroll-create-payslip',
-                    //     parentId: 'payroll'
-                    // },
-                // ]
-            // },
-        // ],
+    //     id: "masteradmin",
+    //     label: 'Master Dashboard',
+    //     link: "/#",
+    //     icon: <ShoppingBag />,
+    //     subItems: [
+
+    //         {
+    //             id: "masteradmin",
+    //             label: ' Company ',
+    //             link: "/master-admin-company",
+    //             icon: <MonitorDot />,
+                 
+    //         },
+            
+    //         {
+    //             id: 'chat',
+    //             label: 'Chat',
+    //             icon: <MessageSquare />,
+    //             link: '/apps-ecommerce-chat',
+    //             parentId: 'ecommerce'
+    //         },
+    //         {
+    //             id: 'tasks',
+    //             label: 'Tasks',
+    //             icon: <ScrollText />,
+    //             link: '/apps-ecommerce-tasks',
+    //             parentId: 'ecommerce'
+    //         },
+    //         {
+    //             id: 'employees',
+    //             label: 'Employees',
+    //             icon: <ScrollText />,
+    //             link: '/apps-hr-employee',
+    //             parentId: 'ecommerce'
+    //         },
+             
+            
+            
+
+            
+    //     ]
+        
     // },
-    
+     
+    // {
+    //     id: 'notes',
+    //     label: 'Notes',
+    //     icon: <ScrollText />,
+    //     link: '/apps-ecommerce-tasks',
+    //     parentId: 2
+    // },
     // {
     //     id: 'social',
     //     label: 'Social',
@@ -428,26 +325,25 @@ const menuData: any = [
     //     ]
     // },
     // {
-        // id: 'users',
-        // label: 'Users',
-        // icon: <UserRound />,
-        // parentId: 2,
-        // subItems: [
-            // {
-            //     id: 'userlistview',
-            //     label: 'List view',
-            //     icon: <UserRound />,
-            //     link: '/apps-users-list',
-            //     parentId: 'users'
-            // },
-            // {
-            //     id: 'usergridview',
-            //     label: 'Grid View',
-            //     link: '/apps-users-grid',
-            //     parentId: 'users'
-            // }
-        // ]
-    },
+    //     id: 'users',
+    //     label: 'Users',
+    //     icon: <UserRound />,
+    //     parentId: 2,
+    //     subItems: [
+    //         {
+    //             id: 'userlistview',
+    //             label: 'List view',
+    //             link: '/apps-users-list',
+    //             parentId: 'users'
+    //         },
+    //         {
+    //             id: 'usergridview',
+    //             label: 'Grid View',
+    //             link: '/apps-users-grid',
+    //             parentId: 'users'
+    //         }
+    //     ]
+    // },
     // {
     //     label: 'Pages',
     //     isTitle: true,
@@ -520,230 +416,229 @@ const menuData: any = [
     //                 },
     //             ]
     //         },
-    //         // {
-    //         //     id: 'verifyemail',
-    //         //     label: 'Verify Email',
-    //         //     parentId: 'social',
-    //         //     subItems: [
-    //         //         {
-    //         //             id: 'verifyemailbasic',
-    //         //             label: 'Basic',
-    //         //             link: '/auth-verify-email-basic',
-    //         //             parentId: 'verifyemail'
-    //         //         },
-    //         //         {
-    //         //             id: 'verifyemailcover',
-    //         //             label: 'Cover',
-    //         //             link: '/auth-verify-email-cover',
-    //         //             parentId: 'verifyemail'
-    //         //         },
-    //         //         {
-    //         //             id: 'verifyemailmodern',
-    //         //             label: 'Modern',
-    //         //             link: '/auth-verify-email-modern',
-    //         //             parentId: 'verifyemail'
-    //         //         },
-    //         //     ]
-    //         // },
-    //         // {
-    //         //     id: 'twostep',
-    //         //     label: 'Two Steps',
-    //         //     parentId: 'social',
-    //         //     subItems: [
-    //         //         {
-    //         //             id: 'twostepbasic',
-    //         //             label: 'Basic',
-    //         //             link: '/auth-two-steps-basic',
-    //         //             parentId: 'twostep'
-    //         //         },
-    //         //         {
-    //         //             id: 'twostepcover',
-    //         //             label: 'Cover',
-    //         //             link: '/auth-two-steps-cover',
-    //         //             parentId: 'twostep'
-    //         //         },
-    //         //         {
-    //         //             id: 'twostepboxed',
-    //         //             label: 'Boxed',
-    //         //             link: '/auth-two-steps-boxed',
-    //         //             parentId: 'twostep'
-    //         //         },
-    //         //         {
-    //         //             id: 'twostepmodern',
-    //         //             label: 'Modern',
-    //         //             link: '/auth-two-steps-modern',
-    //         //             parentId: 'twostep'
-    //         //         },
-    //         //     ]
-    //         // },
-    //         // {
-    //         //     id: 'logout',
-    //         //     label: 'Logout',
-    //         //     parentId: 'social',
-    //         //     subItems: [
-    //         //         {
-    //         //             id: 'logoutbasic',
-    //         //             label: 'Basic',
-    //         //             link: '/auth-logout-basic',
-    //         //             parentId: 'logout'
-    //         //         },
-    //         //         {
-    //         //             id: 'logoutcover',
-    //         //             label: 'Cover',
-    //         //             link: '/auth-logout-cover',
-    //         //             parentId: 'logout'
-    //         //         },
-    //         //         {
-    //         //             id: 'logoutboxed',
-    //         //             label: 'Boxed',
-    //         //             link: '/auth-logout-boxed',
-    //         //             parentId: 'logout'
-    //         //         },
-    //         //         {
-    //         //             id: 'logoutmodern',
-    //         //             label: 'Modern',
-    //         //             link: '/auth-logout-modern',
-    //         //             parentId: 'logout'
-    //         //         },
-    //         //     ]
-    //         // },
-    //         // {
-    //         //     id: 'resetpw',
-    //         //     label: 'Reset Password',
-    //         //     parentId: 'social',
-    //         //     subItems: [
-    //         //         {
-    //         //             id: 'resetpwbasic',
-    //         //             label: 'Basic',
-    //         //             link: '/auth-reset-password-basic',
-    //         //             parentId: 'resetpw'
-    //         //         },
-    //         //         {
-    //         //             id: 'resetpwcover',
-    //         //             label: 'Cover',
-    //         //             link: '/auth-reset-password-cover',
-    //         //             parentId: 'resetpw'
-    //         //         },
-    //         //         {
-    //         //             id: 'resetpwboxed',
-    //         //             label: 'Boxed',
-    //         //             link: '/auth-reset-password-boxed',
-    //         //             parentId: 'resetpw'
-    //         //         },
-    //         //         {
-    //         //             id: 'resetpwmodern',
-    //         //             label: 'Modern',
-    //         //             link: '/auth-reset-password-modern',
-    //         //             parentId: 'resetpw'
-    //         //         },
-    //         //     ]
-    //         // },
-    //         // {
-    //         //     id: 'createpw',
-    //         //     label: 'Create Password',
-    //         //     parentId: 'social',
-    //         //     subItems: [
-    //         //         {
-    //         //             id: 'createpwbasic',
-    //         //             label: 'Basic',
-    //         //             link: '/auth-create-password-basic',
-    //         //             parentId: 'createpw'
-    //         //         },
-    //         //         {
-    //         //             id: 'createpwcover',
-    //         //             label: 'Cover',
-    //         //             link: '/auth-create-password-cover',
-    //         //             parentId: 'createpw'
-    //         //         },
-    //         //         {
-    //         //             id: 'createpwboxed',
-    //         //             label: 'Boxed',
-    //         //             link: '/auth-create-password-boxed',
-    //         //             parentId: 'createpw'
-    //         //         },
-    //         //         {
-    //         //             id: 'createpwmodern',
-    //         //             label: 'Modern',
-    //         //             link: '/auth-create-password-modern',
-    //         //             parentId: 'createpw'
-    //         //         },
-    //         //     ]
-    //         // }
+    //         {
+    //             id: 'verifyemail',
+    //             label: 'Verify Email',
+    //             parentId: 'social',
+    //             subItems: [
+    //                 {
+    //                     id: 'verifyemailbasic',
+    //                     label: 'Basic',
+    //                     link: '/auth-verify-email-basic',
+    //                     parentId: 'verifyemail'
+    //                 },
+    //                 {
+    //                     id: 'verifyemailcover',
+    //                     label: 'Cover',
+    //                     link: '/auth-verify-email-cover',
+    //                     parentId: 'verifyemail'
+    //                 },
+    //                 {
+    //                     id: 'verifyemailmodern',
+    //                     label: 'Modern',
+    //                     link: '/auth-verify-email-modern',
+    //                     parentId: 'verifyemail'
+    //                 },
+    //             ]
+    //         },
+    //         {
+    //             id: 'twostep',
+    //             label: 'Two Steps',
+    //             parentId: 'social',
+    //             subItems: [
+    //                 {
+    //                     id: 'twostepbasic',
+    //                     label: 'Basic',
+    //                     link: '/auth-two-steps-basic',
+    //                     parentId: 'twostep'
+    //                 },
+    //                 {
+    //                     id: 'twostepcover',
+    //                     label: 'Cover',
+    //                     link: '/auth-two-steps-cover',
+    //                     parentId: 'twostep'
+    //                 },
+    //                 {
+    //                     id: 'twostepboxed',
+    //                     label: 'Boxed',
+    //                     link: '/auth-two-steps-boxed',
+    //                     parentId: 'twostep'
+    //                 },
+    //                 {
+    //                     id: 'twostepmodern',
+    //                     label: 'Modern',
+    //                     link: '/auth-two-steps-modern',
+    //                     parentId: 'twostep'
+    //                 },
+    //             ]
+    //         },
+    //         {
+    //             id: 'logout',
+    //             label: 'Logout',
+    //             parentId: 'social',
+    //             subItems: [
+    //                 {
+    //                     id: 'logoutbasic',
+    //                     label: 'Basic',
+    //                     link: '/auth-logout-basic',
+    //                     parentId: 'logout'
+    //                 },
+    //                 {
+    //                     id: 'logoutcover',
+    //                     label: 'Cover',
+    //                     link: '/auth-logout-cover',
+    //                     parentId: 'logout'
+    //                 },
+    //                 {
+    //                     id: 'logoutboxed',
+    //                     label: 'Boxed',
+    //                     link: '/auth-logout-boxed',
+    //                     parentId: 'logout'
+    //                 },
+    //                 {
+    //                     id: 'logoutmodern',
+    //                     label: 'Modern',
+    //                     link: '/auth-logout-modern',
+    //                     parentId: 'logout'
+    //                 },
+    //             ]
+    //         },
+    //         {
+    //             id: 'resetpw',
+    //             label: 'Reset Password',
+    //             parentId: 'social',
+    //             subItems: [
+    //                 {
+    //                     id: 'resetpwbasic',
+    //                     label: 'Basic',
+    //                     link: '/auth-reset-password-basic',
+    //                     parentId: 'resetpw'
+    //                 },
+    //                 {
+    //                     id: 'resetpwcover',
+    //                     label: 'Cover',
+    //                     link: '/auth-reset-password-cover',
+    //                     parentId: 'resetpw'
+    //                 },
+    //                 {
+    //                     id: 'resetpwboxed',
+    //                     label: 'Boxed',
+    //                     link: '/auth-reset-password-boxed',
+    //                     parentId: 'resetpw'
+    //                 },
+    //                 {
+    //                     id: 'resetpwmodern',
+    //                     label: 'Modern',
+    //                     link: '/auth-reset-password-modern',
+    //                     parentId: 'resetpw'
+    //                 },
+    //             ]
+    //         },
+    //         {
+    //             id: 'createpw',
+    //             label: 'Create Password',
+    //             parentId: 'social',
+    //             subItems: [
+    //                 {
+    //                     id: 'createpwbasic',
+    //                     label: 'Basic',
+    //                     link: '/auth-create-password-basic',
+    //                     parentId: 'createpw'
+    //                 },
+    //                 {
+    //                     id: 'createpwcover',
+    //                     label: 'Cover',
+    //                     link: '/auth-create-password-cover',
+    //                     parentId: 'createpw'
+    //                 },
+    //                 {
+    //                     id: 'createpwboxed',
+    //                     label: 'Boxed',
+    //                     link: '/auth-create-password-boxed',
+    //                     parentId: 'createpw'
+    //                 },
+    //                 {
+    //                     id: 'createpwmodern',
+    //                     label: 'Modern',
+    //                     link: '/auth-create-password-modern',
+    //                     parentId: 'createpw'
+    //                 },
+    //             ]
+    //         }
     //     ]
     // },
-    
-    {
-        id: 'settings',
-        label: 'Settings',
-        icon: <SettingsIcon />,
-        parentId: 2,
-        subItems: [
-            {
-                id: 'account',
-                label: 'Account',
-                link: '/pages-account',
-                parentId: 'pages'
-            },
-            {
-                id: 'setting',
-                label: 'Settings',
-                link: '/pages-account-settings',
-                parentId: 'pages'
-            },
-            // {
-            //     id: 'pricing',
-            //     label: 'Pricing',
-            //     link: '/pages-pricing',
-            //     parentId: 'pages'
-            // },
-            // {
-            //     id: 'faq',
-            //     label: 'FAQs',
-            //     link: '/pages-faqs',
-            //     parentId: 'pages'
-            // },
-            {
-                id: 'contactus',
-                label: 'Contact US',
-                link: '/pages-contact-us',
-                parentId: 'pages'
-            },
-            // {
-            //     id: 'comingsoon',
-            //     label: 'Coming Soon',
-            //     link: '/pages-coming-soon',
-            //     parentId: 'pages'
-            // },
-            {
-                // id: 'errorpage',
-                // label: 'Error Pages',
-                // parentId: 'pages',
-                // subItems: [
-                    // {
-                    //     id: '404',
-                    //     label: '404',
-                    //     link: '/pages-404',
-                    //     parentId: 'errorpage'
-                    // },
-                    // {
-                    //     id: 'offline',
-                    //     label: 'Offline',
-                    //     link: '/pages-offline',
-                    //     parentId: 'errorpage'
-                    // }
-                // ]
-            },
-            // {
-            //     id: 'maintenance',
-            //     label: 'Maintenance',
-            //     link: '/pages-maintenance',
-            //     parentId: 'pages'
-            // },
-        ]
-    },
+    // {
+    //     id: 'pages',
+    //     label: 'Pages',
+    //     icon: <Codesandbox />,
+    //     parentId: 2,
+    //     subItems: [
+    //         {
+    //             id: 'account',
+    //             label: 'Account',
+    //             link: '/pages-account',
+    //             parentId: 'pages'
+    //         },
+    //         {
+    //             id: 'setting',
+    //             label: 'Settings',
+    //             link: '/pages-account-settings',
+    //             parentId: 'pages'
+    //         },
+    //         {
+    //             id: 'pricing',
+    //             label: 'Pricing',
+    //             link: '/pages-pricing',
+    //             parentId: 'pages'
+    //         },
+    //         {
+    //             id: 'faq',
+    //             label: 'FAQs',
+    //             link: '/pages-faqs',
+    //             parentId: 'pages'
+    //         },
+    //         {
+    //             id: 'contactus',
+    //             label: 'Contact US',
+    //             link: '/pages-contact-us',
+    //             parentId: 'pages'
+    //         },
+    //         {
+    //             id: 'comingsoon',
+    //             label: 'Coming Soon',
+    //             link: '/pages-coming-soon',
+    //             parentId: 'pages'
+    //         },
+    //         {
+    //             id: 'errorpage',
+    //             label: 'Error Pages',
+    //             parentId: 'pages',
+    //             subItems: [
+    //                 {
+    //                     id: '404',
+    //                     label: '404',
+    //                     link: '/pages-404',
+    //                     parentId: 'errorpage'
+    //                 },
+    //                 {
+    //                     id: 'offline',
+    //                     label: 'Offline',
+    //                     link: '/pages-offline',
+    //                     parentId: 'errorpage'
+    //                 }
+    //             ]
+    //         },
+    //         {
+    //             id: 'maintenance',
+    //             label: 'Maintenance',
+    //             link: '/pages-maintenance',
+    //             parentId: 'pages'
+    //         },
+    //     ]
+    // },
     // {
     //     label: 'Components',
-    //     isTitle: true,
+    //         isTitle: true,
     // },
     // {
     //     id: "uielement",
@@ -929,104 +824,104 @@ const menuData: any = [
     //         },
     //     ]
     // },
-    // {
-    //     id: "form",
-    //     label: 'Forms',
-    //     link: "/#",
-    //     icon: <LifeBuoy />,
-    //     subItems: [
-    //         {
-    //             id: 'basicform',
-    //             label: 'Basic',
-    //             link: '/forms-basic',
-    //             parentId: "form"
-    //         },
-    //         {
-    //             id: 'validation',
-    //             label: 'Validation',
-    //             link: '/forms-validation',
-    //             parentId: "form"
-    //         },
-    //         {
-    //             id: 'inputmask',
-    //             label: 'Input Mask',
-    //             link: '/forms-input-mask',
-    //             parentId: "form"
-    //         },
-    //         {
-    //             id: 'select',
-    //             label: 'Select',
-    //             link: '/forms-select',
-    //             parentId: "form"
-    //         },
-    //         {
-    //             id: 'checkbox-radio',
-    //             label: 'Checkbox & Radio',
-    //             link: '/forms-checkbox-radio',
-    //             parentId: "form"
-    //         },
-    //         {
-    //             id: 'switches',
-    //             label: 'Switches',
-    //             link: '/forms-switches',
-    //             parentId: "form"
-    //         },
-    //         {
-    //             id: 'wizard',
-    //             label: 'Wizard',
-    //             link: '/forms-wizard',
-    //             parentId: "form"
-    //         },
-    //         {
-    //             id: 'file-upload',
-    //             label: 'File Upload',
-    //             link: '/forms-file-upload',
-    //             parentId: "form"
-    //         },
-    //         {
-    //             id: 'datepicker',
-    //             label: 'Date Picker',
-    //             link: '/forms-datepicker',
-    //             parentId: "form"
-    //         },
-    //         {
-    //             id: 'timepicker',
-    //             label: 'Time Picker',
-    //             link: '/forms-timepicker',
-    //             parentId: "form"
-    //         },
-    //         {
-    //             id: 'colorpicker',
-    //             label: 'Color Picker',
-    //             link: '/forms-colorpicker',
-    //             parentId: "form"
-    //         },
-    //         {
-    //             id: 'multi-select',
-    //             label: 'Multi Select',
-    //             link: '/forms-multi-select',
-    //             parentId: "form"
-    //         },
-    //         {
-    //             id: 'input-spin',
-    //             label: 'Input Spin',
-    //             link: '/forms-input-spin',
-    //             parentId: "form"
-    //         },
-    //         {
-    //             id: 'clipboard',
-    //             label: 'Clipboard',
-    //             link: '/forms-clipboard',
-    //             parentId: "form"
-    //         },
-    //         {
-    //             id: 'editor',
-    //             label: 'Editor',
-    //             link: '/forms-editor-classic',
-    //             parentId: "form",
-    //         },
-    //     ]
-    // },
+//    {
+//         id: "form",
+//         label: 'Forms',
+//         link: "/#",
+//         icon: <LifeBuoy />,
+//         subItems: [
+//             {
+//                 id: 'basicform',
+//                 label: 'Basic',
+//                 link: '/forms-basic',
+//                 parentId: "form"
+//             },
+//             {
+//                 id: 'validation',
+//                 label: 'Validation',
+//                 link: '/forms-validation',
+//                 parentId: "form"
+//             },
+//             {
+//                 id: 'inputmask',
+//                 label: 'Input Mask',
+//                 link: '/forms-input-mask',
+//                 parentId: "form"
+//             },
+//             {
+//                 id: 'select',
+//                 label: 'Select',
+//                 link: '/forms-select',
+//                 parentId: "form"
+//             },
+//             {
+//                 id: 'checkbox-radio',
+//                 label: 'Checkbox & Radio',
+//                 link: '/forms-checkbox-radio',
+//                 parentId: "form"
+//             },
+//             {
+//                 id: 'switches',
+//                 label: 'Switches',
+//                 link: '/forms-switches',
+//                 parentId: "form"
+//             },
+//             {
+//                 id: 'wizard',
+//                 label: 'Wizard',
+//                 link: '/forms-wizard',
+//                 parentId: "form"
+//             },
+//             {
+//                 id: 'file-upload',
+//                 label: 'File Upload',
+//                 link: '/forms-file-upload',
+//                 parentId: "form"
+//             },
+//             {
+//                 id: 'datepicker',
+//                 label: 'Date Picker',
+//                 link: '/forms-datepicker',
+//                 parentId: "form"
+//             },
+//             {
+//                 id: 'timepicker',
+//                 label: 'Time Picker',
+//                 link: '/forms-timepicker',
+//                 parentId: "form"
+//             },
+//             {
+//                 id: 'colorpicker',
+//                 label: 'Color Picker',
+//                 link: '/forms-colorpicker',
+//                 parentId: "form"
+//             },
+//             {
+//                 id: 'multi-select',
+//                 label: 'Multi Select',
+//                 link: '/forms-multi-select',
+//                 parentId: "form"
+//             },
+//             {
+//                 id: 'input-spin',
+//                 label: 'Input Spin',
+//                 link: '/forms-input-spin',
+//                 parentId: "form"
+//             },
+//             {
+//                 id: 'clipboard',
+//                 label: 'Clipboard',
+//                 link: '/forms-clipboard',
+//                 parentId: "form"
+//             },
+//             {
+//                 id: 'editor',
+//                 label: 'Editor',
+//                 link: '/forms-editor-classic',
+//                 parentId: "form",
+//             },
+//         ]
+//     },
     // {
     //     id: 'tables',
     //     label: 'Tables',

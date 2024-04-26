@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { configureStore } from '@reduxjs/toolkit';
 import rootReducer from './slices';
+// import rootReducer from 'MasterAdmin/Masterslices';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

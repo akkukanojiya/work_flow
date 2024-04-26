@@ -1,12 +1,19 @@
-import React from 'react';
+
 import './assets/scss/themes.scss';
 import RouteIndex from 'Routes/Index';
+ import MasterRouteIndex from 'MasterRoutes/Index';
 
 import fakeBackend from "./helpers/AuthType/fakeBackend";
-
+ import MasterfakeBackend from 'MasterAdmin/Masterhelpers/AuthType/fakeBackend';
+import CompanyRouteIndex from 'CompanyRoutes/Index';
+import CompanyfakeBackend from 'CompanyDashboard/Companyhelpers/AuthType/fakeBackend';
+import EmployeeRouteIndex from 'EmployeeRoutes/Index';
+import EmployeefakeBackend from 'EmployeeDashboard/Employeehelpers/AuthType/fakeBackend';
 // Activating fake backend
 fakeBackend();
-
+MasterfakeBackend();
+CompanyfakeBackend();
+EmployeefakeBackend();
 // Import Firebase Configuration file
 // import { initFirebaseBackend } from "./helpers/firebase_helper";
 
@@ -26,7 +33,13 @@ fakeBackend();
 
 function App() {
   return (
+    <>
     <RouteIndex />
+    <MasterRouteIndex/>
+    <CompanyRouteIndex/>
+    <EmployeeRouteIndex/>
+  
+    </>
   );
 }
 
