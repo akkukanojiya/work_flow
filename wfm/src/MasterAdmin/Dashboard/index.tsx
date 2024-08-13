@@ -23,7 +23,6 @@ const MasterDashboard = () => {
         <React.Fragment>
             <BreadCrumb title='Master Dashboard' pageTitle='Dashboards' />
             <div className="grid grid-cols-12 gap-x-5 w-full ">
-                {/* <WelcomeWidget /> */}
                 <Widgets />
                 <OrderStatistics />
                 <SalesRevenue />
@@ -39,3 +38,5 @@ const MasterDashboard = () => {
 };
 
 export default MasterDashboard;
+
+{/* <WelcomeWidget /> */}

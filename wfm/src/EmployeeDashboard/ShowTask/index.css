@@ -28,6 +28,7 @@ body {
   word-wrap: normal;
   direction: ltr;
   
+  
   -webkit-font-feature-settings: "liga";
   -webkit-font-smoothing: antialiased;
 }
@@ -66,6 +67,7 @@ body {
 /* checkbox styles */
 .mdl-demo .checkbox-item {
   position: relative;
+  
   width: 1rem;
   height: 1rem;
   margin-right: 0.75rem;
@@ -88,6 +90,7 @@ body {
   height: 100%;
   border: 2px solid #3555b6;
   transition: all 0.3s ease-in-out;
+  /* border-radius: 50px; */
 }
 
 .mdl-demo .checkbox-item:checked:before {

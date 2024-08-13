@@ -4,8 +4,9 @@ import BreadCrumb from 'CompanyDashboard/CompanyCommon/BreadCrumb';
 import { Link } from 'react-router-dom';
 // import { Dropdown } from 'Common/Components/Dropdown';
 import { Dropdown } from 'CompanyDashboard/CompanyCommon/Components/Dropdown';
-import TableContainer from 'Common/TableContainer';
- 
+// import TableContainer from 'Common/TableContainer';
+import TableContainer from 'CompanyDashboard/CompanyCommon/TableContainer';
+import * as XLSX from 'xlsx';
 import Select from 'react-select';
 import { FileUploader } from "react-drag-drop-files";
 const fileTypes: string[] = ["JPEG", "PNG", "GIF"];
@@ -40,14 +41,14 @@ import filterDataBySearch from 'CompanyDashboard/CompanyCommon/filterDataBySearc
 
 import DropdownTreeSelect from "react-dropdown-tree-select";
 import 'react-dropdown-tree-select/dist/styles.css'
-  import datas from './datas.json'
+import datas from './datas.json'
 
 
-  interface Node {
+interface Node {
     path: string;
     [key: string]: any;
 }
-  const onchange = (currentNode: Node, selectedNodes: Node[]) => {
+const onchange = (currentNode: Node, selectedNodes: Node[]) => {
     console.log("path::", currentNode.path);
 };
 
@@ -62,6 +63,44 @@ const assignObjectPaths = (obj: Node, stack?: string) => {
 };
 
 const CompanyClient = () => {
+
+    // excel file 
+
+    const generateExcel = () => {
+        // Sample data to be written into the Excel file
+        const data = [
+            { name: 'John Doe', age: 28, email: 'john.doe@example.com' },
+            { name: 'Jane Smith', age: 34, email: 'jane.smith@example.com' },
+            { name: 'Sam Johnson', age: 23, email: 'sam.johnson@example.com' },
+        ];
+
+        // Create a worksheet from the sample data
+        const worksheet = XLSX.utils.json_to_sheet(data);
+
+        // Create a new workbook and append the worksheet
+        const workbook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
+
+        // Generate an Excel file
+        const excelBuffer = XLSX.write(workbook, {
+            bookType: 'xlsx',
+            type: 'array',
+        });
+
+        // Create a Blob object from the Excel buffer
+        const blob = new Blob([excelBuffer], {
+            type: 'application/octet-stream',
+        });
+
+        // Create a download link and click it programmatically
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'example.xlsx';
+        a.click();
+        window.URL.revokeObjectURL(url);
+    };
+    // excel file end 
 
     assignObjectPaths(datas);
     const dispatch = useDispatch<any>();
@@ -343,13 +382,13 @@ const CompanyClient = () => {
     ], []
     );
 
-    const options = [
-        { value: 'Select Status', label: 'Select Status' },
-        { value: 'Verified', label: 'Verified' },
-        { value: 'Waiting', label: 'Waiting' },
-        { value: 'Rejected', label: 'Rejected' },
-        { value: 'Hidden', label: 'Hidden' },
-    ];
+    // const options = [
+    //     { value: 'Select Status', label: 'Select Status' },
+    //     { value: 'Verified', label: 'Verified' },
+    //     { value: 'Waiting', label: 'Waiting' },
+    //     { value: 'Rejected', label: 'Rejected' },
+    //     { value: 'Hidden', label: 'Hidden' },
+    // ];
 
     const handleChange = (selectedOption: any) => {
         if (selectedOption.value === 'Select Status' || selectedOption.value === 'Hidden') {
@@ -360,7 +399,7 @@ const CompanyClient = () => {
         }
     };
 
-  
+
 
     const [file, setFile] = useState<File | null>(null);
 
@@ -371,19 +410,63 @@ const CompanyClient = () => {
         <React.Fragment>
             <BreadCrumb title=' Clients' pageTitle='Clients' />
             <DeleteModal show={deleteModal} onHide={deleteToggle} onDelete={handleDelete} />
-            <ToastContainer closeButton={false} limit={1} />
+            <ToastContainer closeButton={false}  />
             <div className="grid grid-cols-1 gap-x-5 xl:grid-cols-12 ">
                 <div className="xl:col-span-12 ">
                     <div className="card" id="usersTable ">
                         <div className="card-body ">
-                            <div className="flex items-center">
-                                <h6 className="text-15 grow">Clients List</h6>
-                                <div className="shrink-0">
-                                    <button type="button" className="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20" onClick={toggle}><Plus className="inline-block size-4" /> <span className="align-middle">Add Clients</span></button>
+                            <div className="flex flex-col md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-4">
+                                <div className="w-full md:w-3/4 py-2.1 card-body border-y border-dashed border-slate-200 dark:border-zinc-500">
+                                    <form action="#!">
+                                        <div className="grid grid-cols-1 gap-5 xl:grid-cols-12">
+                                            <div className="relative xl:col-span-3">
+                                                <input
+                                                    type="text"
+                                                    className="w-full ltr:pl-8 rtl:pr-8 search form-input border-slate-200 dark:border-zinc-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zinc-600 disabled:border-slate-300 dark:disabled:border-zinc-500 dark:disabled:text-zinc-200 disabled:text-slate-500 dark:text-zinc-100 dark:bg-zinc-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zinc-200"
+                                                    placeholder="Search"
+                                                    autoComplete="off"
+                                                    onChange={(e) => filterSearchData(e)}
+                                                />
+                                                <Search className="inline-block size-4 absolute ltr:left-2.5 rtl:right-2.5 top-2.5 text-slate-500 dark:text-zinc-200 fill-slate-100 dark:fill-zinc-600" />
+                                            </div>
+                                            {/* <div className="xl:col-span-2">
+                        <Select
+                            className="border-slate-200 dark:border-zinc-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zinc-600 disabled:border-slate-300 dark:disabled:border-zinc-500 dark:disabled:text-zinc-200 disabled:text-slate-500 dark:text-zinc-100 dark:bg-zinc-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zinc-200"
+                            options={options}
+                            isSearchable={false}
+                            defaultValue={options[0]}
+                            onChange={(event: any) => handleChange(event)}
+                            id="choices-single-default"
+                        />
+                    </div> */}
+                                            {/* <div className="xl:col-span-3 xl:col-start-10">
+                        <div className="flex gap-2 xl:justify-end">
+                            <div>
+                                <button type="button" className="bg-white border-dashed text-custom-500 btn border-custom-500 hover:text-custom-500 hover:bg-custom-50 hover:border-custom-600 focus:text-custom-600 focus:bg-custom-50 focus:border-custom-600 active:text-custom-600 active:bg-custom-50 active:border-custom-600 dark:bg-zinc-700 dark:ring-custom-400/20 dark:hover:bg-custom-800/20 dark:focus:bg-custom-800/20 dark:active:bg-custom-800/20">
+                                    <Download className="inline-block size-4" /> <span className="align-middle">Import</span>
+                                </button>
+                            </div>
+                            <button className="flex items-center justify-center size-[37.5px] p-0 text-slate-500 btn bg-slate-100 hover:text-white hover:bg-slate-600 focus:text-white focus:bg-slate-600 focus:ring focus:ring-slate-100 active:text-white active:bg-slate-600 active:ring active:ring-slate-100 dark:bg-slate-500/20 dark:text-slate-400 dark:hover:bg-slate-500 dark:hover:text-white dark:focus:bg-slate-500 dark:focus:text-white dark:active:bg-slate-500 dark:active:text-white dark:ring-slate-400/20">
+                                <SlidersHorizontal className="size-4" />
+                            </button>
+                        </div>
+                    </div> */}
+                                        </div>
+                                    </form>
+                                </div>
+                                <div className="w-full md:w-auto flex-shrink-0 flex space-x-4">
+                                    <button className="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20" onClick={generateExcel}>
+                                        <Download className="inline-block size-4 mr-1" />
+                                        <span className="align-middle">Download Excel</span>
+                                    </button>
+                                    <button type="button" className="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20" onClick={toggle}>
+                                        <Plus className="inline-block size-4" />
+                                        <span className="align-middle">Add Client</span>
+                                    </button>
                                 </div>
                             </div>
                         </div>
-                        <div className="!py-3.5 card-body border-y border-dashed border-slate-200 dark:border-zink-500">
+                        {/* <div className="!py-3.5 card-body border-y border-dashed border-slate-200 dark:border-zink-500">
                             <form action="#!">
                                 <div className="grid grid-cols-1 gap-5 xl:grid-cols-12">
                                     <div className="relative xl:col-span-2">
@@ -410,7 +493,7 @@ const CompanyClient = () => {
                                     </div>
                                 </div>
                             </form>
-                        </div>
+                        </div> */}
                         <div className="card-body">
                             {user && user.length > 0 ?
                                 <TableContainer
@@ -442,7 +525,7 @@ const CompanyClient = () => {
             {/* User Modal  */}
             <Modal show={show} onHide={toggle} id="defaultModal" modal-center="true"
                 className="fixed flex flex-col transition-all duration-300 ease-in-out left-2/4 z-drawer -translate-x-2/4 -translate-y-2/4"
-                dialogClassName="w-screen md:w-[30rem] bg-white shadow rounded-md dark:bg-zink-600">
+                dialogClassName="w-full md:w-[45rem] bg-white shadow rounded-md dark:bg-zink-600">
                 <Modal.Header className="flex items-center justify-between p-4 border-b dark:border-zink-300/20"
                     closeButtonClass="transition-all duration-200 ease-linear text-slate-400 hover:text-red-500">
                     <Modal.Title className="text-16">{!!isEdit ? "Edit Client" : "Add Client"}</Modal.Title>
@@ -454,7 +537,7 @@ const CompanyClient = () => {
                         return false;
                     }}>
                         <div className="mb-3">
-                            <div className="relative size-24 mx-auto mb-4 rounded-full shadow-md bg-slate-100 profile-user dark:bg-zink-500">
+                            <div className="relative size-24 mx-auto mb-4 rounded-full shadow-md bg-slate-100 profile-user dark:bg-zink-500">;
                                 <img src={selectedImage || validation.values.img || dummyImg} alt="" className="object-cover w-full h-full rounded-full user-profile-image" />
                                 <div className="absolute bottom-0 flex items-center justify-center size-8 rounded-full ltr:right-0 rtl:left-0 profile-photo-edit">
                                     <input
@@ -667,7 +750,7 @@ const CompanyClient = () => {
                             {validation.touched.typeofbussinass && validation.errors.typeofbussinass ? (
                                 <p className="text-red-400">{validation.errors.typeofbussinass}</p>
                             ) : null}
-                        </div> 
+                        </div>
 
                         {/* trag and drop  */}
 
@@ -717,7 +800,7 @@ const CompanyClient = () => {
 
                         {/* trag and drop  end  */}
 
-                        
+
                         {/* <div className="mb-3">
                             <label htmlFor="locationInput" className="inline-block mb-2 text-base font-medium">Location</label>
                             <input type="text" id="locationInput" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Location"

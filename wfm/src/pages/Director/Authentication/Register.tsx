@@ -17,7 +17,7 @@ import { RootState } from "slices";
 
 const Register = () => {
 
-    document.title = "Register | Tailwick - React Admin & Dashboard Template";
+    document.title = "Register | OffiQuick";
 
     const dispatch = useDispatch<any>();
     const navigation = useNavigate(); // Use the useNavigate hook

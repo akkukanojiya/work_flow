@@ -196,7 +196,7 @@ interface RouteObject {
 
 const authProtectedRoutes: Array<RouteObject> = [
   // Dashboard
-  { path: "/", component: Ecommerce },
+  // { path: "/", component: Ecommerce },
   { path: "/dashboard", component: Ecommerce },
     
  // Chat

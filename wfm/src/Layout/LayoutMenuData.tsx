@@ -1,62 +1,7 @@
 import { Award, CalendarDays, CircuitBoard, Codesandbox, FileText, LifeBuoy, LocateFixed, Mail, Map, MessageSquare, MonitorDot, PackagePlus, PictureInPicture2, PieChart, RadioTower, ScrollText, Share2, ShoppingBag, Table, Trophy, UserRound, User2Icon , Boxes} from "lucide-react";
 
 const menuData: any = [
-    // {
-    //     label: 'menu',
-    //     isTitle: true,
-    // },
-    // {
-    //     id: "ecommercedashboard",
-    //     label: 'Ecommerce ',
-    //     link: "/dashboard",
-    //     icon: <MonitorDot />,
-         
-    // },
      
-    // {
-    //     label: 'Apps',
-    //     isTitle: true,
-    // },
-    // {
-    //     id: 'chat',
-    //     label: 'Chat',
-    //     icon: <MessageSquare />,
-    //     link: '/apps-chat',
-    //     parentId: 2
-    // },
-    // {
-    //     id: 'email',
-    //     label: 'Email',
-    //     icon: <Mail />,
-    //     link: '/apps-mailbox',
-    //     parentId: 2
-    // },
-    // {
-    //     id: 'calendar',
-    //     label: 'Calendar',
-    //     link: "/#",
-    //     icon: <CalendarDays />,
-    //     subItems: [
-    //         {
-    //             id: 'default',
-    //             label: 'Default',
-    //             link: '/apps-calendar',
-    //             parentId: 'calendar'
-    //         },
-    //         {
-    //             id: 'monthgrid',
-    //             label: 'Month Grid',
-    //             link: '/apps-calendar-month-grid',
-    //             parentId: 'calendar'
-    //         },
-    //         {
-    //             id: 'multimonth',
-    //             label: 'Multi Month Stack',
-    //             link: '/apps-calendar-multi-month-stack',
-    //             parentId: 'calendar'
-    //         }
-    //     ]
-    // },
     {
         id: "director",
         label: 'Director',

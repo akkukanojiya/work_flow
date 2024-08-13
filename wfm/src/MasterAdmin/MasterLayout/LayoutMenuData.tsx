@@ -1,10 +1,10 @@
-import { UserRoundCogIcon, MessageSquare, MonitorDot, ScrollText, ShoppingBag, GraduationCapIcon } from "lucide-react";
+import { UserRoundCogIcon, LocateFixed, MonitorDot, ScrollText, ShoppingBag, GraduationCapIcon, Building2Icon,Globe2Icon, MapPinned,LucideBaggageClaim, GitBranchPlusIcon, IndianRupeeIcon} from "lucide-react";
 
 const MastermenuData: any = [
-    {
-        label: 'menu',
-        isTitle: true,
-    },
+    // {
+    //     label: 'menu',
+    //     isTitle: true,
+    // },
     // {
     //     id: "ecommercedashboard",
     //     label: 'Ecommerce ',
@@ -59,16 +59,18 @@ const MastermenuData: any = [
     // },
     {
         id: "masterdashboard",
-        label: 'Master Dashboard',
-        link: "/#",
+        label: 'Master Menu',
+        link: "/master-dashboard",
         icon: <GraduationCapIcon/>,
+        
+    
         subItems: [
 
             {
                 id: "masterdashboard",
-                label: '  Dashboard ',
-                link: "/master-dashboard",
+                label: ' Master Dashboard ',
                 icon: <MonitorDot />,
+                link: "/master-dashboard",
                 parentId: 'masterdashboard'
                  
             },
@@ -76,43 +78,50 @@ const MastermenuData: any = [
             {
                 id: 'company',
                 label: 'Company',
-                icon: <MessageSquare />,
+                icon: <Building2Icon/>,
                 link: '/master-admin-company',
                 parentId: 'masterdashboard'
             },
             {
                 id: 'country',
                 label: 'Country',
-                icon: <ScrollText />,
+                icon: <Globe2Icon/>,
                 link: '/master-admin-country',
                 parentId: 'masterdashboard'
             },
             {
                 id: 'state',
                 label: 'State',
-                icon: <ScrollText />,
+                icon: <LocateFixed />,
                 link: '/master-admin-state',
                 parentId: 'masterdashboard'
             },
             {
                 id: 'city',
                 label: 'City',
-                icon: <ScrollText />,
+                icon: <MapPinned />,
                 link: '/master-admin-city',
                 parentId: 'masterdashboard'
             },
             {
                 id: 'service',
                 label: 'Services',
-                icon: <UserRoundCogIcon/> ,
+                icon: <LucideBaggageClaim/> ,
                 link: '/master-admin-services',
                 parentId: 'masterdashboard'
             },
             {
-                id: 'service',
+                id: 'subservice',
                 label: ' Sub Services',
-                icon: <UserRoundCogIcon/> ,
+                icon: <GitBranchPlusIcon/> ,
                 link: '/master-admin-subservices',
+                parentId: 'masterdashboard'
+            },
+            {
+                id: 'financialyear',
+                label: 'Financial Year',
+                icon: <IndianRupeeIcon/> ,
+                link: '/master-financial-year',
                 parentId: 'masterdashboard'
             },
             

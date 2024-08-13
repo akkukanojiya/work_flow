@@ -17,7 +17,7 @@ import { editProfile } from "slices/thunk";
 const UserProfile = () => {
 
   //meta title
-  document.title = "Profile | Skote - React Admin & Dashboard Template";
+  document.title = "Profile | Skote - OffiQuick";
 
   const dispatch = useDispatch<any>();
 

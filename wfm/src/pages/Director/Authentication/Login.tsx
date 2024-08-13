@@ -17,7 +17,7 @@ import { Link } from "react-router-dom";
 
 const Login = (props: any) => {
 
-    // document.title = "Login | Tailwick - React Admin & Dashboard Template";
+    document.title = "Login | OffiQuick";
 
     const dispatch = useDispatch<any>();
 

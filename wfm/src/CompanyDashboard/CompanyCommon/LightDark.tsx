@@ -1,7 +1,8 @@
 import React from 'react';
 import { Sun } from 'lucide-react';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeLayoutMode, changeLayoutTopbarColor, changeLeftSidebarColorType } from 'slices/thunk';
+import { changeLayoutMode, changeLayoutTopbarColor, changeLeftSidebarColorType } from '../Companyslices/thunk';
+
 import { createSelector } from '@reduxjs/toolkit';
 
 const LightDark = () => {

@@ -254,7 +254,7 @@ const SalesMonthChart = ({ chartId }: any) => {
 
         {
             type: 'line',
-            name: 'Profit Median',
+            name: 'Finished',
             data: [
                 {
                     x: 'Mar',
@@ -292,7 +292,7 @@ const SalesMonthChart = ({ chartId }: any) => {
         },
         {
             type: 'line',
-            name: 'Expense Median',
+            name: 'Panding',
             data: [
                 {
                     x: 'Mar',
@@ -368,7 +368,7 @@ const SalesMonthChart = ({ chartId }: any) => {
         },
         legend: {
             show: true,
-            customLegendItems: ['Team B', 'Team A'],
+            customLegendItems: ['Finish Task', 'Panding Task'],
             inverseOrder: true
         },
         markers: {

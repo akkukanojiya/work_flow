@@ -1,7 +1,7 @@
 import React from "react";
 import AuthIcon from "pages/AuthenticationInner/AuthIcon";
 import { useDispatch, useSelector } from "react-redux";
-import { registerUser, resetRegisterFlag } from "slices/thunk";
+// import { registerUser, resetRegisterFlag } from "slices/thunk";
 import { createSelector } from 'reselect';
 import { Facebook, Github, Mail, Twitter } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
@@ -46,7 +46,7 @@ const Register = () => {
             password: Yup.string().required("Please Enter Your Password"),
         }),
         onSubmit: (values: any) => {
-            dispatch(registerUser(values));
+            // dispatch(registerUser(values));
         }
     });
 
@@ -57,7 +57,7 @@ const Register = () => {
         }
 
         setTimeout(() => {
-            dispatch(resetRegisterFlag());
+            // dispatch(resetRegisterFlag());
         }, 3000);
 
     }, [dispatch, success, navigation]);
@@ -87,7 +87,7 @@ const Register = () => {
 
                         <div className="mt-8 text-center">
                             <h4 className="mb-1 text-custom-500 dark:text-custom-500">Create your free account</h4>
-                            <p className="text-slate-500 dark:text-zink-200">Get your free Tailwick account now</p>
+                            <p className="text-slate-500 dark:text-zink-200">Get your OffiQuick account now</p>
                         </div>
 
                         <form action="/" className="mt-10" id="registerForm"
@@ -141,7 +141,7 @@ const Register = () => {
                                     <div id="password-error" className="mt-1 text-sm text-red-500">{validation.errors.password}</div>
                                 ) : null}
                             </div>
-                            <p className="italic text-15 text-slate-500 dark:text-zink-200">By registering you agree to the Tailwick <a href="#!" className="underline">Terms of Use</a></p>
+                            <p className="italic text-15 text-slate-500 dark:text-zink-200">By registering you agree to the  OffiQuick <a href="#!" className="underline">Terms of Use</a></p>
                             <div className="mt-10">
                                 <button type="submit" className="w-full text-white transition-all duration-200 ease-linear btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">Sign In</button>
                             </div>

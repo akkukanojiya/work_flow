@@ -200,13 +200,13 @@ const EmployeeList = () => {
             ),
         },
         {
-            header: "Name",
+            header: "Employee Name",
             accessorKey: "name",
             enableColumnFilter: false,
             cell: (cell: any) => (
                 <Link to="#!" className="flex items-center gap-3">
                     <div className="size-6 rounded-full shrink-0 bg-slate-100">
-                        <img src={cell.row.original.img} alt="" className="h-6 rounded-full" />
+                        {/* <img src={cell.row.original.img} alt="" className="h-6 rounded-full" /> */}
                     </div>
                     <h6 className="grow">{cell.getValue()}</h6>
                 </Link>
@@ -248,7 +248,7 @@ const EmployeeList = () => {
             enableSorting: true,
             cell: (cell: any) => (
                 <div className="flex gap-3">
-                    <Link className="flex items-center justify-center size-8 transition-all duration-200 ease-linear rounded-md bg-slate-100 text-slate-500 hover:text-custom-500 hover:bg-custom-100 dark:bg-zink-600 dark:text-zink-200 dark:hover:bg-custom-500/20 dark:hover:text-custom-500" to="/pages-account"><Eye className="inline-block size-3" /> </Link>
+                    <Link to="#!"    className="flex items-center justify-center size-8 transition-all duration-200 ease-linear rounded-md bg-slate-100 text-slate-500 hover:text-custom-500 hover:bg-custom-100 dark:bg-zink-600 dark:text-zink-200 dark:hover:bg-custom-500/20 dark:hover:text-custom-500" ><Eye className="inline-block size-3" /> </Link>
                     <Link to="#!" data-modal-target="addEmployeeModal" className="flex items-center justify-center size-8 transition-all duration-200 ease-linear rounded-md edit-item-btn bg-slate-100 text-slate-500 hover:text-custom-500 hover:bg-custom-100 dark:bg-zink-600 dark:text-zink-200 dark:hover:bg-custom-500/20 dark:hover:text-custom-500" onClick={() => {
                         const data = cell.row.original;
                         handleUpdateDataClick(data);
@@ -306,7 +306,7 @@ const EmployeeList = () => {
             {/* Employee Modal */}
             <Modal show={show} onHide={toggle} modal-center="true"
                 className="fixed flex flex-col transition-all duration-300 ease-in-out left-2/4 z-drawer -translate-x-2/4 -translate-y-2/4"
-                dialogClassName="w-screen md:w-[30rem] bg-white shadow rounded-md dark:bg-zink-600">
+                dialogClassName="w-screen md:w-[45rem] bg-white shadow rounded-md dark:bg-zink-600">
                 <Modal.Header className="flex items-center justify-between p-4 border-b dark:border-zink-500"
                     closeButtonClass="transition-all duration-200 ease-linear text-slate-400 hover:text-red-500">
                     <Modal.Title className="text-16">{!!isEdit ? "Edit Employee" : "Add Employee"}</Modal.Title>
@@ -360,7 +360,6 @@ const EmployeeList = () => {
                                     <p className="text-red-400">{validation.errors.name}</p>
                                 ) : null}
                             </div>
-
 
                             <div className="xl:col-span-12">
                                 <label htmlFor="emailInput" className="inline-block mb-2 text-base font-medium">Email</label>

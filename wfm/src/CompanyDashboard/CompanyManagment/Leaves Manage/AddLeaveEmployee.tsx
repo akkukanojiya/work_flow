@@ -3,7 +3,7 @@ import BreadCrumb from 'Common/BreadCrumb';
 import Flatpickr from 'react-flatpickr';
 import Select from 'react-select';
 
-const AddLeaveCompany = () => {
+const AddLeaveEmployee = () => {
 
     const leaveOptions = [
         { value: '', label: 'Select Leave Type' },
@@ -142,4 +142,4 @@ const AddLeaveCompany = () => {
     );
 };
 
-export default AddLeaveCompany;
+export default AddLeaveEmployee;

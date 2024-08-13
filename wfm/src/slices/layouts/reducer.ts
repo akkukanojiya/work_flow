@@ -1,7 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
 //constants
-import {
-  LAYOUT_TYPES,
+// import {
+//   LAYOUT_TYPES,
+//   LAYOUT_SEMI_DARK,
+//   LAYOUT_SKIN,
+//   LAYOUT_MODE_TYPES,
+//   LAYOUT_DIRECTION,
+//   LAYOUT_CONTENT_WIDTH,
+//   LEFT_SIDEBAR_SIZE_TYPES,
+//   LEFT_NAVIGATION_TYPES,
+//   LEFT_SIDEBAR_COLOR_TYPES,
+//   LAYOUT_TOPBAR_THEME_TYPES
+// } from "Common/constants/layout";
+
+
+
+import {LAYOUT_TYPES,
   LAYOUT_SEMI_DARK,
   LAYOUT_SKIN,
   LAYOUT_MODE_TYPES,
@@ -10,9 +24,7 @@ import {
   LEFT_SIDEBAR_SIZE_TYPES,
   LEFT_NAVIGATION_TYPES,
   LEFT_SIDEBAR_COLOR_TYPES,
-  LAYOUT_TOPBAR_THEME_TYPES
-} from "Common/constants/layout";
-
+  LAYOUT_TOPBAR_THEME_TYPES} from "MasterAdmin/MasterCommon/constants/layout"
 export interface LayoutState {
   layoutType: LAYOUT_TYPES.HORIZONTAL | LAYOUT_TYPES.VERTICAL;
   layoutSemiDarkType: LAYOUT_SEMI_DARK.LIGHT | LAYOUT_SEMI_DARK.DARK;

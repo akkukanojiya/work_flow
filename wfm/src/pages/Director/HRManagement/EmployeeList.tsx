@@ -29,6 +29,7 @@ import {
     deleteEmployee as onDeleteEmployee
 } from 'slices/thunk';
 import { ToastContainer } from 'react-toastify';
+import filterDataBySearch from 'Common/filterDataBySearch';
 
 const EmployeeList = () => {
 
@@ -189,6 +190,13 @@ const EmployeeList = () => {
         }
     }, [show, validation]);
 
+      // Search Data
+      const filterSearchData = (e: any) => {
+        const search = e.target.value;
+        const keysToSearch = ['name', 'designation', 'location', 'email', 'status'];
+        filterDataBySearch(dataList, search, keysToSearch, setData);
+    };
+
     // columns
     const columns = useMemo(() => [
         {
@@ -248,7 +256,11 @@ const EmployeeList = () => {
             enableSorting: true,
             cell: (cell: any) => (
                 <div className="flex gap-3">
-                    <Link className="flex items-center justify-center size-8 transition-all duration-200 ease-linear rounded-md bg-slate-100 text-slate-500 hover:text-custom-500 hover:bg-custom-100 dark:bg-zink-600 dark:text-zink-200 dark:hover:bg-custom-500/20 dark:hover:text-custom-500" to="/pages-account"><Eye className="inline-block size-3" /> </Link>
+                    <Link data-modal-target="addEmployeeModal" className="flex items-center justify-center size-8 transition-all duration-200 ease-linear rounded-md bg-slate-100 text-slate-500 hover:text-custom-500 hover:bg-custom-100 dark:bg-zink-600 dark:text-zink-200 dark:hover:bg-custom-500/20 dark:hover:text-custom-500"
+                    onClick={() => {
+                        const data = cell.row.original;
+                        handleUpdateDataClick(data);
+                    }} to="#!"><Eye className="inline-block size-3" /> </Link>
                     <Link to="#!" data-modal-target="addEmployeeModal" className="flex items-center justify-center size-8 transition-all duration-200 ease-linear rounded-md edit-item-btn bg-slate-100 text-slate-500 hover:text-custom-500 hover:bg-custom-100 dark:bg-zink-600 dark:text-zink-200 dark:hover:bg-custom-500/20 dark:hover:text-custom-500" onClick={() => {
                         const data = cell.row.original;
                         handleUpdateDataClick(data);
@@ -272,7 +284,35 @@ const EmployeeList = () => {
             <div className="card" id="employeeTable">
                 <div className="card-body">
                     <div className="flex items-center gap-3 mb-4">
-                        <h6 className="text-15 grow">Employee (<b className="total-Employs">{data.length}</b>)</h6>
+                    <div className="!py-3.5 card-body border-y border-dashed border-slate-200 dark:border-zink-500 mt-1">
+                                    <form action="#!">
+                                        <div className=" grid grid-cols-1 gap-5 xl:grid-cols-12">
+                                            <div className="relative xl:col-span-2">
+                                                <input type="text" className="ltr:pl-8 rtl:pr-8 search form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Search..." autoComplete="off" onChange={(e) => filterSearchData(e)} />
+                                                <Search className="inline-block size-4 absolute ltr:left-2.5 rtl:right-2.5 top-2.5 text-slate-500 dark:text-zink-200 fill-slate-100 dark:fill-zink-600" />
+                                            </div>
+                                            {/* <div className="xl:col-span-2">
+                                        <Select
+                                            className="border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
+                                            options={options}
+                                            isSearchable={false}
+                                            defaultValue={options[0]}
+                                            onChange={(event: any) => handleChange(event)}
+                                            id="choices-single-default"
+                                        />
+                                    </div> */}
+                                            {/* <div className="xl:col-span-3 xl:col-start-10"> */}
+                                            {/* <div className="flex gap-2 xl:justify-end">
+                                            <div>
+                                                <button type="button" className="bg-white border-dashed text-custom-500 btn border-custom-500 hover:text-custom-500 hover:bg-custom-50 hover:border-custom-600 focus:text-custom-600 focus:bg-custom-50 focus:border-custom-600 active:text-custom-600 active:bg-custom-50 active:border-custom-600 dark:bg-zink-700 dark:ring-custom-400/20 dark:hover:bg-custom-800/20 dark:focus:bg-custom-800/20 dark:active:bg-custom-800/20"><Download className="inline-block size-4" /> <span className="align-middle">Import</span></button>
+                                            </div>
+                                            <button className="flex items-center justify-center size-[37.5px] p-0 text-slate-500 btn bg-slate-100 hover:text-white hover:bg-slate-600 focus:text-white focus:bg-slate-600 focus:ring focus:ring-slate-100 active:text-white active:bg-slate-600 active:ring active:ring-slate-100 dark:bg-slate-500/20 dark:text-slate-400 dark:hover:bg-slate-500 dark:hover:text-white dark:focus:bg-slate-500 dark:focus:text-white dark:active:bg-slate-500 dark:active:text-white dark:ring-slate-400/20"><SlidersHorizontal className="size-4" /></button>
+                                        </div> */}
+                                            {/* </div> */}
+                                        </div>
+                                    </form>
+                                </div>
+                        {/* <h6 className="text-15 grow">Employee (<b className="total-Employs">{data.length}</b>)</h6> */}
                         <div className="shrink-0">
                             <Link to="#!" data-modal-target="addEmployeeModal" type="button" className="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20 add-employee" onClick={toggle}>
                                 <Plus className="inline-block size-4" /> <span className="align-middle">Add Employee</span>
@@ -306,7 +346,7 @@ const EmployeeList = () => {
             {/* Employee Modal */}
             <Modal show={show} onHide={toggle} modal-center="true"
                 className="fixed flex flex-col transition-all duration-300 ease-in-out left-2/4 z-drawer -translate-x-2/4 -translate-y-2/4"
-                dialogClassName="w-screen md:w-[30rem] bg-white shadow rounded-md dark:bg-zink-600">
+                dialogClassName="w-full md:w-[45rem] bg-white shadow rounded-md dark:bg-zink-600">
                 <Modal.Header className="flex items-center justify-between p-4 border-b dark:border-zink-500"
                     closeButtonClass="transition-all duration-200 ease-linear text-slate-400 hover:text-red-500">
                     <Modal.Title className="text-16">{!!isEdit ? "Edit Employee" : "Add Employee"}</Modal.Title>
@@ -347,7 +387,7 @@ const EmployeeList = () => {
                             <div className="xl:col-span-12">
                                 <label htmlFor="employeeId" className="inline-block mb-2 text-base font-medium">Employee ID</label>
                                 <input type="text" id="employeeId" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
-                                    value={validation.values.employeeId || "#TWE1001557"} />
+                                    value={validation.values.employeeId || " "} />
                             </div>
                             <div className="xl:col-span-12">
                                 <label htmlFor="employeeInput" className="inline-block mb-2 text-base font-medium">Name</label>
@@ -381,7 +421,7 @@ const EmployeeList = () => {
                                     onChange={validation.handleChange}
                                     value={validation.values.EmployeeCategory || ""}
                                 >
-                                    <option value="Lavel1"> Select Lavel </option>
+                                    <option value="Lavel"> Select Lavel </option>
                                     <option value="Lavel1"> Lavel 1</option>
                                     <option value="Lavel2">Lavel 2</option>
                                     <option value="Lavel3">Lavel 3</option>
@@ -712,6 +752,10 @@ const EmployeeList = () => {
                                     <p className="text-red-400">{validation.errors.designation}</p>
                                 ) : null}
                             </div>
+                            <div className="xl:col-span-6">
+                                        <label htmlFor="qualityInput" className="inline-block mb-2 text-base font-medium">Other Details</label>
+                                        <textarea id="qualityInput" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your  Other Details" required ></textarea>
+                                    </div>
                         </div>
                         <div className="flex justify-end gap-2 mt-4">
                             <button type="reset" id="close-modal" data-modal-close="addEmployeeModal" className="text-red-500 bg-white btn hover:text-red-500 hover:bg-red-100 focus:text-red-500 focus:bg-red-100 active:text-red-500 active:bg-red-100 dark:bg-zink-600 dark:hover:bg-red-500/10 dark:focus:bg-red-500/10 dark:active:bg-red-500/10" onClick={toggle}>Cancel</button>

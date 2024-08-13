@@ -5,14 +5,39 @@ import CompanyDashboard from "CompanyDashboard/Dashboard";
 // import EmployeeListView from "CompanyDashboard/Employees/ListView";
 import CompanyDirector from "CompanyDashboard/Director/ListView";
 import EmployeeListView from "CompanyDashboard/Employees/ListView";
+import AddLeaveEmployee from "CompanyDashboard/CompanyManagment/Leaves Manage/AddLeaveEmployee";
+import LeaveManageEmployee from "CompanyDashboard/CompanyManagment/Leaves Manage/LeaveManageEmployee";
+import Tasks from "CompanyDashboard/CompanyTasks";
 import AddNew from "CompanyDashboard/Director/AddNew";
 import Overview from "CompanyDashboard/Director/Overview";
 // import Client from "CompanyDashboard/Client";
 import CompanyIndividualClient from "CompanyDashboard/CompanyClient/ClientCompany/ListView";
 import CompanyClient from "CompanyDashboard/CompanyClient/ListView";
 import CompanyFormIndividual from "CompanyDashboard/CompanyClient/ClientCompany/AddNew";
-import AddLeaveCompany from "CompanyDashboard/CompanyManagment/Leaves Manage/AddLeaveEmployee";
+// import AddLeaveCompany from "CompanyDashboard/CompanyManagment/Leaves Manage/AddLeaveEmployee";
 import CompanyAttendance from "CompanyDashboard/CompanyManagment/Attendance/AttendanceHR";
+ 
+import CompanyTimeSheet from "CompanyDashboard/CompanyTimeSheet/ListView";
+import TimeSheetForm from "CompanyDashboard/CompanyTimeSheet/TimeSheetForm";
+import CompanyProfile from "CompanyDashboard/CompanyProfile/CompanyView";
+import CompanyProfileForm from "CompanyDashboard/CompanyProfile/CompanyProfile";
+import CompanyOverview from "CompanyDashboard/CompanyProfile/Overview";
+
+import MultiForm from "CompanyDashboard/CompanyClient/MultiForm";
+
+
+// multi form table 
+import CompanyReport from "CompanyDashboard/CompanyReports/CompanyReport";
+// multi form table end
+
+
+// demo multi form 
+import FormTable from "CompanyDashboard/CompanyTasks/DataTable";
+import MultiFormDemo from "CompanyDashboard/CompanyTimeSheet/FormDataTable";
+// demo multi form end
+// import CompanyPartner from "CompanyDashboard/CompanyPartnershipFirm/PartnershipListView";
+// import PartnershipForm from "CompanyDashboard/CompanyPartnershipFirm/PartnershipForm";
+// import PartnershipOverview from "CompanyDashboard/CompanyPartnershipFirm/PartnershipOverview";
 // import Basic from "pages/AuthenticationInner/Login/Basic";
 // import LoginCover from "pages/AuthenticationInner/Login/LoginCover";
 // import LoginBoxed from "pages/AuthenticationInner/Login/LoginBoxed";
@@ -51,14 +76,38 @@ const authProtectedRoutes: Array<RouteObject> = [
   { path: "/company-director-form", component: AddNew },
   { path: "/company-director-overview", component: Overview },
   
+  { path: "/company-tasks", component: Tasks },
+  { path: "/company-time-sheet", component: CompanyTimeSheet },
+  { path: "/company-time-sheet-form", component: TimeSheetForm },
   { path: "/company-employee", component: EmployeeListView },
-  { path: "/company-client-individual", component: CompanyIndividualClient },
-  { path: "/company-formindividual-client", component: CompanyFormIndividual },
-  { path: "/company-client-client", component: CompanyClient },
-
-  { path: "/company-leave", component: AddLeaveCompany },
+  { path: "/company-company", component: CompanyIndividualClient },
+  { path: "/company-company-form", component: CompanyFormIndividual },
+  { path: "/company-individual-client", component: CompanyClient },
+  { path: "/company-multi-form", component: MultiForm },
+  
+  { path: "/company-employee-leave-manage", component: LeaveManageEmployee },
+  { path: "/company-employee-leave", component: AddLeaveEmployee },
   { path: "/company-attendance", component: CompanyAttendance },
+  
+  { path: "/company-profile", component: CompanyProfile },
+  { path: "/company-profile-form", component: CompanyProfileForm },
+  { path: "/company-profile-overview", component: CompanyOverview },
+  { path: "/company-profile-overview", component: CompanyOverview },
 
+
+  // multi form report 
+  { path: "/company-report-company", component: CompanyReport },
+  { path: "/company-form", component: FormTable },
+  { path: "/company-table", component: MultiFormDemo },
+  // multi form report end
+  
+  // demo multi form 
+
+
+  // demo multi form end
+
+  // { path: "/company-partnershipfirm", component: CompanyPartner },
+  // { path: "/company-partnershipfirm-form", component: PartnershipForm },
 
 ];
 

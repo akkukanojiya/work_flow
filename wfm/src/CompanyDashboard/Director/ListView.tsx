@@ -1,12 +1,12 @@
 import React, { useEffect, useMemo, useState } from "react";
 import BreadCrumb from "Common/BreadCrumb";
-import Flatpickr from 'react-flatpickr';
+// import Flatpickr from 'react-flatpickr';
 import { Link } from "react-router-dom";
 import { Dropdown } from "Common/Components/Dropdown";
 
 // Icon
-import { MoreHorizontal, Eye, FileEdit, Trash2, Search, Plus } from 'lucide-react';
-
+import { MoreHorizontal, Eye, FileEdit, Trash2, Search, Plus, Download } from 'lucide-react';
+import * as XLSX from 'xlsx';
 import TableContainer from "Common/TableContainer";
 import DeleteModal from "Common/DeleteModal";
 
@@ -20,8 +20,48 @@ import {
 } from 'slices/thunk';
 import { ToastContainer } from "react-toastify";
 import filterDataBySearch from "Common/filterDataBySearch";
+import { RiFileExcel2Line } from "react-icons/ri";
 
 const CompanyDirector = () => {
+
+    // excel file 
+
+    const generateExcel = () => {
+        // Sample data to be written into the Excel file
+        const data = [
+            { name: 'John Doe', age: 28, email: 'john.doe@example.com' },
+            { name: 'Jane Smith', age: 34, email: 'jane.smith@example.com' },
+            { name: 'Sam Johnson', age: 23, email: 'sam.johnson@example.com' },
+        ];
+
+        // Create a worksheet from the sample data
+        const worksheet = XLSX.utils.json_to_sheet(data);
+
+        // Create a new workbook and append the worksheet
+        const workbook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
+
+        // Generate an Excel file
+        const excelBuffer = XLSX.write(workbook, {
+            bookType: 'xlsx',
+            type: 'array',
+        });
+
+        // Create a Blob object from the Excel buffer
+        const blob = new Blob([excelBuffer], {
+            type: 'application/octet-stream',
+        });
+
+        // Create a download link and click it programmatically
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'example.xlsx';
+        a.click();
+        window.URL.revokeObjectURL(url);
+    };
+    // excel file end 
+
 
     const dispatch = useDispatch<any>();
 
@@ -177,30 +217,52 @@ const CompanyDirector = () => {
             <ToastContainer closeButton={false} limit={1} />
             <div className="card" id="productListTable">
                 <div className="card-body">
-                    <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-12">
-                        <div className="xl:col-span-3">
-                            <div className="relative">
-                                <input type="text" className="ltr:pl-8 rtl:pr-8 search form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Search for ..." autoComplete="off" onChange={(e) => filterSearchData(e)} />
-                                <Search className="inline-block size-4 absolute ltr:left-2.5 rtl:right-2.5 top-2.5 text-slate-500 dark:text-zink-200 fill-slate-100 dark:fill-zink-600" />
-                            </div>
+                    <div className="flex flex-col md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-4">
+                        <div className="w-full md:w-3/4 py-2 card-body border-y border-dashed border-slate-200 dark:border-zinc-500">
+                            <form action="#!">
+                                <div className="grid grid-cols-1 gap-5 xl:grid-cols-12">
+                                    <div className="relative xl:col-span-3">
+                                        <input
+                                            type="text"
+                                            className="w-full ltr:pl-8 rtl:pr-8 search form-input border-slate-200 dark:border-zinc-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zinc-600 disabled:border-slate-300 dark:disabled:border-zinc-500 dark:disabled:text-zinc-200 disabled:text-slate-500 dark:text-zinc-100 dark:bg-zinc-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zinc-200"
+                                            placeholder="Search"
+                                            autoComplete="off"
+                                            onChange={(e) => filterSearchData(e)}
+                                        />
+                                        <Search className="inline-block size-4 absolute ltr:left-2.5 rtl:right-2.5 top-2.5 text-slate-500 dark:text-zinc-200 fill-slate-100 dark:fill-zinc-600" />
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                        <div className="xl:col-span-2">
-                            <div>
-                                <Flatpickr
-                                    className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
-                                    options={{
-                                        dateFormat: "d M, Y",
-                                        mode: "range",
-                                    }}
-                                    placeholder='Select date'
-                                    readOnly={true}
-                                />
-                            </div>
-                        </div>
-                        <div className="lg:col-span-2 ltr:lg:text-right rtl:lg:text-left xl:col-span-2 xl:col-start-11">
-                            <Link to="/company-director-form" type="button" className="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20"><Plus className="inline-block size-4" /> <span className="align-middle">Add Director</span></Link>
+
+                        <div className="w-full md:w-auto flex-shrink-0 flex space-x-4">
+                            {/* <div className="xl:col-span-3 max-w-24">
+            <div>
+                <input
+                    className="form-input border-slate-200 dark:border-zinc-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zinc-600 disabled:border-slate-300 dark:disabled:border-zinc-500 dark:disabled:text-zinc-200 disabled:text-slate-500 dark:text-zinc-100 dark:bg-zinc-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zinc-200"
+                    type="date"
+                    placeholder="Select date"
+                />
+            </div>
+        </div> */}
+                            <button
+                                className="bg-white border-dashed text-custom-500 btn border-custom-500 hover:text-custom-500 hover:bg-custom-50 hover:border-custom-600 focus:text-custom-600 focus:bg-custom-50 focus:border-custom-600 active:text-custom-600 active:bg-custom-50 active:border-custom-600 dark:bg-zinc-700 dark:ring-custom-400/20 dark:hover:bg-custom-800/20 dark:focus:bg-custom-800/20 dark:active:bg-custom-800/20"
+                                onClick={generateExcel}
+                            >
+                                <RiFileExcel2Line className="inline-block size-5" />
+                                {/* <span className="align-middle">Download Excel</span> */}
+                            </button>
+                            <Link
+                                to="/company-director-form"
+                                type="button"
+                                className="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20"
+                            >
+                                <Plus className="inline-block size-4" /> <span className="align-middle">Add Director</span>
+                            </Link>
                         </div>
                     </div>
+
+
                 </div>
                 <div className="!pt-1 card-body">
                     {data && data.length > 0 ?

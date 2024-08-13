@@ -62,8 +62,8 @@ const AddNew = () => {
     return (
         <React.Fragment>
             <BreadCrumb title='Director Form' pageTitle='Director' />
-            <div className="grid grid-cols-1 xl:grid-cols-12 gap-x-5 w-screen">
-                <div className="xl:col-span-9">
+            <div className="grid grid-cols-1 xl:grid-cols-12 ">
+                <div className="xl:col-span-12">
                     <div className="card">
                         <div className="card-body">
                             <h6 className="mb-4 text-15">Create Director/Person</h6>

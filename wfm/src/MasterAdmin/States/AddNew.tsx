@@ -62,7 +62,7 @@ const AddNew = () => {
     return (
         <React.Fragment>
             <BreadCrumb title='Add New' pageTitle='Products' />
-            <div className="grid grid-cols-1 xl:grid-cols-12 gap-x-5">
+            <div className="grid grid-cols-1 xl:grid-cols-12 gap-x-5 ml-48 ms-[8]">
                 <div className="xl:col-span-9">
                     <div className="card">
                         <div className="card-body">

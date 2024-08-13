@@ -7,8 +7,9 @@ import States from "MasterAdmin/States/ListView";
 import Citys from "MasterAdmin/City";
  import Services from "MasterAdmin/Services/ListView1";
 import SubServices from "MasterAdmin/Services/ListView";
+import FinancialYear from "MasterAdmin/FinancialYear";
 
-
+import ChooseCompany from "MasterAdmin/Company/ChooseCompany";
 
 //   import Basic from "pages/AuthenticationInner/Login/Basic";
 // import LoginCover from "pages/AuthenticationInner/Login/LoginCover";
@@ -32,6 +33,7 @@ import SubServices from "MasterAdmin/Services/ListView";
 import Login from "MasterAdmin/Authentication/Login";
 import Logout from "MasterAdmin/Authentication/Login";
 import Register from "MasterAdmin/Authentication/Login";
+import UserProfile from "MasterAdmin/Authentication/UserProfile";
 
 
 
@@ -43,6 +45,7 @@ interface RouteObject {
 
 const authProtectedRoutes: Array<RouteObject> = [
   // Dashboard
+  { path: "/", component: MasterDashboard },
   { path: "/master-dashboard", component: MasterDashboard },
   { path: "/master-admin-company", component: MasterCompany },
   { path: "/master-admin-country", component: Countrys },
@@ -50,6 +53,8 @@ const authProtectedRoutes: Array<RouteObject> = [
   { path: "/master-admin-city", component: Citys },
   { path: "/master-admin-subservices", component: SubServices},
   { path: "/master-admin-services", component: Services},
+  { path: "/master-financial-year", component: FinancialYear},
+  { path: "/master-choose-company", component: ChooseCompany},
 
    
 ];
@@ -113,6 +118,7 @@ const publicRoutes = [
   { path: "/master-login", component: Login },
   { path: "/master-logout", component: Logout },
   { path: "/master-register", component: Register },
+  { path: "/master-profile", component: Register },
 
 ]
 

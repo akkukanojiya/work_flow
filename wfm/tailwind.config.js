@@ -15,6 +15,9 @@ module.exports = {
     ],
     darkMode: ['class', '[data-mode="dark"]'],
     theme: {
+
+
+        
         fontFamily: {
             'public': ['"Public Sans", sans-serif'],
             'tourney': ['"Tourney", sans-serif'],
@@ -38,13 +41,13 @@ module.exports = {
 
                 //sidebar light
                 'vertical-menu': colors.white,
-                'vertical-menu-border': colors.slate[200],
-                'vertical-menu-item': colors.slate[400],
+                'vertical-menu-border': colors.black[200],
+                'vertical-menu-item': colors.black[400],
                 'vertical-menu-item-hover': colors.blue[500],
                 'vertical-menu-item-bg-hover': colors.blue[50],
                 'vertical-menu-item-active': colors.blue[500],
                 'vertical-menu-item-bg-active': colors.blue[50],
-                'vertical-menu-sub-item': colors.slate[400],
+                'vertical-menu-sub-item': colors.black[400],
                 'vertical-menu-sub-item-hover': colors.blue[500],
                 'vertical-menu-sub-item-active': colors.blue[500],
 
@@ -52,13 +55,13 @@ module.exports = {
                 'vertical-menu-dark': colors.slate[900],
                 'vertical-menu-border-dark': colors.slate[900],
                 'vertical-menu-item-dark': colors.slate[500],
-                'vertical-menu-item-hover-dark': colors.blue[500],
+                'vertical-menu-item-hover-dark': colors.blue[800],
                 'vertical-menu-item-bg-hover-dark': colors.slate[800],
-                'vertical-menu-item-active-dark': colors.blue[500],
+                'vertical-menu-item-active-dark': colors.blue[800],
                 'vertical-menu-item-bg-active-dark': colors.slate[800],
                 'vertical-menu-sub-item-dark': colors.slate[500],
                 'vertical-menu-sub-item-hover-dark': colors.blue[500],
-                'vertical-menu-sub-item-active-dark': colors.blue[500],
+                'vertical-menu-sub-item-active-dark': colors.blue[800],
 
                 //sidebar brand
                 'vertical-menu-brand': colors.blue[900],

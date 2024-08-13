@@ -199,7 +199,7 @@ const LeaveManageEmployee = () => {
                         </div>
                         <div className="xl:col-span-2 xl:col-start-11">
                             <div className="ltr:lg:text-right rtl:lg:text-left">
-                                <Link to="/apps-hr-create-leave-employee" type="button" className="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20"><Plus className="inline-block size-4" /> <span className="align-middle">Add Leave</span></Link>
+                                <Link to="/company-employee-leave" type="button" className="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20"><Plus className="inline-block size-4" /> <span className="align-middle">Add Leave</span></Link>
                             </div>
                         </div>
                     </div>

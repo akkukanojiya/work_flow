@@ -63,12 +63,12 @@ import MultiSelect, { Option } from "./MultiSelect";
 // import "./styles.css";
 
 const optionss = [
-  { value: 0, label: "Jaimin" },
-  { value: 1, label: "Akash" },
-  { value: 2, label: "Harshil" },
-  { value: 3, label: "Divyang" },
-  { value: 4, label: "Shivam" },
-  { value: 5, label: "Suresh" },
+    { value: 0, label: "Jaimin" },
+    { value: 1, label: "Akash" },
+    { value: 2, label: "Harshil" },
+    { value: 3, label: "Divyang" },
+    { value: 4, label: "Shivam" },
+    { value: 5, label: "Suresh" },
 ];
 // multi dropdown end
 const Tasks = () => {
@@ -315,11 +315,11 @@ const Tasks = () => {
 
 
     // multi select dropdown
-     
+
     const [optionSelecteds, setSelecteds] = useState<Option[] | null>();
-  const handleChange = (selected: Option[]) => {
-    setSelecteds(selected);
-  };
+    const handleChange = (selected: Option[]) => {
+        setSelecteds(selected);
+    };
 
     // multi select dropdown end
     return (
@@ -413,70 +413,7 @@ const Tasks = () => {
                                             </li>
                                         </Dropdown.Content>
                                     </Dropdown>
-
-                                    {/* <div className="flex items-center gap-2 mb-5">
-                                        <Dropdown className="flex relative">
-                                            <Category item={item.category} />
-                                            <Dropdown.Content
-                                                placement="start-end"
-                                                className="absolute z-50 py-2 mt-1 text-left list-none bg-white rounded-md shadow-md dropdown-menu min-w-[10rem] dark:bg-zink-600" aria-labelledby="notesAction1">
-                                                <li>
-                                                    <Link className="block px-4 py-1.5 text-base transition-all duration-200 ease-linear text-slate-600 hover:bg-slate-100 hover:text-slate-500 focus:bg-slate-100 focus:text-slate-500 dark:text-zink-100 dark:hover:bg-zink-500 dark:hover:text-zink-200 dark:focus:bg-zink-500 dark:focus:text-zink-200" to="#!">Personal</Link>
-                                                </li>
-                                                <li>
-                                                    <Link className="block px-4 py-1.5 text-base transition-all duration-200 ease-linear text-slate-600 hover:bg-slate-100 hover:text-slate-500 focus:bg-slate-100 focus:text-slate-500 dark:text-zink-100 dark:hover:bg-zink-500 dark:hover:text-zink-200 dark:focus:bg-zink-500 dark:focus:text-zink-200" to="#!">Business</Link>
-                                                </li>
-                                                <li>
-                                                    <Link className="block px-4 py-1.5 text-base transition-all duration-200 ease-linear text-slate-600 hover:bg-slate-100 hover:text-slate-500 focus:bg-slate-100 focus:text-slate-500 dark:text-zink-100 dark:hover:bg-zink-500 dark:hover:text-zink-200 dark:focus:bg-zink-500 dark:focus:text-zink-200" to="#!">Social</Link>
-                                                </li>
-                                                <li>
-                                                    <Link className="block px-4 py-1.5 text-base transition-all duration-200 ease-linear text-slate-600 hover:bg-slate-100 hover:text-slate-500 focus:bg-slate-100 focus:text-slate-500 dark:text-zink-100 dark:hover:bg-zink-500 dark:hover:text-zink-200 dark:focus:bg-zink-500 dark:focus:text-zink-200" to="#!">Home</Link>
-                                                </li>
-                                            </Dropdown.Content>
-                                        </Dropdown>
-                                        <h5 className="text-16">{item.title}</h5>
-                                    </div> */}
                                 </div>
-
-                                {/* {
-                                    item.description.split(' ').length > 38
-                                        ? (
-                                            <React.Fragment>
-                                                <p className='text-slate-500 dark:text-zink-200'></p>
-                                                <p dangerouslySetInnerHTML={{ __html: toggleDesctipton[key]?.key ? item.description : truncateText(item.description, 38) }} />
-                                                <p style={{ cursor: "pointer" }} onClick={() => handleReadMore(key)}>{toggleDesctipton[key]?.key ? 'Read Less' : 'Read More'}</p>
-                                            </React.Fragment>
-                                        )
-                                        : item.isList ?
-                                            <React.Fragment>
-                                                <div>
-                                                    <p className='text-slate-500 dark:text-zink-200'></p>
-                                                    <h6 className="text-muted">Steps to recruiting employees</h6>
-                                                    <ol className="flex flex-col gap-1">
-                                                        <li>Consider your actual needs</li>
-                                                        <li>Conduct interviews with top applicants</li>
-                                                        <li>Don’t take too long to hire</li>
-                                                        <li>Making the offer</li>
-                                                    </ol>
-                                                    <p></p>
-                                                </div>
-                                            </React.Fragment>
-                                            :
-                                            <React.Fragment>
-                                                <p className='text-slate-500 dark:text-zink-200'></p>
-                                                <p dangerouslySetInnerHTML={{ __html: item.description }} />
-                                            </React.Fragment>
-
-                                } */}
-
-                                {/* <div className="flex items-center justify-between gap-3 pt-4 mt-auto">
-                                    <div className="shrink-0">
-                                        <Link to="#!" className={`group/item toggle-button group/item toggle-button ${item.isActive && "active"}`}>
-                                            <Star className={"size-5 text-slate-500 dark:text-zink-200 dark:fill-zink-600 fill-slate-200 transition-all duration-150 ease-linear group-[.active]/item:text-yellow-500 dark:group-[.active]/item:text-yellow-500 group-[.active]/item:fill-yellow-200 dark:group-[.active]/item:fill-yellow-500/50 group-hover/item:text-yellow-500 dark:group-hover/item:text-yellow-500 group-hover/item:fill-yellow-200 dark:group-hover/item:fill-yellow-500/50"} />
-                                        </Link>
-                                    </div>
-                                    <p className="text-slate-500 dark:text-zink-200 shrink-0">{item.date}</p>
-                                </div> */}
                             </div>
                         </div>);
                 }
@@ -495,7 +432,7 @@ const Tasks = () => {
             {/* Notes Modal */}
             <Modal show={show} onHide={toggle} id="defaultModal" modal-center="true"
                 className="fixed flex flex-col transition-all duration-300 ease-in-out left-2/4 z-drawer -translate-x-2/4 -translate-y-2/4"
-                dialogClassName="w-screen xl:w-[55rem] bg-white shadow rounded-md dark:bg-zink-600">
+                dialogClassName="w-full xl:w-[45rem] bg-white shadow rounded-md dark:bg-zink-600">
                 <Modal.Header className="flex items-center justify-between p-5 border-b dark:border-zink-500"
                     closeButtonClass="transition-all duration-200 ease-linear text-slate-400 hover:text-red-500">
                     <Modal.Title className="text-16">{!!isEdit ? "Edit Tasks" : "Create Tasks"}</Modal.Title>
@@ -523,74 +460,19 @@ const Tasks = () => {
                                     <p className="text-red-400">{validation.errors.TaskName}</p>
                                 ) : null}
                             </div>
-                            {/* <div className="xl:col-span-4">
-                                <div>
-                                    <label htmlFor="categorySelect" className="inline-block mb-2 text-base font-medium">Client Name</label>
-                                    <select className="form-select border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" data-choices data-choices-search-false id="statusSelect"
-                                        name="Client"
-                                        onChange={validation.handleChange}
-                                        value={validation.values.Client || ""}
-                                    >
-                                        <option value="">Select Client</option>
-                                        <option value="business"> #</option>
-                                        <option value="personal">#</option>
-                                        <option value="home">#</option>
-                                        <option value="social">#</option>
-                                    </select>
-                                    {validation.touched.Client && validation.errors.Client ? (
-                                        <p className="text-red-400">{validation.errors.Client}</p>
-                                    ) : null}
-                                </div>
-                            </div> */}
-                                {/* <div>
-                                    <label htmlFor="categorySelect" className="inline-block mb-2 text-base font-medium">Category</label>
-                                    <select className="form-select border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" data-choices data-choices-search-false id="statusSelect"
-                                        name="category"
-                                        onChange={validation.handleChange}
-                                        value={validation.values.category || ""}
-                                    >
-                                        <option value="">Select Category</option>
-                                        <option value="business">Business</option>
-                                        <option value="personal">Personal</option>
-                                        <option value="home">Home</option>
-                                        <option value="social">Social</option>
-                                        </select>
-                                        {validation.touched.category && validation.errors.category ? (
-                                            <p className="text-red-400">{validation.errors.category}</p>
-                                            ) : null}
-                                        </div> */}
-
-
-                                        {/* <h1>Select Fruits</h1> */}
-                                     {/* <pre>{JSON.stringify(selected)}</pre> */}
-                                        {/* <div className="xl:col-span-4">
-                                <div>
-                                    
-                                    <label htmlFor="notesTitleInput" className="inline-block mb-2 text-base font-medium">Assign Team(Assignee/Group)</label>
-                                   
-                                    <MultiSelect
-                                        options={options}
-                                        value={selected}
-                                        onChange={setSelected}
-                                        labelledBy="Select"
-                                        
-
-                                    />
-                                </div>
-                            </div> */}
 
 
                             {/* <h1>{"\u2728"} MultiSelect example</h1> */}
                             <div className="xl:col-span-4">
-                            <label htmlFor="notesTitleInput" className="inline-block mb-2 text-base font-medium">Assign Team(Assignee/Group)</label>
-                            <MultiSelect
-                                key="example_id"
-                                options={optionss}
-                                onChange={handleChange}
-                                value={optionSelecteds}
-                                isSelectAll={true}
-                                menuPlacement={"bottom"}
-                            />
+                                <label htmlFor="notesTitleInput" className="inline-block mb-2 text-base font-medium">Assign Team(Assignee/Group)</label>
+                                <MultiSelect
+                                    key="example_id"
+                                    options={optionss}
+                                    onChange={handleChange}
+                                    value={optionSelecteds}
+                                    isSelectAll={true}
+                                    menuPlacement={"bottom"}
+                                />
                             </div>
                             <div className="xl:col-span-4">
                                 <label htmlFor="dueDateInput" className="inline-block mb-2 text-base font-medium">Due Date</label>
@@ -640,7 +522,6 @@ const Tasks = () => {
                             </div>
                             <div className='xl:col-span-4 '>
 
-
                                 <label htmlFor="services" className="inline-block mb-2 text-base font-medium">Services</label>
 
 
@@ -650,42 +531,6 @@ const Tasks = () => {
                                     className="mdl-demo"
                                 />
                             </div>
-                            {/* <div className="xl:col-span-4">
-                                <div>
-                                    <label htmlFor="categorySelect" className="inline-block mb-2 text-base font-medium">Assignee Team</label>
-                                    <select className="form-select border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" data-choices data-choices-search-false id="statusSelect"
-                                        name="Assignee_Team"
-                                        onChange={validation.handleChange}
-                                        value={validation.values.Assignee_Team || ""}
-                                    >
-                                        <option value="">Select Assignee Team</option>
-                                        <option value="business"> #</option>
-                                        <option value="personal">#</option>
-                                        <option value="home">#</option>
-                                        <option value="social">#</option>
-                                    </select>
-                                    {validation.touched.Assignee_Team && validation.errors.Assignee_Team ? (
-                                        <p className="text-red-400">{validation.errors.Assignee_Team}</p>
-                                    ) : null}
-                                </div>
-                            </div> */}
-
-                            {/* <div className="xl:col-span-4">
-                                <label
-                                    htmlFor="formFileSm"
-                                    className="mb-2 inline-block text-neutral-500 dark:text-neutral-400"
-                                >
-                                    Choose File
-                                </label>
-                                <input
-                                    className="relative m-0 block w-full min-w-0 flex-auto cursor-pointer rounded border border-solid border-secondary-500 bg-transparent bg-clip-padding px-3 py-[0.32rem] text-xs font-normal text-surface transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:me-3 file:cursor-pointer file:overflow-hidden file:rounded-none file:border-0 file:border-e file:border-solid file:border-inherit file:bg-transparent file:px-3  file:py-[0.32rem] file:text-surface focus:border-primary focus:text-gray-700 focus:shadow-inset focus:outline-none dark:border-white/70 dark:text-white  file:dark:text-white"
-                                    id="formFileSm"
-                                    type="file"
-                                    multiple
-                                // onChange={handleFileChange}
-                                />
-                            </div> */}
-
 
                             <div className="xl:col-span-4">
                                 <div>

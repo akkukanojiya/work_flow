@@ -68,7 +68,7 @@ const UserProfile = () => {
     <React.Fragment>
       <div className="container-fluid group-data-[content=boxed]:max-w-boxed mx-auto">
         {/* Render Breadcrumb */}
-        <BreadCrumb title="Tailwick" pageTitle="Profile" />
+        <BreadCrumb title=" OffiQuick" pageTitle="Profile" />
 
         <div className="row">
           <div className="grid grid-cols-1 gap-x-5 xl:grid-cols-1">
