@@ -19,9 +19,11 @@ module.exports = {
 
         
         fontFamily: {
+           
             'public': ['"Public Sans", sans-serif'],
             'tourney': ['"Tourney", sans-serif'],
             'remix': ['remixicon']
+           
         },
         container: {
             center: true,
@@ -43,13 +45,13 @@ module.exports = {
                 'vertical-menu': colors.white,
                 'vertical-menu-border': colors.black[200],
                 'vertical-menu-item': colors.black[400],
-                'vertical-menu-item-hover': colors.blue[500],
-                'vertical-menu-item-bg-hover': colors.blue[50],
-                'vertical-menu-item-active': colors.blue[500],
-                'vertical-menu-item-bg-active': colors.blue[50],
+                'vertical-menu-item-hover':'#fff',
+                'vertical-menu-item-bg-hover':'#25476a',
+                'vertical-menu-item-active':'#fff',
+                'vertical-menu-item-bg-active': '#25476a',
                 'vertical-menu-sub-item': colors.black[400],
-                'vertical-menu-sub-item-hover': colors.blue[500],
-                'vertical-menu-sub-item-active': colors.blue[500],
+                'vertical-menu-sub-item-hover': '#25476a',
+                'vertical-menu-sub-item-active': '#25476a',
 
                 //sidebar dark
                 'vertical-menu-dark': colors.slate[900],

@@ -59,6 +59,90 @@ const OrderStatisticsChart = ({ chartId }: any) => {
     );
 };
 
+
+
+const PerspectiveChart = ({ chartId }: any) => {
+
+    const chartColors = useChartColors(chartId);
+    const series = [
+        {
+            data: [
+                {
+                    x: 'React',
+                    y: 218
+                },
+                {
+                    x: 'TailwindCSS',
+                    y: 187
+                },
+                {
+                    x: 'Angular',
+                    y: 134
+                },
+                {
+                    x: 'Vue Js',
+                    y: 55
+                },
+                {
+                    x: 'Laravel',
+                    y: 99
+                },
+                {
+                    x: 'PHP',
+                    y: 34
+                },
+                {
+                    x: 'ASP.Net',
+                    y: 86
+                },
+                {
+                    x: 'Django',
+                    y: 30
+                },
+                {
+                    x: 'CI',
+                    y: 44
+                }
+            ]
+        }
+    ];
+    var options: any = {
+
+        legend: {
+            show: false
+        },
+        chart: {
+            height: 270,
+            type: 'treemap',
+            toolbar: {
+                show: false,
+            }
+        },
+        grid: {
+            show: false,
+            padding: {
+                top: -15,
+                bottom: 0,
+                right: -20
+            },
+        },
+        colors: chartColors,
+    };
+    return (
+        <React.Fragment>
+            <ReactApexChart
+                dir="ltr"
+                options={options}
+                series={series}
+                data-chart-colors='["bg-custom-500"]'
+                id="platformPerspective"
+                className="apex-charts"
+                type='treemap'
+                height={270}
+            />
+        </React.Fragment>
+    );
+};
 const SalesRevenueOverviewChart = ({ chartId }: any) => {
 
     const chartColors = useChartColors(chartId);
@@ -468,6 +552,7 @@ const AudienceChart = ({ chartId }: any) => {
 
 export {
     OrderStatisticsChart,
+    PerspectiveChart,
     SalesRevenueOverviewChart,
     TrafficResourcesChart,
     SalesMonthChart,

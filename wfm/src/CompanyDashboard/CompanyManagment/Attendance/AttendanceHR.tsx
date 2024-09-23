@@ -86,6 +86,11 @@ const CompanyAttendance = () => {
             enableColumnFilter: false,
         },
         {
+            header: "Lowertime",
+            accessorKey: "lovertime",
+            enableColumnFilter: false,
+        },
+        {
             header: "Action",
             enableColumnFilter: false,
             enableSorting: false,

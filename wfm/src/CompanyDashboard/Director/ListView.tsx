@@ -5,9 +5,10 @@ import { Link } from "react-router-dom";
 import { Dropdown } from "Common/Components/Dropdown";
 
 // Icon
-import { MoreHorizontal, Eye, FileEdit, Trash2, Search, Plus, Download } from 'lucide-react';
+import { MoreHorizontal, Eye, FileEdit, Trash2, Search, Plus, Download, EyeIcon, Pencil } from 'lucide-react';
 import * as XLSX from 'xlsx';
-import TableContainer from "Common/TableContainer";
+// import TableContainer from "Common/TableContainer";
+import TableContainer from "CompanyDashboard/CompanyCommon/TableContainer";
 import DeleteModal from "Common/DeleteModal";
 
 // react-redux
@@ -135,7 +136,7 @@ const CompanyDirector = () => {
         //     ),
         // },
         {
-            header: "Director Name",
+            header: "Name",
             accessorKey: "directorName",
             enableColumnFilter: false,
             enableSorting: true,
@@ -161,7 +162,7 @@ const CompanyDirector = () => {
             enableSorting: true,
         },
         {
-            header: "PAN Number",
+            header: "Pan No.",
             accessorKey: "panNumber",
             enableColumnFilter: false,
             enableSorting: true,
@@ -172,39 +173,48 @@ const CompanyDirector = () => {
         //     enableColumnFilter: false,
         //     enableSorting: true,
         // },
-        // {
-        //     header: "Status",
-        //     accessorKey: "status",
-        //     enableColumnFilter: false,
-        //     enableSorting: true,
-        //     cell: (cell: any) => (
-        //         <Status item={cell.getValue()} />
-        //     ),
-        // },
+        {
+            header: "Status",
+            accessorKey: "status",
+            enableColumnFilter: false,
+            enableSorting: true,
+            cell: (cell: any) => (
+                <Status item={cell.getValue()} />
+            ),
+        },
         {
             header: "Action",
             enableColumnFilter: false,
             enableSorting: true,
             cell: (cell: any) => (
-                <Dropdown className="relative dropdown">
-                    <Dropdown.Trigger className="flex items-center justify-center size-[30px] dropdown-toggle p-0 text-slate-500 btn bg-slate-100 hover:text-white hover:bg-slate-600 focus:text-white focus:bg-slate-600 focus:ring focus:ring-slate-100 active:text-white active:bg-slate-600 active:ring active:ring-slate-100 dark:bg-slate-500/20 dark:text-slate-400 dark:hover:bg-slate-500 dark:hover:text-white dark:focus:bg-slate-500 dark:focus:text-white dark:active:bg-slate-500 dark:active:text-white dark:ring-slate-400/20" id="productAction1" data-bs-toggle="dropdown">
-                        <MoreHorizontal className="size-3" />
-                    </Dropdown.Trigger>
-                    <Dropdown.Content placement={cell.row.index ? "top-end" : "right-end"} className="absolute z-50 py-2 mt-1 ltr:text-left rtl:text-right list-none bg-white rounded-md shadow-md dropdown-menu min-w-[10rem] dark:bg-zink-600" aria-labelledby="productAction1">
-                        <li>
-                            <Link className="block px-4 py-1.5 text-base transition-all duration-200 ease-linear text-slate-600 dropdown-item hover:bg-slate-100 hover:text-slate-500 focus:bg-slate-100 focus:text-slate-500 dark:text-zink-100 dark:hover:bg-zink-500 dark:hover:text-zink-200 dark:focus:bg-zink-500 dark:focus:text-zink-200" to="/company-director-overview"><Eye className="inline-block size-3 ltr:mr-1 rtl:ml-1" /> <span className="align-middle">Overview</span></Link>
-                        </li>
-                        <li>
-                            <Link className="block px-4 py-1.5 text-base transition-all duration-200 ease-linear text-slate-600 dropdown-item hover:bg-slate-100 hover:text-slate-500 focus:bg-slate-100 focus:text-slate-500 dark:text-zink-100 dark:hover:bg-zink-500 dark:hover:text-zink-200 dark:focus:bg-zink-500 dark:focus:text-zink-200" to="/company-director-form"><FileEdit className="inline-block size-3 ltr:mr-1 rtl:ml-1" /> <span className="align-middle">Edit</span></Link>
-                        </li>
-                        <li>
-                            <Link className="block px-4 py-1.5 text-base transition-all duration-200 ease-linear text-slate-600 dropdown-item hover:bg-slate-100 hover:text-slate-500 focus:bg-slate-100 focus:text-slate-500 dark:text-zink-100 dark:hover:bg-zink-500 dark:hover:text-zink-200 dark:focus:bg-zink-500 dark:focus:text-zink-200" to="#!" onClick={() => {
+                // <Dropdown className="relative dropdown">
+                //     <Dropdown.Trigger className="flex items-center justify-center size-[30px] dropdown-toggle p-0 text-slate-500 btn bg-slate-100 hover:text-white hover:bg-slate-600 focus:text-white focus:bg-slate-600 focus:ring focus:ring-slate-100 active:text-white active:bg-slate-600 active:ring active:ring-slate-100 dark:bg-slate-500/20 dark:text-slate-400 dark:hover:bg-slate-500 dark:hover:text-white dark:focus:bg-slate-500 dark:focus:text-white dark:active:bg-slate-500 dark:active:text-white dark:ring-slate-400/20" id="productAction1" data-bs-toggle="dropdown">
+                //         <MoreHorizontal className="size-3" />
+                //     </Dropdown.Trigger>
+                //     <Dropdown.Content placement={cell.row.index ? "top-end" : "right-end"} className="absolute z-50 py-2 mt-1 ltr:text-left rtl:text-right list-none bg-white rounded-md shadow-md dropdown-menu min-w-[10rem] dark:bg-zink-600" aria-labelledby="productAction1">
+                //         <li>
+                //             <Link className="block px-4 py-1.5 text-base transition-all duration-200 ease-linear text-slate-600 dropdown-item hover:bg-slate-100 hover:text-slate-500 focus:bg-slate-100 focus:text-slate-500 dark:text-zink-100 dark:hover:bg-zink-500 dark:hover:text-zink-200 dark:focus:bg-zink-500 dark:focus:text-zink-200" to="/company-director-overview"><Eye className="inline-block size-3 ltr:mr-1 rtl:ml-1" /> <span className="align-middle">Overview</span></Link>
+                //         </li>
+                //         <li>
+                //             <Link className="block px-4 py-1.5 text-base transition-all duration-200 ease-linear text-slate-600 dropdown-item hover:bg-slate-100 hover:text-slate-500 focus:bg-slate-100 focus:text-slate-500 dark:text-zink-100 dark:hover:bg-zink-500 dark:hover:text-zink-200 dark:focus:bg-zink-500 dark:focus:text-zink-200" to="/company-director-form"><FileEdit className="inline-block size-3 ltr:mr-1 rtl:ml-1" /> <span className="align-middle">Edit</span></Link>
+                //         </li>
+                //         <li>
+                //             <Link className="block px-4 py-1.5 text-base transition-all duration-200 ease-linear text-slate-600 dropdown-item hover:bg-slate-100 hover:text-slate-500 focus:bg-slate-100 focus:text-slate-500 dark:text-zink-100 dark:hover:bg-zink-500 dark:hover:text-zink-200 dark:focus:bg-zink-500 dark:focus:text-zink-200" to="#!" onClick={() => {
+                //                 const data = cell.row.original;
+                //                 onClickDelete(data);
+                //             }}><Trash2 className="inline-block size-3 ltr:mr-1 rtl:ml-1" /> <span className="align-middle">Delete</span></Link>
+                //         </li>
+                //     </Dropdown.Content>
+                // </Dropdown>
+                <div className="flex gap-2">
+                    <Link to="#" className="flex items-center justify-center size-8 transition-all duration-200 ease-linear rounded-md bg-slate-100 dark:bg-zink-600 dark:text-zink-200 text-slate-500 hover:text-green-500 dark:hover:text-green-500 hover:bg-green-100 dark:hover:bg-green-500/20"><EyeIcon className="size-4" /></Link>
+                <Link to="/company-profile-form" className="flex items-center justify-center size-8 transition-all duration-200 ease-linear rounded-md bg-slate-100 dark:bg-zink-600 dark:text-zink-200 text-slate-500 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-100 dark:hover:bg-custom-500/20" ><Pencil className="size-4" /></Link>
+                <Link to="#" className="flex items-center justify-center size-8 transition-all duration-200 ease-linear rounded-md bg-slate-100 dark:bg-zink-600 dark:text-zink-200 text-slate-500 hover:text-red-500 dark:hover:text-red-500 hover:bg-red-100 dark:hover:bg-red-500/20" onClick={() => {
                                 const data = cell.row.original;
                                 onClickDelete(data);
-                            }}><Trash2 className="inline-block size-3 ltr:mr-1 rtl:ml-1" /> <span className="align-middle">Delete</span></Link>
-                        </li>
-                    </Dropdown.Content>
-                </Dropdown>
+                            }}><Trash2 className="size-4"  /></Link>
+
+                </div>
             ),
         }
     ], []
@@ -246,16 +256,17 @@ const CompanyDirector = () => {
             </div>
         </div> */}
                             <button
-                                className="bg-white border-dashed text-custom-500 btn border-custom-500 hover:text-custom-500 hover:bg-custom-50 hover:border-custom-600 focus:text-custom-600 focus:bg-custom-50 focus:border-custom-600 active:text-custom-600 active:bg-custom-50 active:border-custom-600 dark:bg-zinc-700 dark:ring-custom-400/20 dark:hover:bg-custom-800/20 dark:focus:bg-custom-800/20 dark:active:bg-custom-800/20"
+                                className="bg-white   text-[#2a5179] btn   hover:text-[#25476a] hover:bg-custom-50   focus:text-custom-600 focus:bg-custom-50   active:text-[#25476a] active:bg-custom-50   dark:bg-zinc-700 dark:ring-custom-400/20 dark:hover:bg-custom-800/20 dark:focus:bg-custom-800/20 dark:active:bg-custom-800/20"
                                 onClick={generateExcel}
                             >
+                                <span className="align-middle"> Download </span>
                                 <RiFileExcel2Line className="inline-block size-5" />
-                                {/* <span className="align-middle">Download Excel</span> */}
+                                
                             </button>
                             <Link
                                 to="/company-director-form"
                                 type="button"
-                                className="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20"
+                                className="text-white btn bg-[#25476a] border-[#2a5179] hover:text-white hover:bg-[#2a5179] hover:border-[#2a5179] focus:text-white focus:bg-[#2a5179] focus:border-[#2a5179] focus:ring focus:ring-[#2a5179] active:text-white active:bg-[#25476a] active:border-[#25476a] active:ring active:ring-[#2a5179] dark:ring-[#2a5179]"
                             >
                                 <Plus className="inline-block size-4" /> <span className="align-middle">Add Director</span>
                             </Link>
@@ -273,7 +284,7 @@ const CompanyDirector = () => {
                             customPageSize={7}
                             divclassName="overflow-x-auto"
                             tableclassName="w-full whitespace-nowrap"
-                            theadclassName="ltr:text-left rtl:text-right bg-slate-100 dark:bg-zink-600"
+                            theadclassName="ltr:text-left rtl:text-right bg-[#25476a] text-[#fff]"
                             thclassName="px-3.5 py-2.5 font-semibold border-b border-slate-200 dark:border-zink-500"
                             tdclassName="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500"
                             PaginationClassName="flex flex-col items-center gap-4 px-4 mt-4 md:flex-row"

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { TrafficResourcesChart } from './Charts';
+// import { TrafficResourcesChart } from './Charts';
+import { TrafficResourcesChart } from 'pages/Director/Dashboard/Charts';
 import CountUp from 'react-countup';
 import { MoveRight, TrendingDown } from 'lucide-react';
 

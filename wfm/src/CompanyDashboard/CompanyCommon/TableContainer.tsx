@@ -272,29 +272,50 @@ const TableContainer = ({
         isPagination && (
           <div className={PaginationClassName}>
             <div className="mb-4 grow md:mb-0">
-              <div className="text-slate-500 dark:text-zink-200">Showing
-                <b> {getState().pagination.pageSize}</b> of
-                <b> {data.length}</b> Results</div>
+              <div className="text-white dark:text-white">
+                Showing <b>{getState().pagination.pageSize}</b> of <b>{data.length}</b> Results
+              </div>
             </div>
             <ul className="flex flex-wrap items-center gap-2 shrink-0">
               <li>
-                <Link to="#!" className={`inline-flex items-center justify-center bg-white dark:bg-zink-700 h-8 px-3 transition-all duration-150 ease-linear border rounded border-slate-200 dark:border-zink-500 text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-50 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 [&.active]:text-custom-500 dark:[&.active]:text-custom-500 [&.active]:bg-custom-50 dark:[&.active]:bg-custom-500/10 [&.active]:border-custom-50 dark:[&.active]:border-custom-500/10 [&.active]:hover:text-custom-700 dark:[&.active]:hover:text-custom-700 [&.disabled]:text-slate-400 dark:[&.disabled]:text-zink-300 [&.disabled]:cursor-auto ${!getCanPreviousPage() && "disabled"}`} onClick={previousPage}>
-                  <ChevronLeft className="size-4 mr-1 rtl:rotate-180"></ChevronLeft> Prev</Link>
+                <Link
+                  to="#!"
+                  className={`inline-flex items-center justify-center bg-[#25476a] dark:bg-[#25476a] h-8 px-3 transition-all duration-150 ease-linear border rounded border-slate-200 dark:border-zink-500 text-white dark:text-white hover:text-black dark:hover:text-black hover:bg-custom-50 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 [&.active]:text-white dark:[&.active]:text-white [&.active]:bg-[#25476a] dark:[&.active]:bg-[#25476a] [&.active]:border-[#25476a] dark:[&.active]:border-[#25476a] [&.disabled]:text-slate-400 dark:[&.disabled]:text-zink-300 [&.disabled]:cursor-auto ${!getCanPreviousPage() && "disabled"
+                    }`}
+                  onClick={previousPage}
+                >
+                  <ChevronLeft className="size-4 mr-1 rtl:rotate-180"></ChevronLeft> Prev
+                </Link>
               </li>
               {getPageOptions().map((item: any, key: number) => (
                 <React.Fragment key={key}>
                   <li>
-                    <Link to="#" className={`inline-flex items-center justify-center bg-white dark:bg-zink-700 size-8 transition-all duration-150 ease-linear border rounded border-slate-200 dark:border-zink-500 text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-100 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 [&.active]:text-white dark:[&.active]:text-white [&.active]:bg-custom-500 dark:[&.active]:bg-custom-500 [&.active]:border-custom-500 dark:[&.active]:border-custom-500 [&.active]:hover:text-custom-700 dark:[&.active]:hover:text-custom-700 [&.disabled]:text-slate-400 dark:[&.disabled]:text-zink-300 [&.disabled]:cursor-auto ${getState().pagination.pageIndex === item && "active"}`} onClick={() => setPageIndex(item)}>{item + 1}</Link>
+                    <Link
+                      to="#"
+                      className={`inline-flex items-center justify-center bg-[#25476a] dark:bg-[#25476a] size-8 transition-all duration-150 ease-linear border rounded border-slate-200 dark:border-zink-500 text-white dark:text-white hover:text-black dark:hover:text-black hover:bg-custom-100 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 [&.active]:text-white dark:[&.active]:text-white [&.active]:bg-[#25476a] dark:[&.active]:bg-[#25476a] [&.active]:border-[#25476a] dark:[&.active]:border-[#25476a] [&.disabled]:text-slate-400 dark:[&.disabled]:text-zink-300 [&.disabled]:cursor-auto ${getState().pagination.pageIndex === item && "active"
+                        }`}
+                      onClick={() => setPageIndex(item)}
+                    >
+                      {item + 1}
+                    </Link>
                   </li>
                 </React.Fragment>
               ))}
               <li>
-                <Link to="#!" className={`inline-flex items-center justify-center bg-white dark:bg-zink-700 h-8 px-3 transition-all duration-150 ease-linear border rounded border-slate-200 dark:border-zink-500 text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-50 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 [&.active]:text-custom-500 dark:[&.active]:text-custom-500 [&.active]:bg-custom-50 dark:[&.active]:bg-custom-500/10 [&.active]:border-custom-50 dark:[&.active]:border-custom-500/10 [&.active]:hover:text-custom-700 dark:[&.active]:hover:text-custom-700 [&.disabled]:text-slate-400 dark:[&.disabled]:text-zink-300 [&.disabled]:cursor-auto 
-                ${!getCanNextPage() && ""}`} onClick={() => getCanNextPage() && nextPage()}>
-                  Next <ChevronRight className="size-4 ml-1 rtl:rotate-180"></ChevronRight> </Link>
+                <Link
+                  to="#!"
+                  className={`inline-flex items-center justify-center bg-[#25476a] dark:bg-[#25476a] h-8 px-3 transition-all duration-150 ease-linear border rounded border-slate-200 dark:border-zink-500 text-white dark:text-white hover:text-black dark:hover:text-black hover:bg-custom-50 dark:hover:bg-custom-500/10 focus:bg-custom-50 dark:focus:bg-custom-500/10 focus:text-custom-500 dark:focus:text-custom-500 [&.active]:text-white dark:[&.active]:text-white [&.active]:bg-[#25476a] dark:[&.active]:bg-[#25476a] [&.active]:border-[#25476a] dark:[&.active]:border-[#25476a] [&.disabled]:text-slate-400 dark:[&.disabled]:text-zink-300 [&.disabled]:cursor-auto ${!getCanNextPage() && ""
+                    }`}
+                  onClick={() => getCanNextPage() && nextPage()}
+                >
+                  Next <ChevronRight className="size-4 ml-1 rtl:rotate-180"></ChevronRight>
+                </Link>
               </li>
             </ul>
           </div>
+
+
+
         )
       }
     </Fragment>

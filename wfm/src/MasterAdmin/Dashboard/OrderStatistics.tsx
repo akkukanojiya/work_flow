@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { OrderStatisticsChart } from './Charts';
+// import { OrderStatisticsChart } from './Charts';
+import { OrderStatisticsChart } from 'pages/Director/Dashboard/Charts';
 import { MoveRight } from 'lucide-react';
 
 const OrderStatistics = () => {

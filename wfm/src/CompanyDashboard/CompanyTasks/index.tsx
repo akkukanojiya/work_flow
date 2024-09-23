@@ -33,7 +33,7 @@ interface Option {
 //     { value: '15', label: 'VAT' },
 //     { value: '16', label: 'DSC' },
 //     { value: '17', label: 'Financial Services' },
-     
+
 // ];
 
 
@@ -139,7 +139,8 @@ import {
 } from 'slices/thunk';
 import { ToastContainer } from 'react-toastify';
 import filterDataBySearch from 'Common/filterDataBySearch';
-import Pagination from 'Common/Pagination';
+// import Pagination from 'Common/Pagination';
+import Pagination from 'CompanyDashboard/CompanyCommon/Pagination';
 
 
 import DropdownTreeSelect from 'react-dropdown-tree-select';
@@ -180,14 +181,14 @@ const optionss = [
     { value: 4, label: "Shivam" },
     { value: 5, label: "Suresh" },
 ];
-const optionssBulk = [
-    { value: 0, label: "Jaimin" },
-    { value: 1, label: "Akash" },
-    { value: 2, label: "Harshil" },
-    { value: 3, label: "Divyang" },
-    { value: 4, label: "Shivam" },
-    { value: 5, label: "Suresh" },
-];
+// const optionssBulk = [
+//     { value: 0, label: "Jaimin" },
+//     { value: 1, label: "Akash" },
+//     { value: 2, label: "Harshil" },
+//     { value: 3, label: "Divyang" },
+//     { value: 4, label: "Shivam" },
+//     { value: 5, label: "Suresh" },
+// ];
 // multi dropdown end
 
 
@@ -221,76 +222,76 @@ const Tasks = () => {
     // sub service 
     const SubService: Option[] = [
         { value: '1', label: 'Individual ' },
-    { value: '2', label: 'Proprietorship' },
-    { value: '3', label: 'Partnership' },
-    { value: '4', label: 'LLP' },
-    { value: '5', label: 'Private Limited/ Limited' },
-    { value: '6', label: 'Trust / AOP' },
-    { value: '7', label: 'Society' },
-    { value: '8', label: 'Registration' },
-    { value: '9', label: 'Return Filing' },
-    { value: '10', label: 'Reply to Notice' },
-    { value: '11', label: 'Appeal' },
-    { value: '12', label: 'LUT' },
-    { value: '13', label: 'Refund' },
-    { value: '14', label: 'Other Consultancy' },
-    { value: '15', label: 'Form 15 CA / CB' },
-    { value: '16', label: 'IEC application' },
-    { value: '17', label: 'IEC renewal' },
-    { value: '18', label: 'Other online Forms' },
-    { value: '19', label: 'New Application' },
-    { value: '20', label: 'Correction' },
-    { value: '21', label: 'Cancellation' },
-    { value: '22', label: 'PAN Aadhar Link' },
-    { value: '23', label: 'GST' },
-    { value: '24', label: 'Professional Tax' },
-    { value: '25', label: 'Gumasta' },
-    { value: '26', label: 'Partnership - ROF' },
-    { value: '27', label: 'Company - PVT LTD' },
-    { value: '28', label: 'Company - Public LTD' },
-    { value: '29', label: 'Trust' },
-    { value: '30', label: 'AOP' },
-    { value: '31', label: 'FSSAI /Food License' },
-    { value: '32', label: 'Other Registrations' },
-    { value: '33', label: 'Tax Audit' },
-    { value: '34', label: 'Company Audit' },
-    { value: '35', label: 'Trust Audit - Charity Commissioner' },
-    { value: '36', label: 'AOP Audit' },
-    { value: '37', label: 'Society Audit' },
-    { value: '38', label: 'Bank Staturoty Audit' },
-    { value: '39', label: 'Bank Concurrent Audit' },
-    { value: '40', label: 'Bank System Audit' },
-    { value: '41', label: 'Bank Stock Audit' },
-    { value: '42', label: 'Internal Audit' },
-    { value: '43', label: 'Other Audit' },
-    { value: '44', label: 'PVT Ltd /Public Ltd Form Filing' },
-    { value: '45', label: 'LLP Form Filing' },
-    { value: '46', label: 'Other MCA Related Service' },
-    { value: '47', label: 'Certificate for Subsidy' },
-    { value: '48', label: 'Networth Certificate' },
-    { value: '49', label: 'Stock Statatement ' },
-    { value: '50', label: 'Other Certificates' },
-    { value: '51', label: 'Tax Planning' },
-    { value: '52', label: 'Investment Planning' },
-    { value: '53', label: 'Business Consultancy' },
-    { value: '54', label: 'Add New Sub Category' },
-    { value: '55', label: 'Partnership Deed' },
-    { value: '56', label: 'Trust Deed' },
-    { value: '57', label: 'Rent Agreement' },
-    { value: '58', label: 'Business Agreement' },
-    { value: '59', label: 'LLP / Company MOA - AOA' },
-    { value: '60', label: 'Other Agreements' },
-    { value: '61', label: 'Normal DSC' },
-    { value: '62', label: 'DGFT DCS' },
-    { value: '63', label: 'Home Loan' },
-    { value: '64', label: 'Business Loan' },
-    { value: '65', label: 'Machinery Loan' },
-    { value: '66', label: 'Personal Loan' },
-    { value: '67', label: 'MSME Loan' },
-    { value: '68', label: 'PMEGP Loan' },
-    { value: '69', label: 'Loan Against Property' },
-    { value: '70', label: 'Car Loan' },
-    { value: '70', label: 'Other Financial Services' },
+        { value: '2', label: 'Proprietorship' },
+        { value: '3', label: 'Partnership' },
+        { value: '4', label: 'LLP' },
+        { value: '5', label: 'Private Limited/ Limited' },
+        { value: '6', label: 'Trust / AOP' },
+        { value: '7', label: 'Society' },
+        { value: '8', label: 'Registration' },
+        { value: '9', label: 'Return Filing' },
+        { value: '10', label: 'Reply to Notice' },
+        { value: '11', label: 'Appeal' },
+        { value: '12', label: 'LUT' },
+        { value: '13', label: 'Refund' },
+        { value: '14', label: 'Other Consultancy' },
+        { value: '15', label: 'Form 15 CA / CB' },
+        { value: '16', label: 'IEC application' },
+        { value: '17', label: 'IEC renewal' },
+        { value: '18', label: 'Other online Forms' },
+        { value: '19', label: 'New Application' },
+        { value: '20', label: 'Correction' },
+        { value: '21', label: 'Cancellation' },
+        { value: '22', label: 'PAN Aadhar Link' },
+        { value: '23', label: 'GST' },
+        { value: '24', label: 'Professional Tax' },
+        { value: '25', label: 'Gumasta' },
+        { value: '26', label: 'Partnership - ROF' },
+        { value: '27', label: 'Company - PVT LTD' },
+        { value: '28', label: 'Company - Public LTD' },
+        { value: '29', label: 'Trust' },
+        { value: '30', label: 'AOP' },
+        { value: '31', label: 'FSSAI /Food License' },
+        { value: '32', label: 'Other Registrations' },
+        { value: '33', label: 'Tax Audit' },
+        { value: '34', label: 'Company Audit' },
+        { value: '35', label: 'Trust Audit - Charity Commissioner' },
+        { value: '36', label: 'AOP Audit' },
+        { value: '37', label: 'Society Audit' },
+        { value: '38', label: 'Bank Staturoty Audit' },
+        { value: '39', label: 'Bank Concurrent Audit' },
+        { value: '40', label: 'Bank System Audit' },
+        { value: '41', label: 'Bank Stock Audit' },
+        { value: '42', label: 'Internal Audit' },
+        { value: '43', label: 'Other Audit' },
+        { value: '44', label: 'PVT Ltd /Public Ltd Form Filing' },
+        { value: '45', label: 'LLP Form Filing' },
+        { value: '46', label: 'Other MCA Related Service' },
+        { value: '47', label: 'Certificate for Subsidy' },
+        { value: '48', label: 'Networth Certificate' },
+        { value: '49', label: 'Stock Statatement ' },
+        { value: '50', label: 'Other Certificates' },
+        { value: '51', label: 'Tax Planning' },
+        { value: '52', label: 'Investment Planning' },
+        { value: '53', label: 'Business Consultancy' },
+        { value: '54', label: 'Add New Sub Category' },
+        { value: '55', label: 'Partnership Deed' },
+        { value: '56', label: 'Trust Deed' },
+        { value: '57', label: 'Rent Agreement' },
+        { value: '58', label: 'Business Agreement' },
+        { value: '59', label: 'LLP / Company MOA - AOA' },
+        { value: '60', label: 'Other Agreements' },
+        { value: '61', label: 'Normal DSC' },
+        { value: '62', label: 'DGFT DCS' },
+        { value: '63', label: 'Home Loan' },
+        { value: '64', label: 'Business Loan' },
+        { value: '65', label: 'Machinery Loan' },
+        { value: '66', label: 'Personal Loan' },
+        { value: '67', label: 'MSME Loan' },
+        { value: '68', label: 'PMEGP Loan' },
+        { value: '69', label: 'Loan Against Property' },
+        { value: '70', label: 'Car Loan' },
+        { value: '70', label: 'Other Financial Services' },
         // add more options as needed
     ];
 
@@ -358,6 +359,8 @@ const Tasks = () => {
     const [toggleDesctipton, setToggleDesctipton] = useState<any>([]);
 
 
+    // const [startTime, setStartTime] = useState('');
+    // const [endTime, setEndTime] = useState('');
 
 
     // Get Data
@@ -411,7 +414,7 @@ const Tasks = () => {
             service: (eventData && eventData.service) || '',
             TaskName: (eventData && eventData.TaskName) || '',
             description: (eventData && eventData.description) || '',
-            clientName: (eventData && eventData.clientName) || '',
+            clientname: (eventData && eventData.clientname) || '',
             // img: (eventData && eventData.img) || '',
             // location: (eventData && eventData.location) || '',
             PriorityType: (eventData && eventData.PriorityType) || '',
@@ -425,7 +428,7 @@ const Tasks = () => {
             service: Yup.string().required("Please Enter Service"),
             TaskName: Yup.string().required("Please Enter Task Name"),
             description: Yup.string().required("Please Enter Description"),
-            clientName: Yup.string().required("Please Enter Client Name"),
+            clientname: Yup.string().required("Please Enter Client Name"),
             //   img: Yup.string().required("Please Add Company Image"),
             // location: Yup.string().required("Please Enter Location"),
             PriorityType: Yup.string().required("Please Enter Priority Type"),
@@ -680,11 +683,11 @@ const Tasks = () => {
                             </form>
                         </div>
                         <div className="w-full md:w-auto flex-shrink-0 flex space-x-4">
-                            <button className="bg-white border-dashed text-custom-500 btn border-custom-500 hover:text-custom-500 hover:bg-custom-50 hover:border-custom-600 focus:text-custom-600 focus:bg-custom-50 focus:border-custom-600 active:text-custom-600 active:bg-custom-50 active:border-custom-600 dark:bg-zinc-700 dark:ring-custom-400/20 dark:hover:bg-custom-800/20 dark:focus:bg-custom-800/20 dark:active:bg-custom-800/20" onClick={generateExcel}>
+                            <button className="bg-white   text-[#2a5179] btn   hover:text-[#25476a] hover:bg-custom-50   focus:text-custom-600 focus:bg-custom-50   active:text-[#25476a] active:bg-custom-50   dark:bg-zinc-700 dark:ring-custom-400/20 dark:hover:bg-custom-800/20 dark:focus:bg-custom-800/20 dark:active:bg-custom-800/20" onClick={generateExcel}>
+                                <span className="align-middle">Download</span>
                                 <RiFileExcel2Line className="inline-block size-5" />
-                                {/* <span className="align-middle"></span> */}
                             </button>
-                            <button type="button" className="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20" onClick={toggle}>
+                            <button type="button" className="text-white btn bg-[#25476a] border-[#2a5179] hover:text-white hover:bg-[#2a5179] hover:border-[#2a5179] focus:text-white focus:bg-[#2a5179] focus:border-[#2a5179] focus:ring focus:ring-[#2a5179] active:text-white active:bg-[#25476a] active:border-[#25476a] active:ring active:ring-[#2a5179] dark:ring-[#2a5179]" onClick={toggle}>
                                 <Plus className="inline-block size-4" />
                                 <span className="align-middle">Add Tasks</span>
                             </button>
@@ -761,7 +764,7 @@ const Tasks = () => {
             {/* Notes Modal */}
             <Modal show={show} onHide={toggle} id="defaultModal" modal-center="true"
                 className="fixed flex flex-col transition-all duration-300 ease-in-out left-2/4 z-drawer -translate-x-2/4 -translate-y-2/4"
-                dialogClassName="w-full xl:w-[45rem] bg-white shadow rounded-md dark:bg-zink-600">
+                dialogClassName="w-full xl:w-[50rem] bg-white shadow rounded-md dark:bg-zink-600">
                 <Modal.Header className="flex items-center justify-between p-5 border-b dark:border-zink-500"
                     closeButtonClass="transition-all duration-200 ease-linear text-slate-400 hover:text-red-500">
                     <Modal.Title className="text-16">{!!isEdit ? "Edit Tasks" : "Create Tasks"}</Modal.Title>
@@ -778,7 +781,7 @@ const Tasks = () => {
                         <div id="alert-error-msg" className="hidden px-4 py-3 text-sm text-red-500 border border-transparent rounded-md bg-red-50 dark:bg-red-400/20"></div>
                         <div className="grid grid-cols-1 gap-5 xl:grid-cols-12">
 
-                            <div className="xl:col-span-4">
+                            {/* <div className="xl:col-span-4">
                                 <label htmlFor="notesTitleInput" className="inline-block mb-2 text-base font-medium">Task Name</label>
                                 <input type="text" id="notesTitleInput" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Task Name"
                                     name="TaskName"
@@ -788,32 +791,12 @@ const Tasks = () => {
                                 {validation.touched.TaskName && validation.errors.TaskName ? (
                                     <p className="text-red-400">{validation.errors.TaskName}</p>
                                 ) : null}
-                            </div>
-
-
-                            {/* <h1>{"\u2728"} MultiSelect example</h1> */}
-                            <div className="xl:col-span-4">
-                                <label htmlFor="notesTitleInput" className="inline-block mb-2 text-base font-medium">Assign Team(Assignee/Group)</label>
-                                <MultiSelect
-                                    key="example_id"
-                                    options={optionss}
-                                    onChange={handleChange}
-                                    value={optionSelecteds}
-                                    isSelectAll={true}
-                                    menuPlacement={"bottom"}
-                                />
-                            </div>
-
-                            {/* <div className="xl:col-span-4">
-                                <label htmlFor="notesTitleInput" className="inline-block mb-2 text-base font-medium">Services</label>
-                                <SearchableSelect options={options} onChange={handleOptionChange} />
                             </div> */}
-
-                            {/* service  */}
-                            <div className="xl:col-span-4">
+                             {/* service  */}
+                             <div className="xl:col-span-4">
                                 <label htmlFor="notesTitleInput" className="inline-block mb-2 text-base font-medium">Services</label>
                                 <Select
-                                    className="border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
+                                    className="border-[#25476a] dark:border-[#25476a] focus:outline-none focus:border-[#25476a] disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-[#25476a] placeholder:text-slate-400 dark:placeholder:text-zink-200"
                                     id="choices-single-no-sorting"
                                     name="choices-single-no-sorting"
                                     data-choices data-choices-sorting-false
@@ -838,6 +821,81 @@ const Tasks = () => {
                             </div>
                             {/* sub service end */}
                             <div className="xl:col-span-4">
+                                
+                                <div>
+                                    <label htmlFor="ClientName" className="inline-block mb-2 text-base font-medium">Client Name</label>
+                                    <select className="form-select border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" data-choices data-choices-search-false id="ClientName"
+                                        name="clientname"
+                                        onChange={validation.handleChange}
+                                        value={validation.values.clientname || ""}
+                                    >
+                                        <option value="">Select Client Name</option>
+                                        <option value="#"> #</option>
+                                        <option value="#"> #</option>
+                                        <option value=" #"> #</option>
+
+                                    </select>
+                                    {validation.touched.clientname && validation.errors.clientname ? (
+                                        <p className="text-red-400">{validation.errors.clientname}</p>
+                                    ) : null}
+                                </div>
+                            </div>
+
+                            {/* <h1>{"\u2728"} MultiSelect example</h1> */}
+                            <div className="xl:col-span-4">
+                                <label htmlFor="notesTitleInput" className="inline-block mb-2 text-base font-medium">Assign Team(Assignee/Group)</label>
+                                <MultiSelect
+                                    key="example_id"
+                                    options={optionss}
+                                    onChange={handleChange}
+                                    value={optionSelecteds}
+                                    isSelectAll={true}
+                                    menuPlacement={"bottom"}
+                                />
+                            </div>
+
+                            {/* <div className="xl:col-span-4">
+                                <label htmlFor="notesTitleInput" className="inline-block mb-2 text-base font-medium">Services</label>
+                                <SearchableSelect options={options} onChange={handleOptionChange} />
+                            </div> */}
+
+                           
+                            {/* <div className="xl:col-span-4">
+                            <label htmlFor="DateandTimeInput" className="inline-block mb-2 text-base font-medium">Deadline</label>
+                                <Flatpickr
+                                    options={{
+                                        enableTime: true,
+                                        dateFormat: "d.m.y H:i",
+                                    }}
+                                    placeholder="Select date-time"
+                                    className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
+                                />
+                            </div> */}
+                            <div className="xl:col-span-4">
+                                <label htmlFor="notesTitleInput" className="inline-block mb-2 text-base font-medium">Deadline Time</label>
+                                <Flatpickr
+                                    options={{
+                                        enableTime: true,
+                                        noCalendar: true,
+                                        dateFormat: "H:i",
+                                        time_24hr: true
+                                    }}
+                                    placeholder="Select Time"
+                                    className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
+                                />
+                            </div>
+                            <div className="xl:col-span-4">
+                                <label htmlFor="notesTitleInput" className="inline-block mb-2 text-base font-medium">Deadline Date</label>
+                                <Flatpickr
+                                    options={{
+                                        dateFormat: "d M, Y",
+                                    }}
+                                    placeholder="Select Date"
+                                    className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
+                                />
+                            </div>
+
+                            <div className="xl:col-span-4">
                                 <label htmlFor="dueDateInput" className="inline-block mb-2 text-base font-medium">Due Date</label>
                                 <Flatpickr
                                     id="dueDateInput"
@@ -853,6 +911,28 @@ const Tasks = () => {
                                     <p className="text-red-400">{validation.errors.date}</p>
                                 ) : null}
                             </div>
+
+                            {/* Custom Due Date */}
+                            
+
+                            {/* <div className="xl:col-span-4">
+                                <label htmlFor="dueDateInput" className="inline-block mb-2 text-base font-medium">Custom Due Date</label>
+                                <Flatpickr
+                                    id="dueDateInput"
+                                    className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
+                                    options={{
+                                        dateFormat: "d M, Y"
+                                    }}
+                                    placeholder='Select Custom Due date'
+                                    onChange={(date: any) => validation.setFieldValue("date", moment(date[0]).format("DD MMMM ,YYYY"))}
+                                    value={validation.values.date || ''}
+                                />
+                                {validation.touched.date && validation.errors.date ? (
+                                    <p className="text-red-400">{validation.errors.date}</p>
+                                ) : null}
+                            </div> */}
+
+                            {/* Custom Due Date end */}
                             {/* <div className="xl:col-span-4">
                                 <div>
                                     <label htmlFor="categorySelect" className="inline-block mb-2 text-base font-medium">Client Type</label>
@@ -872,7 +952,7 @@ const Tasks = () => {
                                 </div>
                             </div> */}
 
-                            <div className="xl:col-span-4">
+                            {/* <div className="xl:col-span-4">
                                 <label htmlFor="clientNameInput" className="inline-block mb-2 text-base font-medium">Client Name</label>
                                 <input type="text" id="notesTitleInput" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="clientName"
                                     name="clientName"
@@ -882,7 +962,8 @@ const Tasks = () => {
                                 {validation.touched.clientName && validation.errors.clientName ? (
                                     <p className="text-red-400">{validation.errors.clientName}</p>
                                 ) : null}
-                            </div>
+                            </div> */}
+
                             {/* <div className='xl:col-span-4 '>
 
                                 <label htmlFor="services" className="inline-block mb-2 text-base font-medium">Services</label>
@@ -914,6 +995,34 @@ const Tasks = () => {
                                     ) : null}
                                 </div>
                             </div>
+                            {/* <div className="xl:col-span-4">
+                                <label className="inline-block mb-2 text-base font-medium" htmlFor="start-time">
+                                    Start Time:
+                                </label>
+                                <input
+                                className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
+                                    type="time"
+                                    id="start-time"
+                                    value={startTime}
+                                    onChange={(e) => setStartTime(e.target.value)}
+                                     
+                                />
+                            </div> */}
+                            {/* <div className="xl:col-span-4">
+                                <label className="inline-block mb-2 text-base font-medium" htmlFor="end-time">
+                                    End Time:
+                                </label>
+                                <input
+                                className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
+                                    type="time"
+                                    id="end-time"
+                                    value={endTime}
+                                    onChange={(e) => setEndTime(e.target.value)}
+                                     
+                                />
+                            </div> */}
+
+
                             <div className="xl:col-span-12">
                                 <div>
                                     <label htmlFor="textArea" className="inline-block mb-2 text-base font-medium">Task Description</label>
@@ -933,7 +1042,7 @@ const Tasks = () => {
                         <div className="flex justify-end gap-2 mt-4">
                             <button type="reset" data-modal-close="addNotesModal" className="text-red-500 bg-white btn hover:text-red-500 hover:bg-red-100 focus:text-red-500 focus:bg-red-100 active:text-red-500 active:bg-red-100 dark:bg-zink-600 dark:hover:bg-red-500/10 dark:focus:bg-red-500/10 dark:active:bg-red-500/10"
                                 onClick={toggle}>Cancel</button>
-                            <button type="submit" id="addNew" className="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">
+                            <button type="submit" id="addNew" className="text-white btn bg-[#25476a] border-[#2a5179] hover:text-white hover:bg-[#2a5179] hover:border-[#2a5179] focus:text-white focus:bg-[#2a5179] focus:border-[#2a5179] focus:ring focus:ring-[#2a5179] active:text-white active:bg-[#25476a] active:border-[#25476a] active:ring active:ring-[#2a5179] dark:ring-[#2a5179]">
                                 {!!isEdit ? "Update" : "Add Tasks"}
                             </button>
                         </div>
@@ -944,7 +1053,7 @@ const Tasks = () => {
             {/* bulk task  */}
             {/* show pop uo */}
 
-             
+
             {/* Overview Notes Modal */}
             <Modal show={Overviewshow} onHide={toggleOverview} id="overviewNotesModal" modal-center="true"
                 className="fixed flex flex-col transition-all duration-300 ease-in-out left-2/4 z-drawer -translate-x-2/4 -translate-y-2/4"
@@ -990,9 +1099,7 @@ const Tasks = () => {
                             onClick={toggleOverview}
                         >Cancel</button>
                         <button data-modal-close="overviewNotesModal"
-                            className="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 
-                         focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white
-                          active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20"
+                            className="text-white btn bg-[#25476a] border-[#2a5179] hover:text-white hover:bg-[#2a5179] hover:border-[#2a5179] focus:text-white focus:bg-[#2a5179] focus:border-[#2a5179] focus:ring focus:ring-[#2a5179] active:text-white active:bg-[#25476a] active:border-[#25476a] active:ring active:ring-[#2a5179] dark:ring-[#2a5179]"
                             onClick={() => { handleUpdateDataClick(eventData); setOverview(!Overviewshow); }}
                         >Edit Task</button>
                     </div>

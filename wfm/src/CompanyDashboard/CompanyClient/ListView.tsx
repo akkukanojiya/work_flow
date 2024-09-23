@@ -41,7 +41,7 @@ import filterDataBySearch from 'CompanyDashboard/CompanyCommon/filterDataBySearc
 
 import DropdownTreeSelect from "react-dropdown-tree-select";
 import 'react-dropdown-tree-select/dist/styles.css'
-import datas from './datas.json'
+// import datas from './datas.json'
 
 
 interface Node {
@@ -102,7 +102,7 @@ const CompanyClient = () => {
     };
     // excel file end 
 
-    assignObjectPaths(datas);
+    // assignObjectPaths(datas);
     const dispatch = useDispatch<any>();
 
     const selectDataList = createSelector(
@@ -661,14 +661,14 @@ const CompanyClient = () => {
                             ) : null}
                         </div> */}
 
-                        <div className='mb-3'>
+                        {/* <div className='mb-3'>
                             <label htmlFor="services" className="inline-block mb-2 text-base font-medium">Services</label>
                             <DropdownTreeSelect
                                 data={datas}
                                 onChange={onchange}
                                 className="mdl-demo"
                             />
-                        </div>
+                        </div> */}
                         <div className="mb-3">
                             <label htmlFor="passportNumberInput" className="inline-block mb-2 text-base font-medium">Passport Number</label>
                             <input type="text" id="designationInput" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Passport Number"

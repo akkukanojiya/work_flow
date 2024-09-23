@@ -66,68 +66,126 @@ const MastermenuData: any = [
     
         subItems: [
 
-            {
-                id: "masterdashboard",
-                label: ' Master Dashboard ',
-                icon: <MonitorDot />,
-                link: "/master-dashboard",
-                parentId: 'masterdashboard'
+            // {
+            //     id: "masterdashboard",
+            //     label: ' Master Dashboard ',
+            //     icon: <MonitorDot />,
+            //     link: "/master-dashboard",
+            //     parentId: 'masterdashboard'
                  
-            },
+            // },
             
-            {
-                id: 'company',
-                label: 'Company',
-                icon: <Building2Icon/>,
-                link: '/master-admin-company',
-                parentId: 'masterdashboard'
-            },
-            {
-                id: 'country',
-                label: 'Country',
-                icon: <Globe2Icon/>,
-                link: '/master-admin-country',
-                parentId: 'masterdashboard'
-            },
-            {
-                id: 'state',
-                label: 'State',
-                icon: <LocateFixed />,
-                link: '/master-admin-state',
-                parentId: 'masterdashboard'
-            },
-            {
-                id: 'city',
-                label: 'City',
-                icon: <MapPinned />,
-                link: '/master-admin-city',
-                parentId: 'masterdashboard'
-            },
-            {
-                id: 'service',
-                label: 'Services',
-                icon: <LucideBaggageClaim/> ,
-                link: '/master-admin-services',
-                parentId: 'masterdashboard'
-            },
-            {
-                id: 'subservice',
-                label: ' Sub Services',
-                icon: <GitBranchPlusIcon/> ,
-                link: '/master-admin-subservices',
-                parentId: 'masterdashboard'
-            },
-            {
-                id: 'financialyear',
-                label: 'Financial Year',
-                icon: <IndianRupeeIcon/> ,
-                link: '/master-financial-year',
-                parentId: 'masterdashboard'
-            },
+            // {
+            //     id: 'company',
+            //     label: 'Company',
+            //     icon: <Building2Icon/>,
+            //     link: '/master-admin-company',
+            //     parentId: 'masterdashboard'
+            // },
+            // {
+            //     id: 'country',
+            //     label: 'Country',
+            //     icon: <Globe2Icon/>,
+            //     link: '/master-admin-country',
+            //     parentId: 'masterdashboard'
+            // },
+            // {
+            //     id: 'state',
+            //     label: 'State',
+            //     icon: <LocateFixed />,
+            //     link: '/master-admin-state',
+            //     parentId: 'masterdashboard'
+            // },
+            // {
+            //     id: 'city',
+            //     label: 'City',
+            //     icon: <MapPinned />,
+            //     link: '/master-admin-city',
+            //     parentId: 'masterdashboard'
+            // },
+            // {
+            //     id: 'service',
+            //     label: 'Services',
+            //     icon: <LucideBaggageClaim/> ,
+            //     link: '/master-admin-services',
+            //     parentId: 'masterdashboard'
+            // },
+            // {
+            //     id: 'subservice',
+            //     label: ' Sub Services',
+            //     icon: <GitBranchPlusIcon/> ,
+            //     link: '/master-admin-subservices',
+            //     parentId: 'masterdashboard'
+            // },
+            // {
+            //     id: 'financialyear',
+            //     label: 'Financial Year',
+            //     icon: <IndianRupeeIcon/> ,
+            //     link: '/master-financial-year',
+            //     parentId: 'masterdashboard'
+            // },
             
         ]
         
     },
+    {
+        id: "masterdashboard",
+        label: ' Master Dashboard ',
+        icon: <MonitorDot />,
+        link: "/master-dashboard",
+        parentId: 'masterdashboard'
+         
+    },
+    {
+        id: 'company',
+        label: 'Company',
+        icon: <Building2Icon/>,
+        link: '/master-admin-company',
+        parentId: 'masterdashboard'
+    },
+    {
+        id: 'country',
+        label: 'Country',
+        icon: <Globe2Icon/>,
+        link: '/master-admin-country',
+        parentId: 'masterdashboard'
+    },
+    {
+        id: 'state',
+        label: 'State',
+        icon: <LocateFixed />,
+        link: '/master-admin-state',
+        parentId: 'masterdashboard'
+    },
+    {
+        id: 'city',
+        label: 'City',
+        icon: <MapPinned />,
+        link: '/master-admin-city',
+        parentId: 'masterdashboard'
+    },
+    {
+        id: 'service',
+        label: 'Services',
+        icon: <LucideBaggageClaim/> ,
+        link: '/master-admin-services',
+        parentId: 'masterdashboard'
+    },
+    {
+        id: 'subservice',
+        label: ' Sub Services',
+        icon: <GitBranchPlusIcon/> ,
+        link: '/master-admin-subservices',
+        parentId: 'masterdashboard'
+    },
+    {
+        id: 'financialyear',
+        label: 'Financial Year',
+        icon: <IndianRupeeIcon/> ,
+        link: '/master-financial-year',
+        parentId: 'masterdashboard'
+    },
+    
     // {
     //     id: 'Client',
     //     label: 'Client',

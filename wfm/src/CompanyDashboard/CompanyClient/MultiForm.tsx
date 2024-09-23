@@ -70,14 +70,14 @@ const options = [
 
 // ];
 
-const MultipleOptions: Option[] = [
-  { label: "Director  ", value: "Director" },
-  { label: "Partner  ", value: "Partner" },
-  { label: "Trustee ", value: "Trustee" },
-  { label: "Member  ", value: "Member" },
-  { label: "Manager ", value: "Manager" },
-  { label: "Other  ", value: "Other" }
-];
+// const MultipleOptions: Option[] = [
+//   { label: "Director  ", value: "Director" },
+//   { label: "Partner  ", value: "Partner" },
+//   { label: "Trustee ", value: "Trustee" },
+//   { label: "Member  ", value: "Member" },
+//   { label: "Manager ", value: "Manager" },
+//   { label: "Other  ", value: "Other" }
+// ];
 // add more options as needed
 
 
@@ -97,7 +97,19 @@ interface FormField {
   designation: any; // Update this with appropriate type based on SearchableSelect options
 }
 const Form1 = ({ onSubmit }: { onSubmit: (data: any) => void }) => {
+  // dasignation 
 
+  const Designation: Option[] = [
+    { label: "Director  ", value: "Director" },
+    { label: "Partner  ", value: "Partner" },
+    { label: "Trustee ", value: "Trustee" },
+    { label: "Member  ", value: "Member" },
+    { label: "Manager ", value: "Manager" },
+    { label: "Other  ", value: "Other" }
+
+    // add more options as needed
+  ];
+  // dasignation 
   // external data 
   const genderSelect = [
     { value: '', label: 'Select Gender' },
@@ -411,29 +423,16 @@ const Form1 = ({ onSubmit }: { onSubmit: (data: any) => void }) => {
                           />
                         </div>
                         {/* dasignation  */}
-
-                        {/* <div className="lg:w-3/7 md:w-4/7 w-5/6">
-                          <label htmlFor="designation" className="inline-block mb-2 text-base font-medium">Designation</label>
-                          <SearchableSelect 
-                           options={option} onChange={handleOptionChange} />
-                        </div> */}
-
-
-
                         <div className="lg:w-3/7 md:w-4/7 w-5/6">
-                           
-                          <label htmlFor="designation" className="inline-block mb-2 text-base font-medium">Designation</label>
-                            {/* <h6 className="mb-1 text-15">Default Multiple Select</h6> */}
-                            {/* <p className="mb-4 text-slate-500 dark:text-zink-200">Set <code className="text-xs text-pink-500 select-all">data-choices multiple</code> attribute.</p> */}
-                            <Select
-                              className="border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
-                              id="designation"
-                              data-choices name="designation"
-                              // defaultValue={[MultipleOptions[0]]}
-                              isMulti
-                              options={MultipleOptions}
-                            />
-                          
+                          <label htmlFor="Designation" className="inline-block mb-2 text-base font-medium">Designation</label>
+                          <Select
+                            className="border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
+                            id="choices-single-no-sorting"
+                            name="choices-single-no-sorting"
+                            data-choices data-choices-sorting-false
+                            options={Designation}
+                          />
+
                         </div>
                         {/* dasignation end */}
 
@@ -487,7 +486,7 @@ const Form1 = ({ onSubmit }: { onSubmit: (data: any) => void }) => {
 
                 <div className="flex justify-end gap-2 mt-4">
                   <button type="reset" className="text-red-500 bg-white btn hover:text-red-500 hover:bg-red-100 focus:text-red-500 focus:bg-red-100 active:text-red-500 active:bg-red-100 dark:bg-zink-700 dark:hover:bg-red-500/10 dark:focus:bg-red-500/10 dark:active:bg-red-500/10">Reset</button>
-                  <button type="submit" className="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">Create Company</button>
+                  <button type="submit" className="text-white btn bg-[#25476a] border-[#2a5179] hover:text-white hover:bg-[#2a5179] hover:border-[#2a5179] focus:text-white focus:bg-[#2a5179] focus:border-[#2a5179] focus:ring focus:ring-[#2a5179] active:text-white active:bg-[#25476a] active:border-[#25476a] active:ring active:ring-[#2a5179] dark:ring-[#2a5179]">Create Company</button>
 
                 </div>
               </form>
@@ -516,6 +515,11 @@ const Form1 = ({ onSubmit }: { onSubmit: (data: any) => void }) => {
   );
 };
 
+
+
+//  darg and drop 
+import Dropzone from "react-dropzone"
+import { UploadCloud } from "lucide-react";
 const Form2 = ({ onSubmit }: { onSubmit: (data: any) => void }) => {
   const [fieldA, setFieldA] = useState('');
   const [fieldB, setFieldB] = useState('');
@@ -535,43 +539,31 @@ const Form2 = ({ onSubmit }: { onSubmit: (data: any) => void }) => {
   //   setFile(file[0]);
   // };
 
+
   // drag&drop 
-  const [files, setFiles] = useState<File[]>([]);
-  const [uploadProgress, setUploadProgress] = useState<{ [key: string]: number }>({});
+  const [selectedFiles, setSelectedFiles] = React.useState<any>([])
 
-  const handleFileDrop = (droppedFiles: FileList) => {
-    const newFiles = Array.from(droppedFiles);
-    setFiles((prevFiles) => [...prevFiles, ...newFiles]);
-    newFiles.forEach((file) => uploadFile(file));
-  };
+  const handleAcceptedFiles = (files: any) => {
+    files.map((file: any) =>
+      Object.assign(file, {
+        preview: URL.createObjectURL(file),
+        formattedSize: formatBytes(file.size),
+      })
+    )
+    setSelectedFiles(files)
+  }
+  const formatBytes = (bytes: any, decimals = 2) => {
+    if (bytes === 0) return "0 Bytes"
+    const k = 1024
+    const dm = decimals < 0 ? 0 : decimals
+    const sizes = ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"]
 
-  const uploadFile = (file: File) => {
-    const xhr = new XMLHttpRequest();
-    xhr.open('POST', 'YOUR_UPLOAD_URL_HERE'); // Replace with your actual upload URL
-
-    xhr.upload.onprogress = (event) => {
-      if (event.lengthComputable) {
-        const progress = (event.loaded / event.total) * 100;
-        setUploadProgress((prevProgress) => ({
-          ...prevProgress,
-          [file.name]: progress,
-        }));
-      }
-    };
-
-    xhr.onload = () => {
-      if (xhr.status === 200) {
-        console.log(`${file.name} uploaded successfully`);
-      } else {
-        console.error(`Failed to upload ${file.name}`);
-      }
-    };
-
-    const formData = new FormData();
-    formData.append('file', file);
-    xhr.send(formData);
-  };
+    const i = Math.floor(Math.log(bytes) / Math.log(k))
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + " " + sizes[i]
+  }
   // drag&drop end
+
+
   return (
 
     <React.Fragment>
@@ -718,32 +710,68 @@ const Form2 = ({ onSubmit }: { onSubmit: (data: any) => void }) => {
 
                   </div>
                   {/* drag&drop  */}
-                  <div className="xl:col-span-6 mb-3">
-                    <label htmlFor="typeOfBussinassSelect" className="inline-block mb-2 text-base font-medium">Drag & Drop File</label>
-                    <FileDrop onFileDrop={handleFileDrop} onUploadProgress={(progress) => setUploadProgress(progress)} />
-                    {files.length > 0 && (
-                      <div className="mt-6">
-                        <h2 className="text-2xl font-semibold mb-4">Dropped Files</h2>
-                        <ul className="list-disc pl-5">
-                          {files.map((file, index) => (
-                            <li key={index} className="text-lg mb-2">
-                              {file.name} ({file.type})
-                              {uploadProgress[file.name] !== undefined && (
-                                <div className="mt-1">
-                                  <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-                                    <div
-                                      className="bg-blue-600 h-2.5 rounded-full"
-                                      style={{ width: `${uploadProgress[file.name]}%` }}
-                                    ></div>
+                  <div className="xl:col-span-6">
+
+                  <label htmlFor="Dropzone" className="inline-block mb-2 text-base font-medium">Dropzone</label>
+                    <div className="flex items-center justify-center border rounded-md cursor-pointer bg-slate-100 dropzone border-slate-200 dark:bg-zink-600 dark:border-zink-500 dz-clickable">
+
+                      <Dropzone
+                        onDrop={(acceptedFiles: any) => {
+                          handleAcceptedFiles(acceptedFiles)
+                        }}
+                      >
+                        {({ getRootProps, getInputProps }: any) => (
+                          <div
+                            className="w-full py-5 text-lg text-center dz-message needsclick"
+                            {...getRootProps()}
+                          >
+                            <input {...getInputProps()} />
+                            <div className="mb-3">
+                              <UploadCloud className="block size-12 mx-auto text-slate-500 fill-slate-200 dark:text-zink-200 dark:fill-zink-500"></UploadCloud>
+                            </div>
+
+                            <h5 className="mb-0 font-normal text-slate-500 text-15">Drag and drop your files or <a href="#!">browse</a> your files</h5>
+                          </div>
+                        )}
+                      </Dropzone>
+                    </div>
+
+                    <ul className="mb-0" id="dropzone-preview">
+                      {
+                        (selectedFiles || [])?.map((f: any, i: any) => {
+                          return (
+                            <li className="mt-2" id="dropzone-preview-list" key={i + "-file"}>
+                              <div className="border rounded border-slate-200 dark:border-zink-500">
+                                <div className="flex p-2">
+                                  <div className="shrink-0 me-3">
+                                    <div className="p-2 rounded-md size-14 bg-slate-100 dark:bg-zink-600">
+                                      <img data-dz-thumbnail className="block w-full h-full rounded-md" src={f.preview} alt={f.name} />
+                                    </div>
                                   </div>
-                                  <span className="text-sm">{uploadProgress[file.name].toFixed(2)}%</span>
+                                  <div className="grow">
+                                    <div className="pt-1">
+                                      <h5 className="mb-1 text-15" data-dz-name>{f.name}</h5>
+                                      <p className="mb-0 text-slate-500 dark:text-zink-200" data-dz-size>{f.formattedSize}</p>
+                                    </div>
+                                  </div>
+                                  <div className="shrink-0 ms-3">
+                                    <button data-dz-remove
+                                      className="px-2 py-1.5 text-xs text-white bg-red-500 border-red-500 btn hover:text-white hover:bg-red-600 hover:border-red-600 focus:text-white focus:bg-red-600 focus:border-red-600 focus:ring focus:ring-red-100 active:text-white active:bg-red-600 active:border-red-600 active:ring active:ring-red-100 dark:ring-custom-400/20"
+                                      onClick={() => {
+                                        const newImages = [...selectedFiles];
+                                        newImages.splice(i, 1);
+                                        setSelectedFiles(newImages);
+                                      }}
+                                    >Delete</button>
+                                  </div>
                                 </div>
-                              )}
+                              </div>
                             </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
+                          )
+                        })
+                      }
+                    </ul>
+
                   </div>
                   {/* drag&drop end */}
 
@@ -774,11 +802,9 @@ const Form2 = ({ onSubmit }: { onSubmit: (data: any) => void }) => {
 
                 <div className="flex justify-end gap-2 mt-4">
                   <button type="reset" className="text-red-500 bg-white btn hover:text-red-500 hover:bg-red-100 focus:text-red-500 focus:bg-red-100 active:text-red-500 active:bg-red-100 dark:bg-zink-700 dark:hover:bg-red-500/10 dark:focus:bg-red-500/10 dark:active:bg-red-500/10">Reset</button>
-                  <button type="submit" className="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">Create Individual  Client</button>
+                  <button type="submit" className="text-white btn bg-[#25476a] border-[#2a5179] hover:text-white hover:bg-[#2a5179] hover:border-[#2a5179] focus:text-white focus:bg-[#2a5179] focus:border-[#2a5179] focus:ring focus:ring-[#2a5179] active:text-white active:bg-[#25476a] active:border-[#25476a] active:ring active:ring-[#2a5179] dark:ring-[#2a5179]">Create Individual  Client</button>
 
                 </div>
-
-
               </form>
             </div>
           </div>
@@ -1006,7 +1032,7 @@ const Form3 = ({ onSubmit }: { onSubmit: (data: any) => void }) => {
 
                 <div className="flex justify-end gap-2 mt-4">
                   <button type="reset" className="text-red-500 bg-white btn hover:text-red-500 hover:bg-red-100 focus:text-red-500 focus:bg-red-100 active:text-red-500 active:bg-red-100 dark:bg-zink-700 dark:hover:bg-red-500/10 dark:focus:bg-red-500/10 dark:active:bg-red-500/10">Reset</button>
-                  <button type="submit" className="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">Create Proprietor</button>
+                  <button type="submit" className="text-white btn bg-[#25476a] border-[#2a5179] hover:text-white hover:bg-[#2a5179] hover:border-[#2a5179] focus:text-white focus:bg-[#2a5179] focus:border-[#2a5179] focus:ring focus:ring-[#2a5179] active:text-white active:bg-[#25476a] active:border-[#25476a] active:ring active:ring-[#2a5179] dark:ring-[#2a5179]">Create Proprietor</button>
 
                 </div>
 
@@ -1180,7 +1206,7 @@ const Form4 = ({ onSubmit }: { onSubmit: (data: any) => void }) => {
 
                 <div className="flex justify-end gap-2 mt-4">
                   <button type="reset" className="text-red-500 bg-white btn hover:text-red-500 hover:bg-red-100 focus:text-red-500 focus:bg-red-100 active:text-red-500 active:bg-red-100 dark:bg-zink-700 dark:hover:bg-red-500/10 dark:focus:bg-red-500/10 dark:active:bg-red-500/10">Reset</button>
-                  <button type="submit" className="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">Create  Partnership</button>
+                  <button type="submit" className="text-white btn bg-[#25476a] border-[#2a5179] hover:text-white hover:bg-[#2a5179] hover:border-[#2a5179] focus:text-white focus:bg-[#2a5179] focus:border-[#2a5179] focus:ring focus:ring-[#2a5179] active:text-white active:bg-[#25476a] active:border-[#25476a] active:ring active:ring-[#2a5179] dark:ring-[#2a5179]">Create  Partnership</button>
 
                 </div>
 
@@ -1435,7 +1461,7 @@ const Form5 = ({ onSubmit }: { onSubmit: (data: any) => void }) => {
 
                 <div className="flex justify-end gap-2 mt-4">
                   <button type="reset" className="text-red-500 bg-white btn hover:text-red-500 hover:bg-red-100 focus:text-red-500 focus:bg-red-100 active:text-red-500 active:bg-red-100 dark:bg-zink-700 dark:hover:bg-red-500/10 dark:focus:bg-red-500/10 dark:active:bg-red-500/10">Reset</button>
-                  <button type="submit" className="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">Create Trust/AOP</button>
+                  <button type="submit" className="text-white btn bg-[#25476a] border-[#2a5179] hover:text-white hover:bg-[#2a5179] hover:border-[#2a5179] focus:text-white focus:bg-[#2a5179] focus:border-[#2a5179] focus:ring focus:ring-[#2a5179] active:text-white active:bg-[#25476a] active:border-[#25476a] active:ring active:ring-[#2a5179] dark:ring-[#2a5179]">Create Trust/AOP</button>
 
                 </div>
 
@@ -1680,7 +1706,7 @@ const Form6 = ({ onSubmit }: { onSubmit: (data: any) => void }) => {
 
                 <div className="flex justify-end gap-2 mt-4">
                   <button type="reset" className="text-red-500 bg-white btn hover:text-red-500 hover:bg-red-100 focus:text-red-500 focus:bg-red-100 active:text-red-500 active:bg-red-100 dark:bg-zink-700 dark:hover:bg-red-500/10 dark:focus:bg-red-500/10 dark:active:bg-red-500/10">Reset</button>
-                  <button type="submit" className="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">Create Society</button>
+                  <button type="submit" className="text-white btn bg-[#25476a] border-[#2a5179] hover:text-white hover:bg-[#2a5179] hover:border-[#2a5179] focus:text-white focus:bg-[#2a5179] focus:border-[#2a5179] focus:ring focus:ring-[#2a5179] active:text-white active:bg-[#25476a] active:border-[#25476a] active:ring active:ring-[#2a5179] dark:ring-[#2a5179]">Create Society</button>
 
                 </div>
 

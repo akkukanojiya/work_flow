@@ -11,7 +11,7 @@ import Select from 'react-select';
 
 //  darg and drop 
 import Dropzone from "react-dropzone"
-import { UploadCloud } from "lucide-react";
+import { EyeIcon, Pencil, UploadCloud } from "lucide-react";
 
 // Icons
 import { Search, Eye, Trash2, Plus, MoreHorizontal, FileEdit, CheckCircle, Loader, X, Download, } from 'lucide-react';
@@ -43,7 +43,16 @@ import * as XLSX from 'xlsx';
 import { RiFileExcel2Line } from 'react-icons/ri';
 const EmployeeListView = () => {
 
+    //    shift change 
+    const [selectedShift, setSelectedShift] = useState('');
+    const [showTimeInputs, setShowTimeInputs] = useState(false);
 
+    const handleShiftChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        const shift = event.target.value;
+        setSelectedShift(shift);
+        setShowTimeInputs(shift !== '');
+    };
+    //    shift change end
 
     // excel file 
 
@@ -254,39 +263,39 @@ const EmployeeListView = () => {
     };
 
     const columns = useMemo(() => [
-        {
-            header: (
-                <div className="flex items-center h-full">
-                    <input id="CheckboxAll" className="size-4 bg-white border border-slate-200 checked:bg-none dark:bg-zink-700 dark:border-zink-500 rounded-sm appearance-none arrow-none relative after:absolute after:content-['\eb7b'] after:top-0 after:left-0 after:font-remix after:leading-none after:opacity-0 checked:after:opacity-100 after:text-custom-500 checked:border-custom-500 dark:after:text-custom-500 dark:checked:border-custom-800 cursor-pointer" type="checkbox" />
-                </div>
-            ),
-            enableSorting: false,
-            id: "checkAll",
-            cell: (cell: any) => {
-                return (
-                    <div className="flex items-center h-full">
-                        <input id="Checkbox1" className="size-4 bg-white border border-slate-200 checked:bg-none dark:bg-zink-700 dark:border-zink-500 rounded-sm appearance-none arrow-none relative after:absolute after:content-['\eb7b'] after:top-0 after:left-0 after:font-remix after:leading-none after:opacity-0 checked:after:opacity-100 after:text-custom-500 checked:border-custom-500 dark:after:text-custom-500 dark:checked:border-custom-800 cursor-pointer" type="checkbox" />
-                    </div>
-                );
-            }
-        },
-        {
-            header: "Employee ID",
-            accessorKey: "employeeId",
-            enableColumnFilter: false,
-            cell: (cell: any) => (
-                <Link to="#!" className="transition-all duration-150 ease-linear text-custom-500 hover:text-custom-600 user-id">{cell.getValue()}</Link>
-            ),
-        },
+        // {
+        //     header: (
+        //         <div className="flex items-center h-full">
+        //             <input id="CheckboxAll" className="size-4 bg-white border border-slate-200 checked:bg-none dark:bg-zink-700 dark:border-zink-500 rounded-sm appearance-none arrow-none relative after:absolute after:content-['\eb7b'] after:top-0 after:left-0 after:font-remix after:leading-none after:opacity-0 checked:after:opacity-100 after:text-custom-500 checked:border-custom-500 dark:after:text-custom-500 dark:checked:border-custom-800 cursor-pointer" type="checkbox" />
+        //         </div>
+        //     ),
+        //     enableSorting: false,
+        //     id: "checkAll",
+        //     cell: (cell: any) => {
+        //         return (
+        //             <div className="flex items-center h-full">
+        //                 <input id="Checkbox1" className="size-4 bg-white border border-slate-200 checked:bg-none dark:bg-zink-700 dark:border-zink-500 rounded-sm appearance-none arrow-none relative after:absolute after:content-['\eb7b'] after:top-0 after:left-0 after:font-remix after:leading-none after:opacity-0 checked:after:opacity-100 after:text-custom-500 checked:border-custom-500 dark:after:text-custom-500 dark:checked:border-custom-800 cursor-pointer" type="checkbox" />
+        //             </div>
+        //         );
+        //     }
+        // },
+        // {
+        //     header: "Employee ID",
+        //     accessorKey: "employeeId",
+        //     enableColumnFilter: false,
+        //     cell: (cell: any) => (
+        //         <Link to="#!" className="transition-all duration-150 ease-linear text-custom-500 hover:text-custom-600 user-id">{cell.getValue()}</Link>
+        //     ),
+        // },
         {
             header: "Name",
             accessorKey: "name",
             enableColumnFilter: false,
             cell: (cell: any) => (
                 <div className="flex items-center gap-2">
-                    <div className="flex items-center justify-center size-10 font-medium rounded-full shrink-0 bg-slate-200 text-slate-800 dark:text-zink-50 dark:bg-zink-600">
+                    {/* <div className="flex items-center justify-center size-10 font-medium rounded-full shrink-0 bg-slate-200 text-slate-800 dark:text-zink-50 dark:bg-zink-600">
                         {cell.row.original.img ? <img src={cell.row.original.img} alt="" className="h-10 rounded-full" /> : (cell.getValue().split(' ').map((word: any) => word.charAt(0)).join(''))}
-                    </div>
+                    </div> */}
                     <div className="grow">
                         <h6 className="mb-1"><Link to="#!" className="name">{cell.getValue()}</Link></h6>
                         <p className="text-slate-500 dark:text-zink-200">{cell.row.original.designation}</p>
@@ -328,30 +337,42 @@ const EmployeeListView = () => {
             enableColumnFilter: false,
             enableSorting: true,
             cell: (cell: any) => (
-                <Dropdown className="relative">
-                    <Dropdown.Trigger className="flex items-center justify-center size-[30px] p-0 text-slate-500 btn bg-slate-100 hover:text-white hover:bg-slate-600 focus:text-white focus:bg-slate-600 focus:ring focus:ring-slate-100 active:text-white active:bg-slate-600 active:ring active:ring-slate-100 dark:bg-slate-500/20 dark:text-slate-400 dark:hover:bg-slate-500 dark:hover:text-white dark:focus:bg-slate-500 dark:focus:text-white dark:active:bg-slate-500 dark:active:text-white dark:ring-slate-400/20" id="usersAction1">
-                        <MoreHorizontal className="size-3" />
-                    </Dropdown.Trigger>
-                    <Dropdown.Content placement="right-end" className="absolute z-50 py-2 mt-1 ltr:text-left rtl:text-right list-none bg-white rounded-md shadow-md min-w-[10rem] dark:bg-zink-600" aria-labelledby="usersAction1">
-                        <li>
-                            <Link className="block px-4 py-1.5 text-base transition-all duration-200 ease-linear text-slate-600 hover:bg-slate-100 hover:text-slate-500 focus:bg-slate-100 focus:text-slate-500 dark:text-zink-100 dark:hover:bg-zink-500 dark:hover:text-zink-200 dark:focus:bg-zink-500 dark:focus:text-zink-200" to="/pages-account"><Eye className="inline-block size-3 ltr:mr-1 rtl:ml-1" /> <span className="align-middle">Overview</span></Link>
-                        </li>
-                        <li>
-                            <Link data-modal-target="addUserModal" className="block px-4 py-1.5 text-base transition-all duration-200 ease-linear text-slate-600 hover:bg-slate-100 hover:text-slate-500 focus:bg-slate-100 focus:text-slate-500 dark:text-zink-100 dark:hover:bg-zink-500 dark:hover:text-zink-200 dark:focus:bg-zink-500 dark:focus:text-zink-200" to="#!"
-                                onClick={() => {
-                                    const data = cell.row.original;
-                                    handleUpdateDataClick(data);
-                                }}>
-                                <FileEdit className="inline-block size-3 ltr:mr-1 rtl:ml-1" /> <span className="align-middle">Edit</span></Link>
-                        </li>
-                        <li>
-                            <Link className="block px-4 py-1.5 text-base transition-all duration-200 ease-linear text-slate-600 hover:bg-slate-100 hover:text-slate-500 focus:bg-slate-100 focus:text-slate-500 dark:text-zink-100 dark:hover:bg-zink-500 dark:hover:text-zink-200 dark:focus:bg-zink-500 dark:focus:text-zink-200" to="#!" onClick={() => {
-                                const orderData = cell.row.original;
-                                onClickDelete(orderData);
-                            }}><Trash2 className="inline-block size-3 ltr:mr-1 rtl:ml-1" /> <span className="align-middle">Delete</span></Link>
-                        </li>
-                    </Dropdown.Content>
-                </Dropdown>
+                // <Dropdown className="relative">
+                //     <Dropdown.Trigger className="flex items-center justify-center size-[30px] p-0 text-slate-500 btn bg-slate-100 hover:text-white hover:bg-slate-600 focus:text-white focus:bg-slate-600 focus:ring focus:ring-slate-100 active:text-white active:bg-slate-600 active:ring active:ring-slate-100 dark:bg-slate-500/20 dark:text-slate-400 dark:hover:bg-slate-500 dark:hover:text-white dark:focus:bg-slate-500 dark:focus:text-white dark:active:bg-slate-500 dark:active:text-white dark:ring-slate-400/20" id="usersAction1">
+                //         <MoreHorizontal className="size-3" />
+                //     </Dropdown.Trigger>
+                //     <Dropdown.Content placement="right-end" className="absolute z-50 py-2 mt-1 ltr:text-left rtl:text-right list-none bg-white rounded-md shadow-md min-w-[10rem] dark:bg-zink-600" aria-labelledby="usersAction1">
+                //         <li>
+                //             <Link className="block px-4 py-1.5 text-base transition-all duration-200 ease-linear text-slate-600 hover:bg-slate-100 hover:text-slate-500 focus:bg-slate-100 focus:text-slate-500 dark:text-zink-100 dark:hover:bg-zink-500 dark:hover:text-zink-200 dark:focus:bg-zink-500 dark:focus:text-zink-200" to="/pages-account"><Eye className="inline-block size-3 ltr:mr-1 rtl:ml-1" /> <span className="align-middle">Overview</span></Link>
+                //         </li>
+                //         <li>
+                //             <Link data-modal-target="addUserModal" className="block px-4 py-1.5 text-base transition-all duration-200 ease-linear text-slate-600 hover:bg-slate-100 hover:text-slate-500 focus:bg-slate-100 focus:text-slate-500 dark:text-zink-100 dark:hover:bg-zink-500 dark:hover:text-zink-200 dark:focus:bg-zink-500 dark:focus:text-zink-200" to="#!"
+                //                 onClick={() => {
+                //                     const data = cell.row.original;
+                //                     handleUpdateDataClick(data);
+                //                 }}>
+                //                 <FileEdit className="inline-block size-3 ltr:mr-1 rtl:ml-1" /> <span className="align-middle">Edit</span></Link>
+                //         </li>
+                //         <li>
+                //             <Link className="block px-4 py-1.5 text-base transition-all duration-200 ease-linear text-slate-600 hover:bg-slate-100 hover:text-slate-500 focus:bg-slate-100 focus:text-slate-500 dark:text-zink-100 dark:hover:bg-zink-500 dark:hover:text-zink-200 dark:focus:bg-zink-500 dark:focus:text-zink-200" to="#!" onClick={() => {
+                //                 const orderData = cell.row.original;
+                //                 onClickDelete(orderData);
+                //             }}><Trash2 className="inline-block size-3 ltr:mr-1 rtl:ml-1" /> <span className="align-middle">Delete</span></Link>
+                //         </li>
+                //     </Dropdown.Content>
+                // </Dropdown>
+                <div className="flex gap-2">
+                    <Link to="#" className="flex items-center justify-center size-8 transition-all duration-200 ease-linear rounded-md bg-slate-100 dark:bg-zink-600 dark:text-zink-200 text-slate-500 hover:text-green-500 dark:hover:text-green-500 hover:bg-green-100 dark:hover:bg-green-500/20"><EyeIcon className="size-4" /></Link>
+                    <Link to="#" className="flex items-center justify-center size-8 transition-all duration-200 ease-linear rounded-md bg-slate-100 dark:bg-zink-600 dark:text-zink-200 text-slate-500 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-100 dark:hover:bg-custom-500/20" onClick={() => {
+                        const data = cell.row.original;
+                        handleUpdateDataClick(data);
+                    }} ><Pencil className="size-4" /></Link>
+                    <Link to="#" className="flex items-center justify-center size-8 transition-all duration-200 ease-linear rounded-md bg-slate-100 dark:bg-zink-600 dark:text-zink-200 text-slate-500 hover:text-red-500 dark:hover:text-red-500 hover:bg-red-100 dark:hover:bg-red-500/20" onClick={() => {
+                        const data = cell.row.original;
+                        onClickDelete(data);
+                    }}><Trash2 className="size-4" /></Link>
+
+                </div>
             ),
         }
     ], []
@@ -413,7 +434,7 @@ const EmployeeListView = () => {
                     <div className="card" id="usersTable">
                         <div className="card-body">
                             <div className="flex flex-col md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-4">
-                                <div className="w-full md:w-3/4 py-2.1 card-body border-y border-dashed border-slate-200 dark:border-zinc-500">
+                                <div className="w-full md:w-3/4 py-2.1 card-body  ">
                                     <form action="#!">
                                         <div className="grid grid-cols-1 gap-5 xl:grid-cols-12">
                                             <div className="relative xl:col-span-3">
@@ -444,11 +465,11 @@ const EmployeeListView = () => {
 
                                 {/* <h6 className="text-15 grow">Company List</h6> */}
                                 <div className="w-full md:w-auto flex-shrink-0 flex space-x-4">
-                                    <button className="bg-white border-dashed text-custom-500 btn border-custom-500 hover:text-custom-500 hover:bg-custom-50 hover:border-custom-600 focus:text-custom-600 focus:bg-custom-50 focus:border-custom-600 active:text-custom-600 active:bg-custom-50 active:border-custom-600 dark:bg-zinc-700 dark:ring-custom-400/20 dark:hover:bg-custom-800/20 dark:focus:bg-custom-800/20 dark:active:bg-custom-800/20" onClick={generateExcel}>
+                                    <button className="bg-white   text-[#2a5179] btn   hover:text-[#25476a] hover:bg-custom-50   focus:text-custom-600 focus:bg-custom-50   active:text-[#25476a] active:bg-custom-50   dark:bg-zinc-700 dark:ring-custom-400/20 dark:hover:bg-custom-800/20 dark:focus:bg-custom-800/20 dark:active:bg-custom-800/20" onClick={generateExcel}>
+                                        <span className="align-middle">Download</span>
                                         <RiFileExcel2Line className="inline-block size-5" />
-                                        {/* <span className="align-middle">Download Excel</span> */}
                                     </button>
-                                    <button type="button" className="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20" onClick={toggle}><Plus className="inline-block size-4" /> <span className="align-middle">Add Employee</span></button>
+                                    <button type="button" className="text-white btn bg-[#25476a] border-[#2a5179] hover:text-white hover:bg-[#2a5179] hover:border-[#2a5179] focus:text-white focus:bg-[#2a5179] focus:border-[#2a5179] focus:ring focus:ring-[#2a5179] active:text-white active:bg-[#25476a] active:border-[#25476a] active:ring active:ring-[#2a5179] dark:ring-[#2a5179]" onClick={toggle}><Plus className="inline-block size-4" /> <span className="align-middle">Add Employee</span></button>
                                 </div>
                             </div>
                         </div>
@@ -462,7 +483,7 @@ const EmployeeListView = () => {
                                     customPageSize={10}
                                     divclassName="-mx-5 -mb-5 overflow-x-auto"
                                     tableclassName="w-full border-separate table-custom border-spacing-y-1 whitespace-nowrap"
-                                    theadclassName="text-left relative rounded-md bg-slate-100 dark:bg-zink-600 after:absolute ltr:after:border-l-2 rtl:after:border-r-2 ltr:after:left-0 rtl:after:right-0 after:top-0 after:bottom-0 after:border-transparent [&.active]:after:border-custom-500 [&.active]:bg-slate-100 dark:[&.active]:bg-zink-600"
+                                    theadclassName="text-left relative rounded-md bg-[#25476a] text-[#fff] after:absolute ltr:after:border-l-2 rtl:after:border-r-2 ltr:after:left-0 rtl:after:right-0 after:top-0 after:bottom-0 after:border-transparent [&.active]:after:border-custom-500 [&.active]:bg-slate-100 dark:[&.active]:bg-zink-600"
                                     thclassName="px-3.5 py-2.5 first:pl-5 last:pr-5 font-semibold"
                                     tdclassName="px-3.5 py-2.5 first:pl-5 last:pr-5"
                                     PaginationClassName="flex flex-col items-center mt-8 md:flex-row"
@@ -690,7 +711,7 @@ const EmployeeListView = () => {
                                 <p className="text-red-400">{validation.errors.role}</p>
                             ) : null}
                         </div>
-                        <div className="xl:col-span-6">
+                        {/* <div className="xl:col-span-6">
                             <label htmlFor="shift" className="inline-block mb-2 text-base font-medium">Shift</label>
                             <input type="text" id="shift" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Employee Shift"
                                 name="shift"
@@ -700,6 +721,50 @@ const EmployeeListView = () => {
                             {validation.touched.shift && validation.errors.shift ? (
                                 <p className="text-red-400">{validation.errors.shift}</p>
                             ) : null}
+                        </div> */}
+                        <div className="xl:col-span-6">
+                            {/* Shift selection dropdown */}
+                            <label htmlFor="shift" className="inline-block mb-2 text-base font-medium">
+                                Select Shift:
+                            </label>
+                            <select
+                                id="shift"
+                                value={selectedShift}
+                                onChange={handleShiftChange}
+                                className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
+                            >
+                                <option value="">-- Select Shift --</option>
+                                <option value="morning">Morning Shift</option>
+                                {/* <option value="afternoon">Afternoon Shift</option> */}
+                                <option value="night">Night Shift</option>
+                            </select>
+
+                            {/* In Time and Out Time input fields */}
+                            {showTimeInputs && (
+                                <div  className="xl:col-span-6">
+                                    <div className="flex flex-col">
+                                        <label htmlFor="inTime" className="inline-block mb-2 text-base font-medium">
+                                            In Time:
+                                        </label>
+                                        <input
+                                            type="time"
+                                            id="inTime"
+                                            className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
+                                        />
+                                    </div>
+
+                                    <div className="flex flex-col">
+                                        <label htmlFor="outTime" className="inline-block mb-2 text-base font-medium">
+                                            Out Time:
+                                        </label>
+                                        <input
+                                            type="time"
+                                            id="outTime"
+                                            className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
+                                        />
+                                    </div>
+                                </div>
+                            )}
                         </div>
                         <div className="xl:col-span-6">
                             <label htmlFor="joiningDate" className="inline-block mb-2 text-base font-medium">Joining Date</label>
@@ -906,7 +971,7 @@ const EmployeeListView = () => {
                         {/* drag&drop end */}
                         <div className="flex justify-end gap-2 mt-4">
                             <button type="reset" data-modal-close="addDocuments" className="text-red-500 transition-all duration-200 ease-linear bg-white border-white btn hover:text-red-600 focus:text-red-600 active:text-red-600 dark:bg-zink-500 dark:border-zink-500" onClick={toggle}>Cancel</button>
-                            <button type="submit" className="text-white transition-all duration-200 ease-linear btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">
+                            <button type="submit" className="text-white btn bg-[#25476a] border-[#2a5179] hover:text-white hover:bg-[#2a5179] hover:border-[#2a5179] focus:text-white focus:bg-[#2a5179] focus:border-[#2a5179] focus:ring focus:ring-[#2a5179] active:text-white active:bg-[#25476a] active:border-[#25476a] active:ring active:ring-[#2a5179] dark:ring-[#2a5179]">
                                 {!!isEdit ? "Update Employee" : "Add Employee"}
                             </button>
                         </div>

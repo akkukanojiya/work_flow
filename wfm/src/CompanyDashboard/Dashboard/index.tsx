@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import BreadCrumb from 'CompanyDashboard/CompanyCommon/BreadCrumb';
+import Widgets from './Widgets';
 import WelcomeWidget from './WelcomeWidget';
 import OrderStatistics from './OrderStatistics';
-import Widgets from './Widgets';
 import SalesRevenue from './SalesRevenue';
 import TrafficResources from './TrafficResources';
 import ProductsOrders from './ProductsOrders';
@@ -11,6 +11,8 @@ import SalesMonth from './SalesMonth';
 import TopSellingProducts from './TopSellingProducts';
 import Audience from './Audience';
 import { useNavigate } from 'react-router-dom';
+import UpcomingScheduled from '../../MasterAdmin/Dashboard/UpcomingScheduled';
+import { StackedColumns } from './StackedColumns';
 
 const CompanyDashboard = () => {
 
@@ -21,16 +23,18 @@ const CompanyDashboard = () => {
         <React.Fragment>
             <BreadCrumb title='Company Dashboard' pageTitle='Dashboards' />
             <div className="grid grid-cols-12 gap-x-5">
-                {/* <WelcomeWidget /> */}
-                {/* <Widgets /> */}
+                <Widgets />
+                {/* <UpcomingScheduled/> */}
                 {/* <SalesMonth /> */}
                 {/* <OrderStatistics /> */}
+                {/* <WelcomeWidget /> */}
                 {/* <SalesRevenue /> */}
                 {/* <TrafficResources /> */}
                 {/* <ProductsOrders /> */}
                 {/* <CustomerService /> */}
                 {/* <TopSellingProducts /> */}
                 {/* <Audience /> */}
+                {/* <StackedColumns/> */}
             </div>
         </React.Fragment>
     );

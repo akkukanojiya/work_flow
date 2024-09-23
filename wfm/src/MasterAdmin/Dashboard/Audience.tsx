@@ -1,5 +1,6 @@
 import React from 'react';
-import { AudienceChart } from './Charts';
+// import { AudienceChart } from './Charts';
+import { AudienceChart } from 'pages/Director/Dashboard/Charts';
 
 const Audience = () => {
     return (

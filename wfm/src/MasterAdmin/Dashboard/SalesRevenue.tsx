@@ -1,7 +1,8 @@
 import React from 'react';
 import { BarChart, CalendarRange, TrendingUp } from 'lucide-react';
 import CountUp from 'react-countup';
-import { SalesRevenueOverviewChart } from './Charts';
+// import { SalesRevenueOverviewChart } from './Charts';
+import { SalesRevenueOverviewChart } from 'pages/Director/Dashboard/Charts';
 import Flatpickr from 'react-flatpickr';
 import "flatpickr/dist/flatpickr.css";
 

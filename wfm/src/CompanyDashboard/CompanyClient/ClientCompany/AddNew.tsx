@@ -7,7 +7,7 @@ import Select from 'react-select';
 import DropdownTreeSelect from "react-dropdown-tree-select";
 import 'react-dropdown-tree-select/dist/styles.css'
 
-import dataa from './data.json';
+// import dataa from './data.json';
 // Icon
 
 
@@ -40,7 +40,7 @@ const CompanyFormIndividual = () => {
     ];
 
 
-    assignObjectPaths(dataa);
+    // assignObjectPaths(dataa);
 
     // dynamic form 
     const [fields, setFields] = useState([{
@@ -302,14 +302,14 @@ const CompanyFormIndividual = () => {
                                                     <input type="text" id="productPrice" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Occupation" required />
 
                                                 </div>
-                                                <div className="lg:w-3/7 md:w-4/7 w-5/6">
+                                                {/* <div className="lg:w-3/7 md:w-4/7 w-5/6">
                                                     <label htmlFor="services" className="inline-block mb-1 text-base font-medium">Services</label>
                                                     <DropdownTreeSelect
                                                         data={dataa}
                                                         onChange={onchange}
                                                         className="mdl-demo"
                                                     />
-                                                </div>
+                                                </div> */}
 
                                             </div>
                                         </div>

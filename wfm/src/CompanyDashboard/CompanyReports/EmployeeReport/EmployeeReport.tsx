@@ -42,7 +42,7 @@ interface CompanyData {
     BankName: string;
     id: number;
 }
-const CompanyReport = () => {
+const EmployeeAttendance = () => {
 
     //  filter 
     const [SelectedOptionFilter, setSelectedOptionFilter] = useState('weekly'); // For radio buttons
@@ -252,13 +252,13 @@ const CompanyReport = () => {
             header: "Sr No.",
             accessorKey: "SrNo.",
             enableColumnFilter: false,
-            cell: (cell: any) => (
-                <Link to="#" className="transition-all duration-150 ease-linear product_code text-custom-500 hover:text-custom-600">{cell.getValue()}</Link>
-            ),
+            // cell: (cell: any) => (
+            //     <Link to="#" className="transition-all duration-150 ease-linear product_code text-custom-500 hover:text-custom-600">{cell.getValue()}</Link>
+            // ),
         },
         {
-            header: " Client Name",
-            accessorKey: "clientname",
+            header: "Employee",
+            accessorKey: "employee",
             enableColumnFilter: false,
             enableSorting: true,
             cell: (cell: any) => (
@@ -270,14 +270,14 @@ const CompanyReport = () => {
         },
 
         {
-            header: "Pan No.",
-            accessorKey: "pannumber",
+            header: "Total Work",
+            accessorKey: "totalwork",
             enableColumnFilter: false,
             enableSorting: true,
         },
         {
-            header: "Email",
-            accessorKey: "Email",
+            header: "Leave",
+            accessorKey: "leave",
             enableColumnFilter: false,
             enableSorting: true,
             // cell: (cell: any) => (
@@ -286,8 +286,8 @@ const CompanyReport = () => {
         },
 
         {
-            header: "Mobile No.",
-            accessorKey: "mobile",
+            header: "Total Working Hours",
+            accessorKey: "totalworkinghours",
             enableColumnFilter: false,
             enableSorting: true,
         },
@@ -349,7 +349,7 @@ const CompanyReport = () => {
 
     return (
         <React.Fragment>
-            <BreadCrumb title='Client Wise Reports' pageTitle='Reports' />
+            <BreadCrumb title='Employee Attendance Reports' pageTitle='Reports' />
             <DeleteModal show={deleteModal} onHide={deleteToggle} onDelete={handleDelete} />
             <ToastContainer closeButton={false} limit={1} />
             <div className="card" id="productListTable">
@@ -372,10 +372,11 @@ const CompanyReport = () => {
                                 </div>
 
                             </form>
-                            <div className="relative inline-block text-left col-span-2">
+                          
+
+                            {/* <div className="relative inline-block text-left col-span-2">
                                 <div className="mb-1 mt-2">
-                                    {/* <label className="block text-sm font-medium mb-1">Client</label> */}
-                                    {/* <span className="mr-1" >Client Category</span> */}
+                                     
                                     <select
                                         className="border rounded px-3 py-2"
                                         value={selectedOption}
@@ -392,13 +393,8 @@ const CompanyReport = () => {
                                     </select>
                                 </div>
 
-                                {/* {selectedOption && (
-                                <div className="mt-6">
-                                    <h2 className="text-lg font-semibold mb-4">{selectedOption} Data</h2>
-                                    {renderTable()}
-                                </div>
-                            )} */}
-                            </div>
+                                 
+                            </div> */}
                         </div>
 
                         {/* client choose  */}
@@ -481,30 +477,29 @@ const CompanyReport = () => {
                             )}
                         </div> */}
                         {/* filter end */}
-                      
+                       
                         <div className="w-full md:w-auto flex-shrink-0 flex space-x-3">
                         <div className="relative xl:col-span-1">
                                 <input
                                     type="text"
-                                    className="w-32 ltr:pl-8 rtl:pr-8 search form-input border-slate-200 dark:border-zinc-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zinc-600 disabled:border-slate-300 dark:disabled:border-zinc-500 dark:disabled:text-zinc-200 disabled:text-slate-500 dark:text-zinc-100 dark:bg-zinc-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zinc-200"
+                                    className="w-24 ltr:pl-8 rtl:pr-8 search form-input border-slate-200 dark:border-zinc-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zinc-600 disabled:border-slate-300 dark:disabled:border-zinc-500 dark:disabled:text-zinc-200 disabled:text-slate-500 dark:text-zinc-100 dark:bg-zinc-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zinc-200"
                                     placeholder="Search"
                                     autoComplete="off"
                                     onChange={(e) => filterSearchData(e)}
                                 />
                                 <Search className="inline-block size-4 absolute ltr:left-2.5 rtl:right-2.5 top-2.5 text-slate-500 dark:text-zinc-200 fill-slate-100 dark:fill-zinc-600" />
                             </div>
-                            {/* animate-bounce */}
-                            <div className="flex items-center gap-1">
+                            <div className="flex items-center gap-2">
                                 <div className="relative">
                                     <button
                                         type="button"
                                         onClick={toggleDropdown}
-                                        className="bg-white   text-[#2a5179] btn   hover:text-[#25476a] hover:bg-custom-50    focus:text-custom-600 focus:bg-custom-50   active:text-[#25476a] active:bg-custom-50   dark:bg-zinc-700 dark:ring-custom-400/20 dark:hover:bg-custom-800/20 dark:focus:bg-custom-800/20 dark:active:bg-custom-800/20"
+                                        className="bg-white   text-[#2a5179] btn   hover:text-[#25476a] hover:bg-custom-50   focus:text-custom-600 focus:bg-custom-50   active:text-[#25476a] active:bg-custom-50   dark:bg-zinc-700 dark:ring-custom-400/20 dark:hover:bg-custom-800/20 dark:focus:bg-custom-800/20 dark:active:bg-custom-800/20"
                                     >
                                         <span className="align-middle">
                                            Duration
                                         </span>
-                                        <FilterIcon className="inline-block size-5"  />
+                                        <FilterIcon className="inline-block size-5" />
                                     </button>
 
                                     {isOpen && (
@@ -811,17 +806,12 @@ const CompanyReport = () => {
                             />
                             
                         </div> */}
-
-{/* animate-bounce */}
                             <button
                                 className="bg-white   text-[#2a5179] btn   hover:text-[#25476a] hover:bg-custom-50   focus:text-custom-600 focus:bg-custom-50   active:text-[#25476a] active:bg-custom-50   dark:bg-zinc-700 dark:ring-custom-400/20 dark:hover:bg-custom-800/20 dark:focus:bg-custom-800/20 dark:active:bg-custom-800/20"
                                 onClick={generateExcel}
                             >
-                                <span className="align-middle">
-                                           Download
-                                        </span>
-                                <RiFileExcel2Line className="inline-block size-5"  />
-                                {/* <span className="align-middle">Download Excel</span> */}
+                                <span className="align-middle">Download</span>
+                                <RiFileExcel2Line className="inline-block size-5" />
                             </button>
                             {/* <button className="bg-white border-dashed text-custom-500 btn border-custom-500 hover:text-custom-500 hover:bg-custom-50 hover:border-custom-600 focus:text-custom-600 focus:bg-custom-50 focus:border-custom-600 active:text-custom-600 active:bg-custom-50 active:border-custom-600 dark:bg-zinc-700 dark:ring-custom-400/20 dark:hover:bg-custom-800/20 dark:focus:bg-custom-800/20 dark:active:bg-custom-800/20" onClick={generatePDF}>
                             <LucideFile  className="inline-block size-5" />
@@ -892,4 +882,4 @@ const CompanyReport = () => {
     );
 };
 
-export default CompanyReport;
+export default EmployeeAttendance;

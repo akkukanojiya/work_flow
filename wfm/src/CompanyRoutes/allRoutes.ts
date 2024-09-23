@@ -6,6 +6,8 @@ import CompanyDashboard from "CompanyDashboard/Dashboard";
 import CompanyDirector from "CompanyDashboard/Director/ListView";
 import EmployeeListView from "CompanyDashboard/Employees/ListView";
 import AddLeaveEmployee from "CompanyDashboard/CompanyManagment/Leaves Manage/AddLeaveEmployee";
+import AddLeaveHR from "CompanyDashboard/CompanyManagment/Leaves Manage/AddLeaveHR";
+import LeaveManageHR from "CompanyDashboard/CompanyManagment/Leaves Manage/LeaveManageHR";
 import LeaveManageEmployee from "CompanyDashboard/CompanyManagment/Leaves Manage/LeaveManageEmployee";
 import Tasks from "CompanyDashboard/CompanyTasks";
 import AddNew from "CompanyDashboard/Director/AddNew";
@@ -28,12 +30,17 @@ import MultiForm from "CompanyDashboard/CompanyClient/MultiForm";
 
 // multi form table 
 import CompanyReport from "CompanyDashboard/CompanyReports/CompanyReport";
+// import EmployeeReport from "CompanyDashboard/CompanyReports/EmployeeReport/EmployeeReport";
+import WorkAllocationReport from "CompanyDashboard/CompanyReports/WorkAllocation";
+import EmployeeAttendance from "CompanyDashboard/CompanyReports/EmployeeReport/EmployeeReport";
+import EmployeeWork from "CompanyDashboard/CompanyReports/EmployeeReport/EmployeeWork";
+import EmployeePerformance from "CompanyDashboard/CompanyReports/EmployeeReport/EmployeePerformance";
 // multi form table end
 
 
 // demo multi form 
-import FormTable from "CompanyDashboard/CompanyTasks/DataTable";
-import MultiFormDemo from "CompanyDashboard/CompanyTimeSheet/FormDataTable";
+// import FormTable from "CompanyDashboard/CompanyTasks/DataTable";
+// import MultiFormDemo from "CompanyDashboard/CompanyTimeSheet/FormDataTable";
 // demo multi form end
 // import CompanyPartner from "CompanyDashboard/CompanyPartnershipFirm/PartnershipListView";
 // import PartnershipForm from "CompanyDashboard/CompanyPartnershipFirm/PartnershipForm";
@@ -85,8 +92,8 @@ const authProtectedRoutes: Array<RouteObject> = [
   { path: "/company-individual-client", component: CompanyClient },
   { path: "/company-multi-form", component: MultiForm },
   
-  { path: "/company-employee-leave-manage", component: LeaveManageEmployee },
-  { path: "/company-employee-leave", component: AddLeaveEmployee },
+  { path: "/company-employee-leave-manage", component: LeaveManageHR },
+  { path: "/company-employee-leave", component: AddLeaveHR },
   { path: "/company-attendance", component: CompanyAttendance },
   
   { path: "/company-profile", component: CompanyProfile },
@@ -96,9 +103,14 @@ const authProtectedRoutes: Array<RouteObject> = [
 
 
   // multi form report 
-  { path: "/company-report-company", component: CompanyReport },
-  { path: "/company-form", component: FormTable },
-  { path: "/company-table", component: MultiFormDemo },
+  { path: "/company-report-client-wise", component: CompanyReport },
+  // { path: "/company-report-Attendance", component: EmployeeReport },
+  { path: "/company-report-work-allocation", component: WorkAllocationReport},
+  { path: "/company-report-Attendance", component: EmployeeAttendance},
+  { path: "/company-report-employee-work", component: EmployeeWork},
+  { path: "/company-report-employee-Performance", component: EmployeePerformance},
+  // { path: "/company-form", component: FormTable },
+  // { path: "/company-table", component: MultiFormDemo },
   // multi form report end
   
   // demo multi form 
