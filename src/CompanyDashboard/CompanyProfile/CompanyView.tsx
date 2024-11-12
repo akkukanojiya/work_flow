@@ -138,7 +138,7 @@ const CompanyProfile = () => {
         //     ),
         // },
         {
-            header: " Name",
+            header: "Name",
             accessorKey: "companyName",
             enableColumnFilter: false,
             enableSorting: true,
@@ -224,7 +224,7 @@ const CompanyProfile = () => {
 
     return (
         <React.Fragment>
-            <BreadCrumb title='Company Profile' pageTitle='CompanyProfile' />
+            <BreadCrumb title=' Profile' pageTitle='Profile' />
             <DeleteModal show={deleteModal} onHide={deleteToggle} onDelete={handleDelete} />
             <ToastContainer closeButton={false} limit={1} />
             <div className="card" id="productListTable">
@@ -253,7 +253,7 @@ const CompanyProfile = () => {
                                 <span className="align-middle">Download</span>
                                 <RiFileExcel2Line className="inline-block size-5" />
                             </button>
-                            <Link to="/company-profile-form" type="button" className="text-white btn bg-[#25476a] border-[#2a5179] hover:text-white hover:bg-[#2a5179] hover:border-[#2a5179] focus:text-white focus:bg-[#2a5179] focus:border-[#2a5179] focus:ring focus:ring-[#2a5179] active:text-white active:bg-[#25476a] active:border-[#25476a] active:ring active:ring-[#2a5179] dark:ring-[#2a5179]"><Plus className="inline-block size-4" /> <span className="align-middle">Add Company Profile</span></Link>
+                            <Link to="/company-profile-form" type="button" className="text-white btn bg-[#25476a] border-[#2a5179] hover:text-white hover:bg-[#2a5179] hover:border-[#2a5179] focus:text-white focus:bg-[#2a5179] focus:border-[#2a5179] focus:ring focus:ring-[#2a5179] active:text-white active:bg-[#25476a] active:border-[#25476a] active:ring active:ring-[#2a5179] dark:ring-[#2a5179]"><Plus className="inline-block size-4" /> <span className="align-middle">Add Profile</span></Link>
                         </div>
                     </div>
                 </div>

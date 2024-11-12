@@ -55,6 +55,7 @@ const options = [
   { value: 'form4', label: 'Partnership' },
   { value: 'form5', label: 'Trust/AOP' },
   { value: 'form6', label: 'Society' },
+  { value: 'form7', label: 'Other' },
 
 ];
 
@@ -214,8 +215,13 @@ const Form1 = ({ onSubmit }: { onSubmit: (data: any) => void }) => {
                     </select>
                   </div>
                   <div className="xl:col-span-6">
-                    <label htmlFor="productCodeInput" className="inline-block mb-2 text-base font-medium"> Company Mail </label>
+                    <label htmlFor="productCodeInput" className="inline-block mb-2 text-base font-medium">   Mail </label>
                     <input type="email" id="mailInput" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Email" required />
+
+                  </div>
+                  <div className="xl:col-span-6">
+                    <label htmlFor="password" className="inline-block mb-2 text-base font-medium">Password</label>
+                    <input type="password" id="password" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Password" required />
 
                   </div>
                   <div className="xl:col-span-6">
@@ -349,8 +355,8 @@ const Form1 = ({ onSubmit }: { onSubmit: (data: any) => void }) => {
                             options={genderSelect}
                             isSearchable={true}
                             name="genderSelect"
-                            value={field.gender}
-                            onChange={(option) => handleChange(index, { target: { name: 'gender', value: option } })}
+                            value={genderSelect.find(option => option.value === field.gender)} // Match by value
+                            onChange={(option) => handleChange(index, { target: { name: 'gender', value: option?.value } })}
                           />
                         </div>
 
@@ -578,8 +584,8 @@ const Form2 = ({ onSubmit }: { onSubmit: (data: any) => void }) => {
               <form action="#!" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 gap-5 lg:grid-cols-2 xl:grid-cols-12  place-content-center ">
                   <div className="xl:col-span-6">
-                    <label htmlFor="clientId" className="inline-block mb-2 text-base font-medium">Client ID </label>
-                    <input type="number" id="clientId" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Client Id" required />
+                    <label htmlFor="name" className="inline-block mb-2 text-base font-medium">Name</label>
+                    <input type="text" id="name" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Name" required />
 
                   </div>
 
@@ -594,12 +600,17 @@ const Form2 = ({ onSubmit }: { onSubmit: (data: any) => void }) => {
                     </select>
                   </div>
                   <div className="xl:col-span-6">
-                    <label htmlFor="productCodeInput" className="inline-block mb-2 text-base font-medium"> Client Mail </label>
+                    <label htmlFor="productCodeInput" className="inline-block mb-2 text-base font-medium">   Email </label>
                     <input type="email" id="mailInput" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Email" required />
 
                   </div>
+                  <div className="xl:col-span-6">
+                    <label htmlFor="password" className="inline-block mb-2 text-base font-medium">password</label>
+                    <input type="password" id="password" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Password" required />
+
+                  </div>
                   <div className="xl:col-span-6 mb-3">
-                    <label htmlFor="typeOfBussinassSelect" className="inline-block mb-2 text-base font-medium"> Client Category</label>
+                    <label htmlFor="typeOfBussinassSelect" className="inline-block mb-2 text-base font-medium">   Category</label>
                     <select className="form-input border-slate-300 focus:outline-none focus:border-custom-500" data-choices data-choices-search-false id="clientCategory"
                       name="clientCategory"
 
@@ -663,7 +674,7 @@ const Form2 = ({ onSubmit }: { onSubmit: (data: any) => void }) => {
                   </div>
                   <div className="xl:col-span-6">
                     <label htmlFor="passportNumber" className="inline-block mb-2 text-base font-medium">Passport Number</label>
-                    <input type="text" id="qualityInput" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your  Bank Name" required />
+                    <input type="text" id="qualityInput" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Passport Number" required />
 
 
                   </div>
@@ -709,10 +720,20 @@ const Form2 = ({ onSubmit }: { onSubmit: (data: any) => void }) => {
                     </select>
 
                   </div>
+
+
+                  <div className="xl:col-span-6">
+                    <label htmlFor="other" className="inline-block mb-2 text-base font-medium">Other</label>
+                    <input type="text" id="other" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter  Other's Details"
+                      name="other"
+
+                    />
+
+                  </div>
                   {/* drag&drop  */}
                   <div className="xl:col-span-6">
 
-                  <label htmlFor="Dropzone" className="inline-block mb-2 text-base font-medium">Dropzone</label>
+                    <label htmlFor="Dropzone" className="inline-block mb-2 text-base font-medium">Dropzone</label>
                     <div className="flex items-center justify-center border rounded-md cursor-pointer bg-slate-100 dropzone border-slate-200 dark:bg-zink-600 dark:border-zink-500 dz-clickable">
 
                       <Dropzone
@@ -867,11 +888,11 @@ const Form3 = ({ onSubmit }: { onSubmit: (data: any) => void }) => {
 
               <form action="#!" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 gap-5 lg:grid-cols-2 xl:grid-cols-12  place-content-center ">
-                  <div className="xl:col-span-6">
-                    <label htmlFor="clientId" className="inline-block mb-2 text-base font-medium">Client ID </label>
-                    <input type="number" id="clientId" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Client Id" required />
+                  {/* <div className="xl:col-span-6">
+                    <label htmlFor="clientId" className="inline-block mb-2 text-base font-medium">Name</label>
+                    <input type="text" id="clientId" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Name" required />
 
-                  </div>
+                  </div> */}
                   <div className="xl:col-span-6">
                     <label htmlFor="NameofProprietor" className="inline-block mb-2 text-base font-medium">Name of Proprietor </label>
                     <input type="text" id="NameofProprietor" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Name of Proprietor" required />
@@ -901,6 +922,11 @@ const Form3 = ({ onSubmit }: { onSubmit: (data: any) => void }) => {
                   <div className="xl:col-span-6">
                     <label htmlFor="proprietorEmail" className="inline-block mb-2 text-base font-medium"> Email </label>
                     <input type="email" id="proprietorEmail" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Email" required />
+
+                  </div>
+                  <div className="xl:col-span-6">
+                    <label htmlFor="password" className="inline-block mb-2 text-base font-medium"> Password </label>
+                    <input type="password" id="password" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Email" required />
 
                   </div>
                   <div className="xl:col-span-6 mb-3">
@@ -1099,13 +1125,13 @@ const Form4 = ({ onSubmit }: { onSubmit: (data: any) => void }) => {
               <form action="#!" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 gap-5 lg:grid-cols-2 xl:grid-cols-12  place-content-center ">
                   <div className="xl:col-span-6">
-                    <label htmlFor="partnerNameInput" className="inline-block mb-2 text-base font-medium">Partnership Firm Name</label>
+                    <label htmlFor="partnerNameInput" className="inline-block mb-2 text-base font-medium"> Firm Name</label>
                     <input type="text" id="partnershipFirmName" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter  Name of Partnership Firm " required />
 
                   </div>
 
                   <div className="xl:col-span-6">
-                    <label htmlFor="taxApplicable" className="inline-block mb-2 text-base font-medium">Partnership Firm Category</label>
+                    <label htmlFor="taxApplicable" className="inline-block mb-2 text-base font-medium"> Firm Category</label>
                     <select className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" data-choices data-choices-search-false name="PartnershipFirmCategory" id="PartnershipFirmCategory">
                       <option value="">Select</option>
                       <option value="pvtlimited">Pvt. Limited</option>
@@ -1114,13 +1140,18 @@ const Form4 = ({ onSubmit }: { onSubmit: (data: any) => void }) => {
                     </select>
                   </div>
                   <div className="xl:col-span-6">
-                    <label htmlFor="productCodeInput" className="inline-block mb-2 text-base font-medium">Partnership Firm Email ID</label>
-                    <input type="email" id="PartnershipFirmEmailId" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Partnership Firm Email Id" required />
+                    <label htmlFor="productCodeInput" className="inline-block mb-2 text-base font-medium"> Firm Email</label>
+                    <input type="email" id="PartnershipFirmEmailId" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Firm Email" required />
 
                   </div>
                   <div className="xl:col-span-6">
-                    <label htmlFor="partnershipFirmPanCard" className="inline-block mb-2 text-base font-medium">Partnership Firm Pan Card</label>
-                    <input type="text" id="PartnershipFirmPanCard" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Partnership Firm Pan Card" required />
+                    <label htmlFor="password" className="inline-block mb-2 text-base font-medium"> Firm Password</label>
+                    <input type="password" id="password" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Firm Password" required />
+
+                  </div>
+                  <div className="xl:col-span-6">
+                    <label htmlFor="partnershipFirmPanCard" className="inline-block mb-2 text-base font-medium">  Firm Pan Card</label>
+                    <input type="text" id="PartnershipFirmPanCard" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Firm Pan Card" required />
 
                   </div>
 
@@ -1135,12 +1166,18 @@ const Form4 = ({ onSubmit }: { onSubmit: (data: any) => void }) => {
                     </select>
                   </div> */}
                   <div className="xl:col-span-6">
-                    <label htmlFor="qualityInput" className="inline-block mb-2 text-base font-medium">Partnership Firm GST No.</label>
-                    <input type="text" id="PartnershipFirmGstNo" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your  Partnership Firm GST No" required />
+                    <label htmlFor="qualityInput" className="inline-block mb-2 text-base font-medium"> Firm GST No.</label>
+                    <input type="text" id="PartnershipFirmGstNo" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Firm GST No" required />
                   </div>
                   <div className="xl:col-span-6">
-                    <label htmlFor="qualityInput" className="inline-block mb-2 text-base font-medium">Partnership Firm City</label>
-                    <input type="text" id="PartnershipFirmCity" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your  Partnership Firm City" required />
+                    <label htmlFor="qualityInput" className="inline-block mb-2 text-base font-medium">  Firm State</label>
+                    <input type="text" id="PartnershipFirmState" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Firm State" required />
+
+
+                  </div>
+                  <div className="xl:col-span-6">
+                    <label htmlFor="qualityInput" className="inline-block mb-2 text-base font-medium">  Firm City</label>
+                    <input type="text" id="PartnershipFirmCity" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Firm City" required />
 
 
                   </div>
@@ -1160,27 +1197,22 @@ const Form4 = ({ onSubmit }: { onSubmit: (data: any) => void }) => {
                     </select>
 
                   </div> */}
+                
                   <div className="xl:col-span-6">
-                    <label htmlFor="qualityInput" className="inline-block mb-2 text-base font-medium">Partnership Firm State</label>
-                    <input type="text" id="PartnershipFirmState" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your  Partnership Firm State" required />
+                    <label htmlFor="qualityInput" className="inline-block mb-2 text-base font-medium">  Firm PIN Code</label>
+                    <input type="number" id="PartnershipFirmPINCode" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Firm PIN Code" required />
 
 
                   </div>
                   <div className="xl:col-span-6">
-                    <label htmlFor="qualityInput" className="inline-block mb-2 text-base font-medium">Partnership Firm PIN Code</label>
-                    <input type="number" id="PartnershipFirmPINCode" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your  Partnership Firm PIN Code" required />
+                    <label htmlFor="qualityInput" className="inline-block mb-2 text-base font-medium">  Firm Mobile No</label>
+                    <input type="number" id="PartnershipFirmMobileNo" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Firm Mobile No" required />
 
 
                   </div>
                   <div className="xl:col-span-6">
-                    <label htmlFor="qualityInput" className="inline-block mb-2 text-base font-medium">Partnership Firm Mobile No</label>
-                    <input type="number" id="PartnershipFirmMobileNo" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Partnership Firm Mobile No" required />
-
-
-                  </div>
-                  <div className="xl:col-span-6">
-                    <label htmlFor="qualityInput" className="inline-block mb-2 text-base font-medium">Partnership Firm's Total Employees</label>
-                    <input type="number" id="PartnershipFirmTotalEmployees" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Partnership Firm's Total Employees " required />
+                    <label htmlFor="qualityInput" className="inline-block mb-2 text-base font-medium">  Firm's Total Employees</label>
+                    <input type="number" id="PartnershipFirmTotalEmployees" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Firm's Total Employees " required />
 
 
                   </div>
@@ -1271,11 +1303,11 @@ const Form5 = ({ onSubmit }: { onSubmit: (data: any) => void }) => {
 
               <form action="#!" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 gap-5 lg:grid-cols-2 xl:grid-cols-12  place-content-center ">
-                  <div className="xl:col-span-6">
+                  {/* <div className="xl:col-span-6">
                     <label htmlFor="clientId" className="inline-block mb-2 text-base font-medium">Client ID </label>
                     <input type="number" id="clientId" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Client Id" required />
 
-                  </div>
+                  </div> */}
                   <div className="xl:col-span-6">
                     <label htmlFor="NameofTrustAop" className="inline-block mb-2 text-base font-medium">Name of Trust / AOP </label>
                     <input type="text" id="NameofTrustAop" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Name of Trust / AOP" required />
@@ -1310,6 +1342,11 @@ const Form5 = ({ onSubmit }: { onSubmit: (data: any) => void }) => {
                   <div className="xl:col-span-6">
                     <label htmlFor="proprietorEmail" className="inline-block mb-2 text-base font-medium"> Email </label>
                     <input type="email" id="proprietorEmail" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Email" required />
+
+                  </div>
+                  <div className="xl:col-span-6">
+                    <label htmlFor="password" className="inline-block mb-2 text-base font-medium"> Password </label>
+                    <input type="password" id="password" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Password" required />
 
                   </div>
                   <div className="xl:col-span-6 mb-3">
@@ -1366,7 +1403,7 @@ const Form5 = ({ onSubmit }: { onSubmit: (data: any) => void }) => {
                   </div>
                   <div className="xl:col-span-6">
                     <label htmlFor="dateOfBirth" className="inline-block mb-2 text-base font-medium">Date of Birth</label>
-                    <input type="date" id="dateOfBirth" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your  Date of Date Of Birth" required />
+                    <input type="date" id="dateOfBirth" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Date Of Birth" required />
 
 
                   </div>
@@ -1526,11 +1563,11 @@ const Form6 = ({ onSubmit }: { onSubmit: (data: any) => void }) => {
 
               <form action="#!" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 gap-5 lg:grid-cols-2 xl:grid-cols-12  place-content-center ">
-                  <div className="xl:col-span-6">
+                  {/* <div className="xl:col-span-6">
                     <label htmlFor="clientId" className="inline-block mb-2 text-base font-medium">Client ID </label>
                     <input type="number" id="clientId" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Client Id" required />
 
-                  </div>
+                  </div> */}
                   <div className="xl:col-span-6">
                     <label htmlFor="NameofTSociety" className="inline-block mb-2 text-base font-medium">Name of Society </label>
                     <input type="text" id="NameofTSociety" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Name of Society" required />
@@ -1565,6 +1602,11 @@ const Form6 = ({ onSubmit }: { onSubmit: (data: any) => void }) => {
                   <div className="xl:col-span-6">
                     <label htmlFor="proprietorEmail" className="inline-block mb-2 text-base font-medium"> Email </label>
                     <input type="email" id="proprietorEmail" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Email" required />
+
+                  </div>
+                  <div className="xl:col-span-6">
+                    <label htmlFor="password" className="inline-block mb-2 text-base font-medium"> Password </label>
+                    <input type="password" id="password" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Password" required />
 
                   </div>
                   <div className="xl:col-span-6 mb-3">
@@ -1621,7 +1663,7 @@ const Form6 = ({ onSubmit }: { onSubmit: (data: any) => void }) => {
                   </div>
                   <div className="xl:col-span-6">
                     <label htmlFor="dateOfBirth" className="inline-block mb-2 text-base font-medium">Date of Birth</label>
-                    <input type="date" id="dateOfBirth" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your  Date of Date Of Birth" required />
+                    <input type="date" id="dateOfBirth" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Date Of Birth" required />
 
 
                   </div>
@@ -1737,6 +1779,257 @@ const Form6 = ({ onSubmit }: { onSubmit: (data: any) => void }) => {
   );
 };
 
+const Form7 = ({ onSubmit }: { onSubmit: (data: any) => void }) => {
+  const [OtherA, setOtherA] = useState('');
+  const [OtherB, setOtherB] = useState('');
+
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    onSubmit({ type: 'Other', OtherA, OtherB });
+    setOtherA('');
+    setOtherB('');
+  };
+
+
+
+  // const [file, setFile] = useState<File | null>(null);
+
+  // const handleChanges = (file: File[]): void => {
+  //   setFile(file[0]);
+  // };
+
+  return (
+
+    <React.Fragment>
+      <BreadCrumb title='Other List' pageTitle='Other' />
+      <ToastContainer closeButton={false} limit={1} />
+      <div className="grid grid-cols-1 xl:grid-cols-12 ">
+        <div className="xl:col-span-12 ">
+          <div className="card ">
+            <div className="card-body ">
+              <h6 className="mb-4 text-15">Create Other</h6>
+
+              <form action="#!" onSubmit={handleSubmit}>
+                <div className="grid grid-cols-1 gap-5 lg:grid-cols-2 xl:grid-cols-12  place-content-center ">
+                  <div className="xl:col-span-6">
+                    <label htmlFor="name" className="inline-block mb-2 text-base font-medium">Name</label>
+                    <input type="text" id="name" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Name" required />
+
+                  </div>
+                  <div className="xl:col-span-6">
+                    <label htmlFor="mobile" className="inline-block mb-2 text-base font-medium">Mobile No.</label>
+                    <input type="text" id="mobile" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter    Mobile No." required />
+
+                  </div>
+                  {/* <div className="xl:col-span-6">
+                    <label htmlFor="NameofAuthorisedPerson" className="inline-block mb-2 text-base font-medium">Name of Authorized Person</label>
+                    <input type="text" id="NameofAuthorisedPerson" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Name of Authorized Person" required />
+
+                  </div> */}
+                  <div className="xl:col-span-6">
+                    <label htmlFor="NameofRegistrationNo" className="inline-block mb-2 text-base font-medium">Registration No.</label>
+                    <input type="text" id="NameofRegistrationNo" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Name of Registration No." required />
+
+                  </div>
+                  <div className="xl:col-span-6">
+                    <label htmlFor="GSTNo" className="inline-block mb-2 text-base font-medium">GST No </label>
+                    <input type="number" id="GSTNo" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter GST No" required />
+
+                  </div>
+
+                  {/* <div className="xl:col-span-6">
+                    <label htmlFor="clientGender" className="inline-block mb-2 text-base font-medium">Gender </label>
+                    <select className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" data-choices data-choices-search-false name="clientGender" id="clientGender">
+                      <option value="">Select Gender</option>
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                      <option value="other">Other</option>
+
+                    </select>
+                  </div> */}
+                  <div className="xl:col-span-6">
+                    <label htmlFor="proprietorEmail" className="inline-block mb-2 text-base font-medium"> Email </label>
+                    <input type="email" id="proprietorEmail" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Email" required />
+
+                  </div>
+                  <div className="xl:col-span-6">
+                    <label htmlFor="password" className="inline-block mb-2 text-base font-medium">Password</label>
+                    <input type="password" id="password" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Password" required />
+
+                  </div>
+                  <div className="xl:col-span-6 mb-3">
+                    <label htmlFor="companyCategoryType" className="inline-block mb-2 text-base font-medium"> Company Category/Type</label>
+                    <select className="form-input border-slate-300 focus:outline-none focus:border-custom-500" data-choices data-choices-search-false id="companyCategoryType"
+                      name="companyCategoryType"
+
+                    >
+                      <option value="">Select Company Category  </option>
+                      <option value="Pvt. Ltd.">Pvt. Ltd.</option>
+                      <option value="Public Ltd.">Public Ltd.</option>
+                      <option value="Section 8">Section 8</option>
+                      <option value="Other">Other</option>
+
+                    </select>
+
+                  </div>
+                  {/* <div className="xl:col-span-6 mb-3">
+                    <label htmlFor="typeOfBussinassSelect" className="inline-block mb-2 text-base font-medium"> Industry Type</label>
+                    <select className="form-input border-slate-300 focus:outline-none focus:border-custom-500" data-choices data-choices-search-false id="industryType"
+                      name="industryType"
+
+                    >
+                      <option value="">Select Industry Type </option>
+                      <option value="Manufacturing">Manufacturing</option>
+                      <option value="Trading">Trading </option>
+                      <option value="Service Provider">Service Provider</option>
+                      <option value="Job Work">Job Work</option>
+                      <option value="Professionals">Professionals</option>
+
+                    </select>
+
+                  </div> */}
+                  <div className="xl:col-span-6">
+                    <label htmlFor="MSMERegNo" className="inline-block mb-2 text-base font-medium">MSME Reg. No.</label>
+                    <input type="text" id="MSMERegNo" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your MSME Reg. No." required />
+
+                  </div>
+                  {/* <div className="xl:col-span-6">
+                    <label htmlFor="mobileNo." className="inline-block mb-2 text-base font-medium">Mobile No.</label>
+                    <input type="number" id="mobileNo" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Mobile No" required />
+                  </div> */}
+                  <div className="xl:col-span-6">
+                    <label htmlFor="panCard" className="inline-block mb-2 text-base font-medium">PAN Card</label>
+                    <input type="text" id="panCard" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your  Pan Card" required />
+
+
+                  </div>
+                  <div className="xl:col-span-6">
+                    <label htmlFor="ProfessionalTax/Gumasta" className="inline-block mb-2 text-base font-medium">Professional Tax/ Gumasta</label>
+                    <input type="text" id="ProfessionalTax/Gumasta" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Professional Tax/ Gumasta" required />
+
+
+                  </div>
+                  <div className="xl:col-span-6">
+                    <label htmlFor="dateOfBirth" className="inline-block mb-2 text-base font-medium">Date of Birth</label>
+                    <input type="date" id="dateOfBirth" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Date Of Birth" required />
+
+
+                  </div>
+                  {/* <div className="xl:col-span-6">
+                    <label htmlFor="passportNumber" className="inline-block mb-2 text-base font-medium">Passport Number</label>
+                    <input type="text" id="qualityInput" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your  Bank Name" required />
+
+
+                  </div> */}
+                  <div className="xl:col-span-6">
+                    <label htmlFor="Group" className="inline-block mb-2 text-base font-medium">Group</label>
+                    <select className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" data-choices data-choices-search-false name="Group" id="Group">
+                      <option value="">Select </option>
+                      <option value=" ">#</option>
+                      <option value=" ">#</option>
+                      <option value=" ">#</option>
+
+                    </select>
+                  </div>
+                  {/* <div className="xl:col-span-6">
+                    <label htmlFor="QualificationInput" className="inline-block mb-2 text-base font-medium">Qualification</label>
+                    <input type="text" id="designationInput" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your  Qualification"
+                      name="qualification"
+
+                    />
+
+                  </div> */}
+                  {/* <div className="xl:col-span-6">
+                    <label htmlFor="occupationInput" className="inline-block mb-2 text-base font-medium">Occupation</label>
+                    <input type="text" id="designationInput" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Occupation"
+                      name="occupation"
+
+                    />
+
+                  </div> */}
+                  <div className="xl:col-span-6">
+                    <label htmlFor="serviceCategory" className="inline-block mb-2 text-base font-medium">Service Category </label>
+                    <select className="form-input border-slate-300 focus:outline-none focus:border-custom-500" data-choices data-choices-search-false id="serviceCategory"
+                      name="serviceCategory"
+
+                    >
+                      <option value="">Select Service Category</option>
+                      <option value="Financial Statement Preparation">Financial Statement Preparation</option>
+                      <option value=" Audit Services"> Audit Services</option>
+                      <option value=" Taxation Services "> Taxation Services</option>
+                      <option value="Bookkeeping and Accounting "> Bookkeeping and Accounting</option>
+                      <option value="Financial Planning and Analysis "> Financial Planning and Analysis</option>
+                      <option value="Compliance and Regulatory Advice "> Compliance and Regulatory Advice</option>
+                      <option value="Internal Controls and Risk Management ">Internal Controls and Risk Management</option>
+                      <option value="Management Consulting ">Management Consulting</option>
+                      <option value="Member Accounting ">Member Accounting</option>
+                      <option value="Funding and Investment Advice ">Funding and Investment Advice</option>
+                      <option value="Payroll Management ">Payroll Management</option>
+                      <option value="Training and Development">Training and Development</option>
+                      <option value="Governance and Policy Advisory">Governance and Policy Advisory</option>
+                      <option value="Dispute Resolution">Dispute Resolution</option>
+                    </select>
+
+                  </div>
+
+
+                  <div className="xl:col-span-6">
+                    <label htmlFor="Address" className="inline-block mb-2 text-base font-medium">Address</label>
+                    <textarea id="Addresss" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Address" required ></textarea>
+
+
+                  </div>
+                  <div className="xl:col-span-6">
+                    <label htmlFor="Other" className="inline-block mb-2 text-base font-medium">Other</label>
+                    <textarea id="Other" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your  Other Details" required ></textarea>
+
+
+                  </div>
+
+                </div>
+
+
+
+
+                {/* <form > */}
+
+
+                <div className="flex justify-end gap-2 mt-4">
+                  <button type="reset" className="text-red-500 bg-white btn hover:text-red-500 hover:bg-red-100 focus:text-red-500 focus:bg-red-100 active:text-red-500 active:bg-red-100 dark:bg-zink-700 dark:hover:bg-red-500/10 dark:focus:bg-red-500/10 dark:active:bg-red-500/10">Reset</button>
+                  <button type="submit" className="text-white btn bg-[#25476a] border-[#2a5179] hover:text-white hover:bg-[#2a5179] hover:border-[#2a5179] focus:text-white focus:bg-[#2a5179] focus:border-[#2a5179] focus:ring focus:ring-[#2a5179] active:text-white active:bg-[#25476a] active:border-[#25476a] active:ring active:ring-[#2a5179] dark:ring-[#2a5179]">Create Other</button>
+
+                </div>
+
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* <form onSubmit={handleSubmit}>
+      <table>
+        <tbody>
+          <tr>
+            <td><label htmlFor="fieldA">Field A</label></td>
+            <td><input type="text" id="fieldA" value={fieldA} onChange={(e) => setFieldA(e.target.value)} /></td>
+          </tr>
+          <tr>
+            <td><label htmlFor="fieldB">Field B</label></td>
+            <td><input type="text" id="fieldB" value={fieldB} onChange={(e) => setFieldB(e.target.value)} /></td>
+          </tr>
+          <tr>
+            <td colSpan={2}><button type="submit">Submit Individual</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </form> */}
+    </React.Fragment>
+  );
+};
+
+
+
+
 const MultiForm: React.FC = () => {
   const [selectedForm, setSelectedForm] = useState<string | null>('form1');
   const [formData, setFormData] = useState<any[]>([]);
@@ -1753,14 +2046,22 @@ const MultiForm: React.FC = () => {
   return (
     <div>
       <label htmlFor="formSelector">Select a form:</label>
-      <select className="w-40 form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" id="formSelector" onChange={handleChange} value={selectedForm} >
-        <option value="" disabled>Select a form</option>
-        {options.map(option => (
+      <select
+        className="w-40 form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
+        id="formSelector"
+        onChange={handleChange}
+        value={selectedForm ?? ""} // Provide fallback for null
+      >
+        <option value="" disabled>
+          Select a form
+        </option>
+        {options.map((option) => (
           <option key={option.value} value={option.value}>
             {option.label}
           </option>
         ))}
       </select>
+
 
       {selectedForm === 'form1' && <Form1 onSubmit={handleFormSubmit} />}
       {selectedForm === 'form2' && <Form2 onSubmit={handleFormSubmit} />}
@@ -1768,6 +2069,7 @@ const MultiForm: React.FC = () => {
       {selectedForm === 'form4' && <Form4 onSubmit={handleFormSubmit} />}
       {selectedForm === 'form5' && <Form5 onSubmit={handleFormSubmit} />}
       {selectedForm === 'form6' && <Form6 onSubmit={handleFormSubmit} />}
+      {selectedForm === 'form7' && <Form7 onSubmit={handleFormSubmit} />}
 
 
       {/* <h2>Submitted Forms</h2> */}

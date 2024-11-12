@@ -3,15 +3,16 @@
 import CompanyDashboard from "CompanyDashboard/Dashboard";
 // import CompanyDirector from "CompanyDashboard/Director/ListView";
 // import EmployeeListView from "CompanyDashboard/Employees/ListView";
-import CompanyDirector from "CompanyDashboard/Director/ListView";
+// import Authorised_Person from "CompanyDashboard/AuthorisedPerson/ListView";
+import Authorised_Person from "CompanyDashboard/AuthorisedPerson/ListView";
 import EmployeeListView from "CompanyDashboard/Employees/ListView";
 import AddLeaveEmployee from "CompanyDashboard/CompanyManagment/Leaves Manage/AddLeaveEmployee";
 import AddLeaveHR from "CompanyDashboard/CompanyManagment/Leaves Manage/AddLeaveHR";
 import LeaveManageHR from "CompanyDashboard/CompanyManagment/Leaves Manage/LeaveManageHR";
 import LeaveManageEmployee from "CompanyDashboard/CompanyManagment/Leaves Manage/LeaveManageEmployee";
 import Tasks from "CompanyDashboard/CompanyTasks";
-import AddNew from "CompanyDashboard/Director/AddNew";
-import Overview from "CompanyDashboard/Director/Overview";
+import AddNew from "CompanyDashboard/AuthorisedPerson/AddNew";
+import Overview from "CompanyDashboard/AuthorisedPerson/Overview";
 // import Client from "CompanyDashboard/Client";
 import CompanyIndividualClient from "CompanyDashboard/CompanyClient/ClientCompany/ListView";
 import CompanyClient from "CompanyDashboard/CompanyClient/ListView";
@@ -19,14 +20,14 @@ import CompanyFormIndividual from "CompanyDashboard/CompanyClient/ClientCompany/
 // import AddLeaveCompany from "CompanyDashboard/CompanyManagment/Leaves Manage/AddLeaveEmployee";
 import CompanyAttendance from "CompanyDashboard/CompanyManagment/Attendance/AttendanceHR";
  
-import CompanyTimeSheet from "CompanyDashboard/CompanyTimeSheet/ListView";
+// import CompanyTimeSheet from "CompanyDashboard/CompanyTimeSheet/ListView";
 import TimeSheetForm from "CompanyDashboard/CompanyTimeSheet/TimeSheetForm";
 import CompanyProfile from "CompanyDashboard/CompanyProfile/CompanyView";
 import CompanyProfileForm from "CompanyDashboard/CompanyProfile/CompanyProfile";
 import CompanyOverview from "CompanyDashboard/CompanyProfile/Overview";
 
 import MultiForm from "CompanyDashboard/CompanyClient/MultiForm";
-
+import MultiFormTable from "CompanyDashboard/CompanyClient/MultiFormTable";
 
 // multi form table 
 import CompanyReport from "CompanyDashboard/CompanyReports/CompanyReport";
@@ -64,11 +65,12 @@ import EmployeePerformance from "CompanyDashboard/CompanyReports/EmployeeReport/
 
 
  
-import Login from "CompanyDashboard/Authentication/Login";
-import Logout from "CompanyDashboard/Authentication/Login";
-import Register from "CompanyDashboard/Authentication/Login";
+import CompanyLogin from "CompanyDashboard/Authentication/Login";
+// import Logout from "CompanyDashboard/Authentication/Login";
+ import CompanyLogout from "CompanyDashboard/Authentication/LogOut";
+import CompanyRegister from "CompanyDashboard/Authentication/Register";
 
-
+import CompanyProfiles from "CompanyDashboard/Setting/Settings";
 
 interface RouteObject {
   path: string;
@@ -79,18 +81,19 @@ interface RouteObject {
 const authProtectedRoutes: Array<RouteObject> = [
   // Dashboard
   { path: "/company-dashboard", component: CompanyDashboard },
-  { path: "/company-director", component: CompanyDirector },
-  { path: "/company-director-form", component: AddNew },
-  { path: "/company-director-overview", component: Overview },
+  { path: "/authorised-person", component: Authorised_Person },
+  { path: "/company-authorised-form", component: AddNew },
+  { path: "/company-authorised-overview", component: Overview },
   
   { path: "/company-tasks", component: Tasks },
-  { path: "/company-time-sheet", component: CompanyTimeSheet },
+  // { path: "/company-time-sheet", component: CompanyTimeSheet },
   { path: "/company-time-sheet-form", component: TimeSheetForm },
   { path: "/company-employee", component: EmployeeListView },
   { path: "/company-company", component: CompanyIndividualClient },
   { path: "/company-company-form", component: CompanyFormIndividual },
   { path: "/company-individual-client", component: CompanyClient },
   { path: "/company-multi-form", component: MultiForm },
+  { path: "/company-multi-form-table", component: MultiFormTable },
   
   { path: "/company-employee-leave-manage", component: LeaveManageHR },
   { path: "/company-employee-leave", component: AddLeaveHR },
@@ -99,7 +102,7 @@ const authProtectedRoutes: Array<RouteObject> = [
   { path: "/company-profile", component: CompanyProfile },
   { path: "/company-profile-form", component: CompanyProfileForm },
   { path: "/company-profile-overview", component: CompanyOverview },
-  { path: "/company-profile-overview", component: CompanyOverview },
+  // { path: "/company-profile-overview", component: CompanyOverview },
 
 
   // multi form report 
@@ -110,7 +113,7 @@ const authProtectedRoutes: Array<RouteObject> = [
   { path: "/company-report-employee-work", component: EmployeeWork},
   { path: "/company-report-employee-Performance", component: EmployeePerformance},
   // { path: "/company-form", component: FormTable },
-  // { path: "/company-table", component: MultiFormDemo },
+  { path: "/company-profiles", component: CompanyProfiles },
   // multi form report end
   
   // demo multi form 
@@ -179,9 +182,9 @@ const publicRoutes = [
 
 
   // // authentication
-  { path: "/company-login", component: Login },
-  { path: "/company-logout", component: Logout },
-  { path: "/company-register", component: Register },
+  { path: "/company-login", component: CompanyLogin },
+  { path: "/company-logout", component: CompanyLogout },
+  { path: "/company-register", component: CompanyRegister },
 
 ]
 

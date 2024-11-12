@@ -1,6 +1,54 @@
-import {   MessageSquare, MonitorDot, ScrollText, Share2, ShoppingBag,  BookUserIcon  } from "lucide-react";
+import {   MessageSquare, MonitorDot, ScrollText, Share2, ShoppingBag,  BookUserIcon, MessageCircleMore, FileStackIcon, MonitorOffIcon, Settings  } from "lucide-react";
 
 const EmployeemenuData: any = [
+
+
+
+    {
+        id: "employeedashboard",
+        label: 'Employee Dashboard',
+        link: "/employee-dashboard",
+        icon: <MonitorDot />,
+
+
+    },
+
+    {
+        id: 'showtasks',
+        label: 'Show Tasks',
+        icon: <MessageSquare />,
+        link: '/employee-show-tasks',
+        parentId: 'employeedashboard'
+    },
+
+    {
+        id: 'chat',
+        label: 'Chat',
+        icon: <MessageCircleMore />,
+        link: '/employee-chat',
+        parentId: 'employeedashboard'
+    },
+    // {
+    //     id: 'report',
+    //     label: 'Report',
+    //     icon: <FileStackIcon />,
+    //     link: '/employee-report',
+    //     parentId: 'employeedashboard'
+    // },
+    {
+        id: 'leave',
+        label: 'Leave',
+        icon: <MonitorOffIcon />,
+        link: '/employee-add-leave',
+        parentId: 'employeedashboard'
+    },
+    {
+        id: 'setting',
+        label: 'Setting',
+        icon: <Settings />,
+        link: '/employee-profile',
+        parentId: 'setting'
+    },
     // {
     //     label: 'menu',
     //     isTitle: true,
@@ -57,54 +105,14 @@ const EmployeemenuData: any = [
     //         }
     //     ]
     // },
-    {
-        id: "employeedashboard",
-        label: 'Employee Dashboard',
-        link: "/#",
-        icon: <BookUserIcon />,
-        subItems: [
+    // {
+       
+    //     subItems: [
 
-            {
-                id: "employeedashboard",
-                label: '  Dashboard ',
-                link: "/employee-dashboard",
-                icon: <MonitorDot />,
-                parentId: 'employeedashboard'
-                 
-            },
-            
-            {
-                id: 'showtasks',
-                label: 'Show Tasks',
-                icon: <MessageSquare />,
-                link: '/employee-show-tasks',
-                parentId: 'employeedashboard'
-            },
-            {
-                id: 'chat',
-                label: 'Chat',
-                icon: <ScrollText />,
-                link: '/employee-chat',
-                parentId: 'employeedashboard'
-            },
-            {
-                id: 'report',
-                label: 'Report',
-                icon: <ScrollText />,
-                link: '/employee-report',
-                parentId: 'employeedashboard'
-            },
-            {
-                id: 'leave',
-                label: 'Leave',
-                icon: <ScrollText />,
-                link: '/employee-leave',
-                parentId: 'employeedashboard'
-            },
-            
-        ]
+              
+    //     ]
         
-    },
+    // },
     // {
     //     id: 'Client',
     //     label: 'Client',

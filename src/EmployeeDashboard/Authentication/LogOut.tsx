@@ -9,7 +9,7 @@ interface selectLogoutState {
     isUserLogout: boolean;
 }
 
-const Logout: React.FC = () => {
+const EmployeeLogout: React.FC = () => {
 
     const dispatch = useDispatch<any>();
 
@@ -29,4 +29,4 @@ const Logout: React.FC = () => {
     return isUserLogout ? <Navigate to="/employee-login" /> : null;
 }
 
-export default Logout;
+export default EmployeeLogout;

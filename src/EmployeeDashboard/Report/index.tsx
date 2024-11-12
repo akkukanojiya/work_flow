@@ -304,7 +304,7 @@ const Report = () => {
                                     <Search className="inline-block size-4 absolute ltr:left-2.5 rtl:right-2.5 top-2.5 text-slate-500 dark:text-zink-200 fill-slate-100 dark:fill-zink-600" />
                                 </div>
                                 <div className="shrink-0">
-                                    <button data-modal-target="addNotesModal" type="button" className="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20" onClick={toggle}>
+                                    <button data-modal-target="addNotesModal" type="button" className="text-white btn bg-[#25476a] border-[#2a5179] hover:text-white hover:bg-[#2a5179] hover:border-[#2a5179] focus:text-white focus:bg-[#2a5179] focus:border-[#2a5179] focus:ring focus:ring-[#2a5179] active:text-white active:bg-[#25476a] active:border-[#25476a] active:ring active:ring-[#2a5179] dark:ring-[#2a5179]" onClick={toggle}>
                                         <Plus className="inline-block size-4" /> <span className="align-middle">Add Report</span>
                                     </button>
                                 </div>
@@ -342,7 +342,7 @@ const Report = () => {
                                                     <span className="align-middle">Overview</span>
                                                 </Link>
                                             </li>
-                                            <li>
+                                            {/* <li>
                                                 <Link to="#" data-modal-target="addNotesModal" className="edit-item-btn block px-4 py-1.5 text-base transition-all duration-200 ease-linear text-slate-600 hover:bg-slate-100 hover:text-slate-500 focus:bg-slate-100 focus:text-slate-500 dark:text-zink-100 dark:hover:bg-zink-500 dark:hover:text-zink-200 dark:focus:bg-zink-500 dark:focus:text-zink-200"
                                                     onClick={() => {
                                                         handleUpdateDataClick(item);
@@ -350,14 +350,14 @@ const Report = () => {
                                                     <FileEdit className="inline-block size-3 ltr:mr-1 rtl:ml-1" />
                                                     <span className="align-middle">Edit</span>
                                                 </Link>
-                                            </li>
-                                            <li>
+                                            </li> */}
+                                            {/* <li>
                                                 <Link to="#" className="remove-item-btn block px-4 py-1.5 text-base transition-all duration-200 ease-linear text-slate-600 hover:bg-slate-100 hover:text-slate-500 focus:bg-slate-100 focus:text-slate-500 dark:text-zink-100 dark:hover:bg-zink-500 dark:hover:text-zink-200 dark:focus:bg-zink-500 dark:focus:text-zink-200"
                                                     onClick={() => onClickDelete(item)}>
                                                     <Trash2 className="inline-block size-3 ltr:mr-1 rtl:ml-1" />
                                                     <span className="align-middle">Delete</span>
                                                 </Link>
-                                            </li>
+                                            </li> */}
                                         </Dropdown.Content>
                                     </Dropdown>
 
@@ -445,7 +445,7 @@ const Report = () => {
                 dialogClassName="w-screen xl:w-[55rem] bg-white shadow rounded-md dark:bg-zink-600">
                 <Modal.Header className="flex items-center justify-between p-5 border-b dark:border-zink-500"
                     closeButtonClass="transition-all duration-200 ease-linear text-slate-400 hover:text-red-500">
-                    <Modal.Title className="text-16">{!!isEdit ? "Edit Report" : "Create Report"}</Modal.Title>
+                    <Modal.Title className="text-16">{!!isEdit ? "" : "Create Report"}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body className="max-h-[calc(theme('height.screen')_-_180px)] overflow-y-auto p-5">
                     <form noValidate className="create-form" onSubmit={(e) => {
@@ -523,7 +523,7 @@ const Report = () => {
                         <div className="flex justify-end gap-2 mt-4">
                             <button type="reset" data-modal-close="addNotesModal" className="text-red-500 bg-white btn hover:text-red-500 hover:bg-red-100 focus:text-red-500 focus:bg-red-100 active:text-red-500 active:bg-red-100 dark:bg-zink-600 dark:hover:bg-red-500/10 dark:focus:bg-red-500/10 dark:active:bg-red-500/10"
                                 onClick={toggle}>Cancel</button>
-                            <button type="submit" id="addNew" className="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">
+                            <button type="submit" id="addNew" className="text-white btn bg-[#25476a] border-[#2a5179] hover:text-white hover:bg-[#2a5179] hover:border-[#2a5179] focus:text-white focus:bg-[#2a5179] focus:border-[#2a5179] focus:ring focus:ring-[#2a5179] active:text-white active:bg-[#25476a] active:border-[#25476a] active:ring active:ring-[#2a5179] dark:ring-[#2a5179]">
                                 {!!isEdit ? "Update" : "Add Report"}
                             </button>
                         </div>

@@ -39,23 +39,23 @@ const CompanyProfileForm = () => {
     // dynamic form 
     return (
         <React.Fragment>
-            <BreadCrumb title='Company Profile' pageTitle='CompanyProfile' />
+            <BreadCrumb title='Profile' pageTitle='Profile' />
             <div className="grid grid-cols-1 xl:grid-cols-12">
                 <div className="xl:col-span-12">
                     <div className="card ">
                         <div className="card-body ">
-                            <h6 className="mb-4 text-15">Create Company Profile</h6>
+                            <h6 className="mb-4 text-15">Create Profile</h6>
 
                             <form action="#!" onSubmit={handleSubmit}>
                                 <div className="grid grid-cols-1 gap-5 lg:grid-cols-2 xl:grid-cols-12  place-content-center ">
                                     <div className="xl:col-span-6">
-                                        <label htmlFor="productNameInput" className="inline-block mb-2 text-base font-medium">Company Name</label>
-                                        <input type="text" id="companyname" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your  Company Name" required />
+                                        <label htmlFor="productNameInput" className="inline-block mb-2 text-base font-medium"> Name</label>
+                                        <input type="text" id="companyname" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Name" required />
 
                                     </div>
 
                                     <div className="xl:col-span-6">
-                                        <label htmlFor="taxApplicable" className="inline-block mb-2 text-base font-medium">Company Category</label>
+                                        <label htmlFor="taxApplicable" className="inline-block mb-2 text-base font-medium">  Category</label>
                                         <select className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" data-choices data-choices-search-false name="taxApplicable" id="companycategory">
                                             <option value="">Select  Category</option>
                                             <option value="pvtltd">Private Limited</option>
@@ -66,65 +66,70 @@ const CompanyProfileForm = () => {
                                         </select>
                                     </div>
                                     <div className="xl:col-span-6">
-                                        <label htmlFor="productCodeInput" className="inline-block mb-2 text-base font-medium">Company Email ID</label>
-                                        <input type="email" id="companyemailInput" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Company Email" required />
+                                        <label htmlFor="productCodeInput" className="inline-block mb-2 text-base font-medium">  Email</label>
+                                        <input type="email" id="companyemailInput" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Email" required />
 
                                     </div>
                                     <div className="xl:col-span-6">
-                                        <label htmlFor="productCodeInput" className="inline-block mb-2 text-base font-medium">Company PANCARD</label>
-                                        <input type="text" id="companypancard" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Company Pan Card" required />
+                                        <label htmlFor="password" className="inline-block mb-2 text-base font-medium">Password</label>
+                                        <input type="password" id="password" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Password" required />
 
                                     </div>
                                     <div className="xl:col-span-6">
-                                        <label htmlFor="qualityInput" className="inline-block mb-2 text-base font-medium">Company GST No.</label>
-                                        <input type="text" id="companyGstNoInput" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Company GST No" required />
-                                    </div>
-                                    <div className="xl:col-span-6">
-                                        <label htmlFor="qualityInput" className="inline-block mb-2 text-base font-medium">Company State</label>
-                                        <input type="text" id="companyState" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your  Company State" required />
-
+                                        <label htmlFor="productCodeInput" className="inline-block mb-2 text-base font-medium">PAN</label>
+                                        <input type="text" id="companypancard" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Pan" required />
 
                                     </div>
                                     <div className="xl:col-span-6">
-                                        <label htmlFor="qualityInput" className="inline-block mb-2 text-base font-medium">Company City</label>
-                                        <input type="text" id="companyCity" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Company City " required />
-
-
+                                        <label htmlFor="qualityInput" className="inline-block mb-2 text-base font-medium">  GST No.</label>
+                                        <input type="text" id="companyGstNoInput" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter GST No" required />
                                     </div>
                                     <div className="xl:col-span-6">
-                                        <label htmlFor="qualityInput" className="inline-block mb-2 text-base font-medium">Company Mobile No</label>
-                                        <input type="number" id="companyMobNo." className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Company Mobile No " required />
+                                        <label htmlFor="qualityInput" className="inline-block mb-2 text-base font-medium">  State</label>
+                                        <input type="text" id="companyState" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter State" required />
 
 
                                     </div>
                                     <div className="xl:col-span-6">
-                                        <label htmlFor="qualityInput" className="inline-block mb-2 text-base font-medium">Company's Total Employees</label>
-                                        <input type="number" id="companyEmployees." className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Company's Total Employees " required />
+                                        <label htmlFor="qualityInput" className="inline-block mb-2 text-base font-medium">  City</label>
+                                        <input type="text" id="companyCity" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your City " required />
+
+
+                                    </div>
+                                    <div className="xl:col-span-6">
+                                        <label htmlFor="qualityInput" className="inline-block mb-2 text-base font-medium">  Mobile No</label>
+                                        <input type="number" id="companyMobNo." className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Mobile No " required />
+
+
+                                    </div>
+                                    <div className="xl:col-span-6">
+                                        <label htmlFor="qualityInput" className="inline-block mb-2 text-base font-medium">  Total Employees</label>
+                                        <input type="number" id="companyEmployees." className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Total Employees " required />
 
 
                                     </div>
                                     <div className="xl:col-span-6">
                                         <label htmlFor="qualityInput" className="inline-block mb-2 text-base font-medium">Date of Incorporation</label>
-                                        <input type="date" id="qualityInput" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your  Date of Incorporation" required />
+                                        <input type="date" id="qualityInput" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter  Date of Incorporation" required />
 
 
                                     </div>
                                     <div className="xl:col-span-6">
                                         <label htmlFor="qualityInput" className="inline-block mb-2 text-base font-medium">CIN</label>
-                                        <input type="text" id="cinInput" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your  CIN" required />
+                                        <input type="text" id="cinInput" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter CIN" required />
 
 
                                     </div>
                                      
                                     <div className="xl:col-span-6">
-                                        <label htmlFor="qualityInput" className="inline-block mb-2 text-base font-medium">Company Address</label>
-                                        <textarea id="companyAddressInput" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Company  Address" required ></textarea>
+                                        <label htmlFor="qualityInput" className="inline-block mb-2 text-base font-medium">  Address</label>
+                                        <textarea id="companyAddressInput" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Address" required ></textarea>
 
 
                                     </div>
                                     <div className="xl:col-span-6">
                                         <label htmlFor="qualityInput" className="inline-block mb-2 text-base font-medium">Other Details</label>
-                                        <textarea id="qualityInput" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your  Other Details" required ></textarea>
+                                        <textarea id="qualityInput" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Other Details" required ></textarea>
 
 
                                     </div>

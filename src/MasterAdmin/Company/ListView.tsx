@@ -33,9 +33,9 @@ import {
     addUserList as onAddUserList,
     updateUserList as onUpdateUserList,
     deleteUserList as onDeleteUserList
-} from 'slices/thunk';
+} from 'MasterAdmin/Masterslices/thunk';
 import { ToastContainer } from 'react-toastify';
-import filterDataBySearch from 'Common/filterDataBySearch';
+import filterDataBySearch from 'MasterAdmin/MasterCommon/filterDataBySearch';
 import * as XLSX from 'xlsx';
 import { RiFileExcel2Line } from 'react-icons/ri';
 
@@ -148,11 +148,12 @@ const MasterCompany = () => {
             companypincode: (eventData && eventData.companypincode) || '',
             location: (eventData && eventData.location) || '',
             email: (eventData && eventData.email) || '',
+            password: (eventData && eventData.password) || '',
             companymobileno: (eventData && eventData.companymobileno) || '',
             companycity: (eventData && eventData.companycity) || '',
             companystate: (eventData && eventData.companystate) || '',
             numberofusers: (eventData && eventData.numberofusers) || '',
-            CompanyLicenseDate: (eventData && eventData.CompanyLicenseDate) || '',
+            // other: (eventData && eventData.other) || '',
             LicensePurchaseYear: (eventData && eventData.LicensePurchaseYear) || '',
             CompanyRenewalDate: (eventData && eventData.CompanyRenewalDate) || '',
             addresstype: (eventData && eventData.addresstype) || '',
@@ -167,11 +168,12 @@ const MasterCompany = () => {
             companypincode: Yup.string().required("Please Enter   Pin Code  "),
             location: Yup.string().required("Please Enter Location"),
             email: Yup.string().required("Please Enter Email"),
+            password: Yup.string().required("Please Enter Password"),
             companymobileno: Yup.string().required("Please Enter  Mobile Number"),
             companycity: Yup.string().required("Please Enter   City"),
             companystate: Yup.string().required("Please Enter   State"),
             numberofusers: Yup.string().required("Please Enter Number Of Users"),
-            // CompanyLicenseDate: Yup.string().required("Please Enter   License Date"),
+            // other: Yup.string().required("Please Enter other's Details"),
             // LicensePurchaseYear: Yup.string().required("Please Enter   License Purchase Year"),
             // CompanyRenewalDate: Yup.string().required("Please Enter Company Renewal Date"),
             addresstype: Yup.string().required('Address Type is required'),
@@ -238,6 +240,18 @@ const MasterCompany = () => {
 
 
 
+    const Status = ({ item }: any) => {
+        switch (item) {
+            case "Active":
+                return (<span className="status px-2.5 py-0.5 inline-block text-xs font-medium rounded border bg-green-100 border-transparent text-green-500 dark:bg-green-500/20 dark:border-transparent">{item}</span>);
+            // case "Deactive":
+            //     return (<span className="status px-2.5 py-0.5 inline-block text-xs font-medium rounded border bg-orange-100 border-transparent text-orange-500 dark:bg-orange-500/20 dark:border-transparent">{item}</span>);
+            case "Deactive":
+                return (<span className="status px-2.5 py-0.5 inline-block text-xs font-medium rounded border bg-red-100 border-transparent text-red-500 dark:bg-red-500/20 dark:border-transparent">{item}</span>);
+            default:
+                return (<span className="status px-2.5 py-0.5 inline-block text-xs font-medium rounded border bg-green-100 border-transparent text-green-500 dark:bg-green-500/20 dark:border-transparent">{item}</span>);
+        }
+    };
     const columns = useMemo(() => [
         // {
         //     header: (
@@ -275,6 +289,15 @@ const MasterCompany = () => {
             header: "Mobile No.",
             accessorKey: "contectNumber",
             enableColumnFilter: false,
+        },
+        {
+            header: "Status",
+            accessorKey: "status",
+            enableColumnFilter: false,
+            enableSorting: true,
+            cell: (cell: any) => (
+                <Status item={cell.getValue()} />
+            ),
         },
         {
             header: "Action",
@@ -323,7 +346,22 @@ const MasterCompany = () => {
 
     ], []
     );
+    // const options = [
+    //     { value: 'Select Status', label: 'Select Status' },
+    //     { value: 'Verified', label: 'Verified' },
+    //     { value: 'Waiting', label: 'Waiting' },
+    //     { value: 'Rejected', label: 'Rejected' },
+    //     { value: 'Hidden', label: 'Hidden' },
+    // ];
 
+    // const handleChangeStatus = (selectedOption: any) => {
+    //     if (selectedOption.value === 'Select Status' || selectedOption.value === 'Hidden') {
+    //         setUser(userList);
+    //     } else {
+    //         const filteredUsers = userList.filter((data: any) => data.status === selectedOption.value);
+    //         setUser(filteredUsers);
+    //     }
+    // };
 
     // dynamic input field 
     // dynamic form 
@@ -464,7 +502,7 @@ const MasterCompany = () => {
             {/* User Modal  */}
             <Modal show={show} onHide={toggle} id="defaultModal" modal-center="true"
                 className="fixed flex flex-col transition-all duration-300 ease-in-out left-2/4 z-drawer -translate-x-2/4 -translate-y-2/4"
-                dialogClassName="w-full md:w-[45rem] bg-white shadow rounded-md dark:bg-zink-600">
+                dialogClassName="w-full md:w-[55rem] bg-white shadow rounded-md dark:bg-zink-600">
                 <Modal.Header className="flex items-center justify-between p-4 border-b dark:border-zink-300/20"
                     closeButtonClass="transition-all duration-200 ease-linear text-slate-400 hover:text-red-500">
                     <Modal.Title className="text-16">{!!isEdit ? "Edit Company" : "Add Company"}</Modal.Title>
@@ -582,18 +620,18 @@ const MasterCompany = () => {
                                 <p className="text-red-400">{validation.errors.companyemailid}</p>
                             ) : null}
                         </div>
-                        {/* <div className="mb-3">
-                            <label htmlFor="companycity" className="inline-block mb-2 text-base font-medium">Company City</label>
-                            <input type="text" id="companycity" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Company City"
-                                name="companycity"
+                         <div className="mb-3">
+                            <label htmlFor="password" className="inline-block mb-2 text-base font-medium">Password</label>
+                            <input type="password" id="password" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Password"
+                                name="password"
                                 onChange={validation.handleChange}
-                                value={validation.values.companycity || ""}
+                                value={validation.values.password || ""}
                             />
-                            {validation.touched.companycity && validation.errors.companycity ? (
-                                <p className="text-red-400">{validation.errors.companycity}</p>
+                            {validation.touched.password && validation.errors.password ? (
+                                <p className="text-red-400">{validation.errors.password}</p>
                             ) : null}
                         </div>
-                        <div className="mb-3">
+                       {/* <div className="mb-3">
                             <label htmlFor="companystate" className="inline-block mb-2 text-base font-medium"> Company State</label>
                             <input type="text" id="companystate" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Company State"
                                 name="companystate"
@@ -628,13 +666,24 @@ const MasterCompany = () => {
                         </div>
                         <div className="mb-3">
                             <label htmlFor="numberOfUsers" className="inline-block mb-2 text-base font-medium">Number Of Users</label>
-                            <input type="number" id="numberOfUsers" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter   Number Of Users"
+                            <input type="number" id="numberOfUsers" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter  Number Of Users"
                                 name="numberofusers"
                                 onChange={validation.handleChange}
                                 value={validation.values.numberofusers || ""}
                             />
                             {validation.touched.numberofusers && validation.errors.numberofusers ? (
                                 <p className="text-red-400">{validation.errors.numberofusers}</p>
+                            ) : null}
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="other" className="inline-block mb-2 text-base font-medium">Other's</label>
+                            <input type="text" id="other" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter  other's Details"
+                                name="other"
+                                onChange={validation.handleChange}
+                                value={validation.values.other || ""}
+                            />
+                            {validation.touched.other && validation.errors.other ? (
+                                <p className="text-red-400">{validation.errors.other}</p>
                             ) : null}
                         </div>
                         {/* <div className="mb-3">

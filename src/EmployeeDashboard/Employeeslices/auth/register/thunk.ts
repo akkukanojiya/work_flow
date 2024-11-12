@@ -1,9 +1,12 @@
 import { ThunkAction } from "redux-thunk";
-import { RootState } from "slices";
+// import { RootState } from "slices";
+import { RootState } from "EmployeeDashboard/Employeeslices";
 import { Action, Dispatch } from "redux";
-import { postFakeRegister } from "helpers/fakebackend_helper";
+// import { postFakeRegister } from "helpers/fakebackend_helper";
+import { postFakeRegister } from "EmployeeDashboard/Employeehelpers/fakebackend_helper";
 import { registerFailed, registerSuccess, resetRegister } from "./reducer";
-import { getFirebaseBackend } from "helpers/firebase_helper";
+// import { getFirebaseBackend } from "helpers/firebase_helper";
+import { getFirebaseBackend } from "EmployeeDashboard/Employeehelpers/firebase_helper";
 
 interface User {
     email: string;

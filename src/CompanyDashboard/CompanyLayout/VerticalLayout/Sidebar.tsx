@@ -64,7 +64,7 @@ const Sidebar = ({ layoutType, layoutSidebarSizeType }: any) => {
                 )}
             </div>
 
-            <div id="sidebar-overlay" className="absolute inset-0 z-[1002] bg-slate-500/30 hidden"></div>
+            <div id="sidebar-overlay" className="absolute inset-0 z-[1002] bg-[#25476a] hidden"></div>
         </React.Fragment>
     );
 };

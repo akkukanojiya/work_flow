@@ -1,11 +1,12 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import BreadCrumb from 'Common/BreadCrumb';
-import TableContainer from 'Common/TableContainer';
+// import TableContainer from 'Common/TableContainer';
+import TableContainer from 'EmployeeDashboard/EmployeeCommon/TableContainer';
 import CountUp from 'react-countup';
 import { Link } from 'react-router-dom';
 
 // Icons
-import { Search, Plus, Pencil, Info, FileBarChart2, CalendarDays, Stethoscope, Anchor } from 'lucide-react';
+import { Search, Plus, Pencil, Info, FileBarChart2, CalendarDays, Stethoscope, Anchor, Eye, Trash2, EyeIcon } from 'lucide-react';
 
 // react-redux
 import { useDispatch, useSelector } from 'react-redux';
@@ -13,8 +14,8 @@ import { createSelector } from 'reselect';
 
 import {
     getLeaveManageEmployee as onGetLeaveManageEmployee
-} from 'slices/thunk';
-import filterDataBySearch from 'Common/filterDataBySearch';
+} from 'EmployeeDashboard/Employeeslices/thunk';
+import filterDataBySearch from 'EmployeeDashboard/EmployeeCommon/filterDataBySearch';
 
 const LeaveManageEmployee = () => {
 
@@ -74,7 +75,7 @@ const LeaveManageEmployee = () => {
 
     const columns = useMemo(() => [
         {
-            header: "#",
+            header: "Sr No.",
             accessorKey: "id",
             enableColumnFilter: false
         },
@@ -103,11 +104,11 @@ const LeaveManageEmployee = () => {
             accessorKey: "to",
             enableColumnFilter: false,
         },
-        {
-            header: "Approved By",
-            accessorKey: "approvedBy",
-            enableColumnFilter: false,
-        },
+        // {
+        //     header: "Approved By",
+        //     accessorKey: "approvedBy",
+        //     enableColumnFilter: false,
+        // },
         {
             header: "Status",
             accessorKey: "status",
@@ -121,9 +122,14 @@ const LeaveManageEmployee = () => {
             enableColumnFilter: false,
             enableSorting: false,
             cell: (cell: any) => (
-                <div className="flex justify-end gap-2">
-                    {cell.row.original.status === "Pending" && <Link to="#!" className="flex items-center justify-center size-8 transition-all duration-200 ease-linear rounded-md text-slate-500 bg-slate-100 hover:text-white hover:bg-slate-500 dark:text-zink-200 dark:bg-zink-600 dark:hover:text-white dark:hover:bg-zink-400"><Pencil className="size-4" /></Link>}
-                    <Link to="#!" data-modal-target="leaveOverviewModal" className="flex items-center justify-center size-8 transition-all duration-200 ease-linear rounded-md text-custom-500 bg-custom-100 hover:text-white hover:bg-custom-500 dark:bg-custom-500/20 dark:hover:bg-custom-500"><Info className="size-4" /></Link>
+                <div className="flex gap-2">
+                    <Link to="#" className="flex items-center justify-center size-8 transition-all duration-200 ease-linear rounded-md bg-slate-100 dark:bg-zink-600 dark:text-zink-200 text-slate-500 hover:text-green-500 dark:hover:text-green-500 hover:bg-green-100 dark:hover:bg-green-500/20"><EyeIcon className="size-4" /></Link>
+                    <Link to="#" className="flex items-center justify-center size-8 transition-all duration-200 ease-linear rounded-md bg-slate-100 dark:bg-zink-600 dark:text-zink-200 text-slate-500 hover:text-custom-500 dark:hover:text-custom-500 hover:bg-custom-100 dark:hover:bg-custom-500/20" ><Pencil className="size-4" /></Link>
+                    <Link to="#" className="flex items-center justify-center size-8 transition-all duration-200 ease-linear rounded-md bg-slate-100 dark:bg-zink-600 dark:text-zink-200 text-slate-500 hover:text-red-500 dark:hover:text-red-500 hover:bg-red-100 dark:hover:bg-red-500/20" onClick={() => {
+                        const data = cell.row.original;
+                        onClickDelete(data);
+                    }}><Trash2 className="size-4" /></Link>
+
                 </div>
             ),
         }
@@ -199,7 +205,7 @@ const LeaveManageEmployee = () => {
                         </div>
                         <div className="xl:col-span-2 xl:col-start-11">
                             <div className="ltr:lg:text-right rtl:lg:text-left">
-                                <Link to="/apps-hr-create-leave-employee" type="button" className="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20"><Plus className="inline-block size-4" /> <span className="align-middle">Add Leave</span></Link>
+                                <Link to="/employee-leave" type="button" className="text-white btn bg-[#25476a] border-[#2a5179] hover:text-white hover:bg-[#2a5179] hover:border-[#2a5179] focus:text-white focus:bg-[#2a5179] focus:border-[#2a5179] focus:ring focus:ring-[#2a5179] active:text-white active:bg-[#25476a] active:border-[#25476a] active:ring active:ring-[#2a5179] dark:ring-[#2a5179]"><Plus className="inline-block size-4" /> <span className="align-middle">Add Leave</span></Link>
                             </div>
                         </div>
                     </div>
@@ -212,7 +218,7 @@ const LeaveManageEmployee = () => {
                                 customPageSize={10}
                                 divclassName="overflow-x-auto"
                                 tableclassName="w-full whitespace-nowrap"
-                                theadclassName="ltr:text-left rtl:text-right bg-slate-100 text-slate-500 dark:bg-zink-600 dark:text-zink-200"
+                                theadclassName="ltr:text-left rtl:text-right bg-[#25476a] text-[#fff]"
                                 thclassName="px-3.5 py-2.5 font-semibold border-b border-slate-200 dark:border-zink-500"
                                 tdclassName="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500"
                                 PaginationClassName="flex flex-col items-center mt-5 md:flex-row"
@@ -233,3 +239,7 @@ const LeaveManageEmployee = () => {
 };
 
 export default LeaveManageEmployee;
+function onClickDelete(data: any) {
+    throw new Error('Function not implemented.');
+}
+

@@ -1,15 +1,17 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { logoutUser } from "slices/thunk";
+// import { logoutUser } from "slices/thunk";
+import { logoutUser } from "MasterAdmin/Masterslices/thunk";
 import { Navigate } from "react-router-dom";
-import { RootState } from "slices";
+// import { RootState } from "slices";
+import { RootState } from "MasterAdmin/Masterslices";
 import { createSelector } from 'reselect';
 
 interface selectLogoutState {
     isUserLogout: boolean;
 }
 
-const Logout: React.FC = () => {
+const MasterLogout: React.FC = () => {
 
     const dispatch = useDispatch<any>();
 
@@ -29,4 +31,4 @@ const Logout: React.FC = () => {
     return isUserLogout ? <Navigate to="/master-login" /> : null;
 }
 
-export default Logout;
+export default MasterLogout;

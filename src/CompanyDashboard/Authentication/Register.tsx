@@ -1,7 +1,8 @@
 import React from "react";
 import AuthIcon from "pages/AuthenticationInner/AuthIcon";
 import { useDispatch, useSelector } from "react-redux";
-import { registerUser, resetRegisterFlag } from "slices/thunk";
+// import { registerUser, resetRegisterFlag } from "slices/thunk";
+ import { registerUser, resetRegisterFlag } from "CompanyDashboard/Companyslices/thunk";
 import { createSelector } from 'reselect';
 import { Facebook, Github, Mail, Twitter } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
@@ -13,9 +14,10 @@ import { useFormik as useFormic } from "formik";
 // Image
 import logoLight from "assets/images/logo-light.png";
 import logoDark from "assets/images/logo-dark.png";
-import { RootState } from "slices";
+// import { RootState } from "slices";
+import { RootState } from "CompanyDashboard/Companyslices";
 
-const Register = () => {
+const CompanyRegister = () => {
 
     document.title = "Register | Tailwick - React Admin & Dashboard Template";
 
@@ -53,7 +55,7 @@ const Register = () => {
     React.useEffect(() => {
 
         if (success) {
-            navigation('/company-login')
+            navigation('/company-dashboard')
         }
 
         setTimeout(() => {
@@ -166,7 +168,7 @@ const Register = () => {
                             </div>
 
                             <div className="mt-10 text-center">
-                                <p className="mb-0 text-slate-500 dark:text-zink-200">Already have an account ? <Link to="/login" className="font-semibold underline transition-all duration-150 ease-linear text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500">Login</Link> </p>
+                                <p className="mb-0 text-slate-500 dark:text-zink-200">Already have an account ? <Link to="/company-dashboard" className="font-semibold underline transition-all duration-150 ease-linear text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500">Login</Link> </p>
                             </div>
                         </form>
                     </div>
@@ -176,4 +178,4 @@ const Register = () => {
     );
 }
 
-export default Register;
+export default CompanyRegister;

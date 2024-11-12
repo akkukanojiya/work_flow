@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import BreadCrumb from 'Common/BreadCrumb';
 import Flatpickr from "react-flatpickr";
 import moment from "moment";
-import { Calendar } from "lucide-react";
+import { Cable, Calendar, CheckCircle2, Image, MonitorDotIcon, NotebookText, Timer } from "lucide-react";
 
 // Icons
 import { Search, Plus, Trash2, MoreHorizontal, Star, FileEdit, Eye, User2 } from 'lucide-react';
@@ -28,32 +28,33 @@ import {
 } from 'slices/thunk';
 import { ToastContainer } from 'react-toastify';
 import filterDataBySearch from 'Common/filterDataBySearch';
-import Pagination from 'Common/Pagination';
+// import Pagination from 'Common/Pagination';
+import Pagination from 'EmployeeDashboard/EmployeeCommon/Pagination';
 import DropdownTreeSelect from 'react-dropdown-tree-select';
 
 import 'react-dropdown-tree-select/dist/styles.css'
 import './index.css'
-import datass from './data.json';
+// import datass from './data.json';
 interface Node {
     path: string;
     [key: string]: any;
 }
 
 
-const onchange = (currentNode: Node, selectedNodes: Node[]) => {
-    console.log("path::", currentNode.path);
-};
+// const onchange = (currentNode: Node, selectedNodes: Node[]) => {
+//     console.log("path::", currentNode.path);
+// };
 
-const assignObjectPaths = (obj: Node, stack?: string) => {
-    Object.keys(obj).forEach((k) => {
-        const node = obj[k];
-        if (typeof node === "object") {
-            node.path = stack ? `${stack}.${k}` : k;
-            assignObjectPaths(node, node.path);
-        }
-    });
-};
-
+// const assignObjectPaths = (obj: Node, stack?: string) => {
+//     Object.keys(obj).forEach((k) => {
+//         const node = obj[k];
+//         if (typeof node === "object") {
+//             node.path = stack ? `${stack}.${k}` : k;
+//             assignObjectPaths(node, node.path);
+//         }
+//     });
+// };
+    
 // ===============================
 
 // const options: { label: string; value: string; disabled?: boolean }[] = [
@@ -72,15 +73,16 @@ const assignObjectPaths = (obj: Node, stack?: string) => {
 
 // multi dropdown 
 import MultiSelect, { Option } from "./MultiSelect";
+import { RiFileExcel2Line, RiFilePdfLine } from 'react-icons/ri';
 // import "./styles.css";
 
 const optionss = [
-  { value: 0, label: "Jaimin" },
-  { value: 1, label: "Akash" },
-  { value: 2, label: "Harshil" },
-  { value: 3, label: "Divyang" },
-  { value: 4, label: "Shivam" },
-  { value: 5, label: "Suresh" },
+    { value: 0, label: "Jaimin" },
+    { value: 1, label: "Akash" },
+    { value: 2, label: "Harshil" },
+    { value: 3, label: "Divyang" },
+    { value: 4, label: "Shivam" },
+    { value: 5, label: "Suresh" },
 ];
 // multi dropdown end
 
@@ -329,11 +331,11 @@ const ShowTasks = () => {
 
 
     // multi select dropdown
-     
+
     const [optionSelecteds, setSelecteds] = useState<Option[] | null>();
-  const handleChange = (selected: Option[]) => {
-    setSelecteds(selected);
-  };
+    const handleChange = (selected: Option[]) => {
+        setSelecteds(selected);
+    };
 
     // multi select dropdown end
 
@@ -345,37 +347,78 @@ const ShowTasks = () => {
             <div className="card">
                 <div className="card-body">
                     <div className="grid grid-cols-1 gap-5 xl:grid-cols-12">
-                        {/* <div className="xl:col-span-4">
-                            <ul className="flex flex-wrap w-full gap-2 text-sm font-medium text-center filter-btns grow">
-                                <li>
-                                    <Link to="#" data-filter="all" className={`inline-block px-4 py-2 text-base transition-all duration-300 ease-linear rounded-md text-slate-500 dark:text-zink-200 border border-transparent [&.active]:bg-custom-500 dar:[&.active]:bg-custom-500 [&.active]:text-white dark:[&.active]:text-white hover:text-custom-500 dark:hover:text-custom-500 active:text-custom-500 dark:active:text-custom-500 -mb-[1px] ${activeTab === 1 && "active"}`} onClick={() => toggleTab(1, "all")}>All</Link>
+                        <div className="xl:col-span-4">
+                            <ul className="flex flex-wrap justify-between w-full gap-2 text-sm font-medium text-center filter-btns grow">
+                                <li className="flex-1 md:flex-auto">
+                                    <Link
+                                        to="#"
+                                        data-filter="all"
+                                        className={`inline-block w-full px-4 py-2 text-base transition-all duration-300 ease-linear rounded-md text-slate-500 dark:text-zink-200 border border-transparent [&.active]:bg-[#25476a] dar:[&.active]:bg-[#25476a] [&.active]:text-white dark:[&.active]:text-white hover:text-[#25476a] dark:hover:text-[#25476a] active:text-custom-500 dark:active:text-custom-500 -mb-[1px] ${activeTab === 1 && "active"
+                                            }`}
+                                        onClick={() => toggleTab(1, "all")}
+                                    >
+                                        All
+                                    </Link>
                                 </li>
-                                <li>
-                                    <Link to="#" data-filter="business" className={`inline-block px-4 py-2 text-base transition-all duration-300 ease-linear rounded-md text-slate-500 dark:text-zink-200 border border-transparent [&.active]:bg-custom-500 dar:[&.active]:bg-custom-500 [&.active]:text-white dark:[&.active]:text-white hover:text-custom-500 dark:hover:text-custom-500 active:text-custom-500 dark:active:text-custom-500 -mb-[1px] ${activeTab === 2 && "active"}`} onClick={() => toggleTab(2, "business")}>Business</Link>
+                                <li className="flex-1 md:flex-auto">
+                                    <Link
+                                        to="#"
+                                        data-filter="business"
+                                        className={`inline-block w-full px-4 py-2 text-base transition-all duration-300 ease-linear rounded-md text-slate-500 dark:text-zink-200 border border-transparent [&.active]:bg-[#25476a] dar:[&.active]:bg-[#25476a] [&.active]:text-white dark:[&.active]:text-white hover:text-[#25476a] dark:hover:text-[#25476a] active:text-custom-500 dark:active:text-custom-500 -mb-[1px] ${activeTab === 2 && "active"
+                                            }`}
+                                        onClick={() => toggleTab(2, "business")}
+                                    >
+                                        Due Task
+                                    </Link>
                                 </li>
-                                <li>
-                                    <Link to="#" data-filter="social" className={`inline-block px-4 py-2 text-base transition-all duration-300 ease-linear rounded-md text-slate-500 dark:text-zink-200 border border-transparent [&.active]:bg-custom-500 dar:[&.active]:bg-custom-500 [&.active]:text-white dark:[&.active]:text-white hover:text-custom-500 dark:hover:text-custom-500 active:text-custom-500 dark:active:text-custom-500 -mb-[1px] ${activeTab === 3 && "active"}`} onClick={() => toggleTab(3, "social")}>Social</Link>
+                                <li className="flex-1 md:flex-auto">
+                                    <Link
+                                        to="#"
+                                        data-filter="social"
+                                        className={`inline-block w-full px-4 py-2 text-base transition-all duration-300 ease-linear rounded-md text-slate-500 dark:text-zink-200 border border-transparent [&.active]:bg-[#25476a] dar:[&.active]:bg-[#25476a] [&.active]:text-white dark:[&.active]:text-white hover:text-[#25476a] dark:hover:text-[#25476a] active:text-custom-500 dark:active:text-custom-500 -mb-[1px] ${activeTab === 3 && "active"
+                                            }`}
+                                        onClick={() => toggleTab(3, "social")}
+                                    >
+                                        Given Task
+                                    </Link>
                                 </li>
-                                <li>
-                                    <Link to="#" data-filter="home" className={`inline-block px-4 py-2 text-base transition-all duration-300 ease-linear rounded-md text-slate-500 dark:text-zink-200 border border-transparent [&.active]:bg-custom-500 dar:[&.active]:bg-custom-500 [&.active]:text-white dark:[&.active]:text-white hover:text-custom-500 dark:hover:text-custom-500 active:text-custom-500 dark:active:text-custom-500 -mb-[1px] ${activeTab === 4 && "active"}`} onClick={() => toggleTab(4, "home")}>Home</Link>
+                                <li className="flex-1 md:flex-auto">
+                                    <Link
+                                        to="#"
+                                        data-filter="home"
+                                        className={`inline-block w-full px-4 py-2 text-base transition-all duration-300 ease-linear rounded-md text-slate-500 dark:text-zink-200 border border-transparent [&.active]:bg-[#25476a] dar:[&.active]:bg-[#25476a] [&.active]:text-white dark:[&.active]:text-white hover:text-[#25476a] dark:hover:text-[#25476a] active:text-custom-500 dark:active:text-custom-500 -mb-[1px] ${activeTab === 4 && "active"
+                                            }`}
+                                        onClick={() => toggleTab(4, "home")}
+                                    >
+                                        Pending Task
+                                    </Link>
                                 </li>
-                                <li>
-                                    <Link to="#" data-filter="personal" className={`inline-block px-4 py-2 text-base transition-all duration-300 ease-linear rounded-md text-slate-500 dark:text-zink-200 border border-transparent [&.active]:bg-custom-500 dar:[&.active]:bg-custom-500 [&.active]:text-white dark:[&.active]:text-white hover:text-custom-500 dark:hover:text-custom-500 active:text-custom-500 dark:active:text-custom-500 -mb-[1px] ${activeTab === 5 && "active"}`} onClick={() => toggleTab(5, "personal")}>Personal</Link>
+                                <li className="flex-1 md:flex-auto">
+                                    <Link
+                                        to="#"
+                                        data-filter="personal"
+                                        className={`inline-block w-full px-4 py-2 text-base transition-all duration-300 ease-linear rounded-md text-slate-500 dark:text-zink-200 border border-transparent [&.active]:bg-[#25476a] dar:[&.active]:bg-[#25476a] [&.active]:text-white dark:[&.active]:text-white hover:text-[#25476a] dark:hover:text-[#25476a] active:text-custom-500 dark:active:text-custom-500 -mb-[1px] ${activeTab === 5 && "active"
+                                            }`}
+                                        onClick={() => toggleTab(5, "personal")}
+                                    >
+                                        Completed Task
+                                    </Link>
                                 </li>
                             </ul>
-                        </div> */}
+
+                        </div>
 
                         <div className="xl:col-start-10 xl:col-span-3">
                             <div className="flex gap-3">
                                 <div className="relative grow">
-                                    <input type="text" className="ltr:pl-8 rtl:pr-8 search form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Search for ..." autoComplete="off" onChange={(e) => filterSearchData(e)} />
+                                    <input type="text" className="ltr:pl-8 rtl:pr-8 search form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Search" autoComplete="off" onChange={(e) => filterSearchData(e)} />
                                     <Search className="inline-block size-4 absolute ltr:left-2.5 rtl:right-2.5 top-2.5 text-slate-500 dark:text-zink-200 fill-slate-100 dark:fill-zink-600" />
                                 </div>
-                                <div className="shrink-0">
+                                {/* <div className="shrink-0">
                                     <button data-modal-target="addNotesModal" type="button" className="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20" onClick={toggle}>
                                         <Plus className="inline-block size-4" /> <span className="align-middle">Add Task</span>
                                     </button>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
 
@@ -410,7 +453,7 @@ const ShowTasks = () => {
                                                     <span className="align-middle">Show Tasks</span>
                                                 </Link>
                                             </li>
-                                            <li>
+                                            {/* <li>
                                                 <Link to="#" data-modal-target="addNotesModal" className="edit-item-btn block px-4 py-1.5 text-base transition-all duration-200 ease-linear text-slate-600 hover:bg-slate-100 hover:text-slate-500 focus:bg-slate-100 focus:text-slate-500 dark:text-zink-100 dark:hover:bg-zink-500 dark:hover:text-zink-200 dark:focus:bg-zink-500 dark:focus:text-zink-200"
                                                     onClick={() => {
                                                         handleUpdateDataClick(item);
@@ -418,14 +461,14 @@ const ShowTasks = () => {
                                                     <FileEdit className="inline-block size-3 ltr:mr-1 rtl:ml-1" />
                                                     <span className="align-middle">Edit</span>
                                                 </Link>
-                                            </li>
-                                            <li>
+                                            </li> */}
+                                            {/* <li>
                                                 <Link to="#" className="remove-item-btn block px-4 py-1.5 text-base transition-all duration-200 ease-linear text-slate-600 hover:bg-slate-100 hover:text-slate-500 focus:bg-slate-100 focus:text-slate-500 dark:text-zink-100 dark:hover:bg-zink-500 dark:hover:text-zink-200 dark:focus:bg-zink-500 dark:focus:text-zink-200"
                                                     onClick={() => onClickDelete(item)}>
                                                     <Trash2 className="inline-block size-3 ltr:mr-1 rtl:ml-1" />
                                                     <span className="align-middle">Delete</span>
                                                 </Link>
-                                            </li>
+                                            </li> */}
                                         </Dropdown.Content>
                                     </Dropdown>
 
@@ -557,7 +600,7 @@ const ShowTasks = () => {
                                     ) : null}
                                 </div>
                             </div> */}
-                                {/* <div>
+                            {/* <div>
                                     <label htmlFor="categorySelect" className="inline-block mb-2 text-base font-medium">Category</label>
                                     <select className="form-select border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" data-choices data-choices-search-false id="statusSelect"
                                         name="category"
@@ -576,9 +619,9 @@ const ShowTasks = () => {
                                         </div> */}
 
 
-                                        {/* <h1>Select Fruits</h1> */}
-                                     {/* <pre>{JSON.stringify(selected)}</pre> */}
-                                        {/* <div className="xl:col-span-4">
+                            {/* <h1>Select Fruits</h1> */}
+                            {/* <pre>{JSON.stringify(selected)}</pre> */}
+                            {/* <div className="xl:col-span-4">
                                 <div>
                                     
                                     <label htmlFor="notesTitleInput" className="inline-block mb-2 text-base font-medium">Assign Team(Assignee/Group)</label>
@@ -597,15 +640,15 @@ const ShowTasks = () => {
 
                             {/* <h1>{"\u2728"} MultiSelect example</h1> */}
                             <div className="xl:col-span-4">
-                            <label htmlFor="notesTitleInput" className="inline-block mb-2 text-base font-medium">Assign Team(Assignee/Group)</label>
-                            <MultiSelect
-                                key="example_id"
-                                options={optionss}
-                                onChange={handleChange}
-                                value={optionSelecteds}
-                                isSelectAll={true}
-                                menuPlacement={"bottom"}
-                            />
+                                <label htmlFor="notesTitleInput" className="inline-block mb-2 text-base font-medium">Assign Team(Assignee/Group)</label>
+                                <MultiSelect
+                                    key="example_id"
+                                    options={optionss}
+                                    onChange={handleChange}
+                                    value={optionSelecteds}
+                                    isSelectAll={true}
+                                    menuPlacement={"bottom"}
+                                />
                             </div>
                             <div className="xl:col-span-4">
                                 <label htmlFor="dueDateInput" className="inline-block mb-2 text-base font-medium">Due Date</label>
@@ -653,7 +696,7 @@ const ShowTasks = () => {
                                     <p className="text-red-400">{validation.errors.clientName}</p>
                                 ) : null}
                             </div>
-                            <div className='xl:col-span-4 '>
+                            {/* <div className='xl:col-span-4 '>
 
 
                                 <label htmlFor="services" className="inline-block mb-2 text-base font-medium">Services</label>
@@ -664,7 +707,7 @@ const ShowTasks = () => {
                                     onChange={onchange}
                                     className="mdl-demo"
                                 />
-                            </div>
+                            </div> */}
                             {/* <div className="xl:col-span-4">
                                 <div>
                                     <label htmlFor="categorySelect" className="inline-block mb-2 text-base font-medium">Assignee Team</label>
@@ -751,7 +794,7 @@ const ShowTasks = () => {
             {/* Overview Notes Modal */}
             <Modal show={Overviewshow} onHide={toggleOverview} id="overviewNotesModal" modal-center="true"
                 className="fixed flex flex-col transition-all duration-300 ease-in-out left-2/4 z-drawer -translate-x-2/4 -translate-y-2/4"
-                dialogClassName="w-screen xl:w-[35rem] bg-white shadow rounded-md dark:bg-zink-600"
+                dialogClassName="w-screen xl:w-[50rem] bg-white shadow rounded-md dark:bg-zink-600"
             >
                 <Modal.Header className="flex items-center justify-between p-5 border-b dark:border-zink-500"
                     closeButtonClass="transition-all duration-200 ease-linear text-slate-500 hover:text-red-500 dark:text-zink-200 dark:hover:text-red-500">
@@ -780,24 +823,59 @@ const ShowTasks = () => {
                     <div className="flex items-center gap-2 mb-4">
                         <h6 className="text-sm font-normal grow">
                             <User2 className="inline-block size-4 mr-1 align-middle text-slate-500 fill-slate-200 dark:text-zink-200 dark:fill-zink-500" />
-                            <span className="align-middle">Admin</span></h6>
+                            <span className="align-middle">akash</span></h6>
+                        <h6 className="text-sm font-normal grow">
+                            <MonitorDotIcon className="inline-block size-4 mr-1 align-middle text-slate-500 fill-slate-200 dark:text-zink-200 dark:fill-zink-500" />
+                            <span className="align-middle">Service</span></h6>
+                        <h6 className="text-sm font-normal grow">
+                            <Cable className="inline-block size-4 mr-1 align-middle text-slate-500 fill-slate-200 dark:text-zink-200 dark:fill-zink-500" />
+                            <span className="align-middle">Sub Service</span></h6>
+                        <h6 className="text-sm font-normal grow">
+                            <Timer className="inline-block size-4 mr-1 align-middle text-slate-500 fill-slate-200 dark:text-zink-200 dark:fill-zink-500" />
+                            <span className="align-middle">Alloted Time</span></h6>
+                        <h6 className="text-sm font-normal grow">
+                            <CheckCircle2 className="inline-block size-4 mr-1 align-middle text-slate-500 fill-slate-200 dark:text-zink-200 dark:fill-zink-500" />
+                            <span className="align-middle">Priority</span></h6>
                         <h6 className="text-sm font-normal shrink-0"><Calendar className="inline-block size-4 mr-1 align-middle text-slate-500 fill-slate-200 dark:text-zink-200 dark:fill-zink-500" />
                             <span className="align-middle">{eventData?.date}</span></h6>
                     </div>
                     <p className="mb-2 text-slate-500 dark:text-zink-200" dangerouslySetInnerHTML={{ __html: eventData?.description }}></p>
+                    <p className="mb-2 text-slate-500 dark:text-zink-200" dangerouslySetInnerHTML={{ __html: eventData?.description }}></p>
                     <div className="flex justify-end gap-2 mt-4">
+                    <button className="bg-white   text-[#2a5179] btn   hover:text-[#25476a] hover:bg-custom-50   focus:text-custom-600 focus:bg-custom-50   active:text-[#25476a] active:bg-custom-50   dark:bg-zinc-700 dark:ring-custom-400/20 dark:hover:bg-custom-800/20 dark:focus:bg-custom-800/20 dark:active:bg-custom-800/20" >
+                                <span className="align-middle">Excel</span>
+                                <RiFileExcel2Line className="inline-block size-5" />
+                            </button>
+                    <button className="bg-white   text-[#2a5179] btn   hover:text-[#25476a] hover:bg-custom-50   focus:text-custom-600 focus:bg-custom-50   active:text-[#25476a] active:bg-custom-50   dark:bg-zinc-700 dark:ring-custom-400/20 dark:hover:bg-custom-800/20 dark:focus:bg-custom-800/20 dark:active:bg-custom-800/20" >
+                                <span className="align-middle">Word</span>
+                                <NotebookText className="inline-block size-5" />
+                            </button>
+                    <button className="bg-white   text-[#2a5179] btn   hover:text-[#25476a] hover:bg-custom-50   focus:text-custom-600 focus:bg-custom-50   active:text-[#25476a] active:bg-custom-50   dark:bg-zinc-700 dark:ring-custom-400/20 dark:hover:bg-custom-800/20 dark:focus:bg-custom-800/20 dark:active:bg-custom-800/20" >
+                                <span className="align-middle">PDF</span>
+                                <RiFilePdfLine className="inline-block size-5" />
+                            </button>
+                    <button className="bg-white   text-[#2a5179] btn   hover:text-[#25476a] hover:bg-custom-50   focus:text-custom-600 focus:bg-custom-50   active:text-[#25476a] active:bg-custom-50   dark:bg-zinc-700 dark:ring-custom-400/20 dark:hover:bg-custom-800/20 dark:focus:bg-custom-800/20 dark:active:bg-custom-800/20" >
+                                <span className="align-middle">Image</span>
+                                <Image className="inline-block size-5" />
+                            </button>
                         <button
+                            className="text-green-500 bg-white btn hover:text-green-500 hover:bg-green-100 focus:text-green-500 focus:bg-green-100 
+                         active:text-green-500 active:bg-green-100 dark:bg-zink-600 dark:hover:bg-green-500/10 dark:focus:bg-green-500/10 
+                         dark:active:bg-green-500/10"
+                            onClick={toggleOverview}
+                        >Start Task</button>
+                        <button data-modal-close="overviewNotesModal"
+                            className="text-yellow-500 bg-white btn hover:text-yellow-500 hover:bg-yellow-100 focus:text-yellow-500 focus:bg-yellow-100 
+                         active:text-yellow-500 active:bg-yellow-100 dark:bg-zink-600 dark:hover:bg-yellow-500/10 dark:focus:bg-yellow-500/10 
+                         dark:active:bg-yellow-500/10"
+                            onClick={() => { handleUpdateDataClick(eventData); setOverview(!Overviewshow); }}
+                        >Hold Task</button>
+                        <button data-modal-close="overviewNotesModal"
                             className="text-red-500 bg-white btn hover:text-red-500 hover:bg-red-100 focus:text-red-500 focus:bg-red-100 
                          active:text-red-500 active:bg-red-100 dark:bg-zink-600 dark:hover:bg-red-500/10 dark:focus:bg-red-500/10 
                          dark:active:bg-red-500/10"
-                            onClick={toggleOverview}
-                        >Cancel</button>
-                        <button data-modal-close="overviewNotesModal"
-                            className="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 
-                         focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white
-                          active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20"
                             onClick={() => { handleUpdateDataClick(eventData); setOverview(!Overviewshow); }}
-                        >Edit Task</button>
+                        >End Task</button>
                     </div>
                 </Modal.Body>
             </Modal>

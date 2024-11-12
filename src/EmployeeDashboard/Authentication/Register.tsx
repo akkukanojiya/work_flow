@@ -15,7 +15,7 @@ import logoLight from "assets/images/logo-light.png";
 import logoDark from "assets/images/logo-dark.png";
 import { RootState } from "slices";
 
-const Register = () => {
+const EmployeeRegister = () => {
 
     document.title = "Register | Tailwick - React Admin & Dashboard Template";
 
@@ -53,7 +53,7 @@ const Register = () => {
     React.useEffect(() => {
 
         if (success) {
-            navigation('/employee-login')
+            navigation('/employee-dashboard')
         }
 
         setTimeout(() => {
@@ -166,7 +166,7 @@ const Register = () => {
                             </div>
 
                             <div className="mt-10 text-center">
-                                <p className="mb-0 text-slate-500 dark:text-zink-200">Already have an account ? <Link to="/employee-login" className="font-semibold underline transition-all duration-150 ease-linear text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500">Login</Link> </p>
+                                <p className="mb-0 text-slate-500 dark:text-zink-200">Already have an account ? <Link to="/employee-dashboard" className="font-semibold underline transition-all duration-150 ease-linear text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500">Login</Link> </p>
                             </div>
                         </form>
                     </div>
@@ -176,4 +176,4 @@ const Register = () => {
     );
 }
 
-export default Register;
+export default EmployeeRegister;

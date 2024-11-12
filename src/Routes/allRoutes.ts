@@ -1,68 +1,76 @@
 // dashboard
  
-import Ecommerce from "pages/Director/Dashboard";
+import ClientDashboard from "pages/ClientDashboard/Dashboard";
+import Support from "pages/ClientDashboard/Support/Support";
+import SupportTable from "pages/ClientDashboard/Support/SupportTable";
+import UploadDocument from "pages/ClientDashboard/UploadDocument/UploadDocument";
+import UploadDocumentTable from "pages/ClientDashboard/UploadDocument/UploadDocumentTable";
 
-import Tasks from "pages/Director/Tasks";
-import EmployeeList from "pages/Director/HRManagement/EmployeeList";
-import Chat from "pages/Director/chat";
-// import  Client from "pages/Director/Client/GridView";
-// import IndividualClient from "pages/Director/Client/ListView";
 
-import ClientCompany from "pages/Director/Client/ListView";
-import IndividualClient from "pages/Director/Client/ClientCompany/ListView";
-import GridView from "pages/Director/Client/ClientCompany/GridView";
-import Overview from "pages/Director/Client/ClientCompany/Overview";
-// import AddNew from "pages/Director/Client/ClientCompany/AddNew";
-import FormIndividual from "pages/Director/Client/ClientCompany/AddNew";
 
+
+
+// import Tasks from "pages/ClientDashboard/Tasks";
+// import EmployeeList from "pages/ClientDashboard/HRManagement/EmployeeList";
+// import  Client from "pages/ClientDashboard/Client/GridView";
+// import IndividualClient from "pages/ClientDashboard/Client/ListView";
+
+import Chat from "pages/ClientDashboard/chat";
+import ClientCompany from "pages/ClientDashboard/Client/ListView";
+import IndividualClient from "pages/ClientDashboard/Client/ClientCompany/ListView";
+import GridView from "pages/ClientDashboard/Client/ClientCompany/GridView";
+import Overview from "pages/ClientDashboard/Client/ClientCompany/Overview";
+// import AddNew from "pages/ClientDashboard/Client/ClientCompany/AddNew";
+import FormIndividual from "pages/ClientDashboard/Client/ClientCompany/AddNew";
 
 // Calendar
-import DefaultCalendar from "pages/Director/Calendar/Default";
-import MonthGrid from "pages/Director/Calendar/MonthGrid";
-import MultiMonthStack from "pages/Director/Calendar/MultiMonthStack";
+import DefaultCalendar from "pages/ClientDashboard/Calendar/Default";
+import MonthGrid from "pages/ClientDashboard/Calendar/MonthGrid";
+import MultiMonthStack from "pages/ClientDashboard/Calendar/MultiMonthStack";
 
 // Ecommerce
-// import ListView from "pages/Director/Client/ClientCompany/ListView";
+// import ListView from "pages/ClientDashboard/Client/ClientCompany/ListView";
 
-import ShoppingCart from "pages/Director/ShoppingCart";
-import Checkout from "pages/Director/Checkout";
-import Orders from "pages/Director/Orders";
-import OrderOverview from "pages/Director/OrderOverview";
-import Sellers from "pages/Director/Sellers";
+import ShoppingCart from "pages/ClientDashboard/ShoppingCart";
+import Checkout from "pages/ClientDashboard/Checkout";
+import Orders from "pages/ClientDashboard/Orders";
+import OrderOverview from "pages/ClientDashboard/OrderOverview";
+import Sellers from "pages/ClientDashboard/Sellers";
 
 
 // director managment 
 // import Attendance from "pages/Director/DirectorManagement/Attendance/AttendanceHR";
-import DirectorAttendance from "pages/Director/DirectorManagement/Attendance/AttendanceHR";
-import Holidays from "pages/Director/HRManagement/Holidays";
-import LeaveManageEmployee from "pages/Director/HRManagement/Leaves Manage/LeaveManageEmployee";
-import AddLeaveEmployee from "pages/Director/HRManagement/Leaves Manage/AddLeaveEmployee";
-import LeaveManageHR from "pages/Director/HRManagement/Leaves Manage/LeaveManageHR";
-import AddLeaveHR from "pages/Director/HRManagement/Leaves Manage/AddLeaveHR";
-import AttendanceHR from "pages/Director/HRManagement/Attendance/AttendanceHR";
-import MainAttendance from "pages/Director/HRManagement/Attendance/MainAttendance";
-import Departments from "pages/Director/HRManagement/Departments";
-import Estimates from "pages/Director/HRManagement/Sales/Estimates";
-import Payments from "pages/Director/HRManagement/Sales/Payments";
-import Expenses from "pages/Director/HRManagement/Sales/Expenses";
-import EmployeeSalary from "pages/Director/HRManagement/Payroll/EmployeeSalary";
-import Payslip from "pages/Director/HRManagement/Payroll/Payslip";
-import CreatePayslip from "pages/Director/HRManagement/Payroll/CreatePayslip";
+import DirectorAttendance from "pages/ClientDashboard/ClientManagement/Attendance/AttendanceHR";
+import Holidays from "pages/ClientDashboard/HRManagement/Holidays";
+import LeaveManageEmployee from "pages/ClientDashboard/HRManagement/Leaves Manage/LeaveManageEmployee";
+import AddLeaveEmployee from "pages/ClientDashboard/HRManagement/Leaves Manage/AddLeaveEmployee";
+import LeaveManageHR from "pages/ClientDashboard/HRManagement/Leaves Manage/LeaveManageHR";
+import AddLeaveHR from "pages/ClientDashboard/HRManagement/Leaves Manage/AddLeaveHR";
+import AttendanceHR from "pages/ClientDashboard/HRManagement/Attendance/AttendanceHR";
+import MainAttendance from "pages/ClientDashboard/HRManagement/Attendance/MainAttendance";
+import Departments from "pages/ClientDashboard/HRManagement/Departments";
+import Estimates from "pages/ClientDashboard/HRManagement/Sales/Estimates";
+import Payments from "pages/ClientDashboard/HRManagement/Sales/Payments";
+import Expenses from "pages/ClientDashboard/HRManagement/Sales/Expenses";
+import EmployeeSalary from "pages/ClientDashboard/HRManagement/Payroll/EmployeeSalary";
+import Payslip from "pages/ClientDashboard/HRManagement/Payroll/Payslip";
+import CreatePayslip from "pages/ClientDashboard/HRManagement/Payroll/CreatePayslip";
+
 // Notes
 
 // Social Media
-import Friends from "pages/Director/SocialMedia/Friends";
-import Event from "pages/Director/SocialMedia/Event";
-import WatchVideo from "pages/Director/SocialMedia/WatchVideo";
-import Marketplace from "pages/Director/SocialMedia/Marketplace";
+import Friends from "pages/ClientDashboard/SocialMedia/Friends";
+import Event from "pages/ClientDashboard/SocialMedia/Event";
+import WatchVideo from "pages/ClientDashboard/SocialMedia/WatchVideo";
+import Marketplace from "pages/ClientDashboard/SocialMedia/Marketplace";
 
 // Invoices
-import InvoiceListView from "pages/Director/Invoices/ListView";
-import InvoiceAddNew from "pages/Director/Invoices/AddNew";
-import InvoiceOverview from "pages/Director/Invoices/Overview";
+import InvoiceListView from "pages/ClientDashboard/Invoices/ListView";
+import InvoiceAddNew from "pages/ClientDashboard/Invoices/AddNew";
+import InvoiceOverview from "pages/ClientDashboard/Invoices/Overview";
 
 // Users
-// import UserListView from "pages/Director/Users/ListView";
+// import UserListView from "pages/ClientDashboard/Users/ListView";
 
 
 // Ui element
@@ -169,7 +177,7 @@ import CreatePasswordBoxed from "pages/AuthenticationInner/CreatePassword/Create
 
 import Pages404 from "pages/AuthenticationInner/Pages404";
 
-import UserProfile from "pages/Director/Authentication/UserProfile";
+import UserProfile from "pages/ClientDashboard/Authentication/UserProfile";
 import Account from "pages/Pages/Account";
 import ComingSoon from "pages/AuthenticationInner/ComingSoon";
 import Offline from "pages/AuthenticationInner/Offline";
@@ -178,11 +186,12 @@ import Settings from "pages/Pages/Settings";
 import Pricing from "pages/Pages/Pricing";
 import Faqs from "pages/Pages/Faqs";
 import ContactUs from "pages/Pages/ContactUs";
-// import DirectorAttendance from "pages/Director/DirectorManagement/Attendance/AttendanceHR";
+// import ClientDashboardAttendance from "pages/ClientDashboard/ClientDashboardManagement/Attendance/AttendanceHR";
 
-import Login from "pages/Director/Authentication/Login";
-import Logout from "pages/Director/Authentication/LogOut";
-import Register from "pages/Director/Authentication/Register";
+import ClientLogin from "pages/ClientDashboard/Authentication/Login";
+import ClientLogout from "pages/ClientDashboard/Authentication/LogOut";
+import ClientRegister from "pages/ClientDashboard/Authentication/Register";
+import ClientProfile from "pages/Pages/Settings";
 //  MasterAdmin 
 // import MasterCompany from "pages/MasterAdmin/Company/ListView";
 // import Country from "pages/MasterAdmin/Country";
@@ -197,7 +206,11 @@ interface RouteObject {
 const authProtectedRoutes: Array<RouteObject> = [
   // Dashboard
   // { path: "/", component: Ecommerce },
-  { path: "/dashboard", component: Ecommerce },
+  { path: "/client-dashboard", component: ClientDashboard },
+ { path: "/client-support", component: Support },
+ { path: "/client-support-table", component: SupportTable },
+ { path: "/upload-document", component: UploadDocument },
+ { path: "/upload-document-table", component: UploadDocumentTable },
     
  // Chat
  { path: "/director-chat", component: Chat },
@@ -207,10 +220,9 @@ const authProtectedRoutes: Array<RouteObject> = [
  { path: "/director-formindividual-client", component: FormIndividual},
  { path: "/director-formindividual-clien-overview", component: Overview },
  
- { path: "/director-tasks", component: Tasks },
- { path: "/director-employee", component: EmployeeList },
+//  { path: "/client-tasks", component: Tasks },
  
- // Director
+ //Client
   //  { path: "/apps-ecommerce-ClientCompany-list", component: ListView },
   { path: "/apps-ecommerce-ClientCompany-grid", component: GridView },
   //  { path: "/apps-ecommerce-ClientCompany-create", component: AddNew },
@@ -222,7 +234,7 @@ const authProtectedRoutes: Array<RouteObject> = [
    { path: "/apps-ecommerce-chat", component: Chat },
    
    
-   //  directormanagment 
+   //  Client managment 
    
    { path: "/director-attendance", component:  DirectorAttendance },
    { path: "/director-leave", component: AddLeaveEmployee },
@@ -348,6 +360,7 @@ const authProtectedRoutes: Array<RouteObject> = [
 
   // profile
   { path: "/user-profile", component: UserProfile },
+  { path: "/client-profile", component: ClientProfile },
 
   // masterAdmin 
   // {path: "/master-admin-company", component: MasterCompany}
@@ -409,9 +422,9 @@ const publicRoutes = [
 
 
   // authentication
-  { path: "/director-login", component: Login },
-  { path: "/director-logout", component: Logout },
-  { path: "/director-register", component: Register },
+  { path: "/client-login", component: ClientLogin },
+  { path: "/client-logout", component: ClientLogout },
+  { path: "/client-register", component: ClientRegister },
 
 ]
 

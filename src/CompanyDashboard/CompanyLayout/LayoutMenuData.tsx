@@ -1,4 +1,4 @@
-import { MessageSquare, MonitorDot, ScrollText, Boxes, Building2, ListTodoIcon, User2Icon, Users2, FileClockIcon, FileStackIcon, Landmark, GraduationCap, UserPlus2, UserCircle2Icon, LucideScreenShareOff, LucideNotebookPen, LucideUserRoundPlus, LucideBuilding2, UserCircleIcon, UserCheck, ShapesIcon, BookOpenCheck, BookUser, BarChart4Icon, SquareUser, NotebookPen } from "lucide-react";
+import { MessageSquare, MonitorDot, ScrollText, Boxes, Building2, ListTodoIcon, User2Icon, Users2, FileClockIcon, FileStackIcon, Landmark, GraduationCap, UserPlus2, UserCircle2Icon, LucideScreenShareOff, LucideNotebookPen, LucideUserRoundPlus, LucideBuilding2, UserCircleIcon, UserCheck, ShapesIcon, BookOpenCheck, BookUser, BarChart4Icon, SquareUser, NotebookPen, Settings } from "lucide-react";
 
 const CompanyenuData: any = [
 
@@ -209,24 +209,24 @@ const CompanyenuData: any = [
     // },
     {
         id: ' companyindividual',
-        label: 'Create Client',
+        label: 'Create Clients',
         icon: <LucideUserRoundPlus />,
-        link: '/company-multi-form',
+        link: '/company-multi-form-table',
         parentId: 'Client',
     },
 
     {
         id: 'companyprofile',
-        label: 'Company Profile',
+        label: '  Profile',
         icon: <Landmark />,
         link: '/company-profile',
         parentId: 'companydashboard'
     },
     {
-        id: 'director',
-        label: 'Director',
+        id: 'Authorised_Person',
+        label: 'Authorised Person',
         icon: <UserCircleIcon />,
-        link: '/company-director',
+        link: '/authorised-person',
         parentId: 'companydashboard'
     },
     {
@@ -252,6 +252,13 @@ const CompanyenuData: any = [
         icon: <LucideScreenShareOff />,
         link: '/company-employee-leave-manage',
         parentId: 'directormanagement',
+    },
+    {
+        id: 'setting',
+        label: 'Setting',
+        icon: <Settings />,
+        link: '/company-profiles',
+        parentId: 'setting',
     },
     //     {
     //         id: 'authentication',

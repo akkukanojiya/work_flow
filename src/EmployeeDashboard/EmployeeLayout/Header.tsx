@@ -12,8 +12,8 @@ import logoLight from "assets/images/logo-light.png";
 
  
 import LanguageDropdown from 'EmployeeDashboard/EmployeeCommon/LanguageDropdown';
-// import LightDark from '../MasterCommon/LanguageDropdown';
-import LightDark from 'EmployeeDashboard/EmployeeCommon/LanguageDropdown';
+
+import LightDark from 'EmployeeDashboard/EmployeeCommon/LightDark';
 // import NotificationDropdown from '../MasterCommon/LanguageDropdown';
 import NotificationDropdown from 'EmployeeDashboard/EmployeeCommon/LanguageDropdown';
  
@@ -163,7 +163,7 @@ const Header = ({ handleToggleDrawer, handleDrawer }: any) => {
                             </button>
 
                             <div className="relative hidden ltr:ml-3 rtl:mr-3 lg:block group-data-[layout=horizontal]:hidden group-data-[layout=horizontal]:lg:block">
-                                <input type="text" className="py-2 pr-4 text-sm text-topbar-item bg-topbar border border-topbar-border rounded pl-8 placeholder:text-slate-400 form-control focus-visible:outline-0 min-w-[300px] focus:border-blue-400 group-data-[topbar=dark]:bg-topbar-dark group-data-[topbar=dark]:border-topbar-border-dark group-data-[topbar=dark]:placeholder:text-slate-500 group-data-[topbar=dark]:text-topbar-item-dark group-data-[topbar=brand]:bg-topbar-brand group-data-[topbar=brand]:border-topbar-border-brand group-data-[topbar=brand]:placeholder:text-blue-300 group-data-[topbar=brand]:text-topbar-item-brand group-data-[topbar=dark]:dark:bg-zink-700 group-data-[topbar=dark]:dark:border-zink-500 group-data-[topbar=dark]:dark:text-zink-100" placeholder="Search for ..." autoComplete="off" />
+                                <input type="text" className="py-2 pr-4 text-sm text-topbar-item bg-topbar border border-topbar-border rounded pl-8 placeholder:text-slate-400 form-control focus-visible:outline-0 min-w-[300px] focus:border-blue-400 group-data-[topbar=dark]:bg-topbar-dark group-data-[topbar=dark]:border-topbar-border-dark group-data-[topbar=dark]:placeholder:text-slate-500 group-data-[topbar=dark]:text-topbar-item-dark group-data-[topbar=brand]:bg-topbar-brand group-data-[topbar=brand]:border-topbar-border-brand group-data-[topbar=brand]:placeholder:text-blue-300 group-data-[topbar=brand]:text-topbar-item-brand group-data-[topbar=dark]:dark:bg-zink-700 group-data-[topbar=dark]:dark:border-zink-500 group-data-[topbar=dark]:dark:text-zink-100" placeholder="Search " autoComplete="off" />
                                 <Search className="inline-block size-4 absolute left-2.5 top-2.5 text-topbar-item fill-slate-100 group-data-[topbar=dark]:fill-topbar-item-bg-hover-dark group-data-[topbar=dark]:text-topbar-item-dark group-data-[topbar=brand]:fill-topbar-item-bg-hover-brand group-data-[topbar=brand]:text-topbar-item-brand group-data-[topbar=dark]:dark:text-zink-200 group-data-[topbar=dark]:dark:fill-zink-600" />
                             </div>
 
@@ -173,7 +173,7 @@ const Header = ({ handleToggleDrawer, handleDrawer }: any) => {
                                 {/* <LanguageDropdown /> */}
 
                                 {/* LightDark */}
-                                {/* <LightDark /> */}
+                                <LightDark />
 
                                 {/* AddToCartDrawer */}
                                 {/* <div className="relative flex items-center h-header">
@@ -213,15 +213,15 @@ const Header = ({ handleToggleDrawer, handleDrawer }: any) => {
                                             </div>
                                         </a> */}
                                         <ul>
-                                            {/* <li>
-                                                <a className="block ltr:pr-4 rtl:pl-4 py-1.5 text-base font-medium transition-all duration-200 ease-linear text-slate-600 dropdown-item hover:text-custom-500 focus:text-custom-500 dark:text-zink-200 dark:hover:text-custom-500 dark:focus:text-custom-500" href={process.env.PUBLIC_URL + "/user-profile"}><User2 className="inline-block size-4 ltr:mr-2 rtl:ml-2"></User2> Profile</a>
-                                            </li> */}
+                                             <li>
+                                                <a className="block ltr:pr-4 rtl:pl-4 py-1.5 text-base font-medium transition-all duration-200 ease-linear text-slate-600 dropdown-item hover:text-custom-500 focus:text-custom-500 dark:text-zink-200 dark:hover:text-custom-500 dark:focus:text-custom-500" href={process.env.PUBLIC_URL + "/employee-profile"}><User2 className="inline-block size-4 ltr:mr-2 rtl:ml-2"></User2> Profile</a>
+                                            </li> 
                                             {/* <li>
                                                 <a className="block ltr:pr-4 rtl:pl-4 py-1.5 text-base font-medium transition-all duration-200 ease-linear text-slate-600 dropdown-item hover:text-custom-500 focus:text-custom-500 dark:text-zink-200 dark:hover:text-custom-500 dark:focus:text-custom-500" href={process.env.PUBLIC_URL + "/apps-mailbox"}><Mail className="inline-block size-4 ltr:mr-2 rtl:ml-2"></Mail> Inbox <span className="inline-flex items-center justify-center size-5 ltr:ml-2 rtl:mr-2 text-[11px] font-medium border rounded-full text-white bg-red-500 border-red-500">15</span></a>
                                             </li> */}
-                                            <li>
+                                            {/* <li>
                                                 <a className="block ltr:pr-4 rtl:pl-4 py-1.5 text-base font-medium transition-all duration-200 ease-linear text-slate-600 dropdown-item hover:text-custom-500 focus:text-custom-500 dark:text-zink-200 dark:hover:text-custom-500 dark:focus:text-custom-500" href={process.env.PUBLIC_URL + "/employee-chat"}><MessagesSquare className="inline-block size-4 ltr:mr-2 rtl:ml-2"></MessagesSquare> Chat</a>
-                                            </li>
+                                            </li> */}
                                             {/* <li>
                                                 <a className="block ltr:pr-4 rtl:pl-4 py-1.5 text-base font-medium transition-all duration-200 ease-linear text-slate-600 dropdown-item hover:text-custom-500 focus:text-custom-500 dark:text-zink-200 dark:hover:text-custom-500 dark:focus:text-custom-500" href={process.env.PUBLIC_URL + "/pages-pricing"}><Gem className="inline-block size-4 ltr:mr-2 rtl:ml-2"></Gem> Upgrade <span className="inline-flex items-center justify-center w-auto h-5 ltr:ml-2 rtl:mr-2 px-1 text-[12px] font-medium border rounded text-white bg-sky-500 border-sky-500">Pro</span></a>
                                             </li> */}

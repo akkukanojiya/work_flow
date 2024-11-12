@@ -2,9 +2,10 @@ import { postFakeLogin } from "helpers/fakebackend_helper";
 import { loginError, loginSuccess, logoutSuccess } from "./reducer";
 import { ThunkAction } from "redux-thunk";
 import { Action, Dispatch } from "redux";
-import { RootState } from "slices";
-import { getFirebaseBackend } from "helpers/firebase_helper";
-
+// import { RootState } from "slices";
+import { RootState } from "CompanyDashboard/Companyslices";
+// import { getFirebaseBackend } from "helpers/firebase_helper";
+import { getFirebaseBackend } from "CompanyDashboard/Companyhelpers/firebase_helper";
 interface User {
     email: string;
     password: string;
@@ -36,7 +37,7 @@ export const loginUser = (
 
         if (response) {
             dispatch(loginSuccess(response));
-            history("/dashboard");
+            history("/company-dashboard");
         }
     } catch (error) {
 
@@ -76,7 +77,7 @@ export const socialLogin = (type: any, history: any) => async (dispatch: any) =>
         if (socialData) {
             sessionStorage.setItem("authUser", JSON.stringify(socialData));
             dispatch(loginSuccess(socialData));
-            history('/dashboard');
+            history('/company-dashboard');
         }
 
     } catch (error) {

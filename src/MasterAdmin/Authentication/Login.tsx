@@ -8,14 +8,16 @@ import { useFormik as useFormic } from "formik";
 // Image
 import logoLight from "assets/images/logo-light.png";
 import logoDark from "assets/images/logo-dark.png";
-import { loginUser, socialLogin } from "slices/thunk";
+// import { loginUser, socialLogin } from "slices/thunk";
+import { loginUser,socialLogin } from "MasterAdmin/Masterslices/thunk";
 import { useDispatch, useSelector } from "react-redux";
-import withRouter from "Common/withRouter";
+// import withRouter from "Common/withRouter";
+import withRouter from "MasterAdmin/MasterCommon/withRouter";
 import { createSelector } from 'reselect';
 import AuthIcon from "pages/AuthenticationInner/AuthIcon";
 import { Link } from "react-router-dom";
 
-const Login = (props: any) => {
+const MasterLogin = (props: any) => {
 
     document.title = "Login | Tailwick - React Admin & Dashboard Template";
 
@@ -138,11 +140,11 @@ const Login = (props: any) => {
                                 {/* <div id="remember-error" className="hidden mt-1 text-sm text-red-500">Please check the "Remember me" before submitting the form.</div> */}
                             </div>
                             <div className="mt-10">
-                                <button type="submit" className="w-full text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">Sign In</button>
+                                <button type="submit" className="w-full text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">Log In</button>
                             </div>
 
                             <div className="relative text-center my-9 before:absolute before:top-3 before:left-0 before:right-0 before:border-t before:border-t-slate-200 dark:before:border-t-zink-500">
-                                <h5 className="inline-block px-2 py-0.5 text-sm bg-white text-slate-500 dark:bg-zink-600 dark:text-zink-200 rounded relative">Sign In with</h5>
+                                <h5 className="inline-block px-2 py-0.5 text-sm bg-white text-slate-500 dark:bg-zink-600 dark:text-zink-200 rounded relative">Log In with</h5>
                             </div>
 
                             <div className="flex flex-wrap justify-center gap-2">
@@ -169,9 +171,9 @@ const Login = (props: any) => {
                                 </button>
                             </div>
 
-                            <div className="mt-10 text-center">
+                            {/* <div className="mt-10 text-center">
                                 <p className="mb-0 text-slate-500 dark:text-zink-200">Don't have an account ? <Link to="/master-register" className="font-semibold underline transition-all duration-150 ease-linear text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500"> SignUp</Link> </p>
-                            </div>
+                            </div> */}
                         </form>
                     </div>
                 </div>
@@ -180,4 +182,4 @@ const Login = (props: any) => {
     );
 }
 
-export default withRouter(Login);
+export default withRouter(MasterLogin);

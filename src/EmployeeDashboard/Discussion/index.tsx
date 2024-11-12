@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 
 // Images
 import chat1 from "EmployeeDashboard/Employeeassets/images/offiQuick.png";
- 
+
 import avatar1 from "EmployeeDashboard/Employeeassets/images/users/avatar-1.png";
 import avatar5 from "EmployeeDashboard/Employeeassets/images/users/avatar-5.png";
 import user2 from "EmployeeDashboard/Employeeassets/images/users/user-2.jpg";
@@ -14,12 +14,12 @@ import SimpleBar from 'simplebar-react';
 
 // Icons
 import { MessagesSquare, SquareUser, Bot, UserRound, ScrollText, Settings, ChevronsLeft, Search, Plus, X, MoreVertical, Phone, MapPin, Mail, BellRing, Video, PanelRightOpen, Mic, Image, Send, PhoneCall, ImagePlus, Star } from 'lucide-react';
- 
+
 import Tab from 'EmployeeDashboard/EmployeeCommon/Components/Tab/Tab';
- 
+
 import { Nav } from 'EmployeeDashboard/EmployeeCommon/Components/Tab/Nav';
 import { Link } from 'react-router-dom';
- 
+
 import { Dropdown } from 'EmployeeDashboard/EmployeeCommon/Components/Dropdown';
 import { ContactList, RecentChats, RecentFind, Documents } from "EmployeeDashboard/EmployeeCommon/data";
 
@@ -33,11 +33,11 @@ import {
     addChat as onAddChat,
     deleteChat as onDeleteChat,
     bookmarkChat as onBookmarkChat
-} from 'EmployeeDashboard/Employeeslices/thunk'; 
+} from 'EmployeeDashboard/Employeeslices/thunk';
 import Drawer from 'EmployeeDashboard/EmployeeCommon/Components/Drawer';
- 
+
 import Modal from 'EmployeeDashboard/EmployeeCommon/Components/Modal';
- 
+
 import PrismCode from 'MasterAdmin/MasterCommon/Components/Prism';
 
 const Chat = () => {
@@ -251,25 +251,25 @@ const Chat = () => {
                                                 <SquareUser className="mx-auto transition-all size-5 duration-200 ease-linear fill-slate-100 text-slate-500 dark:text-zink-200 dark:fill-zink-500 group-hover/item:text-custom-500 dark:group-hover/item:text-custom-500 group-[.active]/item:fill-custom-100 dark:group-[.active]/item:fill-custom-500/20 group-[.active]/item:text-custom-500 dark:group-[.active]/item:text-custom-500" onClick={() => { handlechatbotList("contactList"); retunToContact(); }} />
                                             </Link>
                                         </Nav.Item>
-                                        <Nav.Item eventKey='botChat' className="group/item botTab">
+                                        {/* <Nav.Item eventKey='botChat' className="group/item botTab">
                                             <Link to="#!" className="inline-flex items-center justify-center size-12 transition-all duration-200 ease-linear rounded-md botChat">
                                                 <Bot className="mx-auto transition-all size-5 duration-200 ease-linear fill-slate-100 text-slate-500 dark:text-zink-200 dark:fill-zink-500 group-hover/item:text-custom-500 dark:group-hover/item:text-custom-500 group-[.active]/item:fill-custom-100 dark:group-[.active]/item:fill-custom-500/20 group-[.active]/item:text-custom-500 dark:group-[.active]/item:text-custom-500" onClick={() => { handlechatbotList("bot"); retunToContact(); }} />
                                             </Link>
-                                        </Nav.Item>
+                                        </Nav.Item> */}
                                         <Nav.Item eventKey='profile' className="group/item tabs">
                                             <Link to="#!" className="inline-flex items-center justify-center size-12 transition-all duration-200 ease-linear rounded-md">
                                                 <UserRound className="mx-auto transition-all size-5 duration-200 ease-linear fill-slate-100 text-slate-500 dark:text-zink-200 dark:fill-zink-500 group-hover/item:text-custom-500 dark:group-hover/item:text-custom-500 group-[.active]/item:fill-custom-100 dark:group-[.active]/item:fill-custom-500/20 group-[.active]/item:text-custom-500 dark:group-[.active]/item:text-custom-500" onClick={retunToContact} />
                                             </Link>
                                         </Nav.Item>
-                                        <Nav.Item eventKey='fileDocument' className="group/item tabs">
+                                        {/* <Nav.Item eventKey='fileDocument' className="group/item tabs">
                                             <Link to="#!" className="inline-flex items-center justify-center size-12 transition-all duration-200 ease-linear rounded-md">
                                                 <ScrollText className="mx-auto transition-all size-5 duration-200 ease-linear fill-slate-100 text-slate-500 dark:text-zink-200 dark:fill-zink-500 group-hover/item:text-custom-500 dark:group-hover/item:text-custom-500 group-[.active]/item:fill-custom-100 dark:group-[.active]/item:fill-custom-500/20 group-[.active]/item:text-custom-500 dark:group-[.active]/item:text-custom-500" onClick={retunToContact} />
                                             </Link>
-                                        </Nav.Item>
+                                        </Nav.Item> */}
                                     </Nav>
                                     <ul className="flex items-center gap-2 my-auto text-center xl:mb-0 xl:mt-auto xl:pt-4 xl:flex-col">
                                         <li>
-                                            <Link to="/pages-account-settings" className="inline-flex items-center justify-center size-12 transition-all duration-200 ease-linear rounded-md group/item"><Settings className="mx-auto transition-all size-5 duration-200 ease-linear fill-slate-100 text-slate-500 dark:text-zink-200 dark:fill-zink-500 group-hover/item:text-custom-500 dark:group-hover/item:text-custom-500 group-[.active]/item:fill-custom-100 dark:group-[.active]/item:fill-custom-500/20 group-[.active]/item:text-custom-500 dark:group-[.active]/item:text-custom-500" /></Link>
+                                            <Link to="#" className="inline-flex items-center justify-center size-12 transition-all duration-200 ease-linear rounded-md group/item"><Settings className="mx-auto transition-all size-5 duration-200 ease-linear fill-slate-100 text-slate-500 dark:text-zink-200 dark:fill-zink-500 group-hover/item:text-custom-500 dark:group-hover/item:text-custom-500 group-[.active]/item:fill-custom-100 dark:group-[.active]/item:fill-custom-500/20 group-[.active]/item:text-custom-500 dark:group-[.active]/item:text-custom-500" /></Link>
                                         </li>
                                         <li className="hidden md:block">
                                             <div className="relative dropdown">
@@ -668,7 +668,7 @@ const Chat = () => {
                                     </div>
                                     <div className="flex gap-2 shrink-0">
                                         <button type="button" className="flex items-center justify-center size-[37.5px] transition-all duration-200 ease-linear p-0 text-slate-500 btn bg-transparent border-transparent hover:text-slate-700 focus:text-slate-700 active:text-slate-700 dark:text-zink-200 dark:hover:text-zink-50 dark:focus:text-zink-50 dark:active:text-zink-50"><Mic className="size-4" /></button>
-                                        <button type="button" className="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20"><Send className="inline-block size-4 mr-1 align-middle" /> <span className="align-middle">Send</span></button>
+                                        <button type="button" className="text-white btn bg-[#25476a] border-[#2a5179] hover:text-white hover:bg-[#2a5179] hover:border-[#2a5179] focus:text-white focus:bg-[#2a5179] focus:border-[#2a5179] focus:ring focus:ring-[#2a5179] active:text-white active:bg-[#25476a] active:border-[#25476a] active:ring active:ring-[#2a5179] dark:ring-[#2a5179]"><Send className="inline-block size-4 mr-1 align-middle" /> <span className="align-middle">Send</span></button>
                                     </div>
                                 </div>
                             </div>
@@ -795,7 +795,7 @@ const Chat = () => {
                         </div>
                         <div className="flex justify-end gap-2 mt-4">
                             <button type="reset" data-modal-close="addContactModal" className="text-red-500 bg-white btn hover:text-red-500 hover:bg-red-100 focus:text-red-500 focus:bg-red-100 active:text-red-500 active:bg-red-100 dark:bg-zink-600 dark:hover:bg-red-500/10 dark:focus:bg-red-500/10 dark:active:bg-red-500/10" onClick={toggleContactModal}>Cancel</button>
-                            <button type="submit" className="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20" onClick={toggleContactModal}>Add Contact</button>
+                            <button type="submit" className="text-white btn bg-[#25476a] border-[#2a5179] hover:text-white hover:bg-[#2a5179] hover:border-[#2a5179] focus:text-white focus:bg-[#2a5179] focus:border-[#2a5179] focus:ring focus:ring-[#2a5179] active:text-white active:bg-[#25476a] active:border-[#25476a] active:ring active:ring-[#2a5179] dark:ring-[#2a5179]" onClick={toggleContactModal}>Add Contact</button>
                         </div>
                     </form>
                 </Modal.Body>

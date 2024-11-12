@@ -1,21 +1,49 @@
-import { Award, CalendarDays, CircuitBoard, Codesandbox, FileText, LifeBuoy, LocateFixed, Mail, Map, MessageSquare, MonitorDot, PackagePlus, PictureInPicture2, PieChart, RadioTower, ScrollText, Share2, ShoppingBag, Table, Trophy, UserRound, User2Icon , Boxes} from "lucide-react";
+import { Award, CalendarDays, CircuitBoard, Codesandbox, FileText, LifeBuoy, LocateFixed, Mail, Map, MessageSquare, MonitorDot, PackagePlus, PictureInPicture2, PieChart, RadioTower, ScrollText, Share2, ShoppingBag, Table, Trophy, UserRound, User2Icon , Boxes, HelpingHand, LucideUploadCloud, LucideUpload, FolderUpIcon, SettingsIcon} from "lucide-react";
 
 const menuData: any = [
-     
     {
-        id: "director",
-        label: 'Director',
-        link: "/#",
-        icon: <MonitorDot/>,
-        subItems: [
+        id: "clientdashboard",
+        label: 'Client Dashboard ',
+        link: "/client-dashboard",
+        icon: <MonitorDot />,
+         
+    },
+    // {
+    //     id: 'tasks',
+    //     label: ' Given Tasks',
+    //     icon: <ScrollText />,
+    //     link: '/client-tasks',
+    //     parentId: 'tasks'
+    // },
+    {
+        id: 'support',
+        label: 'Support',
+        icon: <HelpingHand />,
+        link: '/client-support-table',
+        parentId: 'support'
+    },
+    {
+        id: 'document',
+        label: 'Upload Document',
+        icon: <FolderUpIcon />,
+        link: '/upload-document-table',
+        parentId: 'document'
+    },
+    {
+        id: 'Setting',
+        label: 'Setting',
+        icon: <SettingsIcon />,
+        link: '/client-profile',
+        parentId: 'setting'
+    },
+    // {
+        // id: "client",
+        // label: 'Dashboard',
+        // link: "/#",
+        // icon: <MonitorDot/>,
+        // subItems: [
 
-            {
-                id: "directordashboard",
-                label: ' Dashboard ',
-                link: "/dashboard",
-                // icon: <MonitorDot />,
-                 
-            },
+           
             // {
             //     id: 'product',
             //     label: 'Products',
@@ -78,81 +106,69 @@ const menuData: any = [
             //     parentId: 'ecommerce'
             // },
             
-            {
-                id: 'tasks',
-                label: 'Tasks',
-                icon: <ScrollText />,
-                link: '/director-tasks',
-                parentId: 'ecommerce'
-            },
-            {
-                id: 'employees',
-                label: 'Employees',
-                icon: <ScrollText />,
-                link: '/director-employee',
-                parentId: 'ecommerce'
-            },
-            {
-                id: 'chat',
-                label: 'Chat',
-                icon: <MessageSquare />,
-                link: '/director-chat',
-                parentId: 'ecommerce'
-            },
+           
+            
+            // {
+            //     id: 'chat',
+            //     label: 'Chat',
+            //     icon: <MessageSquare />,
+            //     link: '/director-chat',
+            //     parentId: 'ecommerce'
+            // },
             // {
             //     id: 'directormanagement',
             //     label: 'Director Management',
             //     link: '/apps-client',
             //     parentId: 'ecommerce'
             // }
-        ]
+        // ]
         
-    },
-    {
-        id: 'Client',
-        label: 'Client',
-        icon: <User2Icon/>,
-        link: '/director-individual-client',
+    // },
+    // {
+    //     id: 'Client',
+    //     label: 'Client',
+    //     icon: <User2Icon/>,
+    //     link: '/director-individual-client',
         
-        subItems: [
+    //     subItems: [
              
-            {
-                id: 'individual',
-                label: 'Individual',
-                link: '/director-individual-client',
-                parentId: 'Client',
-            },
-            {
-                id: 'company',
-                label: 'Company',
-                link: '/director-company-client',
-                parentId: 'Client',
-            },
-        ]
-    },
+    //         {
+    //             id: 'individual',
+    //             label: 'Individual',
+    //             link: '/director-individual-client',
+    //             parentId: 'Client',
+    //         },
+    //         {
+    //             id: 'company',
+    //             label: 'Company',
+    //             link: '/director-company-client',
+    //             parentId: 'Client',
+    //         },
+    //     ]
+    // },
 
-    {
-        id: 'directormanagement',
-        label: 'Management',
-        icon: <Boxes/>,
-        link: '/#',
+    // {
+    //     id: 'directormanagement',
+    //     label: 'Management',
+    //     icon: <Boxes/>,
+    //     link: '/#',
         
-        subItems: [
+    //     subItems: [
              
-            {
-                id: 'directormanagement',
-                label: 'Leave',
-                link: '/director-leave',
-                parentId: 'directormanagement',
-            },
-            {
-                id: 'attendance',
-                label: 'Attendance',
-                link: '/director-attendance',
-                parentId: 'directormanagement',
-            },
-        ]
-    },
+    //         {
+    //             id: 'directormanagement',
+    //             label: 'Leave',
+    //             link: '/director-leave',
+    //             parentId: 'directormanagement',
+    //         },
+    //         {
+    //             id: 'attendance',
+    //             label: 'Attendance',
+    //             link: '/director-attendance',
+    //             parentId: 'directormanagement',
+    //         },
+    //     ]
+    // },
 
 
 

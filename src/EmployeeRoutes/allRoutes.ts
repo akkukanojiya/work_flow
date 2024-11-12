@@ -5,10 +5,13 @@
 // import MasterCompany from "MasterAdmin/Company/ListView";
 import EmployeeDashboard from "EmployeeDashboard/Dashboard";
 import ShowTasks from "EmployeeDashboard/ShowTask";
+import TaskForm from "EmployeeDashboard/ShowTask/TaskForm";
+import TaskTable from "EmployeeDashboard/ShowTask/TaskTable";
 import Chat from "EmployeeDashboard/Discussion";
 import Report from "EmployeeDashboard/Report";
 // import Leave from "EmployeeDashboard/Leave/ListView";
 import Leave from "EmployeeDashboard/Leave/AddLeaveEmployee";
+import LeaveManageEmployee from "EmployeeDashboard/Leave/LeaveManageEmployee";
 
 
 
@@ -31,12 +34,11 @@ import Leave from "EmployeeDashboard/Leave/AddLeaveEmployee";
 // import LogoutModern from "pages/AuthenticationInner/Logout/LogoutModern";
 
 
-// import Login from "pages/Authentication/Login";
-// import Login from "MasterAdmin/Authentication/Login";
-import Login from "EmployeeDashboard/Authentication/Login";
-import Logout from "EmployeeDashboard/Authentication/Login";
-import Register from "EmployeeDashboard/Authentication/Login";
-
+ 
+import EmployeeLogin from "EmployeeDashboard/Authentication/Login"
+import EmployeeLogout from "EmployeeDashboard/Authentication/LogOut";
+import EmployeeRegister from "EmployeeDashboard/Authentication/Register";
+import EmployeeProfile from "EmployeeDashboard/Setting/Settings";
 
 
 interface RouteObject {
@@ -49,9 +51,13 @@ const authProtectedRoutes: Array<RouteObject> = [
   // Dashboard
   { path: "/employee-dashboard", component: EmployeeDashboard },
   { path: "/employee-show-tasks", component: ShowTasks },
+  // { path: "/employee-show-tasks", component: TaskForm },
+  // { path: "/employee-show-tasks", component: TaskTable },
   { path: "/employee-chat", component: Chat },
   { path: "/employee-report", component: Report },
   { path: "/employee-leave", component: Leave },
+  { path: "/employee-add-leave", component: LeaveManageEmployee },
+  { path: "/employee-profile", component: EmployeeProfile },
 
    
 ];
@@ -112,9 +118,9 @@ const publicRoutes = [
 
 
   // // authentication
-  { path: "/employee-login", component: Login },
-  { path: "/employee-logout", component: Logout },
-  { path: "/employee-register", component: Register },
+  { path: "/employee-login", component: EmployeeLogin },
+  { path: "/employee-logout", component: EmployeeLogout },
+  { path: "/employee-register", component: EmployeeRegister },
 
 ]
 

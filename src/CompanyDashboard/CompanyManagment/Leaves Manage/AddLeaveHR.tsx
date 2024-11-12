@@ -34,9 +34,9 @@ const AddLeaveHR = () => {
 
     return (
         <React.Fragment>
-            <BreadCrumb title='Add Leave (HR)' pageTitle='Leaves Manage' />
+            <BreadCrumb title='Add Leave (Main)' pageTitle='Leaves Manage' />
             <div className="grid grid-cols-1 xl:grid-cols-12 gap-x-5">
-                <div className="xl:col-span-9">
+                <div className="xl:col-span-12">
                     <div className="card">
                         <div className="card-body">
                             <h6 className="mb-4 text-15 grow">Add Leave</h6>
@@ -54,12 +54,12 @@ const AddLeaveHR = () => {
                                             />
                                         </div>
                                     </div>
-                                    <div className="xl:col-span-6">
+                                    {/* <div className="xl:col-span-6">
                                         <div>
                                             <label htmlFor="employeeId" className="inline-block mb-2 text-base font-medium">Employee ID</label>
                                             <input type="text" id="employeeId" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" value="#TWE1001501" disabled />
                                         </div>
-                                    </div>
+                                    </div> */}
                                     <div className="xl:col-span-6">
                                         <div>
                                             <label htmlFor="leaveType" className="inline-block mb-2 text-base font-medium">Leave Type</label>
@@ -72,12 +72,12 @@ const AddLeaveHR = () => {
                                             />
                                         </div>
                                     </div>
-                                    <div className="xl:col-span-6">
+                                    {/* <div className="xl:col-span-6">
                                         <div>
                                             <label htmlFor="remainingLeaves" className="inline-block mb-2 text-base font-medium">Remaining Leaves</label>
                                             <input type="text" id="remainingLeaves" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" value="18" disabled />
                                         </div>
-                                    </div>
+                                    </div> */}
                                     <div className="xl:col-span-6">
                                         <label htmlFor="fromInput" className="inline-block mb-2 text-base font-medium">Form</label>
                                         <Flatpickr
@@ -103,7 +103,7 @@ const AddLeaveHR = () => {
                                     <div className="xl:col-span-6">
                                         <div>
                                             <label htmlFor="numberOfDayLeaves" className="inline-block mb-2 text-base font-medium">Number of Days</label>
-                                            <input type="text" id="numberOfDayLeaves" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" value="01" disabled />
+                                            <input type="text" id="numberOfDayLeaves" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder='No Of Days Leaves' />
                                         </div>
                                     </div>
                                     <div className="xl:col-span-6">
@@ -131,7 +131,7 @@ const AddLeaveHR = () => {
                         </div>
                     </div>
                 </div>
-                <div className="xl:col-span-3">
+                {/* <div className="xl:col-span-3">
                     <div className="card">
                         <div className="card-body">
                             <h6 className="mb-4 text-15">Leave Information (2023)</h6>
@@ -167,7 +167,7 @@ const AddLeaveHR = () => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
         </React.Fragment>
     );

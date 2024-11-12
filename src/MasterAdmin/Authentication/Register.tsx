@@ -2,6 +2,7 @@ import React from "react";
 import AuthIcon from "pages/AuthenticationInner/AuthIcon";
 import { useDispatch, useSelector } from "react-redux";
 // import { registerUser, resetRegisterFlag } from "slices/thunk";
+import { registerUser, resetRegisterFlag } from "MasterAdmin/Masterslices/thunk";
 import { createSelector } from 'reselect';
 import { Facebook, Github, Mail, Twitter } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
@@ -13,7 +14,8 @@ import { useFormik as useFormic } from "formik";
 // Image
 import logoLight from "assets/images/logo-light.png";
 import logoDark from "assets/images/logo-dark.png";
-import { RootState } from "slices";
+// import { RootState } from "slices";
+import { RootState } from "MasterAdmin/Masterslices";
 
 const Register = () => {
 
@@ -53,7 +55,7 @@ const Register = () => {
     React.useEffect(() => {
 
         if (success) {
-            navigation('/master-login')
+            navigation('/master-dashboard')
         }
 
         setTimeout(() => {
@@ -143,7 +145,7 @@ const Register = () => {
                             </div>
                             <p className="italic text-15 text-slate-500 dark:text-zink-200">By registering you agree to the  OffiQuick <a href="#!" className="underline">Terms of Use</a></p>
                             <div className="mt-10">
-                                <button type="submit" className="w-full text-white transition-all duration-200 ease-linear btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">Sign In</button>
+                                <button type="submit" className="w-full text-white transition-all duration-200 ease-linear btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">Log In</button>
                             </div>
 
                             <div className="relative text-center my-9 before:absolute before:top-3 before:left-0 before:right-0 before:border-t before:border-t-slate-200 dark:before:border-t-zink-500">
@@ -166,7 +168,7 @@ const Register = () => {
                             </div>
 
                             <div className="mt-10 text-center">
-                                <p className="mb-0 text-slate-500 dark:text-zink-200">Already have an account ? <Link to="/master-login" className="font-semibold underline transition-all duration-150 ease-linear text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500">Login</Link> </p>
+                                <p className="mb-0 text-slate-500 dark:text-zink-200">Already have an account ? <Link to="/master-dashboard" className="font-semibold underline transition-all duration-150 ease-linear text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500">Login</Link> </p>
                             </div>
                         </form>
                     </div>

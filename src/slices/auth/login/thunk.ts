@@ -36,7 +36,7 @@ export const loginUser = (
 
         if (response) {
             dispatch(loginSuccess(response));
-            history("/master-dashboard");
+            history("/client-dashboard");
         }
     } catch (error) {
 
@@ -76,7 +76,7 @@ export const socialLogin = (type: any, history: any) => async (dispatch: any) =>
         if (socialData) {
             sessionStorage.setItem("authUser", JSON.stringify(socialData));
             dispatch(loginSuccess(socialData));
-            history('/master-dashboard');
+            history('/client-dashboard');
         }
 
     } catch (error) {

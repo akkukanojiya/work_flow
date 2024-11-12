@@ -359,15 +359,15 @@ const generateExcel = () => {
         //     accessorKey: "joiningDate",
         //     enableColumnFilter: false,
         // },
-        // {
-        //     header: "Status",
-        //     accessorKey: "status",
-        //     enableColumnFilter: false,
-        //     enableSorting: true,
-        //     cell: (cell: any) => (
-        //         <Status item={cell.getValue()} />
-        //     ),
-        // },
+        {
+            header: "Status",
+            accessorKey: "status",
+            enableColumnFilter: false,
+            enableSorting: true,
+            cell: (cell: any) => (
+                <Status item={cell.getValue()} />
+            ),
+        },
         {
             header: "Action",
             enableColumnFilter: false,
@@ -541,7 +541,7 @@ const generateExcel = () => {
             {/* User Modal  */}
             <Modal show={show} onHide={toggle} id="defaultModal" modal-center="true"
                 className="fixed flex flex-col transition-all duration-300 ease-in-out left-2/4 z-drawer -translate-x-2/4 -translate-y-2/4"
-                dialogClassName="w-full md:w-[45rem] bg-white shadow rounded-md dark:bg-zink-600">
+                dialogClassName="w-full md:w-[55rem] bg-white shadow rounded-md dark:bg-zink-600">
                 <Modal.Header className="flex items-center justify-between p-4 border-b dark:border-zink-300/20"
                     closeButtonClass="transition-all duration-200 ease-linear text-slate-400 hover:text-red-500">
                     <Modal.Title className="text-16">{!!isEdit ? "Edit Financial Year" : "Add Financial Year"}</Modal.Title>
@@ -700,6 +700,19 @@ const generateExcel = () => {
                             />
                             {validation.touched.financialyear && validation.errors.financialyear ? (
                                 <p className="text-red-400">{validation.errors.financialyear}</p>
+                            ) : null}
+                        </div>
+
+
+                        <div className="mb-3">
+                            <label htmlFor="other" className="inline-block mb-2 text-base font-medium">Other's</label>
+                            <input type="text" id="FinancialYear" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Other's Details"
+                                name="other"
+                                onChange={validation.handleChange}
+                                value={validation.values.other || ""}
+                            />
+                            {validation.touched.other && validation.errors.other ? (
+                                <p className="text-red-400">{validation.errors.other}</p>
                             ) : null}
                         </div>
                         <div className="flex justify-end gap-2 mt-4">

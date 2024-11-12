@@ -4,7 +4,7 @@ import TableContainer from 'Common/TableContainer';
 import CountUp from 'react-countup';
 
 // Icons
-import { Search, Plus, Trash2, Pencil, Check, FileBarChart2, CalendarCheck, Codepen, Loader } from 'lucide-react';
+import { Search, Plus, Trash2, Pencil, Check, FileBarChart2, CalendarCheck, Codepen, Loader, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import DeleteModal from 'Common/DeleteModal';
 
@@ -136,8 +136,12 @@ const LeaveManageHR = () => {
             enableSorting: true,
             cell: (cell: any) => (
                 <div className="flex gap-2">
-                    <Link to="#!" className="flex items-center justify-center size-8 transition-all duration-200 ease-linear rounded-md text-slate-500 bg-slate-100 hover:text-white hover:bg-slate-500 dark:bg-zink-600 dark:text-zink-200 dark:hover:text-white dark:hover:bg-zink-500"><Pencil className="size-4" /></Link>
+                    {/* <Link to="#!" className="flex items-center justify-center size-8 transition-all duration-200 ease-linear rounded-md text-slate-500 bg-slate-100 hover:text-white hover:bg-slate-500 dark:bg-zink-600 dark:text-zink-200 dark:hover:text-white dark:hover:bg-zink-500"><Pencil className="size-4" /></Link> */}
                     <Link to="#!" className="flex items-center justify-center size-8 text-green-500 transition-all duration-200 ease-linear bg-green-100 rounded-md hover:text-white hover:bg-green-500 dark:bg-green-500/20 dark:hover:bg-green-500"><Check className="size-4" /></Link>
+                    <Link to="#!" className="flex items-center justify-center size-8 text-red-500 transition-all duration-200 ease-linear bg-red-100 rounded-md hover:text-white hover:bg-red-500 dark:bg-red-500/20 dark:hover:bg-red-500" onClick={() => {
+                        const data = cell.row.original;
+                        onClickDelete(data);
+                    }}><X className="size-4" /></Link>
                     <Link to="#!" className="flex items-center justify-center size-8 text-red-500 transition-all duration-200 ease-linear bg-red-100 rounded-md hover:text-white hover:bg-red-500 dark:bg-red-500/20 dark:hover:bg-red-500" onClick={() => {
                         const data = cell.row.original;
                         onClickDelete(data);
@@ -150,7 +154,7 @@ const LeaveManageHR = () => {
 
     return (
         <React.Fragment>
-            <BreadCrumb title='Leave Manage (HR)' pageTitle='Leaves Manage' />
+            <BreadCrumb title='Leave Manage' pageTitle='Leaves Manage' />
             <DeleteModal show={deleteModal} onHide={deleteToggle} onDelete={handleDelete} />
             <ToastContainer closeButton={false} limit={1} />
             <div className="grid grid-cols-1 gap-x-5 md:grid-cols-2 xl:grid-cols-12">

@@ -32,9 +32,9 @@ import {
     addUserList as onAddUserList,
     updateUserList as onUpdateUserList,
     deleteUserList as onDeleteUserList
-} from 'slices/thunk';
+} from 'MasterAdmin/Masterslices/thunk';
 import { ToastContainer } from 'react-toastify';
-import filterDataBySearch from 'Common/filterDataBySearch';
+import filterDataBySearch from 'MasterAdmin/MasterCommon/filterDataBySearch';
 import { RiFileExcel2Line } from 'react-icons/ri';
 // import { Country, State, City } from 'country-state-city';
 const Countrys = () => {
@@ -289,14 +289,14 @@ const Countrys = () => {
     // columns
     const Status = ({ item }: any) => {
         switch (item) {
-            case "Verified":
+            case "Active":
                 return (<span className="px-2.5 py-0.5 text-xs font-medium rounded border bg-green-100 border-transparent text-green-500 dark:bg-green-500/20 dark:border-transparent inline-flex items-center status"><CheckCircle className="size-3 mr-1.5" />{item}</span>);
-            case "Waiting":
-                return (<span className="px-2.5 py-0.5 inline-flex items-center text-xs font-medium rounded border bg-slate-100 border-transparent text-slate-500 dark:bg-slate-500/20 dark:text-zink-200 dark:border-transparent status"><Loader className="size-3 mr-1.5" />{item}</span>);
-            case "Rejected":
+            // case "Waiting":
+            //     return (<span className="px-2.5 py-0.5 inline-flex items-center text-xs font-medium rounded border bg-slate-100 border-transparent text-slate-500 dark:bg-slate-500/20 dark:text-zink-200 dark:border-transparent status"><Loader className="size-3 mr-1.5" />{item}</span>);
+            case "Deactive":
                 return (<span className="px-2.5 py-0.5 inline-flex items-center text-xs font-medium rounded border bg-red-100 border-transparent text-red-500 dark:bg-red-500/20 dark:border-transparent status"><X className="size-3 mr-1.5" />{item}</span>);
-            default:
-                return (<span className="px-2.5 py-0.5 text-xs font-medium rounded border bg-green-100 border-transparent text-green-500 dark:bg-green-500/20 dark:border-transparent inline-flex items-center status"><CheckCircle className="size-3 mr-1.5" />{item}</span>);
+            // default:
+            //     return (<span className="px-2.5 py-0.5 text-xs font-medium rounded border bg-green-100 border-transparent text-green-500 dark:bg-green-500/20 dark:border-transparent inline-flex items-center status"><CheckCircle className="size-3 mr-1.5" />{item}</span>);
         }
     };
 
@@ -361,15 +361,15 @@ const Countrys = () => {
         //     accessorKey: "joiningDate",
         //     enableColumnFilter: false,
         // },
-        // {
-        //     header: "Status",
-        //     accessorKey: "status",
-        //     enableColumnFilter: false,
-        //     enableSorting: true,
-        //     cell: (cell: any) => (
-        //         <Status item={cell.getValue()} />
-        //     ),
-        // },
+        {
+            header: "Status",
+            accessorKey: "status",
+            enableColumnFilter: false,
+            enableSorting: true,
+            cell: (cell: any) => (
+                <Status item={cell.getValue()} />
+            ),
+        },
         {
             header: "Action",
             enableColumnFilter: false,
@@ -422,7 +422,7 @@ const Countrys = () => {
 
     // const options = [
     //     { value: 'Select Status', label: 'Select Status' },
-    //     { value: 'Verified', label: 'Verified' },
+    //     { value: 'Active', label: 'Active' },
     //     { value: 'Waiting', label: 'Waiting' },
     //     { value: 'Rejected', label: 'Rejected' },
     //     { value: 'Hidden', label: 'Hidden' },
@@ -544,7 +544,7 @@ const Countrys = () => {
             {/* User Modal  */}
             <Modal show={show} onHide={toggle} id="defaultModal" modal-center="true"
                 className="fixed flex flex-col transition-all duration-300 ease-in-out left-2/4 z-drawer -translate-x-2/4 -translate-y-2/4"
-                dialogClassName="w-full md:w-[45rem] bg-white shadow rounded-md dark:bg-zink-600">
+                dialogClassName="w-full md:w-[55rem] bg-white shadow rounded-md dark:bg-zink-600">
                 <Modal.Header className="flex items-center justify-between p-4 border-b dark:border-zink-300/20"
                     closeButtonClass="transition-all duration-200 ease-linear text-slate-400 hover:text-red-500">
                     <Modal.Title className="text-16">{!!isEdit ? "Edit Country" : "Add Country"}</Modal.Title>
@@ -686,7 +686,7 @@ const Countrys = () => {
                                 value={validation.values.status || ""}
                             >
                                 <option value="">Select Company Category</option>
-                                <option value="Verified">Verified</option>
+                                <option value="Active">Active</option>
                                 <option value="Waiting">Waiting</option>
                                 <option value="Rejected">Rejected</option>
                             </select>
@@ -703,6 +703,18 @@ const Countrys = () => {
                             />
                             {validation.touched.country && validation.errors.country ? (
                                 <p className="text-red-400">{validation.errors.country}</p>
+                            ) : null}
+                        </div>
+
+                        <div className="mb-3">
+                            <label htmlFor="other" className="inline-block mb-2 text-base font-medium">Other's</label>
+                            <input type="text" id="other" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Add other's Details"
+                                name="other"
+                                onChange={validation.handleChange}
+                                value={validation.values.other || ""}
+                            />
+                            {validation.touched.other && validation.errors.other ? (
+                                <p className="text-red-400">{validation.errors.other}</p>
                             ) : null}
                         </div>
                         <div className="flex justify-end gap-2 mt-4">

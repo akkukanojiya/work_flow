@@ -1,7 +1,10 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import BreadCrumb from 'Common/BreadCrumb';
+// import BreadCrumb from 'Common/BreadCrumb';
+import BreadCrumb from 'CompanyDashboard/CompanyCommon/BreadCrumb';
+
 import Flatpickr from 'react-flatpickr';
-import TableContainer from 'Common/TableContainer';
+// import TableContainer from 'Common/TableContainer';
+import TableContainer from 'CompanyDashboard/CompanyCommon/TableContainer';
 import CountUp from 'react-countup';
 import { Link } from 'react-router-dom';
 import Select from 'react-select';
@@ -16,8 +19,8 @@ import user3 from "assets/images/users/user-3.jpg";
 import { useDispatch, useSelector } from 'react-redux';
 import { createSelector } from 'reselect';
 
-import { getAttendance as onGetAttendance } from 'slices/thunk';
-import filterDataBySearch from 'Common/filterDataBySearch';
+import { getAttendance as onGetAttendance } from 'MasterAdmin/Masterslices/thunk';
+import filterDataBySearch from 'MasterAdmin/MasterCommon/filterDataBySearch';
 
 const CompanyAttendance = () => {
 
@@ -45,59 +48,95 @@ const CompanyAttendance = () => {
     // Search Data
     const filterSearchData = (e: any) => {
         const search = e.target.value;
-        const keysToSearch = ['day', 'date', 'checkIn', 'checkOut', 'mealBreak', 'workHours', 'overtime'];
+        const keysToSearch = ['employeename','day', 'date', 'checkIn', 'checkOut', 'mealBreak',  ];
         filterDataBySearch(dataList, search, keysToSearch, setData);
     };
 
     const columns = useMemo(() => [
+
         {
-            header: "Date",
-            accessorKey: "date",
+            header: (
+                <div className="flex items-center h-full">
+                    <input id="CheckboxAll" className="size-4 bg-white border border-slate-200 checked:bg-none dark:bg-zink-700 dark:border-zink-500 rounded-sm appearance-none arrow-none relative after:absolute after:content-['\eb7b'] after:top-0 after:left-0 after:font-remix after:leading-none after:opacity-0 checked:after:opacity-100 after:text-custom-500 checked:border-custom-500 dark:after:text-custom-500 dark:checked:border-custom-800 cursor-pointer" type="checkbox" />
+                </div>
+            ),
+            enableSorting: false,
+            id: "checkAll",
+            cell: (cell: any) => {
+                return (
+                    <div className="flex items-center h-full">
+                        <input id="Checkbox1" className="size-4 bg-white border border-slate-200 checked:bg-none dark:bg-zink-700 dark:border-zink-500 rounded-sm appearance-none arrow-none relative after:absolute after:content-['\eb7b'] after:top-0 after:left-0 after:font-remix after:leading-none after:opacity-0 checked:after:opacity-100 after:text-custom-500 checked:border-custom-500 dark:after:text-custom-500 dark:checked:border-custom-800 cursor-pointer" type="checkbox" />
+                    </div>
+                );
+            }
+        },
+        {
+            header: "Employee Name",
+            accessorKey: "employeename",
             enableColumnFilter: false,
             cell: (cell: any) => (
                 <React.Fragment>
-                    {cell.getValue()} <span className="px-2.5 py-0.5 text-xs inline-block font-medium rounded border bg-white border-slate-400 text-slate-500 dark:bg-zink-700 dark:border-zink-400 dark:text-zink-200 ltr:ml-1 rtl:mr-1 align-middle">{cell.row.original.day}</span>
+                    {/* {cell.getValue()} <span className="px-2.5 py-0.5 text-xs inline-block font-medium rounded border bg-white border-slate-400 text-slate-500 dark:bg-zink-700 dark:border-zink-400 dark:text-zink-200 ltr:ml-1 rtl:mr-1 align-middle">{cell.row.original.day}</span> */}
                 </React.Fragment>
             ),
         },
+        // {
+        //     header: "Check In",
+        //     accessorKey: "checkIn",
+        //     enableColumnFilter: false
+        // },
+        // {
+        //     header: "Check Out",
+        //     accessorKey: "checkOut",
+        //     enableColumnFilter: false,
+        // },
+
+        // {
+        //     header: "Work Hours",
+        //     accessorKey: "workHours",
+        //     enableColumnFilter: false,
+        // },
+        // {
+        //     header: "Overtime",
+        //     accessorKey: "overtime",
+        //     enableColumnFilter: false,
+        // },
+        // {
+        //     header: "Lowertime",
+        //     accessorKey: "lovertime",
+        //     enableColumnFilter: false,
+        // },
         {
             header: "Check In",
-            accessorKey: "checkIn",
-            enableColumnFilter: false
-        },
-        {
-            header: "Check Out",
-            accessorKey: "checkOut",
-            enableColumnFilter: false,
-        },
-        {
-            header: "Meal Break",
-            accessorKey: "mealBreak",
-            enableColumnFilter: false,
-        },
-        {
-            header: "Work Hours",
-            accessorKey: "workHours",
-            enableColumnFilter: false,
-        },
-        {
-            header: "Overtime",
-            accessorKey: "overtime",
-            enableColumnFilter: false,
-        },
-        {
-            header: "Lowertime",
-            accessorKey: "lovertime",
-            enableColumnFilter: false,
-        },
-        {
-            header: "Action",
             enableColumnFilter: false,
             enableSorting: false,
             cell: (cell: any) => (
                 <div className="flex gap-2">
                     <Link to="#!" className="flex items-center justify-center size-8 text-green-500 transition-all duration-200 ease-linear bg-green-100 rounded-md hover:text-white hover:bg-green-500 dark:bg-green-500/20 dark:hover:bg-green-500"><Check className="size-4" /></Link>
                     <Link to="#!" className="flex items-center justify-center size-8 text-red-500 transition-all duration-200 ease-linear bg-red-100 rounded-md hover:text-white hover:bg-red-500 dark:bg-red-500/20 dark:hover:bg-red-500"><X className="size-4" /></Link>
+                </div>
+            ),
+        },
+        {
+            header: "Meal Break",
+
+            enableColumnFilter: false,
+            enableSorting: false,
+            cell: (cell: any) => (
+                <div className="flex gap-2">
+                    <Link to="#!" className="flex items-center justify-center size-8 text-red-500 transition-all duration-200 ease-linear bg-red-100 rounded-md hover:text-white hover:bg-red-500 dark:bg-red-500/20 dark:hover:bg-red-500"><span className="text-sm">Start</span > </Link>
+                    <Link to="#!" className="flex items-center justify-center size-8 text-green-500 transition-all duration-200 ease-linear bg-green-100 rounded-md hover:text-white hover:bg-green-500 dark:bg-green-500/20 dark:hover:bg-green-500"><span className="text-sm">End</span ></Link>
+                </div>
+            ),
+        },
+        {
+            header: "Check Out",
+            enableColumnFilter: false,
+            enableSorting: false,
+            cell: (cell: any) => (
+                <div className="flex gap-2">
+                    {/* <Link to="#!" className="flex items-center justify-center size-8 text-green-500 transition-all duration-200 ease-linear bg-green-100 rounded-md hover:text-white hover:bg-green-500 dark:bg-green-500/20 dark:hover:bg-green-500"><Check className="size-4" /></Link> */}
+                    <Link to="#!" className="flex items-center justify-center size-8 text-red-500 transition-all duration-200 ease-linear bg-red-100 rounded-md hover:text-white hover:bg-red-500 dark:bg-red-500/20 dark:hover:bg-red-500"> Out</Link>
                 </div>
             ),
         }
@@ -119,9 +158,9 @@ const CompanyAttendance = () => {
     return (
         <React.Fragment>
             <BreadCrumb title='Attendance' pageTitle='Attendance' />
-            <div className="grid grid-cols-1 lg:grid-cols-12 xl:grid-cols-12 gap-x-5">
-                <div className="lg:col-span-12 xl:col-span-3 xl:row-span-2">
-                    <div className="mb-5">
+            <div className="grid grid-cols-1 gap-x-5 xl:grid-cols-12">
+                {/* <div className="lg:col-span-12 xl:col-span-3 xl:row-span-2"> */}
+                {/* <div className="mb-5">
                         <label htmlFor="deliveryStatusSelect" className="inline-block mb-2 text-base font-medium">Select Employee</label>
                         <Select
                             className="border-slate-200 focus:outline-none focus:border-custom-500"
@@ -130,8 +169,8 @@ const CompanyAttendance = () => {
                             name="deliveryStatusSelect"
                             id="deliveryStatusSelect"
                         />
-                    </div>
-                    <div className="card">
+                    </div> */}
+                {/* <div className="card">
                         <div className="card-body">
                             <div className="text-center">
                                 <div className="size-20 mx-auto rounded-full bg-slate-100 dark:bg-zink-600">
@@ -179,9 +218,9 @@ const CompanyAttendance = () => {
                                 </table>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div className="lg:col-span-4 xl:col-span-3">
+                    </div> */}
+                {/* </div> */}
+                {/* <div className="lg:col-span-4 xl:col-span-3">
                     <div className="card">
                         <div className="flex items-center gap-4 card-body">
                             <div className="flex items-center justify-center size-12 rounded-md text-sky-500 bg-sky-100 text-15 dark:bg-sky-500/20 shrink-0"><Clock /></div>
@@ -193,8 +232,8 @@ const CompanyAttendance = () => {
                             </div>
                         </div>
                     </div>
-                </div>
-                <div className="lg:col-span-4 xl:col-span-3">
+                </div> */}
+                {/* <div className="lg:col-span-4 xl:col-span-3">
                     <div className="card">
                         <div className="flex items-center gap-4 card-body">
                             <div className="flex items-center justify-center size-12 text-red-500 bg-red-100 rounded-md text-15 dark:bg-red-500/20 shrink-0"><XOctagon /></div>
@@ -206,8 +245,8 @@ const CompanyAttendance = () => {
                             </div>
                         </div>
                     </div>
-                </div>
-                <div className="lg:col-span-4 xl:col-span-3">
+                </div> */}
+                {/* <div className="lg:col-span-4 xl:col-span-3">
                     <div className="card">
                         <div className="flex items-center gap-4 card-body">
                             <div className="flex items-center justify-center size-12 text-yellow-500 bg-yellow-100 rounded-md text-15 dark:bg-yellow-500/20 shrink-0"><RefreshCw /></div>
@@ -219,18 +258,29 @@ const CompanyAttendance = () => {
                             </div>
                         </div>
                     </div>
-                </div>
-                <div className="xl:col-span-9 lg:col-span-12">
+                </div> */}
+                <div className="xl:col-span-12 lg:col-span-12">
                     <div className="card">
                         <div className="card-body">
                             <div className="grid grid-cols-1 gap-4 mb-5 lg:grid-cols-2 xl:grid-cols-12">
-                                <div className="xl:col-span-3">
+                            <div className="xl:col-span-3">
+                                        {/* <label htmlFor="deliveryStatusSelect" className="inline-block mb-2 text-base font-medium">Select Employee</label> */}
+                                        <Select
+                                            className="border-slate-200 focus:outline-none focus:border-custom-500"
+                                            options={options}
+                                            isSearchable={true} 
+                                            name="deliveryStatusSelect"
+                                            id="deliveryStatusSelect"
+                                        />
+                                    </div>
+                                <div className="xl:col-span-2">
+                                   
                                     <div className="relative">
-                                        <input type="text" className="ltr:pl-8 rtl:pr-8 search form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Search for ..." autoComplete="off" onChange={(e) => filterSearchData(e)} />
+                                        <input type="text" className="ltr:pl-8 rtl:pr-8 search form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Search" autoComplete="off" onChange={(e) => filterSearchData(e)} />
                                         <Search className="inline-block size-4 absolute ltr:left-2.5 rtl:right-2.5 top-2.5 text-slate-500 dark:text-zink-200 fill-slate-100 dark:fill-zink-600" />
                                     </div>
                                 </div>
-                                <div className="xl:col-span-3">
+                                <div className="xl:col-span-2">
                                     <div>
                                         <Flatpickr
                                             className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
@@ -241,10 +291,12 @@ const CompanyAttendance = () => {
                                             placeholder='Select date'
                                         />
                                     </div>
+                                     
                                 </div>
+                                
                                 <div className="flex justify-end gap-2 text-right lg:col-span-2 xl:col-span-4 xl:col-start-10">
                                     <Link to="#!" type="button" className="text-red-500 bg-white border-red-500 border-dashed btn hover:text-red-500 hover:bg-red-50 hover:border-red-600 focus:text-red-600 focus:bg-red-50 focus:border-red-600 active:text-red-600 active:bg-red-50 active:border-red-600 dark:bg-zink-700 dark:ring-red-400/20 dark:hover:bg-red-800/20 dark:focus:bg-red-800/20 dark:active:bg-red-800/20">Rejecte All</Link>
-                                    <Link to="#!" type="button" className="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">Approve All</Link>
+                                    <Link to="#!" type="button" className="text-white btn bg-[#25476a] border-[#2a5179] hover:text-white hover:bg-[#2a5179] hover:border-[#2a5179] focus:text-white focus:bg-[#2a5179] focus:border-[#2a5179] focus:ring focus:ring-[#2a5179] active:text-white active:bg-[#25476a] active:border-[#25476a] active:ring active:ring-[#2a5179] dark:ring-[#2a5179]">Approve All</Link>
                                 </div>
                             </div>
                             {data && data.length > 0 ?

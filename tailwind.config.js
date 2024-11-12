@@ -47,7 +47,7 @@ module.exports = {
                 'vertical-menu-item': colors.black[400],
                 'vertical-menu-item-hover':'#fff',
                 'vertical-menu-item-bg-hover':'#25476a',
-                'vertical-menu-item-active':'#fff',
+                'vertical-menu-item-active':'#fff', 
                 'vertical-menu-item-bg-active': '#25476a',
                 'vertical-menu-sub-item': colors.black[400],
                 'vertical-menu-sub-item-hover': '#25476a',
@@ -105,7 +105,7 @@ module.exports = {
 
                 'topbar-brand': colors.blue[900],
                 'topbar-border-brand': colors.blue[800],
-                'topbar-item-brand': "#a4bbfd",
+                'topbar-item-brand': "#a4bbfd", 
                 'topbar-item-hover-brand': colors.white,
                 'topbar-item-bg-hover-brand': "#224097",
 

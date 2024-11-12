@@ -7,6 +7,7 @@ import moment from "moment";
 import { Calendar } from "lucide-react";
 import { RiFileExcel2Line } from "react-icons/ri";
 import Select from 'react-select';
+import CreatableSelect from 'react-select/creatable';
 interface Option {
     readonly label: string;
     readonly value?: string;
@@ -218,6 +219,15 @@ const Tasks = () => {
         // add more options as needed
     ];
 
+
+    // Custom  createservice
+    const handleCreate = (inputValue: string) => {
+        const newOption = { value: inputValue, label: inputValue };
+        Service.push(newOption); // Update options with the new value
+    };
+
+    // Custom  createservice end
+
     // service end
     // sub service 
     const SubService: Option[] = [
@@ -294,7 +304,14 @@ const Tasks = () => {
         { value: '70', label: 'Other Financial Services' },
         // add more options as needed
     ];
+  
 
+    // create sub handle 
+    const handleSubCreate = (inputValue: string) => {
+        const newOption = { value: inputValue, label: inputValue };
+        SubService.push(newOption); // Update options with the new value
+    };
+    // create sub handle end
     // sub service end
 
     // excel file 
@@ -764,7 +781,7 @@ const Tasks = () => {
             {/* Notes Modal */}
             <Modal show={show} onHide={toggle} id="defaultModal" modal-center="true"
                 className="fixed flex flex-col transition-all duration-300 ease-in-out left-2/4 z-drawer -translate-x-2/4 -translate-y-2/4"
-                dialogClassName="w-full xl:w-[50rem] bg-white shadow rounded-md dark:bg-zink-600">
+                dialogClassName="w-full xl:w-[55rem] bg-white shadow rounded-md dark:bg-zink-600">
                 <Modal.Header className="flex items-center justify-between p-5 border-b dark:border-zink-500"
                     closeButtonClass="transition-all duration-200 ease-linear text-slate-400 hover:text-red-500">
                     <Modal.Title className="text-16">{!!isEdit ? "Edit Tasks" : "Create Tasks"}</Modal.Title>
@@ -792,8 +809,8 @@ const Tasks = () => {
                                     <p className="text-red-400">{validation.errors.TaskName}</p>
                                 ) : null}
                             </div> */}
-                             {/* service  */}
-                             <div className="xl:col-span-4">
+                            {/* service  */}
+                            {/* <div className="xl:col-span-4">
                                 <label htmlFor="notesTitleInput" className="inline-block mb-2 text-base font-medium">Services</label>
                                 <Select
                                     className="border-[#25476a] dark:border-[#25476a] focus:outline-none focus:border-[#25476a] disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-[#25476a] placeholder:text-slate-400 dark:placeholder:text-zink-200"
@@ -802,6 +819,17 @@ const Tasks = () => {
                                     data-choices data-choices-sorting-false
                                     options={Service} />
 
+                            </div> */}
+                            <div className="xl:col-span-4">
+                                <label htmlFor="notesTitleInput" className="inline-block mb-2 text-base font-medium">Services</label>
+                                <CreatableSelect
+                                    classNamePrefix="select"
+                                    isClearable
+                                    options={Service}
+                                    onCreateOption={handleCreate}
+                                    placeholder="Select service"
+                                    className="border-[#25476a] dark:border-[#25476a] focus:outline-none focus:border-[#25476a] disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-[#25476a] placeholder:text-slate-400 dark:placeholder:text-zink-200"
+                                />
                             </div>
                             {/* service end */}
                             {/* <div className="xl:col-span-4">
@@ -809,7 +837,7 @@ const Tasks = () => {
                                 <SearchableSubSelect options={optionSub} onChange={handleOptionChange} />
                             </div> */}
                             {/* sub service  */}
-                            <div className="xl:col-span-4">
+                            {/* <div className="xl:col-span-4">
                                 <label htmlFor="notesTitleInput" className="inline-block mb-2 text-base font-medium">Sub Services</label>
                                 <Select
                                     className="border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
@@ -818,10 +846,22 @@ const Tasks = () => {
                                     data-choices data-choices-sorting-false
                                     options={SubService} />
 
+                            </div> */}
+
+                            <div className="xl:col-span-4">
+                                <label htmlFor="notesTitleInput" className="inline-block mb-2 text-base font-medium">Sub Services</label>
+                                <CreatableSelect
+                                    classNamePrefix="select"
+                                    isClearable
+                                    options={SubService}
+                                    onCreateOption={handleSubCreate}
+                                    placeholder="Select Sub service"
+                                    className="border-[#25476a] dark:border-[#25476a] focus:outline-none focus:border-[#25476a] disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-[#25476a] placeholder:text-slate-400 dark:placeholder:text-zink-200"
+                                />
                             </div>
                             {/* sub service end */}
                             <div className="xl:col-span-4">
-                                
+
                                 <div>
                                     <label htmlFor="ClientName" className="inline-block mb-2 text-base font-medium">Client Name</label>
                                     <select className="form-select border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" data-choices data-choices-search-false id="ClientName"
@@ -859,7 +899,7 @@ const Tasks = () => {
                                 <SearchableSelect options={options} onChange={handleOptionChange} />
                             </div> */}
 
-                           
+
                             {/* <div className="xl:col-span-4">
                             <label htmlFor="DateandTimeInput" className="inline-block mb-2 text-base font-medium">Deadline</label>
                                 <Flatpickr
@@ -872,7 +912,7 @@ const Tasks = () => {
                                 />
                             </div> */}
                             <div className="xl:col-span-4">
-                                <label htmlFor="notesTitleInput" className="inline-block mb-2 text-base font-medium">Deadline Time</label>
+                                <label htmlFor="notesTitleInput" className="inline-block mb-2 text-base font-medium">Alloted Time</label>
                                 <Flatpickr
                                     options={{
                                         enableTime: true,
@@ -896,9 +936,9 @@ const Tasks = () => {
                             </div>
 
                             <div className="xl:col-span-4">
-                                <label htmlFor="dueDateInput" className="inline-block mb-2 text-base font-medium">Due Date</label>
+                                <label htmlFor="officialdueDateInput" className="inline-block mb-2 text-base font-medium">Official Due Date</label>
                                 <Flatpickr
-                                    id="dueDateInput"
+                                    id="officialdueDateInput"
                                     className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
                                     options={{
                                         dateFormat: "d M, Y"
@@ -913,7 +953,7 @@ const Tasks = () => {
                             </div>
 
                             {/* Custom Due Date */}
-                            
+
 
                             {/* <div className="xl:col-span-4">
                                 <label htmlFor="dueDateInput" className="inline-block mb-2 text-base font-medium">Custom Due Date</label>
@@ -1039,6 +1079,18 @@ const Tasks = () => {
                             </div>
                         </div>
 
+                        <div className="xl:col-span-4">
+                                <label htmlFor="other" className="inline-block mb-2 text-base font-medium">Other's</label>
+                                <input type="text" id="other" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter  Other's Details"
+                                    name="other"
+                                    onChange={validation.handleChange}
+                                    value={validation.values.other || ""}
+                                />
+                                {validation.touched.other && validation.errors.other ? (
+                                    <p className="text-red-400">{validation.errors.other}</p>
+                                ) : null}
+                            </div> 
+
                         <div className="flex justify-end gap-2 mt-4">
                             <button type="reset" data-modal-close="addNotesModal" className="text-red-500 bg-white btn hover:text-red-500 hover:bg-red-100 focus:text-red-500 focus:bg-red-100 active:text-red-500 active:bg-red-100 dark:bg-zink-600 dark:hover:bg-red-500/10 dark:focus:bg-red-500/10 dark:active:bg-red-500/10"
                                 onClick={toggle}>Cancel</button>
@@ -1057,7 +1109,7 @@ const Tasks = () => {
             {/* Overview Notes Modal */}
             <Modal show={Overviewshow} onHide={toggleOverview} id="overviewNotesModal" modal-center="true"
                 className="fixed flex flex-col transition-all duration-300 ease-in-out left-2/4 z-drawer -translate-x-2/4 -translate-y-2/4"
-                dialogClassName="w-screen xl:w-[35rem] bg-white shadow rounded-md dark:bg-zink-600"
+                dialogClassName="w-screen xl:w-[48rem] bg-white shadow rounded-md dark:bg-zink-600"
             >
                 <Modal.Header className="flex items-center justify-between p-5 border-b dark:border-zink-500"
                     closeButtonClass="transition-all duration-200 ease-linear text-slate-500 hover:text-red-500 dark:text-zink-200 dark:hover:text-red-500">
@@ -1079,7 +1131,7 @@ const Tasks = () => {
                                 </li>
                             </Dropdown.Content>
                         </Dropdown>
-                        <Modal.Title className="text-16">{eventData?.title}</Modal.Title>
+                        <Modal.Title className="text-20">{eventData?.title}</Modal.Title>
                     </div>
                 </Modal.Header>
                 <Modal.Body className="max-h-[calc(theme('height.screen')_-_180px)] overflow-y-auto p-5">

@@ -1,4 +1,4 @@
-import { UserRoundCogIcon, LocateFixed, MonitorDot, ScrollText, ShoppingBag, GraduationCapIcon, Building2Icon,Globe2Icon, MapPinned,LucideBaggageClaim, GitBranchPlusIcon, IndianRupeeIcon} from "lucide-react";
+import { UserRoundCogIcon, LocateFixed, MonitorDot, ScrollText, ShoppingBag, GraduationCapIcon, Building2Icon, Globe2Icon, MapPinned, LucideBaggageClaim, GitBranchPlusIcon, IndianRupeeIcon, GlobeIcon, SettingsIcon } from "lucide-react";
 
 const MastermenuData: any = [
     // {
@@ -10,9 +10,9 @@ const MastermenuData: any = [
     //     label: 'Ecommerce ',
     //     link: "/dashboard",
     //     icon: <MonitorDot />,
-         
+
     // },
-     
+
     // {
     //     label: 'Apps',
     //     isTitle: true,
@@ -61,9 +61,9 @@ const MastermenuData: any = [
         id: "masterdashboard",
         label: 'Master Menu',
         link: "/master-dashboard",
-        icon: <GraduationCapIcon/>,
-        
-    
+        icon: <GraduationCapIcon />,
+
+
         subItems: [
 
             // {
@@ -72,9 +72,9 @@ const MastermenuData: any = [
             //     icon: <MonitorDot />,
             //     link: "/master-dashboard",
             //     parentId: 'masterdashboard'
-                 
+
             // },
-            
+
             // {
             //     id: 'company',
             //     label: 'Company',
@@ -124,9 +124,9 @@ const MastermenuData: any = [
             //     link: '/master-financial-year',
             //     parentId: 'masterdashboard'
             // },
-            
+
         ]
-        
+
     },
     {
         id: "masterdashboard",
@@ -134,19 +134,19 @@ const MastermenuData: any = [
         icon: <MonitorDot />,
         link: "/master-dashboard",
         parentId: 'masterdashboard'
-         
+
     },
     {
         id: 'company',
         label: 'Company',
-        icon: <Building2Icon/>,
+        icon: <Building2Icon />,
         link: '/master-admin-company',
         parentId: 'masterdashboard'
     },
     {
         id: 'country',
         label: 'Country',
-        icon: <Globe2Icon/>,
+        icon: <GlobeIcon />,
         link: '/master-admin-country',
         parentId: 'masterdashboard'
     },
@@ -167,31 +167,39 @@ const MastermenuData: any = [
     {
         id: 'service',
         label: 'Services',
-        icon: <LucideBaggageClaim/> ,
+        icon: <LucideBaggageClaim />,
         link: '/master-admin-services',
         parentId: 'masterdashboard'
     },
     {
         id: 'subservice',
         label: ' Sub Services',
-        icon: <GitBranchPlusIcon/> ,
+        icon: <GitBranchPlusIcon />,
         link: '/master-admin-subservices',
         parentId: 'masterdashboard'
     },
     {
         id: 'financialyear',
         label: 'Financial Year',
-        icon: <IndianRupeeIcon/> ,
+        icon: <IndianRupeeIcon />,
         link: '/master-financial-year',
         parentId: 'masterdashboard'
     },
-    
+
+    {
+        id: 'setting',
+        label: 'Settings',
+        icon: <SettingsIcon />,
+        link: '/master-profile',
+        parentId: 'masterdashboard'
+    },
+
     // {
     //     id: 'Client',
     //     label: 'Client',
     //     // icon: <User2Icon />,
     //     link: '/apps-users-list',
-        
+
     //     subItems: [
     //         // {
     //         //     id: 'client-list',
@@ -213,7 +221,7 @@ const MastermenuData: any = [
     //         },
     //     ]
     // },
-     
+
     // {
     //     id: 'notes',
     //     label: 'Notes',

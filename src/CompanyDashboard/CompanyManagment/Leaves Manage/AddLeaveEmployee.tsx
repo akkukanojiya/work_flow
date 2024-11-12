@@ -21,9 +21,9 @@ const AddLeaveEmployee = () => {
 
     return (
         <React.Fragment>
-            <BreadCrumb title='Add Leave (Employee)' pageTitle='Leaves Manage' />
+            <BreadCrumb title='Add Leave (Company)' pageTitle='Leaves Manage' />
             <div className="grid grid-cols-1 xl:grid-cols-12 gap-x-5">
-                <div className="xl:col-span-9">
+                <div className="xl:col-span-12">
                     <div className="card">
                         <div className="card-body">
                             <h6 className="mb-4 text-15 grow">Apply Leave</h6>
@@ -100,7 +100,7 @@ const AddLeaveEmployee = () => {
                         </div>
                     </div>
                 </div>
-                <div className="xl:col-span-3">
+                {/* <div className="xl:col-span-3">
                     <div className="card">
                         <div className="card-body">
                             <h6 className="mb-4 text-15">Leave Information (2023)</h6>
@@ -136,7 +136,7 @@ const AddLeaveEmployee = () => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
         </React.Fragment>
     );

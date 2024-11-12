@@ -122,7 +122,7 @@ const LeaveManageEmployee = () => {
             enableSorting: false,
             cell: (cell: any) => (
                 <div className="flex justify-end gap-2">
-                    {cell.row.original.status === "Pending" && <Link to="#!" className="flex items-center justify-center size-8 transition-all duration-200 ease-linear rounded-md text-slate-500 bg-slate-100 hover:text-white hover:bg-slate-500 dark:text-zink-200 dark:bg-zink-600 dark:hover:text-white dark:hover:bg-zink-400"><Pencil className="size-4" /></Link>}
+                    {/* {cell.row.original.status === "Pending" && <Link to="#!" className="flex items-center justify-center size-8 transition-all duration-200 ease-linear rounded-md text-slate-500 bg-slate-100 hover:text-white hover:bg-slate-500 dark:text-zink-200 dark:bg-zink-600 dark:hover:text-white dark:hover:bg-zink-400"><Pencil className="size-4" /></Link>} */}
                     <Link to="#!" data-modal-target="leaveOverviewModal" className="flex items-center justify-center size-8 transition-all duration-200 ease-linear rounded-md text-custom-500 bg-custom-100 hover:text-white hover:bg-custom-500 dark:bg-custom-500/20 dark:hover:bg-custom-500"><Info className="size-4" /></Link>
                 </div>
             ),
