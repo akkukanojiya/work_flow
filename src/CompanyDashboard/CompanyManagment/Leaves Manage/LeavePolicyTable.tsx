@@ -19,7 +19,7 @@ import {
 import { ToastContainer } from 'react-toastify';
 import filterDataBySearch from 'Common/filterDataBySearch';
 
-const LeaveManageHR = () => {
+const LeavePlicyTable = () => {
 
     const dispatch = useDispatch<any>();
 
@@ -86,62 +86,62 @@ const LeaveManageHR = () => {
     };
 
     const columns = useMemo(() => [
-        {
-            header: "#",
-            accessorKey: "id",
-            enableColumnFilter: false,
-        },
-        {
-            header: "Employee Name",
-            accessorKey: "employeeName",
-            enableColumnFilter: false
-        },
+        // {
+        //     header: "#",
+        //     accessorKey: "id",
+        //     enableColumnFilter: false,
+        // },
+        // {
+        //     header: "Employee Name",
+        //     accessorKey: "employeeName",
+        //     enableColumnFilter: false
+        // },
         {
             header: "Leave Type",
             accessorKey: "leaveType",
             enableColumnFilter: false,
         },
+        // {
+        //     header: "Reason",
+        //     accessorKey: "reason",
+        //     enableColumnFilter: false,
+        // },
         {
-            header: "Reason",
-            accessorKey: "reason",
+            header: "Total Leave",
+            accessorKey: "totalleave",
             enableColumnFilter: false,
         },
-        {
-            header: "No Of Days",
-            accessorKey: "noOfDays",
-            enableColumnFilter: false,
-        },
-        {
-            header: "From",
-            accessorKey: "from",
-            enableColumnFilter: false,
-        },
-        {
-            header: "To",
-            accessorKey: "to",
-            enableColumnFilter: false,
-        },
-        {
-            header: "Status",
-            accessorKey: "status",
-            enableColumnFilter: false,
-            enableSorting: true,
-            cell: (cell: any) => (
-                <Status item={cell.getValue()} />
-            ),
-        },
-        {
+        // {
+        //     header: "From",
+        //     accessorKey: "from",
+        //     enableColumnFilter: false,
+        // },
+        // {
+        //     header: "To",
+        //     accessorKey: "to",
+        //     enableColumnFilter: false,
+        // },
+        // {
+        //     header: "Status",
+        //     accessorKey: "status",
+        //     enableColumnFilter: false,
+        //     enableSorting: true,
+        //     cell: (cell: any) => (
+        //         <Status item={cell.getValue()} />
+        //     ),
+        // },
+         {
             header: "Action",
             enableColumnFilter: false,
             enableSorting: true,
             cell: (cell: any) => (
                 <div className="flex gap-2">
-                    {/* <Link to="#!" className="flex items-center justify-center size-8 transition-all duration-200 ease-linear rounded-md text-slate-500 bg-slate-100 hover:text-white hover:bg-slate-500 dark:bg-zink-600 dark:text-zink-200 dark:hover:text-white dark:hover:bg-zink-500"><Pencil className="size-4" /></Link> */}
-                    <Link to="#!" className="flex items-center justify-center size-8 text-green-500 transition-all duration-200 ease-linear bg-green-100 rounded-md hover:text-white hover:bg-green-500 dark:bg-green-500/20 dark:hover:bg-green-500"><Check className="size-4" /></Link>
-                    <Link to="#!" className="flex items-center justify-center size-8 text-red-500 transition-all duration-200 ease-linear bg-red-100 rounded-md hover:text-white hover:bg-red-500 dark:bg-red-500/20 dark:hover:bg-red-500" onClick={() => {
+                    <Link to="#!" className="flex items-center justify-center size-8 transition-all duration-200 ease-linear rounded-md text-slate-500 bg-slate-100 hover:text-white hover:bg-slate-500 dark:bg-zink-600 dark:text-zink-200 dark:hover:text-white dark:hover:bg-zink-500"><Pencil className="size-4" /></Link>
+                    {/* <Link to="#!" className="flex items-center justify-center size-8 text-green-500 transition-all duration-200 ease-linear bg-green-100 rounded-md hover:text-white hover:bg-green-500 dark:bg-green-500/20 dark:hover:bg-green-500"><Check className="size-4" /></Link> */}
+                    {/* <Link to="#!" className="flex items-center justify-center size-8 text-red-500 transition-all duration-200 ease-linear bg-red-100 rounded-md hover:text-white hover:bg-red-500 dark:bg-red-500/20 dark:hover:bg-red-500" onClick={() => {
                         const data = cell.row.original;
                         onClickDelete(data);
-                    }}><X className="size-4" /></Link>
+                    }}><X className="size-4" /></Link> */}
                     <Link to="#!" className="flex items-center justify-center size-8 text-red-500 transition-all duration-200 ease-linear bg-red-100 rounded-md hover:text-white hover:bg-red-500 dark:bg-red-500/20 dark:hover:bg-red-500" onClick={() => {
                         const data = cell.row.original;
                         onClickDelete(data);
@@ -154,10 +154,10 @@ const LeaveManageHR = () => {
 
     return (
         <React.Fragment>
-            <BreadCrumb title='Leave Manage' pageTitle='Leaves Manage' />
+            <BreadCrumb title='Leave Policy' pageTitle='Leaves Policy Manage' />
             <DeleteModal show={deleteModal} onHide={deleteToggle} onDelete={handleDelete} />
             <ToastContainer closeButton={false} limit={1} />
-            <div className="grid grid-cols-1 gap-x-5 md:grid-cols-2 xl:grid-cols-12">
+            {/* <div className="grid grid-cols-1 gap-x-5 md:grid-cols-2 xl:grid-cols-12">
                 <div className="xl:col-span-3">
                     <div className="card">
                         <div className="flex items-center gap-3 card-body">
@@ -210,20 +210,20 @@ const LeaveManageHR = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
 
             <div className="card" id="ordersTable">
                 <div className="card-body">
                     <div className="grid grid-cols-1 gap-4 mb-5 lg:grid-cols-2 xl:grid-cols-12">
                         <div className="xl:col-span-3">
                             <div className="relative">
-                                <input type="text" className="ltr:pl-8 rtl:pr-8 search form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Search for ..." autoComplete="off" onChange={(e) => filterSearchData(e)} />
+                                <input type="text" className="ltr:pl-8 rtl:pr-8 search form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Search" autoComplete="off" onChange={(e) => filterSearchData(e)} />
                                 <Search className="inline-block size-4 absolute ltr:left-2.5 rtl:right-2.5 top-2.5 text-slate-500 dark:text-zink-200 fill-slate-100 dark:fill-zink-600" />
                             </div>
                         </div>
                         <div className="xl:col-span-2 xl:col-start-11">
                             <div className="ltr:lg:text-right rtl:lg:float-left">
-                                <Link to="/company-employee-leave" type="button" className="text-white btn bg-[#25476a] border-[#2a5179] hover:text-white hover:bg-[#2a5179] hover:border-[#2a5179] focus:text-white focus:bg-[#2a5179] focus:border-[#2a5179] focus:ring focus:ring-[#2a5179] active:text-white active:bg-[#25476a] active:border-[#25476a] active:ring active:ring-[#2a5179] dark:ring-[#2a5179]"><Plus className="inline-block size-4" /> <span className="align-middle">Add Leave</span></Link>
+                                <Link to="/company-employee-leave-policy" type="button" className="text-white btn bg-[#25476a] border-[#2a5179] hover:text-white hover:bg-[#2a5179] hover:border-[#2a5179] focus:text-white focus:bg-[#2a5179] focus:border-[#2a5179] focus:ring focus:ring-[#2a5179] active:text-white active:bg-[#25476a] active:border-[#25476a] active:ring active:ring-[#2a5179] dark:ring-[#2a5179]"><Plus className="inline-block size-4" /> <span className="align-middle">Add Leave Policy</span></Link>
                             </div>
                         </div>
                     </div>
@@ -233,8 +233,8 @@ const LeaveManageHR = () => {
                             columns={(columns || [])}
                             data={(data || [])}
                             customPageSize={10}
-                            divclassName="overflow-x-auto"
-                            tableclassName="w-full whitespace-nowrap"
+                            divclassName="overflow-x-auto "
+                            tableclassName="w-96 whitespace-nowrap"
                             theadclassName="ltr:text-left rtl:text-right bg-[#25476a] text-[#fff]"
                             thclassName="px-3.5 py-2.5 font-semibold border-b border-slate-200 dark:border-zink-500"
                             tdclassName="px-3.5 py-2.5 border-y border-slate-200 dark:border-zink-500"
@@ -254,4 +254,4 @@ const LeaveManageHR = () => {
     );
 };
 
-export default LeaveManageHR;
+export default LeavePlicyTable;

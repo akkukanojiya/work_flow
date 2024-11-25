@@ -595,7 +595,7 @@ const Tasks = () => {
             {/* Overview Notes Modal */}
             <Modal show={Overviewshow} onHide={toggleOverview} id="overviewNotesModal" modal-center="true"
                 className="fixed flex flex-col transition-all duration-300 ease-in-out left-2/4 z-drawer -translate-x-2/4 -translate-y-2/4"
-                dialogClassName="w-screen xl:w-[35rem] bg-white shadow rounded-md dark:bg-zink-600"
+                dialogClassName="w-screen xl:w-[55rem] bg-white shadow rounded-md dark:bg-zink-600"
             >
                 <Modal.Header className="flex items-center justify-between p-5 border-b dark:border-zink-500"
                     closeButtonClass="transition-all duration-200 ease-linear text-slate-500 hover:text-red-500 dark:text-zink-200 dark:hover:text-red-500">

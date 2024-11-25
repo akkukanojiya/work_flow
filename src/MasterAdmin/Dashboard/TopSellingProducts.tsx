@@ -7,7 +7,7 @@ import img04 from "assets/images/product/img-04.png";
 import img05 from "assets/images/product/img-05.png";
 import img06 from "assets/images/product/img-06.png";
 import { MoreVertical, ShoppingCart } from 'lucide-react';
-import { Dropdown } from 'Common/Components/Dropdown';
+import { Dropdown } from 'MasterAdmin/MasterCommon/Components/Dropdown';
 import { Link } from 'react-router-dom';
 
 const TopSellingProducts = () => {

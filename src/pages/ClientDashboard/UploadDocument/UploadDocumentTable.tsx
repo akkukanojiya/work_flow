@@ -137,18 +137,18 @@ const UploadDocumentTable = () => {
         //         <Link to="#" className="transition-all duration-150 ease-linear product_code text-custom-500 hover:text-custom-600">{cell.getValue()}</Link>
         //     ),
         // },
-        // {
-        //     header: "Issue Title",
-        //     accessorKey: "issueTitle",
-        //     enableColumnFilter: false,
-        //     enableSorting: true,
-        //     cell: (cell: any) => (
-        //         <Link to="#" className="flex items-center gap-2">
-        //             <img src={cell.row.original.img} alt="Product images" className="h-6" />
-        //             <h6 className="product_name">{cell.getValue()}</h6>
-        //         </Link>
-        //     ),
-        // },
+        {
+            header: "Name",
+            accessorKey: "name",
+            enableColumnFilter: false,
+            enableSorting: true,
+            cell: (cell: any) => (
+                <Link to="#" className="flex items-center gap-2">
+                    {/* <img src={cell.row.original.img} alt="Product images" className="h-6" /> */}
+                    <h6 className="product_name">{cell.getValue()}</h6>
+                </Link>
+            ),
+        },
         {
             header: "Description",
             accessorKey: "description",
@@ -230,7 +230,7 @@ const UploadDocumentTable = () => {
             <div className="card" id="productListTable">
                 <div className="card-body">
                     <div  className="flex flex-col md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-4">
-                        <div className="w-full md:w-3/4 py-2.1 card-body border-y border-dashed border-slate-200 dark:border-zinc-500">
+                        <div className="w-full md:w-3/4 py-2.1 card-body ">
                         <form action="#!">
                                         <div className="grid grid-cols-1 gap-5 xl:grid-cols-12">
                                             <div className="relative xl:col-span-3">

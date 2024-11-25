@@ -404,7 +404,7 @@ const MasterCompany = () => {
                     <div className="card " id="usersTable">
                         <div className="card-body">
                             <div className="flex flex-col md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-4">
-                                <div className="w-full md:w-3/4 py-2.1 card-body border-y border-dashed border-slate-200 dark:border-zinc-500">
+                                <div className="w-full md:w-3/4 py-2.1 card-body ">
                                     <form action="#!">
                                         <div className="grid grid-cols-1 gap-5 xl:grid-cols-12">
                                             <div className="relative xl:col-span-3">
@@ -780,7 +780,7 @@ const MasterCompany = () => {
                                             Address Type*
                                         </label>
                                         <select
-                                            className="form-input border-slate-300 focus:outline-none focus:border-custom-500"
+                                            className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
                                             id={`addresstype-${index}`}
                                             name="addresstype"
                                             value={field.addresstype}
@@ -804,7 +804,7 @@ const MasterCompany = () => {
                                     <label htmlFor={`city-${index}`} className="inline-block mb-2 text-base font-medium">City</label>
                                     <input
                                         type="text"
-                                        className="form-input border-slate-200 focus:outline-none focus:border-custom-500"
+                                        className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
                                         id={`city-${index}`}
                                         name="city"
                                         placeholder="Enter City"
@@ -818,7 +818,7 @@ const MasterCompany = () => {
                                     <label htmlFor={`state-${index}`} className="inline-block mb-2 text-base font-medium">State</label>
                                     <input
                                         type="text"
-                                        className="form-input border-slate-200 focus:outline-none focus:border-custom-500"
+                                        className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
                                         id={`state-${index}`}
                                         name="state"
                                         placeholder="Enter State"
@@ -832,7 +832,7 @@ const MasterCompany = () => {
                                     <label htmlFor={`pincode-${index}`} className="inline-block mb-2 text-base font-medium">Pin Code</label>
                                     <input
                                         type="text"
-                                        className="form-input border-slate-200 focus:outline-none focus:border-custom-500"
+                                        className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
                                         id={`pincode-${index}`}
                                         name="pincode"
                                         placeholder="Enter Pin Code"

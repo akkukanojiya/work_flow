@@ -21,7 +21,7 @@ const Support = () => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value, files } = e.target;
-    
+
     if (name === "file" && files) {
       setFormData((prevData) => ({ ...prevData, [name]: files[0] }));
     } else {
@@ -40,7 +40,7 @@ const Support = () => {
       <div className="container-fluid group-data-[content=boxed]:max-w-boxed mx-auto">
         <BreadCrumb title="Client Support" pageTitle="Support" />
 
-        <section className="relative pb-28 xl:pb-36 pt-10 xl:pt-15">
+        <section className="relative pb-20 xl:pb-25 pt-4 xl:pt-8">
           <div className="absolute top-0 left-0 size-64 bg-custom-500 opacity-10 blur-3xl"></div>
           <div className="absolute bottom-0 right-0 size-64 bg-purple-500/10 blur-3xl"></div>
           <div className="container 2xl:max-w-[87.5rem] px-4 mx-auto">
@@ -57,13 +57,13 @@ const Support = () => {
                     <h2 className="text-xl font-bold mb-4">Client Support Request</h2>
                     <form onSubmit={handleSubmit} className="space-y-4">
                       <div>
-                        <label className="block text-sm font-medium">Issue Title</label>
+                        <label className="inline-block mb-2 text-base font-medium">Issue Title</label>
                         <input
                           type="text"
                           name="issue_title"
                           value={formData.name}
                           onChange={handleChange}
-                          className="border border-gray-300 p-2 w-full"
+                          className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
                           placeholder="Your Issue Title"
                           required
                         />
@@ -86,7 +86,7 @@ const Support = () => {
                           name="description"
                           value={formData.description}
                           onChange={handleChange}
-                          className="border border-gray-300 p-2 w-full"
+                          className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
                           placeholder="Describe your issue"
                           required
                         />
@@ -98,12 +98,12 @@ const Support = () => {
                           name="file"
                           accept="image/*" // Accept only image files
                           onChange={handleChange}
-                          className="border border-gray-300 p-2 w-full"
+                          className="cursor-pointer form-file border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500"
                         />
                       </div>
                       <button
                         type="submit"
-                        className="bg-[#25476a] text-white px-4 py-2 rounded"
+                        className="text-white btn bg-[#25476a] border-[#2a5179] hover:text-white hover:bg-[#2a5179] hover:border-[#2a5179] focus:text-white focus:bg-[#2a5179] focus:border-[#2a5179] focus:ring focus:ring-[#2a5179] active:text-white active:bg-[#25476a] active:border-[#25476a] active:ring active:ring-[#2a5179] dark:ring-[#2a5179]"
                       >
                         Submit Request
                       </button>

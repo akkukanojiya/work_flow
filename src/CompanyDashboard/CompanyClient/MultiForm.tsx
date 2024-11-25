@@ -292,7 +292,7 @@ const Form1 = ({ onSubmit }: { onSubmit: (data: any) => void }) => {
                 {fields.map((field, index) => (
 
 
-                  <div key={index} className="col-6  ">
+                  <div key={index} className="col-6">
                     <div className="flex justify-end gap-2 mt-4">
                       {fields.length !== 1 && <button type="button"
                         className="text-white btn bg-rose-500 border-rose-500 hover:text-white hover:bg-rose-600 hover:border-rose-600 focus:text-white focus:bg-rose-600 focus:border-rose-600 focus:ring focus:ring-rose-100 active:text-white active:bg-rose-600 active:border-rose-600 active:ring active:ring-rose-100 dark:ring-rose-400/20 mt-3 " onClick={() => handleRemoveField(index)}>Remove</button>}
@@ -611,7 +611,7 @@ const Form2 = ({ onSubmit }: { onSubmit: (data: any) => void }) => {
                   </div>
                   <div className="xl:col-span-6 mb-3">
                     <label htmlFor="typeOfBussinassSelect" className="inline-block mb-2 text-base font-medium">   Category</label>
-                    <select className="form-input border-slate-300 focus:outline-none focus:border-custom-500" data-choices data-choices-search-false id="clientCategory"
+                    <select className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" data-choices data-choices-search-false id="clientCategory"
                       name="clientCategory"
 
                     >
@@ -631,7 +631,7 @@ const Form2 = ({ onSubmit }: { onSubmit: (data: any) => void }) => {
                   </div>
                   <div className="xl:col-span-6 mb-3">
                     <label htmlFor="typeOfBussinassSelect" className="inline-block mb-2 text-base font-medium">  Industry Type</label>
-                    <select className="form-input border-slate-300 focus:outline-none focus:border-custom-500" data-choices data-choices-search-false id="industryType"
+                    <select className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" data-choices data-choices-search-false id="industryType"
                       name="industryType"
 
                     >
@@ -706,7 +706,7 @@ const Form2 = ({ onSubmit }: { onSubmit: (data: any) => void }) => {
                   </div>
                   <div className="xl:col-span-6 mb-3">
                     <label htmlFor="typeOfBussinassSelect" className="inline-block mb-2 text-base font-medium">Type of Bussinass</label>
-                    <select className="form-input border-slate-300 focus:outline-none focus:border-custom-500" data-choices data-choices-search-false id="statusSelect"
+                    <select className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" data-choices data-choices-search-false id="statusSelect"
                       name="typeofbussinass"
 
                     >
@@ -931,7 +931,7 @@ const Form3 = ({ onSubmit }: { onSubmit: (data: any) => void }) => {
                   </div>
                   <div className="xl:col-span-6 mb-3">
                     <label htmlFor="companyCategoryType" className="inline-block mb-2 text-base font-medium"> Company Category/Type</label>
-                    <select className="form-input border-slate-300 focus:outline-none focus:border-custom-500" data-choices data-choices-search-false id="companyCategoryType"
+                    <select className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" data-choices data-choices-search-false id="companyCategoryType"
                       name="companyCategoryType"
 
                     >
@@ -1019,7 +1019,7 @@ const Form3 = ({ onSubmit }: { onSubmit: (data: any) => void }) => {
                   </div> */}
                   <div className="xl:col-span-6">
                     <label htmlFor="serviceCategory" className="inline-block mb-2 text-base font-medium">Service Category </label>
-                    <select className="form-input border-slate-300 focus:outline-none focus:border-custom-500" data-choices data-choices-search-false id="serviceCategory"
+                    <select className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" data-choices data-choices-search-false id="serviceCategory"
                       name="serviceCategory"
 
                     >
@@ -1351,7 +1351,7 @@ const Form5 = ({ onSubmit }: { onSubmit: (data: any) => void }) => {
                   </div>
                   <div className="xl:col-span-6 mb-3">
                     <label htmlFor="companyCategoryType" className="inline-block mb-2 text-base font-medium"> Company Category/Type</label>
-                    <select className="form-input border-slate-300 focus:outline-none focus:border-custom-500" data-choices data-choices-search-false id="companyCategoryType"
+                    <select className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" data-choices data-choices-search-false id="companyCategoryType"
                       name="companyCategoryType"
 
                     >
@@ -1441,7 +1441,7 @@ const Form5 = ({ onSubmit }: { onSubmit: (data: any) => void }) => {
                   </div> */}
                   <div className="xl:col-span-6">
                     <label htmlFor="serviceCategory" className="inline-block mb-2 text-base font-medium">Service Category </label>
-                    <select className="form-input border-slate-300 focus:outline-none focus:border-custom-500" data-choices data-choices-search-false id="serviceCategory"
+                    <select className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" data-choices data-choices-search-false id="serviceCategory"
                       name="serviceCategory"
 
                     >
@@ -1611,7 +1611,7 @@ const Form6 = ({ onSubmit }: { onSubmit: (data: any) => void }) => {
                   </div>
                   <div className="xl:col-span-6 mb-3">
                     <label htmlFor="companyCategoryType" className="inline-block mb-2 text-base font-medium"> Company Category/Type</label>
-                    <select className="form-input border-slate-300 focus:outline-none focus:border-custom-500" data-choices data-choices-search-false id="companyCategoryType"
+                    <select className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" data-choices data-choices-search-false id="companyCategoryType"
                       name="companyCategoryType"
 
                     >
@@ -1701,7 +1701,7 @@ const Form6 = ({ onSubmit }: { onSubmit: (data: any) => void }) => {
                   </div> */}
                   <div className="xl:col-span-6">
                     <label htmlFor="serviceCategory" className="inline-block mb-2 text-base font-medium">Service Category </label>
-                    <select className="form-input border-slate-300 focus:outline-none focus:border-custom-500" data-choices data-choices-search-false id="serviceCategory"
+                    <select className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" data-choices data-choices-search-false id="serviceCategory"
                       name="serviceCategory"
 
                     >
@@ -1859,7 +1859,7 @@ const Form7 = ({ onSubmit }: { onSubmit: (data: any) => void }) => {
                   </div>
                   <div className="xl:col-span-6 mb-3">
                     <label htmlFor="companyCategoryType" className="inline-block mb-2 text-base font-medium"> Company Category/Type</label>
-                    <select className="form-input border-slate-300 focus:outline-none focus:border-custom-500" data-choices data-choices-search-false id="companyCategoryType"
+                    <select className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" data-choices data-choices-search-false id="companyCategoryType"
                       name="companyCategoryType"
 
                     >
@@ -1949,7 +1949,7 @@ const Form7 = ({ onSubmit }: { onSubmit: (data: any) => void }) => {
                   </div> */}
                   <div className="xl:col-span-6">
                     <label htmlFor="serviceCategory" className="inline-block mb-2 text-base font-medium">Service Category </label>
-                    <select className="form-input border-slate-300 focus:outline-none focus:border-custom-500" data-choices data-choices-search-false id="serviceCategory"
+                    <select className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" data-choices data-choices-search-false id="serviceCategory"
                       name="serviceCategory"
 
                     >

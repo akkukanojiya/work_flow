@@ -34,7 +34,7 @@ const AddLeaveHR = () => {
 
     return (
         <React.Fragment>
-            <BreadCrumb title='Add Leave (Main)' pageTitle='Leaves Manage' />
+            <BreadCrumb title='Add Leave (Company)' pageTitle='Leaves Manage' />
             <div className="grid grid-cols-1 xl:grid-cols-12 gap-x-5">
                 <div className="xl:col-span-12">
                     <div className="card">

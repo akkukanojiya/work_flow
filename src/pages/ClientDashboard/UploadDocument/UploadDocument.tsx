@@ -4,20 +4,22 @@
 
 import React, { useState } from "react";
 import BreadCrumb from "Common/BreadCrumb";
-import Dropzone, { FileRejection } from "react-dropzone"
-import { UploadCloud } from "lucide-react";
+ 
 
 
 
 
-interface FilePreview {
+
+interface FieldData {
   name: string;
-  preview: string;
-  formattedSize: string;
+  description: string;
+  file: File | null;
+  errors: {
+    name?: string;
+    description?: string;
+    file?: string;
+  };
 }
-
-
-
 const UploadDocument: React.FC = () => {
   // const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
   // const [uploadProgress, setUploadProgress] = useState<number[]>([]);
@@ -78,156 +80,171 @@ const UploadDocument: React.FC = () => {
   //   }
   // };
 
-
-
-  const [description, setDescription] = useState('');
-  // upload doc 
-  const [selectedFiles, setSelectedFiles] = useState<FilePreview[]>([]);
-
-  const allowedFileTypes = [
-    'application/pdf',
-    'application/msword',
-    'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-    'application/vnd.ms-excel',
-    'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-    'image/jpeg',
-    'image/png'
-  ];
-
-  const handleAcceptedFiles = (acceptedFiles: File[]) => {
-    const validFiles = acceptedFiles.map((file) => ({
-      name: file.name,
-      preview: URL.createObjectURL(file),
-      formattedSize: `${(file.size / 1024).toFixed(2)} KB`,
-    }));
-    setSelectedFiles((prevFiles: any) => [...prevFiles, ...validFiles]);
-  };
-
-  const handleDeleteFile = (index: number) => {
-    const updatedFiles = selectedFiles.filter((_, i) => i !== index);
-    setSelectedFiles(updatedFiles);
-  };
+// drag and drop option start///////////////////////////////////////////
+ 
   // upload doc end
 
+
+
+
+
+  // name description choose file 
+  const [fields, setFields] = useState<FieldData[]>([
+    { name: '', description: '', file: null, errors: {} },
+  ]);
+
+  const handleChange = (
+    index: number,
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFields((prevFields) =>
+      prevFields.map((field, i) =>
+        i === index ? { ...field, [name]: value, errors: { ...field.errors, [name]: '' } } : field
+      )
+    );
+  };
+
+  const handleFileChange = (index: number, e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      const file = e.target.files[0];
+      const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/vnd.ms-excel', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'image/jpeg', 'image/png'];
+      
+      setFields((prevFields) =>
+        prevFields.map((field, i) => {
+          if (i === index) {
+            const isValidFileType = allowedTypes.includes(file.type);
+            return {
+              ...field,
+              file: isValidFileType ? file : null,
+              errors: {
+                ...field.errors,
+                file: isValidFileType ? '' : 'File must be PDF, Word, Excel, JPEG, or PNG format.',
+              },
+            };
+          }
+          return field;
+        })
+      );
+    }
+  };
+
+  const addField = () => {
+    setFields([...fields, { name: '', description: '', file: null, errors: {} }]);
+  };
+
+  const removeField = (index: number) => {
+    setFields(fields.filter((_, i) => i !== index));
+  };
+
+  const validateFields = () => {
+    const updatedFields = fields.map((field) => {
+      const errors: FieldData['errors'] = {};
+      if (!field.name) errors.name = 'Name is required.';
+      if (!field.description) errors.description = 'Description is required.';
+      if (!field.file) errors.file = 'File is required.';
+      return { ...field, errors };
+    });
+    setFields(updatedFields);
+    return updatedFields.every((field) => !field.errors.name && !field.errors.description && !field.errors.file);
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (validateFields()) {
+      console.log('Form Data:', fields);
+      // Add your submit logic here
+    }
+  };
+
+  // name description choose file end
   return (
-    // <div className="flex justify-start items-center min-h-56 bg-gray-100 pt-10">
-    //   <div className="p-6 border rounded-md shadow-lg bg-white w-[600px]">
-    //     <h2 className="text-lg font-bold mb-4 text-center">Upload Documents</h2>
-    //     <input
-    //       type="file"
-    //       onChange={handleFileChange}
-    //       accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png"
-    //       className="mb-4 w-full"
-    //       multiple
-    //     />
-    //     {selectedFiles.length > 0 && (
-    //       <div className="mb-4 text-center">
-    //         {selectedFiles.map((file, index) => (
-    //           <p key={index}>File: {file.name}</p>
-    //         ))}
-    //       </div>
-    //     )}
-    //     {uploadProgress.length > 0 && (
-    //       <p className="text-center">
-    //         Uploading: {uploadProgress[uploadProgress.length - 1]}%
-    //       </p>
-    //     )}
-    //     {error && <p className="text-red-500 text-center">{error}</p>}
-    //     <textarea
-    //       placeholder="Enter description (optional)"
-    //       value={description}
-    //       onChange={(e) => setDescription(e.target.value)}
-    //       className="w-full p-2 mb-4 border rounded"
-    //       rows={3}
-    //     />
-    //     <button
-    //       onClick={handleUpload}
-    //       className="bg-[#25476a] text-white w-full py-2 px-4 rounded hover:bg-[#2a5179]"
-    //     >
-    //       Upload
-    //     </button>
-    //   </div>
-    // </div>
-
-
-
     // upload doc 
     <React.Fragment>
       <div className="container-fluid group-data-[content=boxed]:max-w-boxed mx-auto">
-        <BreadCrumb title="File Upload" pageTitle="Forms" />
-        <div className="card">
-          <div className="card-body">
-          <div className="mb-4">
-          <label htmlFor="description" className="mb-4 text-15">
-            Description
-          </label>
-          <input
-            type="text"
-            id="description"
-            placeholder="Enter a description for your files"
-            className="w-full px-3 py-2 border rounded-md text-slate-700 bg-slate-50 border-slate-200 dark:bg-zink-600 dark:border-zink-500 dark:text-zink-200"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-        </div>
-            <h6 className="mb-4 text-15">Dropzone</h6>
-            <div className="flex items-center justify-center border rounded-md cursor-pointer bg-slate-100 dropzone border-slate-200 dark:bg-zink-600 dark:border-zink-500 dz-clickable">
+        <BreadCrumb title="Upload Document" pageTitle="Upload" />
+        <form onSubmit={handleSubmit} className="space-y-6">
+      {fields.map((field, index) => (
+        <div key={index} className="border-b pb-4">
+          <h3 className="text-lg font-medium">{index + 1}</h3>
 
-
-           
-              <Dropzone
-                onDrop={(acceptedFiles: File[], _fileRejections: FileRejection[]) => handleAcceptedFiles(acceptedFiles)}
-                accept={allowedFileTypes.join(',')}
-              >
-                {({ getRootProps, getInputProps }) => (
-                  <div
-                    className="w-full py-5 text-lg text-center dz-message needsclick"
-                    {...getRootProps()}
-                  >
-                    <input {...getInputProps()} />
-                    <div className="mb-3">
-                      <UploadCloud className="block size-12 mx-auto text-slate-500 fill-slate-200 dark:text-zink-200 dark:fill-zink-500" />
-                    </div>
-                    <h5 className="mb-0 font-normal text-slate-500 text-15">
-                      Drag and drop your files or <a href="#!">browse</a> your files
-                    </h5>
-                  </div>
-                )}
-              </Dropzone>
-            </div>
-
-            <ul className="mb-0" id="dropzone-preview">
-              {selectedFiles.map((file, index) => (
-                <li className="mt-2" id="dropzone-preview-list" key={`${index}-file`}>
-                  <div className="border rounded border-slate-200 dark:border-zink-500">
-                    <div className="flex p-2">
-                      <div className="shrink-0 me-3">
-                        <div className="p-2 rounded-md size-14 bg-slate-100 dark:bg-zink-600">
-                          <img data-dz-thumbnail className="block w-full h-full rounded-md" src={file.preview} alt={file.name} />
-                        </div>
-                      </div>
-                      <div className="grow">
-                        <div className="pt-1">
-                          <h5 className="mb-1 text-15" data-dz-name>{file.name}</h5>
-                          <p className="mb-0 text-slate-500 dark:text-zink-200" data-dz-size>{file.formattedSize}</p>
-                        </div>
-                      </div>
-                      <div className="shrink-0 ms-3">
-                        <button
-                          data-dz-remove
-                          className="px-2 py-1.5 text-xs text-white bg-red-500 border-red-500 btn hover:text-white hover:bg-red-600 hover:border-red-600 focus:text-white focus:bg-red-600 focus:border-red-600 focus:ring focus:ring-red-100 active:text-white active:bg-red-600 active:border-red-600 active:ring active:ring-red-100 dark:ring-custom-400/20"
-                          onClick={() => handleDeleteFile(index)}
-                        >
-                          Delete
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-              ))}
-            </ul>
+          <div className="mt-2">
+            <label htmlFor={`name-${index}`} className="inline-block mb-2 text-base font-medium">
+              Name
+            </label>
+            <input
+              type="text"
+              id={`name-${index}`}
+              name="name"
+              value={field.name}
+              onChange={(e) => handleChange(index, e)}
+              className="form-input border-slate-200 dark:border-zinc-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zinc-600 disabled:border-slate-300 dark:disabled:border-zinc-500 dark:disabled:text-zinc-200 disabled:text-slate-500 dark:text-zinc-100 dark:bg-zinc-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zinc-200"
+            />
+            {field.errors.name && (
+              <p className="text-red-500 text-sm mt-1">{field.errors.name}</p>
+            )}
           </div>
+
+          <div className="mt-2">
+            <label htmlFor={`description-${index}`} className="inline-block mb-2 text-base font-medium">
+              Description
+            </label>
+            <textarea
+              id={`description-${index}`}
+              name="description"
+              value={field.description}
+              onChange={(e) => handleChange(index, e)}
+              className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
+            />
+            {field.errors.description && (
+              <p className="text-red-500 text-sm mt-1">{field.errors.description}</p>
+            )}
+          </div>
+
+          <div className="mt-2">
+            <label htmlFor={`file-${index}`} className="inline-block mb-2 text-base font-medium">
+              Choose File
+            </label>
+            <input
+              type="file"
+              id={`file-${index}`}
+              name="file"
+              accept=".pdf, .doc, .docx, .xls, .xlsx, .jpeg, .jpg, .png"
+              onChange={(e) => handleFileChange(index, e)}
+              className="cursor-pointer form-file border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500"
+            />
+            {field.errors.file  && (
+              <p className="text-red-500 text-sm mt-1">{field.errors.file}</p>
+            )}
+          </div>
+          {fields.length > 1 && index !== 0 && (
+          <button
+            type="button"
+            onClick={() => removeField(index)}
+            className="text-white btn bg-rose-500 border-rose-500 hover:text-white hover:bg-rose-600 hover:border-rose-600 focus:text-white focus:bg-rose-600 focus:border-rose-600 focus:ring focus:ring-rose-100 active:text-white active:bg-rose-600 active:border-rose-600 active:ring active:ring-rose-100 dark:ring-rose-400/20 mt-3"
+          >
+            Remove
+          </button>
+          )}
         </div>
+      ))}
+
+      <button
+        type="button"
+        onClick={addField}
+        className="mt-4 px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600"
+      >
+        Add Field
+      </button>
+
+      <button
+        type="submit"
+        className=" ml-4 text-white btn bg-[#25476a] border-[#2a5179] hover:text-white hover:bg-[#2a5179] hover:border-[#2a5179] focus:text-white focus:bg-[#2a5179] focus:border-[#2a5179] focus:ring focus:ring-[#2a5179] active:text-white active:bg-[#25476a] active:border-[#25476a] active:ring active:ring-[#2a5179] dark:ring-[#2a5179]"
+      >
+        Submit
+      </button>
+    </form>
+
       </div>
     </React.Fragment>
     // upload doc end
@@ -237,6 +254,140 @@ const UploadDocument: React.FC = () => {
 export default UploadDocument;
 
 
+
+// name description choose file input 
+
+
+// import React, { useState } from 'react';
+
+// interface FieldData {
+//   name: string;
+//   description: string;
+//   file: File | null;
+// }
+
+// const UploadDocument: React.FC = () => {
+//   const [fields, setFields] = useState<FieldData[]>([
+//     { name: '', description: '', file: null },
+//   ]);
+
+//   const handleChange = (
+//     index: number,
+//     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+//   ) => {
+//     const { name, value } = e.target;
+//     setFields((prevFields) =>
+//       prevFields.map((field, i) =>
+//         i === index ? { ...field, [name]: value } : field
+//       )
+//     );
+//   };
+
+//   const handleFileChange = (index: number, e: React.ChangeEvent<HTMLInputElement>) => {
+//     if (e.target.files) {
+//       const file = e.target.files[0];
+//       setFields((prevFields) =>
+//         prevFields.map((field, i) =>
+//           i === index ? { ...field, file } : field
+//         )
+//       );
+//     }
+//   };
+
+//   const addField = () => {
+//     setFields([...fields, { name: '', description: '', file: null }]);
+//   };
+
+//   const removeField = (index: number) => {
+//     setFields(fields.filter((_, i) => i !== index));
+//   };
+
+//   const handleSubmit = (e: React.FormEvent) => {
+//     e.preventDefault();
+//     console.log('Form Data:', fields);
+//     // Add your submit logic here
+//   };
+
+//   return (
+//     <form onSubmit={handleSubmit} className="space-y-6">
+//       {fields.map((field, index) => (
+//         <div key={index} className="border-b pb-4">
+//           <h3 className="text-lg font-medium">Field Set {index + 1}</h3>
+
+//           <div className="mt-2">
+//             <label htmlFor={`name-${index}`} className="block text-sm font-medium text-gray-700">
+//               Name
+//             </label>
+//             <input
+//               type="text"
+//               id={`name-${index}`}
+//               name="name"
+//               value={field.name}
+//               onChange={(e) => handleChange(index, e)}
+//               required
+//               className="mt-1 p-2 border border-gray-300 rounded-md w-full"
+//             />
+//           </div>
+
+//           <div className="mt-2">
+//             <label htmlFor={`description-${index}`} className="block text-sm font-medium text-gray-700">
+//               Description
+//             </label>
+//             <textarea
+//               id={`description-${index}`}
+//               name="description"
+//               value={field.description}
+//               onChange={(e) => handleChange(index, e)}
+//               required
+//               className="mt-1 p-2 border border-gray-300 rounded-md w-full"
+//             />
+//           </div>
+
+//           <div className="mt-2">
+//             <label htmlFor={`file-${index}`} className="block text-sm font-medium text-gray-700">
+//               Choose File
+//             </label>
+//             <input
+//               type="file"
+//               id={`file-${index}`}
+//               name="file"
+//               onChange={(e) => handleFileChange(index, e)}
+//               required
+//               className="mt-1"
+//             />
+//           </div>
+
+//           <button
+//             type="button"
+//             onClick={() => removeField(index)}
+//             className="mt-3 px-3 py-1 text-red-600 border border-red-600 rounded-md hover:bg-red-50"
+//           >
+//             Remove
+//           </button>
+//         </div>
+//       ))}
+
+//       <button
+//         type="button"
+//         onClick={addField}
+//         className="mt-4 px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600"
+//       >
+//         Add Field Set
+//       </button>
+
+//       <button
+//         type="submit"
+//         className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+//       >
+//         Submit
+//       </button>
+//     </form>
+//   );
+// };
+
+// export default UploadDocument;
+
+// name description choose file input end 
 
 
 

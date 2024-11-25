@@ -230,7 +230,7 @@ const SupportTable = () => {
             <div className="card" id="productListTable">
                 <div className="card-body">
                     <div  className="flex flex-col md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-4">
-                        <div className="w-full md:w-3/4 py-2.1 card-body border-y border-dashed border-slate-200 dark:border-zinc-500">
+                        <div className="w-full md:w-3/4 py-2.1 card-body ">
                         <form action="#!">
                                         <div className="grid grid-cols-1 gap-5 xl:grid-cols-12">
                                             <div className="relative xl:col-span-3">

@@ -1,4 +1,4 @@
-import { MessageSquare, MonitorDot, ScrollText, Boxes, Building2, ListTodoIcon, User2Icon, Users2, FileClockIcon, FileStackIcon, Landmark, GraduationCap, UserPlus2, UserCircle2Icon, LucideScreenShareOff, LucideNotebookPen, LucideUserRoundPlus, LucideBuilding2, UserCircleIcon, UserCheck, ShapesIcon, BookOpenCheck, BookUser, BarChart4Icon, SquareUser, NotebookPen, Settings } from "lucide-react";
+import { MessageSquare, MonitorDot, ScrollText, Boxes, Building2, ListTodoIcon, User2Icon, Users2, FileClockIcon, FileStackIcon, Landmark, GraduationCap, UserPlus2, UserCircle2Icon, LucideScreenShareOff, LucideNotebookPen, LucideUserRoundPlus, LucideBuilding2, UserCircleIcon, UserCheck, ShapesIcon, BookOpenCheck, BookUser, BarChart4Icon, SquareUser, NotebookPen, Settings, HelpingHandIcon, ClipboardEdit } from "lucide-react";
 
 const CompanyenuData: any = [
 
@@ -50,7 +50,7 @@ const CompanyenuData: any = [
             {
                 id: 'report',
                 label: 'Work Allocation',
-                icon: <NotebookPen/>,
+                icon: <NotebookPen />,
                 link: '/company-report-work-allocation',
                 parentId: 'report',
             },
@@ -65,7 +65,7 @@ const CompanyenuData: any = [
                     {
                         id: 'report',
                         label: 'Attendance',
-                        icon: <BookUser/>,
+                        icon: <BookUser />,
                         link: '/company-report-Attendance',
                         parentId: 'report',
                     },
@@ -79,134 +79,20 @@ const CompanyenuData: any = [
                     {
                         id: 'report',
                         label: 'Performance Analysis',
-                        icon: <BarChart4Icon/>,
+                        icon: <BarChart4Icon />,
                         link: '/company-report-employee-Performance',
                         parentId: 'report',
                     }
                 ]
 
             },
-            
 
-            
+
+
 
         ]
     },
 
-
-
-
-    // {
-    //     id: 'Client',
-    //     label: 'Client',
-    //     icon: <User2Icon/>,
-    //     link: '/director-individual-client',
-
-    //     subItems: [
-
-    //         {
-    //             id: 'company',
-    //             label: 'Company',
-    //             icon: <LucideBuilding2/>,
-    //             link: '/company-company',
-    //             parentId: 'Client',
-    //         },
-    //         {
-    //             id: ' companyindividual',
-    //             label: 'Individual',
-    //             icon: <LucideUserRoundPlus/>,
-    //             link: '/company-individual-client',
-    //             parentId: 'Client',
-    //         },
-    //         {
-    //             id: ' companyindividual',
-    //             label: 'Multi Form',
-    //             icon: <LucideUserRoundPlus/>,
-    //             link: '/company-multi-form',
-    //             parentId: 'Client',
-    //         },
-    //     ]
-    // },
-    // {
-    //     id: 'companymaster',
-    //     label: 'Master',
-    //     icon: <GraduationCap/>,
-    //     link: '#!',
-
-    //     subItems: [
-    //         {
-    //             id: 'companyprofile',
-    //             label: 'Company Profile',
-    //             icon: <Landmark />,
-    //             link: '/company-profile',
-    //             parentId: 'companydashboard'
-    //         },
-    //         {
-    //             id: 'director',
-    //             label: 'Director',
-    //             icon: <UserCircleIcon />,
-    //             link: '/company-director',
-    //             parentId: 'companydashboard'
-    //         },
-    //         {
-    //             id: 'companyempolyee',
-    //             label: 'Empolyee',
-    //             icon: <UserCheck />,
-    //             link: '/company-employee',
-    //             parentId: 'companydashboard'
-    //         },
-
-    //         {
-    //             id: 'leave',
-    //             label: 'Leave',
-    //             icon: <LucideScreenShareOff />,
-    //             link: '/company-leave',
-    //             parentId: 'directormanagement',
-    //         },
-    //         {
-    //             id: 'attendance',
-    //             label: 'Attendance',
-    //             icon: <LucideNotebookPen />,
-    //             link: '/company-attendance',
-    //             parentId: 'directormanagement',
-    //         },
-    //     ]
-    // },
-
-    // {
-    //     id: "multilevel",
-    //     label: 'Multi Level',
-    //     link: "/#",
-    //     icon: <ShapesIcon />,
-    //     subItems: [
-    //         {
-    //             id: 'level1',
-    //             label: 'Level 1.1',
-    //             link: '/#',
-    //             parentId: "multilevel"
-    //         },
-    //         {
-    //             id: 'level2',
-    //             label: 'Level 1.2',
-    //             link: '/#',
-    //             parentId: "multilevel",
-    //             subItems: [
-    //                 {
-    //                     id: 'level21',
-    //                     label: 'Level 2.1',
-    //                     link: '/#',
-    //                     parentId: 'level2'
-    //                 },
-    //                 {
-    //                     id: 'level22',
-    //                     label: 'Level 2.2',
-    //                     link: '/#',
-    //                     parentId: 'level2'
-    //                 },
-    //             ]
-    //         }
-    //     ]
-    // },
     {
         id: ' companyindividual',
         label: 'Create Clients',
@@ -243,22 +129,48 @@ const CompanyenuData: any = [
         label: 'Attendance',
         icon: <LucideNotebookPen />,
         link: '/company-attendance',
-        parentId: 'directormanagement',
+        parentId: 'companymanagement',
     },
 
     {
         id: 'leave',
-        label: 'Leave',
+        label: 'Leave Manage',
         icon: <LucideScreenShareOff />,
         link: '/company-employee-leave-manage',
-        parentId: 'directormanagement',
+        parentId: 'companymanagement',
+
+        subItems: [
+
+            {
+                id: 'leave',
+                label: 'Leave',
+                icon: <LucideScreenShareOff />,
+                link: '/company-employee-leave-manage',
+                parentId: 'companymanagement',
+
+            },
+            {
+                id: 'leavepolicy',
+                label: 'Leave Policy',
+                icon: <ClipboardEdit />,
+                link: '/company-employee-leave-policy-manage',
+                parentId: 'companymanagement',
+            },
+        ]
+    },
+    {
+        id: 'support',
+        label: 'Support',
+        icon: <HelpingHandIcon />,
+        link: '/company-support-revert',
+        parentId: 'companymanagement',
     },
     {
         id: 'setting',
         label: 'Setting',
         icon: <Settings />,
         link: '/company-profiles',
-        parentId: 'setting',
+        parentId: 'companysetting',
     },
     //     {
     //         id: 'authentication',

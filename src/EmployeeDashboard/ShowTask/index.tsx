@@ -54,7 +54,7 @@ interface Node {
 //         }
 //     });
 // };
-    
+
 // ===============================
 
 // const options: { label: string; value: string; disabled?: boolean }[] = [
@@ -794,7 +794,7 @@ const ShowTasks = () => {
             {/* Overview Notes Modal */}
             <Modal show={Overviewshow} onHide={toggleOverview} id="overviewNotesModal" modal-center="true"
                 className="fixed flex flex-col transition-all duration-300 ease-in-out left-2/4 z-drawer -translate-x-2/4 -translate-y-2/4"
-                dialogClassName="w-screen xl:w-[50rem] bg-white shadow rounded-md dark:bg-zink-600"
+                dialogClassName="w-screen xl:w-[55rem] bg-white shadow rounded-md dark:bg-zink-600"
             >
                 <Modal.Header className="flex items-center justify-between p-5 border-b dark:border-zink-500"
                     closeButtonClass="transition-all duration-200 ease-linear text-slate-500 hover:text-red-500 dark:text-zink-200 dark:hover:text-red-500">
@@ -842,39 +842,39 @@ const ShowTasks = () => {
                     <p className="mb-2 text-slate-500 dark:text-zink-200" dangerouslySetInnerHTML={{ __html: eventData?.description }}></p>
                     <p className="mb-2 text-slate-500 dark:text-zink-200" dangerouslySetInnerHTML={{ __html: eventData?.description }}></p>
                     <div className="flex justify-end gap-2 mt-4">
-                    <button className="bg-white   text-[#2a5179] btn   hover:text-[#25476a] hover:bg-custom-50   focus:text-custom-600 focus:bg-custom-50   active:text-[#25476a] active:bg-custom-50   dark:bg-zinc-700 dark:ring-custom-400/20 dark:hover:bg-custom-800/20 dark:focus:bg-custom-800/20 dark:active:bg-custom-800/20" >
-                                <span className="align-middle">Excel</span>
-                                <RiFileExcel2Line className="inline-block size-5" />
-                            </button>
-                    <button className="bg-white   text-[#2a5179] btn   hover:text-[#25476a] hover:bg-custom-50   focus:text-custom-600 focus:bg-custom-50   active:text-[#25476a] active:bg-custom-50   dark:bg-zinc-700 dark:ring-custom-400/20 dark:hover:bg-custom-800/20 dark:focus:bg-custom-800/20 dark:active:bg-custom-800/20" >
-                                <span className="align-middle">Word</span>
-                                <NotebookText className="inline-block size-5" />
-                            </button>
-                    <button className="bg-white   text-[#2a5179] btn   hover:text-[#25476a] hover:bg-custom-50   focus:text-custom-600 focus:bg-custom-50   active:text-[#25476a] active:bg-custom-50   dark:bg-zinc-700 dark:ring-custom-400/20 dark:hover:bg-custom-800/20 dark:focus:bg-custom-800/20 dark:active:bg-custom-800/20" >
-                                <span className="align-middle">PDF</span>
-                                <RiFilePdfLine className="inline-block size-5" />
-                            </button>
-                    <button className="bg-white   text-[#2a5179] btn   hover:text-[#25476a] hover:bg-custom-50   focus:text-custom-600 focus:bg-custom-50   active:text-[#25476a] active:bg-custom-50   dark:bg-zinc-700 dark:ring-custom-400/20 dark:hover:bg-custom-800/20 dark:focus:bg-custom-800/20 dark:active:bg-custom-800/20" >
-                                <span className="align-middle">Image</span>
-                                <Image className="inline-block size-5" />
-                            </button>
+                        <button className="bg-white   text-[#2a5179] btn   hover:text-[#25476a] hover:bg-custom-50   focus:text-custom-600 focus:bg-custom-50   active:text-[#25476a] active:bg-custom-50   dark:bg-zinc-700 dark:ring-custom-400/20 dark:hover:bg-custom-800/20 dark:focus:bg-custom-800/20 dark:active:bg-custom-800/20" >
+                            <span className="align-middle">Excel</span>
+                            <RiFileExcel2Line className="inline-block size-5" />
+                        </button>
+                        <button className="bg-white   text-[#2a5179] btn   hover:text-[#25476a] hover:bg-custom-50   focus:text-custom-600 focus:bg-custom-50   active:text-[#25476a] active:bg-custom-50   dark:bg-zinc-700 dark:ring-custom-400/20 dark:hover:bg-custom-800/20 dark:focus:bg-custom-800/20 dark:active:bg-custom-800/20" >
+                            <span className="align-middle">Word</span>
+                            <NotebookText className="inline-block size-5" />
+                        </button>
+                        <button className="bg-white   text-[#2a5179] btn   hover:text-[#25476a] hover:bg-custom-50   focus:text-custom-600 focus:bg-custom-50   active:text-[#25476a] active:bg-custom-50   dark:bg-zinc-700 dark:ring-custom-400/20 dark:hover:bg-custom-800/20 dark:focus:bg-custom-800/20 dark:active:bg-custom-800/20" >
+                            <span className="align-middle">PDF</span>
+                            <RiFilePdfLine className="inline-block size-5" />
+                        </button>
+                        <button className="bg-white   text-[#2a5179] btn   hover:text-[#25476a] hover:bg-custom-50   focus:text-custom-600 focus:bg-custom-50   active:text-[#25476a] active:bg-custom-50   dark:bg-zinc-700 dark:ring-custom-400/20 dark:hover:bg-custom-800/20 dark:focus:bg-custom-800/20 dark:active:bg-custom-800/20" >
+                            <span className="align-middle">Image</span>
+                            <Image className="inline-block size-5" />
+                        </button>
                         <button
                             className="text-green-500 bg-white btn hover:text-green-500 hover:bg-green-100 focus:text-green-500 focus:bg-green-100 
                          active:text-green-500 active:bg-green-100 dark:bg-zink-600 dark:hover:bg-green-500/10 dark:focus:bg-green-500/10 
                          dark:active:bg-green-500/10"
-                            onClick={toggleOverview}
+
                         >Start Task</button>
                         <button data-modal-close="overviewNotesModal"
                             className="text-yellow-500 bg-white btn hover:text-yellow-500 hover:bg-yellow-100 focus:text-yellow-500 focus:bg-yellow-100 
                          active:text-yellow-500 active:bg-yellow-100 dark:bg-zink-600 dark:hover:bg-yellow-500/10 dark:focus:bg-yellow-500/10 
                          dark:active:bg-yellow-500/10"
-                            onClick={() => { handleUpdateDataClick(eventData); setOverview(!Overviewshow); }}
+                             
                         >Hold Task</button>
                         <button data-modal-close="overviewNotesModal"
                             className="text-red-500 bg-white btn hover:text-red-500 hover:bg-red-100 focus:text-red-500 focus:bg-red-100 
                          active:text-red-500 active:bg-red-100 dark:bg-zink-600 dark:hover:bg-red-500/10 dark:focus:bg-red-500/10 
                          dark:active:bg-red-500/10"
-                            onClick={() => { handleUpdateDataClick(eventData); setOverview(!Overviewshow); }}
+                             
                         >End Task</button>
                     </div>
                 </Modal.Body>

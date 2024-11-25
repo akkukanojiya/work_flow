@@ -379,7 +379,7 @@ const SubServices = () => {
                     <div className="card" id="usersTable">
                         <div className="card-body">
                             <div className="flex flex-col md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-4">
-                            <div className="w-full md:w-3/4 py-2.1 card-body border-y border-dashed border-slate-200 dark:border-zinc-500">
+                            <div className="w-full md:w-3/4 py-2.1 card-body ">
                             <form action="#!">
                                 <div className="grid grid-cols-1 gap-5 xl:grid-cols-12">
                                     <div className="relative xl:col-span-3">
@@ -549,7 +549,7 @@ const SubServices = () => {
 
                         <div className="mb-3">
                             <label htmlFor="servicesSelect" className="inline-block mb-2 text-base font-medium">Services*</label>
-                            <select className="form-input border-slate-300 focus:outline-none focus:border-custom-500" data-choices data-choices-search-false id="statusSelect"
+                            <select className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" data-choices data-choices-search-false id="statusSelect"
                                 name="services"
                                 onChange={validation.handleChange}
                                 value={validation.values.services || ""}

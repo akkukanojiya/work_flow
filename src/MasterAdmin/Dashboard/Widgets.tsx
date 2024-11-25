@@ -2,7 +2,7 @@ import React from 'react';
 import { ChevronDown, Cog, Coins, Kanban, ListFilter, LoaderIcon, LucideBuilding2, PersonStanding, RatioIcon, Users } from 'lucide-react';
 import CountUp from 'react-countup';
 import { Dropdown } from 'Common/Components/Dropdown';
-import { PerspectiveChart } from './Charts';
+// import { PerspectiveChart } from './Charts';
 import { Link } from 'react-router-dom';
 import { RiProgress1Fill } from 'react-icons/ri';
 

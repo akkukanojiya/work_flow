@@ -6,10 +6,12 @@ import CompanyDashboard from "CompanyDashboard/Dashboard";
 // import Authorised_Person from "CompanyDashboard/AuthorisedPerson/ListView";
 import Authorised_Person from "CompanyDashboard/AuthorisedPerson/ListView";
 import EmployeeListView from "CompanyDashboard/Employees/ListView";
-import AddLeaveEmployee from "CompanyDashboard/CompanyManagment/Leaves Manage/AddLeaveEmployee";
+// import AddLeaveEmployee from "CompanyDashboard/CompanyManagment/Leaves Manage/AddLeaveEmployee";
 import AddLeaveHR from "CompanyDashboard/CompanyManagment/Leaves Manage/AddLeaveHR";
 import LeaveManageHR from "CompanyDashboard/CompanyManagment/Leaves Manage/LeaveManageHR";
-import LeaveManageEmployee from "CompanyDashboard/CompanyManagment/Leaves Manage/LeaveManageEmployee";
+import LeavePlicy from "CompanyDashboard/CompanyManagment/Leaves Manage/LeavePolicy";
+import LeavePlicyTable from "CompanyDashboard/CompanyManagment/Leaves Manage/LeavePolicyTable";
+// import LeaveManageEmployee from "CompanyDashboard/CompanyManagment/Leaves Manage/LeaveManageEmployee";
 import Tasks from "CompanyDashboard/CompanyTasks";
 import AddNew from "CompanyDashboard/AuthorisedPerson/AddNew";
 import Overview from "CompanyDashboard/AuthorisedPerson/Overview";
@@ -71,6 +73,7 @@ import CompanyLogin from "CompanyDashboard/Authentication/Login";
 import CompanyRegister from "CompanyDashboard/Authentication/Register";
 
 import CompanyProfiles from "CompanyDashboard/Setting/Settings";
+import SupportRevert from "CompanyDashboard/CompanySupport/CompanySupport";
 
 interface RouteObject {
   path: string;
@@ -97,6 +100,8 @@ const authProtectedRoutes: Array<RouteObject> = [
   
   { path: "/company-employee-leave-manage", component: LeaveManageHR },
   { path: "/company-employee-leave", component: AddLeaveHR },
+  { path: "/company-employee-leave-policy-manage", component: LeavePlicyTable },
+  { path: "/company-employee-leave-policy", component: LeavePlicy },
   { path: "/company-attendance", component: CompanyAttendance },
   
   { path: "/company-profile", component: CompanyProfile },
@@ -114,6 +119,7 @@ const authProtectedRoutes: Array<RouteObject> = [
   { path: "/company-report-employee-Performance", component: EmployeePerformance},
   // { path: "/company-form", component: FormTable },
   { path: "/company-profiles", component: CompanyProfiles },
+  { path: "/company-support-revert", component: SupportRevert },
   // multi form report end
   
   // demo multi form 

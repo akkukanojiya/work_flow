@@ -1,10 +1,11 @@
 import React from 'react';
 // import { TotalProjectsChart } from './Charts';
-import { TotalProjectsChart } from 'pages/Director/HR/Charts';
+import { TotalProjectsChart } from './Charts';
 
 // Icons
 import { MoreVertical } from 'lucide-react';
-import { Dropdown } from 'Common/Components/Dropdown';
+// import { Dropdown } from 'Common/Components/Dropdown';
+import { Dropdown } from 'MasterAdmin/MasterCommon/Components/Dropdown';
 import { Link } from 'react-router-dom';
 
 const TotalProjects = () => {
