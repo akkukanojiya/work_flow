@@ -8,6 +8,7 @@ import { useFormik as useFormic } from "formik";
 // Image
 import logoLight from "assets/images/logo-light.png";
 import logoDark from "assets/images/logo-dark.png";
+import offiQuick from "assets/images/offiQuick.png";
 // import { loginUser, socialLogin } from "slices/thunk";
 import { loginUser,socialLogin } from "MasterAdmin/Masterslices/thunk";
 import { useDispatch, useSelector } from "react-redux";
@@ -78,8 +79,8 @@ const MasterLogin = (props: any) => {
                 <div className="mb-0 w-screen lg:mx-auto lg:w-[500px] card shadow-lg border-none shadow-slate-100 relative">
                     <div className="!px-10 !py-12 card-body">
                         <Link to="/">
-                            <img src={logoLight} alt="" className="hidden h-6 mx-auto dark:block" />
-                            <img src={logoDark} alt="" className="block h-6 mx-auto dark:hidden" />
+                            <img src={offiQuick} alt="" className="hidden h-6 mx-auto dark:block" />
+                            <img src={offiQuick} alt="" className="block h-6 mx-auto dark:hidden" />
                         </Link>
 
                         <div className="mt-8 text-center">

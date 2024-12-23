@@ -290,8 +290,7 @@ const CompanyAttendance = () => {
                                             }}
                                             placeholder='Select date'
                                         />
-                                    </div>
-                                     
+                                    </div>                                     
                                 </div>
                                 
                                 <div className="flex justify-end gap-2 text-right lg:col-span-2 xl:col-span-4 xl:col-start-10">

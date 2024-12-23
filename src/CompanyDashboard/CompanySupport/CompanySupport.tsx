@@ -134,7 +134,6 @@ const SupportRevert = () => {
             setDeleteModal(false);
         }
     };
-    // 
 
     // Update Data
     const handleUpdateDataClick = (ele: any) => {
@@ -328,9 +327,9 @@ const SupportRevert = () => {
             enableColumnFilter: false,
             cell: (cell: any) => (
                 <div>
-                    <button className="bg-white  text-[#2a5179] btn hover:text-[#25476a] hover:bg-custom-50   focus:text-custom-600 focus:bg-custom-50   active:text-[#25476a] active:bg-custom-50   dark:bg-zinc-700 dark:ring-custom-400/20 dark:hover:bg-custom-800/20 dark:focus:bg-custom-800/20 dark:active:bg-custom-800/20" onClick={generateExcel}>
+                    <button className="bg-white  text-[#2a5179] btn hover:text-[#25476a] hover:bg-custom-50   focus:text-custom-600 focus:bg-custom-50   active:text-[#25476a] active:bg-custom-50   dark:bg-zinc-700 dark:ring-custom-400/20 dark:hover:bg-custom-800/20 dark:focus:bg-custom-800/20 dark:active:bg-custom-800/20" >
                         {/* <span className="align-middle">Download</span> */}
-                        <DownloadIcon className="inline-block size-5" />
+                        <EyeIcon className="inline-block size-5" />
                     </button>
                 </div>
             )

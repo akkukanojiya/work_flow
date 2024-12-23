@@ -138,7 +138,7 @@ const CompanyProfileForm = () => {
                                 </div>
                                  
 
-                                <h6 className="mt-4 text-15">Add Partner</h6>
+                                <h6 className="mt-4 text-15">Add Person</h6>
 
                                 {/* <form > */}
                                 {fields.map((field, index) => (
@@ -148,19 +148,19 @@ const CompanyProfileForm = () => {
                                         <div className="flex justify-end gap-2 mt-4">
                                             {fields.length !== 1 && <button type="button"
                                                 className="text-white btn bg-rose-500 border-rose-500 hover:text-white hover:bg-rose-600 hover:border-rose-600 focus:text-white focus:bg-rose-600 focus:border-rose-600 focus:ring focus:ring-rose-100 active:text-white active:bg-rose-600 active:border-rose-600 active:ring active:ring-rose-100 dark:ring-rose-400/20 mt-3 " onClick={() => handleRemoveField(index)}>Remove</button>}
-                                            <button type="button" className="text-white btn bg-green-500 border-green-500 hover:text-white hover:bg-green-600 hover:border-green-600 focus:text-white focus:bg-green-600 focus:border-green-600 focus:ring focus:ring-green-100 active:text-white active:bg-green-600 active:border-green-600 active:ring active:ring-green-100 dark:ring-green-400/20 mt-3 mr-5" onClick={handleAddField}  >Add  Partner</button>
+                                            <button type="button" className="text-white btn bg-green-500 border-green-500 hover:text-white hover:bg-green-600 hover:border-green-600 focus:text-white focus:bg-green-600 focus:border-green-600 focus:ring focus:ring-green-100 active:text-white active:bg-green-600 active:border-green-600 active:ring active:ring-green-100 dark:ring-green-400/20 mt-3 mr-5" onClick={handleAddField}  >Add  Person</button>
                                         </div>
 
                                         <div className=" ">
                                             <div className=" grid grid-cols-2 gap-2">
                                                 <div className="lg:w-3/7 md:w-4/7 w-5/6" >
-                                                    <label htmlFor="Name" className="inline-block mb-2 text-base font-medium">Partner Name</label>
+                                                    <label htmlFor="Name" className="inline-block mb-2 text-base font-medium">Person Name</label>
                                                     <input
                                                         className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
                                                         type="text"
-                                                        id="partnerName"
+                                                        id="personName"
                                                         name="name"
-                                                        placeholder="Enter Your Partner Name"
+                                                        placeholder="Enter Your Person Name"
                                                         value={field.name}
                                                         onChange={(e) => handleChange(index, e)}
 
@@ -181,14 +181,14 @@ const CompanyProfileForm = () => {
                                         </div> */}
 
                                                 <div className="lg:w-3/7 md:w-4/7 w-5/6">
-                                                    <label htmlFor="productDescription" className="inline-block mb-2 text-base font-medium">Partner Email ID</label>
+                                                    <label htmlFor="productDescription" className="inline-block mb-2 text-base font-medium">Person Email ID</label>
                                                     <input
                                                         className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
 
                                                         type="email"
                                                         name="email"
-                                                        id="partnerEmail"
-                                                        placeholder="Enter Your  Partner Email ID"
+                                                        id="personEmail"
+                                                        placeholder="Enter Your  Person Email ID"
                                                         value={field.partnerEmail}
                                                         onChange={(e) => handleChange(index, e)}
 
@@ -196,23 +196,23 @@ const CompanyProfileForm = () => {
                                                 </div>
                                                  
                                                 <div className="lg:w-3/7 md:w-4/7 w-5/6">
-                                                    <label htmlFor="productTag" className="inline-block mb-2 text-base font-medium">Partner Mobile No</label>
-                                                    <input className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" id="partnerMob" data-choices data-choices-text-unique-true type="number" placeholder=" Enter Your Partner Mobile No"
+                                                    <label htmlFor="productTag" className="inline-block mb-2 text-base font-medium">Person Mobile No</label>
+                                                    <input className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" id="personMob" data-choices data-choices-text-unique-true type="number" placeholder=" Enter Your Person Mobile No"
                                                     
                                                     value={field.mobile}
                                                     onChange={(e) => handleChange(index, e)}
                                                     />
                                                 </div>
                                                 <div className="lg:w-3/7 md:w-4/7 w-5/6">
-                                                    <label htmlFor="qualityInput" className="inline-block mb-2 text-base font-medium">Partner Pan Card</label>
-                                                    <input type="text" id=" partnerPan" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Partner Pan Card"
+                                                    <label htmlFor="qualityInput" className="inline-block mb-2 text-base font-medium">Person Pan Card</label>
+                                                    <input type="text" id=" personPan" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Person Pan Card"
                                                       value={field.pancard}
                                                       onChange={(e) => handleChange(index, e)} 
                                                      />
                                                 </div>
                                                 <div className="lg:w-3/7 md:w-4/7 w-5/6">
-                                                    <label htmlFor="productCodeInput" className="inline-block mb-2 text-base font-medium">Partner Aadhar Card</label>
-                                                    <input type="text" id=" partnerAdhar" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Your Partner Aadhar Card"
+                                                    <label htmlFor="productCodeInput" className="inline-block mb-2 text-base font-medium">Person Aadhar Card</label>
+                                                    <input type="text" id=" personAdhar" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter Person Aadhar Card"
                                                        value={field.Aadhar}
                                                        onChange={(e) => handleChange(index, e)}
                                                         />
